@@ -33,7 +33,7 @@ export class VisualNovelComponent implements OnChanges {
 
   private static createNodeContent(node: VisualNovelNode): string {
     let html = `<div class="node-container ${node.id} row">`;
-    html += `<div class="title" title="${node.sketch}">${node.sketch}</div>`;
+    html += `<div class="title" title="${node.title}">${node.title}</div>`;
     html += '</div>';
     return html;
   }

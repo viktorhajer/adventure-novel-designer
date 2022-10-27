@@ -10,5 +10,5 @@ export class VisualNovelEdge {
 
 export class VisualNovelNode {
   id: string = '';
-  sketch: string = '';
+  title: string = '';
 }

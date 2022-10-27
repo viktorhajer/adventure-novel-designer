@@ -22,7 +22,7 @@ export class VisualNovelMapper {
   private static mapStationsToNode(station: Station): VisualNovelNode {
     const node = new VisualNovelNode();
     node.id = ID_PREFIX + station.id;
-    node.sketch = station.sketch;
+    node.title = station.title;
     return node;
   }
 

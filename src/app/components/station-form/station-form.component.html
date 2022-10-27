@@ -1,46 +1,39 @@
-<div id="edit-station-form" *ngIf="selectedStation">
+<div id="edit-station-form" *ngIf="station">
   <mat-form-field appearance="fill">
-    <mat-label>Id</mat-label>
-    <input matInput disabled [ngModel]="selectedStation.id">
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Sketch</mat-label>
-    <textarea matInput [(ngModel)]="selectedStation.sketch"></textarea>
+    <mat-label>Title</mat-label>
+    <textarea matInput [(ngModel)]="station.title"></textarea>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Story</mat-label>
-    <textarea matInput [(ngModel)]="selectedStation.story"></textarea>
+    <textarea matInput [(ngModel)]="station.story"></textarea>
   </mat-form-field>
 
-  <mat-slide-toggle [color]="'primary'" [checked]="selectedStation.exit">
+  <mat-slide-toggle [color]="'primary'" [checked]="station.exit">
     Exit
   </mat-slide-toggle>
 
   <div class="actions-bar">
-    <button mat-raised-button>Save</button>
-    <button mat-raised-button>New station as a child</button>
-    <button mat-raised-button>Delete</button>
+    <button mat-raised-button *ngIf="createNew" (click)="create()">Create</button>
+    <button mat-raised-button *ngIf="!createNew" (click)="update()">Update</button>
+    <button mat-raised-button *ngIf="!createNew" (click)="delete()">Delete</button>
   </div>
 
-  <div class="children-container">
-    <h2>Child</h2>
+  <div class="children-container" *ngIf="!createNew && children.length">
+    <h2>Routes</h2>
     <table mat-table>
       <tr>
-        <th>ID</th>
-        <th>Sketch</th>
+        <th>Title</th>
         <th>Action</th>
       </tr>
       <tbody>
-      <tr *ngFor="let station of children; let i = index">
-        <td>{{ i + 1 }}.</td>
-        <td>{{ station.sketch }}</td>
+      <tr *ngFor="let s of children; let i = index">
+        <td>{{ s.title }}</td>
         <td>
-          <button mat-icon-button color="primary" (click)="viewStation(station)">
+          <button mat-icon-button color="primary" (click)="viewStation(s)">
             <mat-icon>open_in_new</mat-icon>
           </button>
-          <button mat-icon-button color="">
+          <button mat-icon-button (click)="deleteRelation(s.id)">
             <mat-icon>delete</mat-icon>
           </button>
         </td>
@@ -49,7 +42,21 @@
     </table>
   </div>
 
-  <div class="new-children-container">
-    <h2>Set new child</h2>
+  <div class="new-children-container" *ngIf="!createNew && stations.length">
+    <h2>Set new route</h2>
+    <mat-form-field appearance="fill">
+      <mat-label>Destination</mat-label>
+      <mat-select #stationInput>
+        <mat-option *ngFor="let s of stations" [value]="s.id">
+          {{s.title}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Comment</mat-label>
+      <input matInput #commentInput>
+    </mat-form-field>
+    <button mat-raised-button (click)="createRelation(stationInput.value, commentInput.value)">
+      Create</button>
   </div>
 </div>

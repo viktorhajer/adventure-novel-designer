@@ -13,6 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {StationViewerComponent} from './components/station-viewer/station-viewer.component';
 import {VisualNovelComponent} from './components/visual-pipe/visual-novel.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {VisualNovelComponent} from './components/visual-pipe/visual-novel.compon
     MatInputModule,
     MatDialogModule,
     MatIconModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

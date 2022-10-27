@@ -3,7 +3,9 @@
   <div id="main">
     <div id="left">
 
-      <app-station-form *ngIf="isModelLoaded()" [selectedStation]="selectedStation"></app-station-form>
+      <app-station-form *ngIf="station" [station]="station" [trigger]="formTrigger"
+                        (stationChanged)="openStation($event)">
+      </app-station-form>
 
       <div id="load-model-form" *ngIf="!isModelLoaded()">
         <mat-form-field appearance="fill">
@@ -19,7 +21,8 @@
     <div id="right">
 
       <div id="visual-novel-container" *ngIf="visualModel">
-        <app-visual-novel [nodes]="visualModel.nodes" [edges]="visualModel.edges" #visualizer>
+        <app-visual-novel [nodes]="visualModel.nodes" [edges]="visualModel.edges" [trigger]="formTrigger+''"
+                          (nodeSelected)="openStation($event)" #visualizer>
         </app-visual-novel>
 
         <div class="buttonGroup">
