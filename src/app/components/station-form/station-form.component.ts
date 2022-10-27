@@ -3,6 +3,7 @@ import {Station} from '../../model/station.model';
 import {NovelService} from '../../services/novel.service';
 import {MatDialog} from '@angular/material/dialog';
 import {ErrorDialogComponent} from '../error-dialog/error-dialog.component';
+import {StationViewerComponent} from '../station-viewer/station-viewer.component';
 
 @Component({
   selector: 'app-station-form',
@@ -27,9 +28,9 @@ export class StationFormComponent implements OnChanges {
   }
 
   viewStation(station: Station) {
-    this.dialog.open(ErrorDialogComponent, {
+    this.dialog.open(StationViewerComponent, {
       panelClass: 'full-modal',
-      data: {message: station.sketch}
+      data: {station}
     }).afterClosed();
   }
 

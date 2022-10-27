@@ -11,12 +11,14 @@ import {StationFormComponent} from './components/station-form/station-form.compo
 import {ErrorDialogComponent} from './components/error-dialog/error-dialog.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {StationViewerComponent} from './components/station-viewer/station-viewer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StationFormComponent,
-    ErrorDialogComponent
+    ErrorDialogComponent,
+    StationViewerComponent
   ],
   imports: [
     CommonModule,

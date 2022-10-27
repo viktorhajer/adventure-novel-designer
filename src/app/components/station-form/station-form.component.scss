@@ -8,6 +8,12 @@
     height: 120px;
   }
 
+  .children-container, .new-children-container {
+    margin-top: 20px;
+    display: flex;
+    flex-flow: column;
+  }
+
   table {
     border-spacing: 0;
 
@@ -27,6 +33,7 @@
 
     th:last-child, td:last-child {
       text-align: center;
+      width: 100px;
     }
   }
 }
