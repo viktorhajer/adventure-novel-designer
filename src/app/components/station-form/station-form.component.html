@@ -1,0 +1,48 @@
+<div id="edit-station-form" *ngIf="selectedStation">
+  <mat-form-field appearance="fill">
+    <mat-label>Id</mat-label>
+    <input matInput disabled [ngModel]="selectedStation.id">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Sketch</mat-label>
+    <textarea matInput [(ngModel)]="selectedStation.sketch"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Story</mat-label>
+    <textarea matInput [(ngModel)]="selectedStation.story"></textarea>
+  </mat-form-field>
+
+  <mat-slide-toggle [color]="'primary'" [checked]="selectedStation.exit">
+    Exit
+  </mat-slide-toggle>
+
+  <h2>Child</h2>
+  <table mat-table>
+    <tr>
+      <th>ID</th>
+      <th>Sketch</th>
+      <th>Action</th>
+    </tr>
+    <tbody>
+    <tr *ngFor="let station of children; let i = index">
+      <td>{{ i + 1 }}.</td>
+      <td>{{ station.sketch }}</td>
+      <td>
+        <button mat-icon-button color="primary" (click)="viewStation(station)">
+          <mat-icon>open_in_new</mat-icon>
+        </button>
+        <button mat-icon-button color="">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="actions-bar">
+    <button mat-raised-button>Save</button>
+    <button mat-raised-button>Delete</button>
+  </div>
+</div>

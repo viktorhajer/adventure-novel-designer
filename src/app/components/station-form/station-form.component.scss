@@ -1,0 +1,32 @@
+#edit-station-form {
+  display: flex;
+  flex-flow: column nowrap;
+
+  textarea {
+    font-family: monospace;
+    font-size: 12px;
+    height: 120px;
+  }
+
+  table {
+    border-spacing: 0;
+
+    tbody {
+      tr:hover {
+        background: #e5e9fc;
+      }
+    }
+
+    th, td {
+      padding: 0 10px;
+    }
+
+    th {
+      text-align: left;
+    }
+
+    th:last-child, td:last-child {
+      text-align: center;
+    }
+  }
+}

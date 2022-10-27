@@ -1,0 +1,26 @@
+<div id="main-container">
+  <h1>Adventure Novel Designer</h1>
+  <div id="main">
+    <div id="left">
+
+      <app-station-form *ngIf="isModelLoaded()" [selectedStation]="selectedStation"></app-station-form>
+
+      <div id="load-model-form" *ngIf="!isModelLoaded()">
+        <mat-form-field appearance="fill">
+          <mat-label>Load model</mat-label>
+          <textarea matInput [(ngModel)]="modelString"></textarea>
+        </mat-form-field>
+        <div class="actions-bar">
+          <button mat-raised-button (click)="load()">Load</button>
+        </div>
+      </div>
+
+
+    </div>
+    <div id="right"></div>
+  </div>
+</div>
+
+
+
+

@@ -1,0 +1,44 @@
+
+#main-container {
+
+  padding: 10px 20px 0 20px;
+
+  h1 {
+    color: #3f51b5;
+  }
+
+  #main {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  #left, #right {
+    flex: 1;
+    height: calc(100vh - 90px);
+  }
+
+  #left {
+    border-right: 1px solid #d8d8d8;
+    padding-right: 10px;
+    overflow: auto;
+  }
+
+  #right {
+    background: #f5f5f5;
+  }
+
+  #load-model-form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    height: 100%;
+
+    textarea {
+      height: calc(100vh - 245px);
+      font-family: monospace;
+      font-size: 12px;
+    }
+  }
+}
+
+
