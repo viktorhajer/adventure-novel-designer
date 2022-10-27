@@ -41,4 +41,21 @@
   }
 }
 
+#visual-novel-container {
+  height: calc(100vh - 190px);
+
+  .buttonGroup {
+    position: absolute;
+    right: 24px;
+    bottom: 40px;
+    background: rgba(255, 255, 255, 1);
+
+    button {
+      margin: 0;
+      padding-left: 7px;
+      padding-right: 7px;
+    }
+  }
+}
+
 

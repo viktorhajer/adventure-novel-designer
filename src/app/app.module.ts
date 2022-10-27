@@ -12,13 +12,15 @@ import {ErrorDialogComponent} from './components/error-dialog/error-dialog.compo
 import {MatIconModule} from '@angular/material/icon';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {StationViewerComponent} from './components/station-viewer/station-viewer.component';
+import {VisualNovelComponent} from './components/visual-pipe/visual-novel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StationFormComponent,
     ErrorDialogComponent,
-    StationViewerComponent
+    StationViewerComponent,
+    VisualNovelComponent
   ],
   imports: [
     CommonModule,

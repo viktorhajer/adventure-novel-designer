@@ -21,8 +21,8 @@ export class StationFormComponent implements OnChanges {
 
   ngOnChanges() {
     if (this.selectedStation) {
-      this.children = this.novelService.model.relations.filter(r => r.id1 === this.selectedStation.id).map(r => {
-        return this.novelService.model.stations.find(s => s.id === r.id2) as any;
+      this.children = this.novelService.model.relations.filter(r => r.sourceID === this.selectedStation.id).map(r => {
+        return this.novelService.model.stations.find(s => s.id === r.targetID) as any;
       })
     }
   }

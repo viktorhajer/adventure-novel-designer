@@ -15,9 +15,21 @@
         </div>
       </div>
 
-
     </div>
-    <div id="right"></div>
+    <div id="right">
+
+      <div id="visual-novel-container" *ngIf="visualModel">
+        <app-visual-novel [nodes]="visualModel.nodes" [edges]="visualModel.edges" #visualizer>
+        </app-visual-novel>
+
+        <div class="buttonGroup">
+          <button mat-raised-button (click)="visualizer.zoom(0)">Fit</button>
+          <button mat-raised-button (click)="visualizer.zoom(0.5)"> 50%</button>
+          <button mat-raised-button (click)="visualizer.zoom()"> 100%</button>
+          <button mat-raised-button (click)="visualizer.zoom(2)"> 200%</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

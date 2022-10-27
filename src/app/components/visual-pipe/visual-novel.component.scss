@@ -1,0 +1,68 @@
+$box-shadow-color: rgba(135, 155, 170, 1);
+$box-selected-fill-color: rgba(216, 233, 240, 1);
+$box-selected-stroke-color: #5163c6;
+$box-selected-shadow-color: #5163c6;
+
+$edge-color: rgba(135, 155, 170, 1);
+$text-color: rgba(33, 41, 44, 1);
+
+$progress-color: rgba(50, 150, 185, 1);
+$progress-bg-color: rgba(173, 190, 203, 1);
+
+#visual-novel {
+  margin: 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  padding: 0;
+  font-size: 14px;
+
+  .node-container {
+    display: flex;
+    cursor: default;
+
+    &.column {
+      flex-flow: column;
+    }
+  }
+
+  .node {
+    &.selectable {
+      cursor: pointer;
+    }
+
+    &.selected {
+      rect {
+        stroke: $box-selected-stroke-color;
+        stroke-width: 1px;
+        filter: drop-shadow(0 2px 4px $box-selected-shadow-color);
+      }
+    }
+
+    rect {
+      stroke: rgb(135, 155, 170, 1);
+      stroke-width: 1px;
+      fill: rgb(255, 255, 255, 1);
+      filter: drop-shadow(0 2px 4px $box-shadow-color);
+    }
+  }
+
+  .edgePath path {
+    stroke: $edge-color;
+    fill: $edge-color;
+    stroke-width: 1px;
+  }
+
+  .edgeLabel text {
+    font-size: 0.7rem;
+    font-weight: bold;
+    fill: $edge-color;
+  }
+
+  .title {
+    width: 130px;
+    font-weight: normal;
+    color: $text-color;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
