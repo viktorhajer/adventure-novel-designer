@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "yoga-similo": {
+    "adventure-novel-designer": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/yoga-similo",
+            "outputPath": "dist/adventure-novel-designer",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -76,10 +76,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "yoga-similo:build:production"
+              "browserTarget": "adventure-novel-designer:build:production"
             },
             "development": {
-              "browserTarget": "yoga-similo:build:development"
+              "browserTarget": "adventure-novel-designer:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "yoga-similo:build"
+            "browserTarget": "adventure-novel-designer:build"
           }
         },
         "test": {
@@ -112,5 +112,5 @@
       }
     }
   },
-  "defaultProject": "yoga-similo"
+  "defaultProject": "adventure-novel-designer"
 }
