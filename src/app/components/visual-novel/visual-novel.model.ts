@@ -14,4 +14,6 @@ export class VisualNovelNode {
   title: string = '';
   color: string = '';
   starter: boolean = false;
+  alert: boolean = false;
+  warning: boolean = false;
 }

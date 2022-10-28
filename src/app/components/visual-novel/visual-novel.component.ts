@@ -36,6 +36,12 @@ export class VisualNovelComponent implements OnChanges {
     const charLength = 30;
     let html = `<div class="node-container ${node.id} row">`;
     html += `<div class="title" title="${node.title}">`;
+    if (node.alert) {
+      html += '<span class="material-symbols-outlined">error</span>';
+    }
+    if (node.warning) {
+      html += '<span class="material-symbols-outlined warning">warning</span>';
+    }
     let text = node.title;
     if (text.length <= charLength) {
       html += text;

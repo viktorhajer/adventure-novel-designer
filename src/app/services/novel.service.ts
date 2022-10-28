@@ -28,10 +28,7 @@ export class NovelService {
       this.loaded = true;
       this.setMaxID();
     } catch (e) {
-      this.dialog.open(ErrorDialogComponent, {
-        panelClass: 'full-modal',
-        data: {message: 'Failed to load the model due syntax error.'}
-      }).afterClosed();
+      this.openError('Failed to load the model due syntax error.');
     }
   }
 
@@ -97,35 +94,44 @@ export class NovelService {
   }
 
   private isValidNovel() {
+    let message = '';
     // One starter
     const starters = this.model.stations.filter(s => s.starter);
     if (starters.length !== 1) {
       if (starters.length === 0) {
-        console.log('No starter');
+        message = 'Missing first station.';
       } else {
-        console.log('More than one starter', starters);
+        message = 'More than one first stations: ' + starters.map(s => s.title).join(', ') + '.';
       }
-      return false;
     }
     // Shadow starter
-    const targetIds = this.model.relations.map(r => r.targetID);
-    const shadowStarters = this.model.stations.filter(s => !s.starter && !targetIds.includes(s.id));
-    if (shadowStarters.length) {
-      console.log('Shadow starters', shadowStarters);
-      return false;
-    }
-    // Unused route
-    let valid = true;
-    for (const s of this.model.stations) {
-      const childrenNumber = this.model.relations.filter(r => r.sourceID === s.id).length;
-      for (let i = 1; i < (childrenNumber + 1); i++) {
-        if (s.story.indexOf('##' + i) === -1) {
-          console.log('Unused macro in ' + s.title + ': ##' + i);
-          valid = false;
-        }
+    if (!message) {
+      const targetIds = this.model.relations.map(r => r.targetID);
+      const abandonedStarters = this.model.stations.filter(s => !s.starter && !targetIds.includes(s.id));
+      if (abandonedStarters.length) {
+        message = 'Abandoned stations (where there is no route and not first station): '
+          + abandonedStarters.map(s => s.title).join(', ');
       }
     }
-    return valid;
+    // Unused route
+    if (!message) {
+      const messages = [];
+      for (const s of this.model.stations) {
+        const childrenNumber = this.model.relations.filter(r => r.sourceID === s.id).length;
+        for (let i = 1; i < (childrenNumber + 1); i++) {
+          if (s.story.indexOf('##' + i) === -1) {
+            messages.push(s.title + ': ##' + i);
+          }
+        }
+      }
+      if (messages.length) {
+        message = 'Unused macro(s): ' + messages.join(', ');
+      }
+    }
+    if (message) {
+      this.openError(message);
+    }
+    return !message.length;
   }
 
   private sortAndReplaceMacros(): Station[] {
@@ -134,7 +140,7 @@ export class NovelService {
     stations.forEach(s => {
       let i = 1;
       this.getChildren(s.id).forEach(c => {
-        s.story = s.story.replace(`##${i}`, c.index+this.getAffix(c.index));
+        s.story = s.story.replace(`##${i}`, c.index + this.getAffix(c.index));
         i++;
       });
     });
@@ -150,7 +156,7 @@ export class NovelService {
       starter.index = index;
       stations = stations.filter(s => s.id !== starter.id);
     }
-    while(stations.length) {
+    while (stations.length) {
       index++;
       const id = stations[Math.floor(Math.random() * stations.length)].id;
       this.getStation(id).index = index;
@@ -178,16 +184,23 @@ export class NovelService {
   }
 
   private getAffix(num: number): string {
-    if(num % 10 !== 0 && [1, 2, 4, 5, 7, 9].includes(num % 10)) {
+    if (num % 10 !== 0 && [1, 2, 4, 5, 7, 9].includes(num % 10)) {
       return '-re';
-    } else if (num % 10 !== 0){
+    } else if (num % 10 !== 0) {
       return '-ra';
-    } else if ( num % 100 !== 0 && [1, 4, 5, 7, 9].includes(num % 100 / 10)){
+    } else if (num % 100 !== 0 && [1, 4, 5, 7, 9].includes(num % 100 / 10)) {
       return '-re';
-    } else if ( num % 100 !== 0){
+    } else if (num % 100 !== 0) {
       return '-ra';
     } else {
       return '-ra';
     }
+  }
+
+  private openError(message: string) {
+    this.dialog.open(ErrorDialogComponent, {
+      panelClass: 'full-modal',
+      data: {message}
+    }).afterClosed();
   }
 }

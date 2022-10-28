@@ -20,7 +20,7 @@
 
   <div id="main">
     <div id="left">
-
+      <span class="material-symbols-outlined" style="position: fixed; top: -100px;">error</span>
       <app-novel-form *ngIf="isModelLoaded() && !station"></app-novel-form>
 
       <app-station-form *ngIf="station" [station]="station" [trigger]="formTrigger"

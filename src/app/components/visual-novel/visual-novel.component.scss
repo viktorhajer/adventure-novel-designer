@@ -1,13 +1,5 @@
-$box-shadow-color: rgba(135, 155, 170, 1);
-$box-selected-fill-color: rgba(216, 233, 240, 1);
-$box-selected-stroke-color: #5163c6;
-$box-selected-shadow-color: #5163c6;
-
-$edge-color: rgba(135, 155, 170, 1);
+$edge-color: #555;
 $text-color: rgba(33, 41, 44, 1);
-
-$progress-color: rgba(50, 150, 185, 1);
-$progress-bg-color: rgba(173, 190, 203, 1);
 
 #visual-novel {
   margin: 10px;
@@ -66,6 +58,7 @@ $progress-bg-color: rgba(173, 190, 203, 1);
     &.starter {
       rect {
         stroke-width: 4px;
+        stroke-dasharray: none;
         stroke: #444;
       }
     }
@@ -97,5 +90,18 @@ $progress-bg-color: rgba(173, 190, 203, 1);
     text-overflow: ellipsis;
     text-align: center;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .material-symbols-outlined {
+      font-size: 16px;
+      color: #c85353;
+      margin-right: 5px;
+
+      &.warning {
+        color: #eeb700;
+      }
+    }
   }
 }

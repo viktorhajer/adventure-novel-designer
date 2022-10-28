@@ -25,6 +25,8 @@ export class VisualNovelMapper {
     node.title = station.title;
     node.color = station.color;
     node.starter = station.starter;
+    node.alert = !station.story.trim().length;
+    node.warning = !!station.comment.trim().length;
     return node;
   }
 
