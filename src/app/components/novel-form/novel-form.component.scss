@@ -2,3 +2,9 @@
   display: flex;
   flex-flow: column nowrap;
 }
+
+textarea {
+  height: 300px;
+  line-height: 20px;
+  text-align: justify;
+}

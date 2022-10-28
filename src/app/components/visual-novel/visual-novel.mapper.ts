@@ -24,6 +24,7 @@ export class VisualNovelMapper {
     node.id = ID_PREFIX + station.id;
     node.title = station.title;
     node.color = station.color;
+    node.starter = station.starter;
     return node;
   }
 

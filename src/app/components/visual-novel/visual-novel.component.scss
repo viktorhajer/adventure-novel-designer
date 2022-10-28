@@ -32,9 +32,9 @@ $progress-bg-color: rgba(173, 190, 203, 1);
 
     &.selected {
       rect {
-        stroke: #555;
+        stroke: #444;
         stroke-width: 2px;
-        filter: none;
+        filter: drop-shadow(0 2px 4px #444);
       }
     }
 
@@ -53,6 +53,20 @@ $progress-bg-color: rgba(173, 190, 203, 1);
     &.green {
       rect {
         fill: #dff8ca;
+      }
+    }
+
+    &.endpoint {
+      rect {
+        stroke-dasharray: 2,5;
+        stroke: #888;
+      }
+    }
+
+    &.starter {
+      rect {
+        stroke-width: 4px;
+        stroke: #444;
       }
     }
 

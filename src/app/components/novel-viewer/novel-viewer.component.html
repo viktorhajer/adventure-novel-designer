@@ -1,0 +1,15 @@
+<h2>
+  <mat-icon>menu_book</mat-icon>
+  <div>{{ this.novel.title }}</div>
+</h2>
+<mat-dialog-content class="mat-typography">
+
+  <p class="prolog">{{ novel.prolog }}</p>
+
+  <div class="chapter" *ngFor="let s of novel.stations; let i = index">
+    <div class="chapter_index">{{ s.index }}.</div>
+    <div class="chapter_content">{{ s.story }}</div>
+    <div class="comment" *ngIf="s.comment">{{ s.comment }}</div>
+  </div>
+
+</mat-dialog-content>

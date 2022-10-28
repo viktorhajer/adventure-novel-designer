@@ -1,0 +1,39 @@
+h2 {
+  display: flex;
+  align-items: center;
+
+  div {
+    margin-left: 10px;
+  }
+}
+
+.prolog {
+  margin-top: 20px;
+  text-align: justify;
+  line-height: 21px;
+}
+
+.chapter {
+  margin: 20px 0;
+  text-align: justify;
+  line-height: 21px;
+  padding: 5px 10px;
+
+  .chapter_index {
+    font-size: 15px;
+    font-weight: bold;
+  }
+}
+
+.chapter:nth-child(odd) {
+  background: #f2f2f2;
+}
+
+.comment {
+  background: #f4f4a7;
+  padding: 5px 10px;
+  font-weight: bold;
+  width: fit-content;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+}

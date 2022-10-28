@@ -118,6 +118,12 @@ export class VisualNovelComponent implements OnChanges {
       d3Node.label = VisualNovelComponent.createNodeContent(node as any);
       (d3Node as any).labelType = 'html';
       let classes = encodeURI(v) + (this.selectable ? ' selectable' : '') + ' ' + node?.color;
+      if (!this.edges.some(e => e.sourceID === node?.id)) {
+        classes += ' endpoint';
+      }
+      if (node?.starter) {
+        classes += ' starter';
+      }
       d3Node.class = classes;
     });
   }

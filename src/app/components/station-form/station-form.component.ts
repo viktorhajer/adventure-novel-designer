@@ -5,6 +5,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {StationViewerComponent} from '../station-viewer/station-viewer.component';
 import {Relation} from '../../model/relation.model';
 import {STATION_COLORS} from '../../model/station-color.model';
+import {ErrorDialogComponent} from '../error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-station-form',
@@ -37,8 +38,15 @@ export class StationFormComponent implements OnChanges {
   }
 
   create() {
-    this.novelService.createStation(this.station);
-    this.stationChanged.emit(this.station.id + '');
+    if (this.station.title.trim()) {
+      this.novelService.createStation(this.station);
+      this.stationChanged.emit(this.station.id + '');
+    } else {
+      this.dialog.open(ErrorDialogComponent, {
+        panelClass: 'full-modal',
+        data: {message: 'Please enter a valid title.'}
+      }).afterClosed();
+    }
   }
 
   update() {

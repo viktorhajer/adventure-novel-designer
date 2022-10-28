@@ -21,7 +21,7 @@
       tr:hover {
         background: #e5e9fc;
       }
-      tr:nth-child(2) {
+      tr:nth-child(odd) {
         background: #f2f2f2;
       }
     }

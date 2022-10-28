@@ -15,6 +15,7 @@ import {StationViewerComponent} from './components/station-viewer/station-viewer
 import {VisualNovelComponent} from './components/visual-novel/visual-novel.component';
 import {MatSelectModule} from '@angular/material/select';
 import {NovelFormComponent} from './components/novel-form/novel-form.component';
+import {NovelViewerComponent} from './components/novel-viewer/novel-viewer.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {NovelFormComponent} from './components/novel-form/novel-form.component';
     StationFormComponent,
     ErrorDialogComponent,
     StationViewerComponent,
+    NovelViewerComponent,
     VisualNovelComponent
   ],
   imports: [

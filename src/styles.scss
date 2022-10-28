@@ -8,10 +8,14 @@ button {
 .actions-bar {
   margin-top: 20px;
   padding: 10px 10px;
-  background: #97a1d7;
+  background: #989cb4;
   text-align: right;
 
   button {
     margin-left: 10px;
   }
+}
+
+.mat-dialog-container {
+  width: 700px !important;
 }

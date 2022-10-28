@@ -38,6 +38,7 @@
     <table mat-table>
       <thead>
       <tr>
+        <th>Macro</th>
         <th>Title</th>
         <th>Comment</th>
         <th>Action</th>
@@ -45,6 +46,7 @@
       </thead>
       <tbody>
       <tr *ngFor="let s of children; let i = index">
+        <td><div>##{{ i + 1 }}</div></td>
         <td><div>{{ s.title }}</div></td>
         <td><div>{{ getRelationComment(s.id) }}</div></td>
         <td>

@@ -3,6 +3,7 @@ import {Novel} from '../model/novel.model';
 import {MatDialog} from '@angular/material/dialog';
 import {ErrorDialogComponent} from '../components/error-dialog/error-dialog.component';
 import {Station} from '../model/station.model';
+import {NovelViewerComponent} from '../components/novel-viewer/novel-viewer.component';
 
 @Injectable({
   providedIn: 'root'
@@ -89,14 +90,47 @@ export class NovelService {
   }
 
   finalize() {
-    // TODO validation
-    this.generateIndexes();
-    this.sortAndReplaceMacros();
+    if (this.isValidNovel()) {
+      this.generateIndexes();
+      this.openNovelViewer(this.sortAndReplaceMacros());
+    }
   }
 
-  private sortAndReplaceMacros() {
-    // TODO deep copy
-    const stations = [...this.model.stations].sort((s1, s2) => s1.index > s2.index ? 1 : -1);
+  private isValidNovel() {
+    // One starter
+    const starters = this.model.stations.filter(s => s.starter);
+    if (starters.length !== 1) {
+      if (starters.length === 0) {
+        console.log('No starter');
+      } else {
+        console.log('More than one starter', starters);
+      }
+      return false;
+    }
+    // Shadow starter
+    const targetIds = this.model.relations.map(r => r.targetID);
+    const shadowStarters = this.model.stations.filter(s => !s.starter && !targetIds.includes(s.id));
+    if (shadowStarters.length) {
+      console.log('Shadow starters', shadowStarters);
+      return false;
+    }
+    // Unused route
+    let valid = true;
+    for (const s of this.model.stations) {
+      const childrenNumber = this.model.relations.filter(r => r.sourceID === s.id).length;
+      for (let i = 1; i < (childrenNumber + 1); i++) {
+        if (s.story.indexOf('##' + i) === -1) {
+          console.log('Unused macro in ' + s.title + ': ##' + i);
+          valid = false;
+        }
+      }
+    }
+    return valid;
+  }
+
+  private sortAndReplaceMacros(): Station[] {
+    const stations = (JSON.parse(JSON.stringify(this.model.stations)) as Station[])
+      .sort((s1, s2) => s1.index > s2.index ? 1 : -1);
     stations.forEach(s => {
       let i = 1;
       this.getChildren(s.id).forEach(c => {
@@ -104,6 +138,7 @@ export class NovelService {
         i++;
       });
     });
+    return stations;
   }
 
   private generateIndexes() {
@@ -123,6 +158,17 @@ export class NovelService {
     }
   }
 
+  private openNovelViewer(stations: Station[]) {
+    const novel = new Novel();
+    novel.title = this.model.title;
+    novel.prolog = this.model.prolog;
+    novel.stations = stations;
+    this.dialog.open(NovelViewerComponent, {
+      panelClass: 'full-modal',
+      data: {novel}
+    }).afterClosed();
+  }
+
   private setMaxID() {
     let max = 0;
     this.model.stations.forEach(s => {
@@ -136,8 +182,12 @@ export class NovelService {
       return '-re';
     } else if (num % 10 !== 0){
       return '-ra';
-    } else {
+    } else if ( num % 100 !== 0 && [1, 4, 5, 7, 9].includes(num % 100 / 10)){
       return '-re';
+    } else if ( num % 100 !== 0){
+      return '-ra';
+    } else {
+      return '-ra';
     }
   }
 }

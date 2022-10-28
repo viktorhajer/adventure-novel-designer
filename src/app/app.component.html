@@ -1,6 +1,7 @@
 <div id="main-container">
   <div class="main-header">
-    <h1>Adventure Novel Designer</h1>
+    <h1 *ngIf="!isModelLoaded()">Adventure Novel Designer</h1>
+    <h1 *ngIf="isModelLoaded()">{{ novelService.model.title }}</h1>
     <div class="main-actions">
       <button mat-icon-button (click)="createNew()" *ngIf="isModelLoaded()" title="Create new station">
         <mat-icon>create_new_folder</mat-icon>
