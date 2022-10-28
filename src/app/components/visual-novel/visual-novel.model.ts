@@ -6,9 +6,11 @@ export class VisualNovel {
 export class VisualNovelEdge {
   sourceID: string = '';
   targetID: string = '';
+  comment: string = '';
 }
 
 export class VisualNovelNode {
   id: string = '';
   title: string = '';
+  color: string = '';
 }

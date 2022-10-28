@@ -12,12 +12,14 @@ import {ErrorDialogComponent} from './components/error-dialog/error-dialog.compo
 import {MatIconModule} from '@angular/material/icon';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {StationViewerComponent} from './components/station-viewer/station-viewer.component';
-import {VisualNovelComponent} from './components/visual-pipe/visual-novel.component';
+import {VisualNovelComponent} from './components/visual-novel/visual-novel.component';
 import {MatSelectModule} from '@angular/material/select';
+import {NovelFormComponent} from './components/novel-form/novel-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NovelFormComponent,
     StationFormComponent,
     ErrorDialogComponent,
     StationViewerComponent,

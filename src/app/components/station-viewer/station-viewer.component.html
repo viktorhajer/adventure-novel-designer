@@ -4,4 +4,5 @@
 </h2>
 <mat-dialog-content class="mat-typography">
   <p>{{ this.data.station.story }}</p>
+  <div class="comment" *ngIf="this.data.station.comment">{{ this.data.station.comment }}</div>
 </mat-dialog-content>

@@ -3,6 +3,8 @@ import {Station} from '../../model/station.model';
 import {NovelService} from '../../services/novel.service';
 import {MatDialog} from '@angular/material/dialog';
 import {StationViewerComponent} from '../station-viewer/station-viewer.component';
+import {Relation} from '../../model/relation.model';
+import {STATION_COLORS} from '../../model/station-color.model';
 
 @Component({
   selector: 'app-station-form',
@@ -14,8 +16,10 @@ export class StationFormComponent implements OnChanges {
   @Input() station: Station = null as any;
   @Output() stationChanged = new EventEmitter();
   children: Station[] = [];
+  childRoutes: Relation[] = [];
   createNew = true;
   stations: Station[] = [];
+  colors = STATION_COLORS;
 
   constructor(private readonly novelService: NovelService,
               private readonly dialog: MatDialog) {
@@ -25,9 +29,8 @@ export class StationFormComponent implements OnChanges {
     if (this.station) {
       this.createNew = !this.station.id;
       if (!this.createNew) {
-        this.children = this.novelService.model.relations.filter(r => r.sourceID === this.station.id).map(r => {
-          return this.novelService.model.stations.find(s => s.id === r.targetID) as any;
-        });
+        this.children = this.novelService.getChildren(this.station.id);
+        this.childRoutes = this.novelService.model.relations.filter(r => r.sourceID === this.station.id);
         this.stations = this.novelService.getStations(this.station.id);
       }
     }
@@ -40,6 +43,7 @@ export class StationFormComponent implements OnChanges {
 
   update() {
     this.novelService.updateStation(this.station);
+    this.stationChanged.emit(this.station.id + '');
   }
 
   delete() {
@@ -47,8 +51,9 @@ export class StationFormComponent implements OnChanges {
     this.stationChanged.emit(null);
   }
 
-  createRelation(targetId: number, comment = '') {
-    this.novelService.createRelation(this.station.id, targetId, comment);
+  createRelation(targetId: number, comment: HTMLInputElement) {
+    this.novelService.createRelation(this.station.id, targetId, comment.value);
+    comment.value = '';
     this.stationChanged.emit(this.station.id + '');
   }
 
@@ -62,5 +67,9 @@ export class StationFormComponent implements OnChanges {
       panelClass: 'full-modal',
       data: {station}
     }).afterClosed();
+  }
+
+  getRelationComment(childId: number) {
+    return this.childRoutes?.find(r => r.targetID === childId)?.comment;
   }
 }

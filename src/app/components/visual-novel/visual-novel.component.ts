@@ -17,6 +17,7 @@ export class VisualNovelComponent implements OnChanges {
   @Input() edges: VisualNovelEdge[] = [];
   @Input() trigger: string = '';
   @Input() selectable = true;
+  @Input() selected: string = '';
   @Input() multiSelect = false;
   @Output() nodeSelected = new EventEmitter();
 
@@ -32,9 +33,23 @@ export class VisualNovelComponent implements OnChanges {
   }
 
   private static createNodeContent(node: VisualNovelNode): string {
+    const charLength = 30;
     let html = `<div class="node-container ${node.id} row">`;
-    html += `<div class="title" title="${node.title}">${node.title}</div>`;
-    html += '</div>';
+    html += `<div class="title" title="${node.title}">`;
+    let text = node.title;
+    if (text.length <= charLength) {
+      html += text;
+    } else {
+      do {
+        const slice = text.slice(0, charLength);
+        html += slice;
+        text = text.slice(charLength);
+        if (text.length) {
+          html += '<br/>'
+        }
+      } while (text.length);
+    }
+    html += '</div></div>';
     return html;
   }
 
@@ -51,6 +66,9 @@ export class VisualNovelComponent implements OnChanges {
       this.renderGraph();
       this.setSelectableNodes();
       this.initZoom(transform as any);
+      if (this.selected) {
+        this.selectNode(this.selected)
+      }
     }
   }
 
@@ -92,14 +110,15 @@ export class VisualNovelComponent implements OnChanges {
     this.graph = new dagreD3.graphlib.Graph();
     this.graph.setGraph({nodesep: 70, ranksep: 50, rankdir: 'TB', marginx: 20, marginy: 20});
     this.nodes.forEach(node => this.graph.setNode(node.id, {label: node.id}));
-    this.edges.forEach(edge => this.graph.setEdge(edge.sourceID, edge.targetID, {label: ''}));
+    this.edges.forEach(edge => this.graph.setEdge(edge.sourceID, edge.targetID, {label: edge.comment}));
     this.graph.nodes().forEach((v: any) => {
       const d3Node = this.graph.node(v);
       const node = this.nodes.find(n => n.id === v);
-      d3Node.rx = d3Node.ry = 3; // corner radius of the nodes
+      d3Node.rx = d3Node.ry = 10; // corner radius of the nodes
       d3Node.label = VisualNovelComponent.createNodeContent(node as any);
       (d3Node as any).labelType = 'html';
-      d3Node.class = encodeURI(v) + (this.selectable ? ' selectable' : '');
+      let classes = encodeURI(v) + (this.selectable ? ' selectable' : '') + ' ' + node?.color;
+      d3Node.class = classes;
     });
   }
 

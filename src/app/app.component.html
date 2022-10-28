@@ -1,7 +1,26 @@
 <div id="main-container">
-  <h1>Adventure Novel Designer</h1>
+  <div class="main-header">
+    <h1>Adventure Novel Designer</h1>
+    <div class="main-actions">
+      <button mat-icon-button (click)="createNew()" *ngIf="isModelLoaded()" title="Create new station">
+        <mat-icon>create_new_folder</mat-icon>
+      </button>
+      <button mat-icon-button (click)="download()" *ngIf="isModelLoaded()" title="Get raw novel">
+        <mat-icon>download</mat-icon>
+      </button>
+      <button mat-icon-button (click)="finalize()" *ngIf="isModelLoaded()" title="Get final novel">
+        <mat-icon>menu_book</mat-icon>
+      </button>
+      <button mat-icon-button (click)="openNovel()" title="Load raw novel">
+        <mat-icon>file_open</mat-icon>
+      </button>
+    </div>
+  </div>
+
   <div id="main">
     <div id="left">
+
+      <app-novel-form *ngIf="isModelLoaded() && !station"></app-novel-form>
 
       <app-station-form *ngIf="station" [station]="station" [trigger]="formTrigger"
                         (stationChanged)="openStation($event)">
@@ -16,15 +35,14 @@
           <button mat-raised-button (click)="load()">Load</button>
         </div>
       </div>
-
     </div>
-    <div id="right">
 
+    <div id="right">
       <div id="visual-novel-container" *ngIf="visualModel">
         <app-visual-novel [nodes]="visualModel.nodes" [edges]="visualModel.edges" [trigger]="formTrigger+''"
+                          [selected]="(station ? 'node_' + station.id : '')"
                           (nodeSelected)="openStation($event)" #visualizer>
         </app-visual-novel>
-
         <div class="buttonGroup">
           <button mat-raised-button (click)="visualizer.zoom(0)">Fit</button>
           <button mat-raised-button (click)="visualizer.zoom(0.5)"> 50%</button>

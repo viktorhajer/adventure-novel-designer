@@ -1,7 +1,7 @@
 <div id="edit-station-form" *ngIf="station">
   <mat-form-field appearance="fill">
     <mat-label>Title</mat-label>
-    <textarea matInput [(ngModel)]="station.title"></textarea>
+    <input matInput [(ngModel)]="station.title">
   </mat-form-field>
 
   <mat-form-field appearance="fill">
@@ -9,8 +9,22 @@
     <textarea matInput [(ngModel)]="station.story"></textarea>
   </mat-form-field>
 
-  <mat-slide-toggle [color]="'primary'" [checked]="station.exit">
-    Exit
+  <mat-form-field appearance="fill">
+    <mat-label>Editorial comment</mat-label>
+    <input matInput [(ngModel)]="station.comment">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Color</mat-label>
+    <mat-select [(ngModel)]="station.color">
+      <mat-option *ngFor="let c of colors" [value]="c.value">
+        {{c.title}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-slide-toggle [color]="'primary'" [(ngModel)]="station.starter">
+    First station
   </mat-slide-toggle>
 
   <div class="actions-bar">
@@ -22,13 +36,17 @@
   <div class="children-container" *ngIf="!createNew && children.length">
     <h2>Routes</h2>
     <table mat-table>
+      <thead>
       <tr>
         <th>Title</th>
+        <th>Comment</th>
         <th>Action</th>
       </tr>
+      </thead>
       <tbody>
       <tr *ngFor="let s of children; let i = index">
-        <td>{{ s.title }}</td>
+        <td><div>{{ s.title }}</div></td>
+        <td><div>{{ getRelationComment(s.id) }}</div></td>
         <td>
           <button mat-icon-button color="primary" (click)="viewStation(s)">
             <mat-icon>open_in_new</mat-icon>
@@ -56,7 +74,7 @@
       <mat-label>Comment</mat-label>
       <input matInput #commentInput>
     </mat-form-field>
-    <button mat-raised-button (click)="createRelation(stationInput.value, commentInput.value)">
+    <button mat-raised-button (click)="createRelation(stationInput.value, commentInput)">
       Create</button>
   </div>
 </div>

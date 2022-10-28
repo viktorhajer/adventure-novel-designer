@@ -1,0 +1,11 @@
+<div id="edit-novel-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput [(ngModel)]="novelService.model.title">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Prolog</mat-label>
+    <textarea matInput [(ngModel)]="novelService.model.prolog"></textarea>
+  </mat-form-field>
+</div>

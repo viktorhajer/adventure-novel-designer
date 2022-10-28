@@ -23,12 +23,13 @@ export class VisualNovelMapper {
     const node = new VisualNovelNode();
     node.id = ID_PREFIX + station.id;
     node.title = station.title;
+    node.color = station.color;
     return node;
   }
 
   private static mapRelationToEdge(relation: Relation): VisualNovelEdge {
     if (relation.sourceID && relation.targetID) {
-      return {sourceID: ID_PREFIX + relation.sourceID, targetID: ID_PREFIX + relation.targetID};
+      return {sourceID: ID_PREFIX + relation.sourceID, targetID: ID_PREFIX + relation.targetID, comment: relation.comment};
     }
     return null as any;
   }

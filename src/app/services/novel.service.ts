@@ -10,10 +10,15 @@ import {Station} from '../model/station.model';
 export class NovelService {
   loaded = false;
   model: Novel;
-  maxID = 0;
+  maxID = 1;
 
   constructor(private readonly dialog: MatDialog) {
     this.model = new Novel();
+  }
+
+  clearModel() {
+    this.model = new Novel();
+    this.loaded = false;
   }
 
   loadModel(content: string) {
@@ -57,7 +62,12 @@ export class NovelService {
     if (originStation) {
       originStation.title = station.title;
       originStation.story = station.story;
-      originStation.exit = station.exit;
+      originStation.comment = station.comment;
+      originStation.color = station.color;
+      originStation.starter = station.starter;
+      if (station.starter) {
+        this.model.stations.filter(s => s.id !== station.id).forEach(s => s.starter = false);
+      }
     }
   }
 
@@ -71,7 +81,46 @@ export class NovelService {
   }
 
   deleteRelation(sourceID: number, targetID: number) {
-    this.model.relations = this.model.relations.filter(r => r.sourceID !== sourceID && r.targetID !== targetID);
+    this.model.relations = this.model.relations.filter(r => !(r.sourceID === sourceID && r.targetID === targetID));
+  }
+
+  getChildren(id: number): Station[] {
+    return this.model.relations.filter(r => r.sourceID === id).map(r => this.model.stations.find(s => s.id === r.targetID) as any);
+  }
+
+  finalize() {
+    // TODO validation
+    this.generateIndexes();
+    this.sortAndReplaceMacros();
+  }
+
+  private sortAndReplaceMacros() {
+    // TODO deep copy
+    const stations = [...this.model.stations].sort((s1, s2) => s1.index > s2.index ? 1 : -1);
+    stations.forEach(s => {
+      let i = 1;
+      this.getChildren(s.id).forEach(c => {
+        s.story = s.story.replace(`##${i}`, c.index+this.getAffix(c.index));
+        i++;
+      });
+    });
+  }
+
+  private generateIndexes() {
+    let index = 0;
+    let stations = [...this.model.stations];
+    const starter = stations.find(s => s.starter);
+    if (starter) {
+      index++;
+      starter.index = index;
+      stations = stations.filter(s => s.id !== starter.id);
+    }
+    while(stations.length) {
+      index++;
+      const id = stations[Math.floor(Math.random() * stations.length)].id;
+      this.getStation(id).index = index;
+      stations = stations.filter(s => s.id !== id);
+    }
   }
 
   private setMaxID() {
@@ -80,5 +129,15 @@ export class NovelService {
       max = s.id > max ? s.id : max;
     });
     this.maxID = max;
+  }
+
+  private getAffix(num: number): string {
+    if(num % 10 !== 0 && [1, 2, 4, 5, 7, 9].includes(num % 10)) {
+      return '-re';
+    } else if (num % 10 !== 0){
+      return '-ra';
+    } else {
+      return '-re';
+    }
   }
 }
