@@ -14,15 +14,26 @@
     <input matInput [(ngModel)]="station.comment">
   </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Color</mat-label>
-    <mat-select [(ngModel)]="station.color">
-      <mat-option *ngFor="let c of colors" [value]="c.value">
-        {{c.title}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <div class="flex--row">
+    <mat-form-field appearance="fill">
+      <mat-label>Life</mat-label>
+      <mat-select [(ngModel)]="station.life">
+        <mat-option *ngFor="let lf of [-3,-2,-1,0,1,2,3]" [value]="lf">
+          {{lf}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
+    <mat-form-field appearance="fill">
+      <mat-label>Color</mat-label>
+      <mat-select [(ngModel)]="station.color">
+        <mat-option *ngFor="let c of colors" [value]="c.value">
+          {{c.title}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  
   <mat-slide-toggle [color]="'primary'" [(ngModel)]="station.starter">
     First station
   </mat-slide-toggle>
@@ -64,18 +75,20 @@
 
   <div class="new-children-container" *ngIf="!createNew && stations.length">
     <h2>Set new route</h2>
-    <mat-form-field appearance="fill">
-      <mat-label>Destination</mat-label>
-      <mat-select #stationInput>
-        <mat-option *ngFor="let s of stations" [value]="s.id">
-          {{s.title}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Comment</mat-label>
-      <input matInput #commentInput>
-    </mat-form-field>
+    <div class="flex--row">
+      <mat-form-field appearance="fill">
+        <mat-label>Destination</mat-label>
+        <mat-select #stationInput>
+          <mat-option *ngFor="let s of stations" [value]="s.id">
+            {{s.title}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Comment</mat-label>
+        <input matInput #commentInput>
+      </mat-form-field>
+    </div>
     <button mat-raised-button (click)="createRelation(stationInput.value, commentInput)">
       Create</button>
   </div>

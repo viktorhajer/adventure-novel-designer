@@ -3,6 +3,7 @@ import {Station} from '../../model/station.model';
 import {NovelService} from '../../services/novel.service';
 import {MatDialog} from '@angular/material/dialog';
 import {StationViewerComponent} from '../station-viewer/station-viewer.component';
+import {ConfirmDeleteComponent} from '../confirm-delete/confirm-delete.component';
 import {Relation} from '../../model/relation.model';
 import {STATION_COLORS} from '../../model/station-color.model';
 import {ErrorDialogComponent} from '../error-dialog/error-dialog.component';
@@ -55,8 +56,12 @@ export class StationFormComponent implements OnChanges {
   }
 
   delete() {
-    this.novelService.deleteStation(this.station.id);
-    this.stationChanged.emit(null);
+    this.openConfirmation().then(result => {
+      if (result) {
+        this.novelService.deleteStation(this.station.id);
+        this.stationChanged.emit(null);
+      }
+    });
   }
 
   createRelation(targetId: number, comment: HTMLInputElement) {
@@ -66,8 +71,12 @@ export class StationFormComponent implements OnChanges {
   }
 
   deleteRelation(targetId: number) {
-    this.novelService.deleteRelation(this.station.id, targetId);
-    this.stationChanged.emit(this.station.id + '');
+    this.openConfirmation().then(result => {
+      if (result) {
+        this.novelService.deleteRelation(this.station.id, targetId);
+        this.stationChanged.emit(this.station.id + '');
+      }
+    });
   }
 
   viewStation(station: Station) {
@@ -79,5 +88,10 @@ export class StationFormComponent implements OnChanges {
 
   getRelationComment(childId: number) {
     return this.childRoutes?.find(r => r.targetID === childId)?.comment;
+  }
+  
+  private openConfirmation(): Promise<boolean> {
+    return this.dialog.open(ConfirmDeleteComponent, {disableClose:true})
+      .afterClosed().toPromise();
   }
 }

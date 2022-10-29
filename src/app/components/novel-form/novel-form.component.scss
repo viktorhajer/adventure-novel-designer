@@ -8,3 +8,53 @@ textarea {
   line-height: 20px;
   text-align: justify;
 }
+.stat_container {
+  .stat {
+    display: flex;
+    margin-bottom: 8px;
+    
+    .stat_name {
+      width: 200px;
+      font-weight: bold;
+    }
+  }
+}
+
+table {
+  border-spacing: 0;
+
+  tbody {
+    tr:hover {
+      background: #e5e9fc;
+    }
+    tr:nth-child(odd) {
+      background: #f2f2f2;
+    }
+  }
+
+  th, td {
+    padding: 0 10px;
+
+    div {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      //white-space: nowrap;
+    }
+  }
+
+  thead {
+    tr {
+      background: #dde0f1;
+    }
+  }
+
+  th {
+    text-align: left;
+    padding: 5px 10px;
+  }
+
+  th:last-child, td:last-child {
+    text-align: center;
+    width: 100px;
+  }
+}

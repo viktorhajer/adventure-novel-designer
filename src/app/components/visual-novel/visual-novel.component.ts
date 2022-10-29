@@ -139,10 +139,10 @@ export class VisualNovelComponent implements OnChanges {
     this.svg = d3.select('#visual-novel');
     const inner = this.svg.append('g');
 
-    this.svg.on('click', () => {
+    /*this.svg.on('click', () => {
       VisualNovelComponent.deselectAllComponents();
       this.nodeSelected.emit();
-    });
+    });*/
 
     this.zoomObj = d3.zoom().on('zoom', (event: any) => {
       inner.attr('transform', event.transform);

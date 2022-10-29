@@ -8,4 +8,38 @@
     <mat-label>Prolog</mat-label>
     <textarea matInput [(ngModel)]="novelService.model.prolog"></textarea>
   </mat-form-field>
+  
+  <h2>Statistics</h2>
+  <div class="stat_container">
+    <div class="stat">
+      <div class="stat_name">Number of stations:</div>
+      <div class="stat_value">{{ novelService.model.stations.length }}</div>
+    </div>
+    <div class="stat">
+      <div class="stat_name">Number of path:</div>
+      <div class="stat_value">{{ novelService.model.relations.length }}</div>
+    </div>
+  </div>
+  
+  <h2>Editorial</h2>
+  <table mat-table>
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th>Comment</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let s of getEditorialStations(); let i = index">
+      <td><div>{{ s.title }}</div></td>
+      <td><div>{{ s.comment }}</div></td>
+      <td>
+        <button mat-icon-button color="primary" (click)="openStation(s.id)">
+          <mat-icon>open_in_new</mat-icon>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>

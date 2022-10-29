@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Novel} from '../model/novel.model';
 import {MatDialog} from '@angular/material/dialog';
 import {ErrorDialogComponent} from '../components/error-dialog/error-dialog.component';
+import {WarningDialogComponent} from '../components/warning-dialog/warning-dialog.component';
 import {Station} from '../model/station.model';
 import {NovelViewerComponent} from '../components/novel-viewer/novel-viewer.component';
 
@@ -63,6 +64,7 @@ export class NovelService {
       originStation.comment = station.comment;
       originStation.color = station.color;
       originStation.starter = station.starter;
+      originStation.life = station.life;
       if (station.starter) {
         this.model.stations.filter(s => s.id !== station.id).forEach(s => s.starter = false);
       }
@@ -90,6 +92,7 @@ export class NovelService {
     if (this.isValidNovel()) {
       this.generateIndexes();
       this.openNovelViewer(this.sortAndReplaceMacros());
+      this.validateMacros();
     }
   }
 
@@ -113,25 +116,25 @@ export class NovelService {
           + abandonedStarters.map(s => s.title).join(', ');
       }
     }
-    // Unused route
-    if (!message) {
-      const messages = [];
-      for (const s of this.model.stations) {
-        const childrenNumber = this.model.relations.filter(r => r.sourceID === s.id).length;
-        for (let i = 1; i < (childrenNumber + 1); i++) {
-          if (s.story.indexOf('##' + i) === -1) {
-            messages.push(s.title + ': ##' + i);
-          }
-        }
-      }
-      if (messages.length) {
-        message = 'Unused macro(s): ' + messages.join(', ');
-      }
-    }
     if (message) {
       this.openError(message);
     }
     return !message.length;
+  }
+  
+  private validateMacros() {
+    const messages = [];
+    for (const s of this.model.stations) {
+      const childrenNumber = this.model.relations.filter(r => r.sourceID === s.id).length;
+      for (let i = 1; i < (childrenNumber + 1); i++) {
+        if (s.story.indexOf('##' + i) === -1) {
+          messages.push(s.title + ': ##' + i);
+        }
+      }
+    }
+    if (messages.length) {
+      this.openWarning('Unused macro(s): ' + messages.join(', '));
+    }
   }
 
   private sortAndReplaceMacros(): Station[] {
@@ -199,7 +202,14 @@ export class NovelService {
 
   private openError(message: string) {
     this.dialog.open(ErrorDialogComponent, {
-      panelClass: 'full-modal',
+      panelClass: 'small-dialog',
+      data: {message}
+    }).afterClosed();
+  }
+  
+  private openWarning(message: string) {
+    this.dialog.open(WarningDialogComponent, {
+      panelClass: 'small-dialog',
       data: {message}
     }).afterClosed();
   }

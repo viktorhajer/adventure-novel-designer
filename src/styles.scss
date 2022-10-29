@@ -11,11 +11,17 @@ button {
   width: fit-content;
 }
 
+h2 {
+  border-bottom: 1px dotted #aaa;
+  margin-top: 20px;
+}
+
 .actions-bar {
   margin-top: 20px;
   padding: 10px 10px;
-  background: #989cb4;
+  background: #ededed;
   text-align: right;
+  border-top: 1px solid #c3c3c3;
 
   button {
     margin-left: 10px;
@@ -31,4 +37,8 @@ button {
   'wght' 700,
   'GRAD' 0,
   'opsz' 30
+}
+
+.small-dialog {
+  width: 400px;
 }

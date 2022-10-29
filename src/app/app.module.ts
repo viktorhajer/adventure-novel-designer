@@ -9,6 +9,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {StationFormComponent} from './components/station-form/station-form.component';
 import {ErrorDialogComponent} from './components/error-dialog/error-dialog.component';
+import {WarningDialogComponent} from './components/warning-dialog/warning-dialog.component';
+import {ConfirmDeleteComponent} from './components/confirm-delete/confirm-delete.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {StationViewerComponent} from './components/station-viewer/station-viewer.component';
@@ -23,6 +25,8 @@ import {NovelViewerComponent} from './components/novel-viewer/novel-viewer.compo
     NovelFormComponent,
     StationFormComponent,
     ErrorDialogComponent,
+    WarningDialogComponent,
+    ConfirmDeleteComponent,
     StationViewerComponent,
     NovelViewerComponent,
     VisualNovelComponent

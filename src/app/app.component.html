@@ -1,3 +1,6 @@
+<button mat-icon-button (click)="ui.toggleExpanded()" id="expand_button">
+  <mat-icon>fit_screen</mat-icon>
+</button>
 <div id="main-container">
   <div class="main-header">
     <h1 *ngIf="!isModelLoaded()">Adventure Novel Designer</h1>
@@ -19,9 +22,10 @@
   </div>
 
   <div id="main">
-    <div id="left">
+    <div id="left" [class.hidden]="ui.expanded">
       <span class="material-symbols-outlined" style="position: fixed; top: -100px;">error</span>
-      <app-novel-form *ngIf="isModelLoaded() && !station"></app-novel-form>
+      <app-novel-form *ngIf="isModelLoaded() && !station" (stationSelected)="openStation($event)">
+      </app-novel-form>
 
       <app-station-form *ngIf="station" [station]="station" [trigger]="formTrigger"
                         (stationChanged)="openStation($event)">

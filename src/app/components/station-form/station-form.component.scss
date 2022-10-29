@@ -32,7 +32,6 @@
       div {
         overflow: hidden;
         text-overflow: ellipsis;
-        //white-space: nowrap;
       }
     }
 
@@ -51,5 +50,19 @@
       text-align: center;
       width: 100px;
     }
+  }
+}
+
+.flex--row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  
+  * {
+    flex: 1;
+  }
+
+  *:first-child {
+    margin-right: 10px;
   }
 }
