@@ -1,11 +1,17 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {NovelService} from './services/novel.service';
 import {UiService} from './services/ui.service';
+import {EditService} from './services/edit.service';
 import {Station} from './model/station.model';
 import {StationViewerComponent} from './components/station-viewer/station-viewer.component';
+import {ConfirmDialogComponent} from './components/confirm-dialog/confirm-dialog.component';
+import {WarningDialogComponent} from './components/warning-dialog/warning-dialog.component';
+import {VisualNovelComponent} from './components/visual-novel/visual-novel.component';
 import {VisualNovel} from './components/visual-novel/visual-novel.model';
 import {VisualNovelMapper} from './components/visual-novel/visual-novel.mapper';
 import {MatDialog} from '@angular/material/dialog';
+
+const EMPTY_NOVEL = '{"title":"New novel","prolog":"","stations":[],"relations":[]}';
 
 // @ts-ignore
 
@@ -15,6 +21,9 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  @ViewChild(VisualNovelComponent) visual: VisualNovelComponent = null as any;
+
   modelString = '{"title":"Lorem ipsum dolor","prolog": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",' +
     '"stations":[' +
     '{"id":1,"life":0,"index":0,"starter": true,"title":"Indulás a faluból","comment": "","story":"Menj a ##1 vagy ##2.","color":"red"},' +
@@ -30,9 +39,11 @@ export class AppComponent {
   station: Station = null as any;
   visualModel: VisualNovel = null as any;
   formTrigger = 0;
+  previousStation: number = 0;
 
   constructor(public readonly novelService: NovelService,
     private readonly dialog: MatDialog,
+    private readonly editService: EditService,
     public readonly ui: UiService) {
   }
 
@@ -45,30 +56,88 @@ export class AppComponent {
     this.visualModel = VisualNovelMapper.mapNovel(this.novelService.model);
   }
 
-  download() {
+  save() {
     this.modelString = JSON.stringify(this.novelService.model);
     if (navigator.clipboard) {
       navigator.clipboard.writeText(this.modelString);
+      this.dialog.open(WarningDialogComponent, {
+        panelClass: 'small-dialog',
+        data: {message: 'Raw model was copied to the clipboard successfully.', warning: false}
+      }).afterClosed();
     }
+    this.novelService.clearModel();
   }
 
   finalize() {
     this.novelService.finalize();
   }
 
-  openNovel() {
+  clearNovel() {
+    this.modelString = EMPTY_NOVEL;
     this.station = null as any;
     this.visualModel = null as any;
-    this.formTrigger = 0;
     this.novelService.clearModel();
+    this.changeTrigger();
   }
 
-  createNew() {
-    this.station = new Station(0);
-    this.formTrigger++;
+  createNewStation() {
+    if (this.editService.unsaved) {
+      this.openConfirmation('Are you sure to navigate without saving?').then(result => {
+        if (result) {
+          this.navigateToCreateNew();
+        } else {
+          this.changeTrigger();
+        }
+      });
+    } else {
+      this.navigateToCreateNew();
+    }
   }
 
   openStation(id: string) {
+    if (this.editService.unsaved) {
+      this.openConfirmation('Are you sure to navigate without saving?').then(result => {
+        if (result) {
+          this.navigateToStation(id);
+        } else {
+          this.changeTrigger();
+        }
+      });
+    } else {
+      this.navigateToStation(id);
+    }
+  }
+  
+  clearStation() {
+    if (this.station) {
+      if (this.editService.unsaved) {
+        this.openConfirmation('Are you sure to navigate without saving?').then(result => {
+          if (result) {
+            this.navigateToNovel();
+          }
+        });
+      } else {
+        this.navigateToNovel();
+      }
+    }
+  }
+  
+  private navigateToNovel() {
+    this.visual.selectNode('node_' + this.station.id);
+    this.editService.unsaved = false;
+    this.previousStation = 0;
+    this.station = null as any; 
+  }
+  
+  private navigateToCreateNew() {
+    if (this.station && !!this.station.id) {
+      this.previousStation = this.station.id;
+    }
+    this.station = new Station(0);
+    this.changeTrigger();
+  }
+  
+  private navigateToStation(id: string) {
     if (id) {
       const station = JSON.parse(JSON.stringify(this.novelService.getStation(+id.replace('node_', ''))));
       if (this.ui.expanded) {
@@ -77,9 +146,13 @@ export class AppComponent {
           data: {station}
         }).afterClosed();
       } else {
+        this.editService.unsaved = false;
+        this.previousStation = station.id;
         this.station = station;
       }
     } else {
+      this.editService.unsaved = false;
+      this.previousStation = 0;
       this.station = null as any;
     }
     this.changeTrigger();
@@ -88,5 +161,12 @@ export class AppComponent {
   private changeTrigger() {
     this.visualModel = VisualNovelMapper.mapNovel(this.novelService.model);
     this.formTrigger++;
+  }
+  
+  private openConfirmation(message: string): Promise<boolean> {
+    return this.dialog.open(ConfirmDialogComponent, {
+      data: {message},
+      disableClose:true
+    }).afterClosed().toPromise();
   }
 }

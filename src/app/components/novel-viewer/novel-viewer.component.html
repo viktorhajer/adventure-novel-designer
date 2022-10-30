@@ -7,8 +7,8 @@
   <p class="prolog">{{ novel.prolog }}</p>
 
   <div class="chapter" *ngFor="let s of novel.stations; let i = index">
-    <div class="chapter_index">{{ s.index }}.</div>
-    <div class="chapter_content">{{ s.story }}</div>
+    <div class="chapter_index" id="chapter_{{s.index}}">{{ s.index }}.</div>
+    <div class="chapter_content" [innerHtml]="s.story"></div>
     <div class="comment" *ngIf="s.comment">{{ s.comment }}</div>
   </div>
 

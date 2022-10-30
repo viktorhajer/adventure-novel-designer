@@ -1,7 +1,9 @@
 <h2>
-  <mat-icon>warning</mat-icon>
-  <div>Warning</div>
+  <mat-icon *ngIf="data.warning">warning</mat-icon>
+  <mat-icon *ngIf="!data.warning">info</mat-icon>
+  <div *ngIf="data.warning">Warning</div>
+  <div *ngIf="!data.warning">Information</div>
 </h2>
 <mat-dialog-content class="mat-typography">
-  <p>{{ this.data.message }}</p>
+  <p>{{ data.message }}</p>
 </mat-dialog-content>

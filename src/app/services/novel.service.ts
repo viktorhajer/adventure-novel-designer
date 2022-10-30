@@ -47,7 +47,7 @@ export class NovelService {
   createStation(station: Station, parentId?: number, comment = '') {
     station.id = ++this.maxID;
     this.model.stations.push(station);
-    if (parentId) {
+    if (!!parentId) {
       this.model.relations.push({
         sourceID: parentId,
         targetID: station.id,
@@ -143,11 +143,16 @@ export class NovelService {
     stations.forEach(s => {
       let i = 1;
       this.getChildren(s.id).forEach(c => {
-        s.story = s.story.replace(`##${i}`, c.index + this.getAffix(c.index));
+        s.story = s.story.replace(`[##${i}]`, this.addAnchor(c.index, c.index + this.getAffix(c.index)))
+         .replace(`##${i}`, this.addAnchor(c.index, c.index+''));
         i++;
       });
     });
     return stations;
+  }
+  
+  private addAnchor(index: number, indexStr: string): string {
+    return `<span class="anchor ${index}">${indexStr}</span>`;
   }
 
   private generateIndexes() {
@@ -210,7 +215,7 @@ export class NovelService {
   private openWarning(message: string) {
     this.dialog.open(WarningDialogComponent, {
       panelClass: 'small-dialog',
-      data: {message}
+      data: {message, warning: true}
     }).afterClosed();
   }
 }

@@ -8,6 +8,6 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 })
 export class WarningDialogComponent {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: { message: string }) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { message: string, warning: boolean }) {
   }
 }

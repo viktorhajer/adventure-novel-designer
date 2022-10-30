@@ -60,7 +60,7 @@ export class VisualNovelComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.nodes && this.edges) {
+    if (this.nodes && this.nodes.length && this.edges && this.edges.length) {
       let transform;
       const group = document.getElementById(VISUAL_NOVEL_ID)?.getElementsByTagName('g');
       const transformGroup = group ? group[0] : null;
@@ -75,6 +75,10 @@ export class VisualNovelComponent implements OnChanges {
       if (this.selected) {
         this.selectNode(this.selected)
       }
+    } else {
+      this.cleanUpData();
+      this.drawGraph();
+      this.renderGraph();
     }
   }
 
@@ -100,14 +104,16 @@ export class VisualNovelComponent implements OnChanges {
   selectNode(id: string) {
     if (this.selectable) {
       const d3Node = d3.selectAll('.' + id);
-      const classes = d3Node.attr('class');
-      if (classes.indexOf('selected') !== -1) {
-        d3Node.attr('class', classes.replace('selected', '').trim());
-      } else {
-        if (!this.multiSelect) {
-          VisualNovelComponent.deselectAllComponents();
+      if (d3Node) {
+        const classes = d3Node.attr('class');
+        if (classes.indexOf('selected') !== -1) {
+          d3Node.attr('class', classes.replace('selected', '').trim());
+        } else {
+          if (!this.multiSelect) {
+            VisualNovelComponent.deselectAllComponents();
+          }
+          d3Node.attr('class', classes + ' selected');
         }
-        d3Node.attr('class', classes + ' selected');
       }
     }
   }

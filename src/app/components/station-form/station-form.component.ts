@@ -1,12 +1,16 @@
 import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import {Station} from '../../model/station.model';
 import {NovelService} from '../../services/novel.service';
+import {EditService} from '../../services/edit.service';
 import {MatDialog} from '@angular/material/dialog';
 import {StationViewerComponent} from '../station-viewer/station-viewer.component';
-import {ConfirmDeleteComponent} from '../confirm-delete/confirm-delete.component';
+import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
 import {Relation} from '../../model/relation.model';
 import {STATION_COLORS} from '../../model/station-color.model';
 import {ErrorDialogComponent} from '../error-dialog/error-dialog.component';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 @Component({
   selector: 'app-station-form',
@@ -16,15 +20,23 @@ import {ErrorDialogComponent} from '../error-dialog/error-dialog.component';
 export class StationFormComponent implements OnChanges {
   @Input() trigger = 0;
   @Input() station: Station = null as any;
+  @Input() previousStation = 0;
   @Output() stationChanged = new EventEmitter();
   children: Station[] = [];
   childRoutes: Relation[] = [];
   createNew = true;
   stations: Station[] = [];
   colors = STATION_COLORS;
+  myDestinationControl = new FormControl('');
+  filteredDestinationOptions: Observable<Station[]>;
 
   constructor(private readonly novelService: NovelService,
+              private readonly editService: EditService,
               private readonly dialog: MatDialog) {
+    this.filteredDestinationOptions = this.myDestinationControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this.filterDestination(value || '')),
+    );
   }
 
   ngOnChanges() {
@@ -37,10 +49,20 @@ export class StationFormComponent implements OnChanges {
       }
     }
   }
+  
+  checkUnsaved() {
+    if (this.createNew) {
+      this.editService.unsaved = true;
+    } else {
+      const originStation = this.novelService.model.stations.find(s => s.id === this.station.id);
+      this.editService.unsaved = JSON.stringify(originStation) !== JSON.stringify(this.station);
+    }
+  }
 
   create() {
     if (this.station.title.trim()) {
-      this.novelService.createStation(this.station);
+      this.novelService.createStation(this.station, this.previousStation);
+      this.editService.unsaved = false;
       this.stationChanged.emit(this.station.id + '');
     } else {
       this.dialog.open(ErrorDialogComponent, {
@@ -52,6 +74,7 @@ export class StationFormComponent implements OnChanges {
 
   update() {
     this.novelService.updateStation(this.station);
+    this.editService.unsaved = false;
     this.stationChanged.emit(this.station.id + '');
   }
 
@@ -64,7 +87,8 @@ export class StationFormComponent implements OnChanges {
     });
   }
 
-  createRelation(targetId: number, comment: HTMLInputElement) {
+  createRelation(destination:HTMLInputElement, comment: HTMLInputElement) {
+    const targetId = this.stations.find(s => s.title === destination.value)?.id as any;
     this.novelService.createRelation(this.station.id, targetId, comment.value);
     comment.value = '';
     this.stationChanged.emit(this.station.id + '');
@@ -91,7 +115,12 @@ export class StationFormComponent implements OnChanges {
   }
   
   private openConfirmation(): Promise<boolean> {
-    return this.dialog.open(ConfirmDeleteComponent, {disableClose:true})
+    return this.dialog.open(ConfirmDialogComponent, {data: {message: 'Are you sure to delete?'}, disableClose:true})
       .afterClosed().toPromise();
+  }
+  
+  private filterDestination(value: string): Station[] {
+    const filterValue = value.toLowerCase();
+    return this.stations.filter(s => s.title.toLowerCase().includes(filterValue));
   }
 }

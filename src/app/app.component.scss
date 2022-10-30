@@ -1,8 +1,11 @@
-#expand_button {
+#expand_button, #create_button {
   position: fixed;
-  top: 50px;
-  right: 15px;
+  top: 55px;
+  right: 20px;
   opacity: 0.5;
+}
+#create_button {
+  right: 50px;
 }
 
 #main-container {
@@ -16,6 +19,7 @@
 
   h1 {
     color: #1a3a5b;
+    cursor: pointer;
   }
 
   #main {

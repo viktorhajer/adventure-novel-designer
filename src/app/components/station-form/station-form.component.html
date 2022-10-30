@@ -1,23 +1,23 @@
 <div id="edit-station-form" *ngIf="station">
   <mat-form-field appearance="fill">
     <mat-label>Title</mat-label>
-    <input matInput [(ngModel)]="station.title">
+    <input matInput [(ngModel)]="station.title" (change)="checkUnsaved()">
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Story</mat-label>
-    <textarea matInput [(ngModel)]="station.story"></textarea>
+    <textarea matInput [(ngModel)]="station.story" (change)="checkUnsaved()"></textarea>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Editorial comment</mat-label>
-    <input matInput [(ngModel)]="station.comment">
+    <input matInput [(ngModel)]="station.comment" (change)="checkUnsaved()">
   </mat-form-field>
 
   <div class="flex--row">
     <mat-form-field appearance="fill">
       <mat-label>Life</mat-label>
-      <mat-select [(ngModel)]="station.life">
+      <mat-select [(ngModel)]="station.life" (selectionChange)="checkUnsaved()">
         <mat-option *ngFor="let lf of [-3,-2,-1,0,1,2,3]" [value]="lf">
           {{lf}}
         </mat-option>
@@ -26,7 +26,7 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Color</mat-label>
-      <mat-select [(ngModel)]="station.color">
+      <mat-select [(ngModel)]="station.color" (selectionChange)="checkUnsaved()">
         <mat-option *ngFor="let c of colors" [value]="c.value">
           {{c.title}}
         </mat-option>
@@ -34,7 +34,7 @@
     </mat-form-field>
   </div>
   
-  <mat-slide-toggle [color]="'primary'" [(ngModel)]="station.starter">
+  <mat-slide-toggle [color]="'primary'" [(ngModel)]="station.starter" (change)="checkUnsaved()">
     First station
   </mat-slide-toggle>
 
@@ -76,20 +76,22 @@
   <div class="new-children-container" *ngIf="!createNew && stations.length">
     <h2>Set new route</h2>
     <div class="flex--row">
+    
       <mat-form-field appearance="fill">
         <mat-label>Destination</mat-label>
-        <mat-select #stationInput>
-          <mat-option *ngFor="let s of stations" [value]="s.id">
+        <input type="text" matInput [formControl]="myDestinationControl" [matAutocomplete]="auto" #destinationInput>
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option *ngFor="let s of filteredDestinationOptions | async" [value]="s.title">
             {{s.title}}
           </mat-option>
-        </mat-select>
+        </mat-autocomplete>
       </mat-form-field>
+
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Comment</mat-label>
         <input matInput #commentInput>
       </mat-form-field>
     </div>
-    <button mat-raised-button (click)="createRelation(stationInput.value, commentInput)">
-      Create</button>
+    <button mat-raised-button (click)="createRelation(destinationInput, commentInput)">Set</button>
   </div>
 </div>

@@ -3,14 +3,15 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {StationFormComponent} from './components/station-form/station-form.component';
 import {ErrorDialogComponent} from './components/error-dialog/error-dialog.component';
 import {WarningDialogComponent} from './components/warning-dialog/warning-dialog.component';
-import {ConfirmDeleteComponent} from './components/confirm-delete/confirm-delete.component';
+import {ConfirmDialogComponent} from './components/confirm-dialog/confirm-dialog.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {StationViewerComponent} from './components/station-viewer/station-viewer.component';
@@ -26,7 +27,7 @@ import {NovelViewerComponent} from './components/novel-viewer/novel-viewer.compo
     StationFormComponent,
     ErrorDialogComponent,
     WarningDialogComponent,
-    ConfirmDeleteComponent,
+    ConfirmDialogComponent,
     StationViewerComponent,
     NovelViewerComponent,
     VisualNovelComponent
@@ -41,7 +42,9 @@ import {NovelViewerComponent} from './components/novel-viewer/novel-viewer.compo
     MatDialogModule,
     MatIconModule,
     MatSlideToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
