@@ -70,7 +70,8 @@ export class NovelService {
       this.model.relations.push({
         sourceId: parentId,
         targetId: station.id,
-        comment
+        comment,
+        condition: false
       });
     }
   }
@@ -83,6 +84,8 @@ export class NovelService {
       originStation.comment = station.comment;
       originStation.color = station.color;
       originStation.starter = station.starter;
+      originStation.winner = station.winner;
+      originStation.looser = station.looser;
       originStation.life = station.life;
       if (station.starter) {
         this.model.stations.filter(s => s.id !== station.id).forEach(s => s.starter = false);
@@ -96,13 +99,12 @@ export class NovelService {
     this.model.stationItems = this.model.stationItems.filter(si => si.stationId !== id);
   }
 
-  createRelation(sourceId: number, targetId: number, comment = '') {
-    this.model.relations.push({sourceId, targetId, comment});
+  createRelation(sourceId: number, targetId: number, comment = '', condition = false) {
+    this.model.relations.push({sourceId, targetId, comment, condition});
   }
 
   deleteRelation(sourceId: number, targetId: number) {
     this.model.relations = this.model.relations.filter(r => !(r.sourceId === sourceId && r.targetId === targetId));
-    this.model.relationItems = this.model.relationItems.filter(ri => !(ri.sourceId !== sourceId && ri.targetId === targetId));
   }
   
   createItem(name: string) {
@@ -113,15 +115,6 @@ export class NovelService {
   deleteItem(id: number) {
     this.model.items = this.model.items.filter(i => i.id !== id);
     this.model.stationItems = this.model.stationItems.filter(si => si.itemId !== id);
-    this.model.relationItems = this.model.relationItems.filter(ri => ri.itemId !== id);
-  }
-  
-  createRelationItem(sourceId: number, targetId: number, itemId: number){
-    this.model.relationItems.push({sourceId, targetId, itemId});
-  }
-  
-  deleteRelationItem(sourceId: number, targetId: number, itemId: number) {
-    this.model.relationItems = this.model.relationItems.filter(ri => !(ri.sourceId !== sourceId && ri.targetId === targetId && ri.itemId === itemId));
   }
   
   setItem(stationId: number, itemId: number, count: number) {

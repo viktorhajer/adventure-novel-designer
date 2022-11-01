@@ -33,15 +33,11 @@ export class StationFormComponent implements OnChanges {
   ownItems: {item: Item, stationItem: StationItem}[] = [];
   colors = STATION_COLORS;
   myDestinationControl = new FormControl('');
-  filteredDestinationOptions: Observable<Station[]>;
+  filteredDestinationOptions: Observable<Station[]> = null as any;
 
   constructor(public readonly novelService: NovelService,
               private readonly editService: EditService,
               private readonly dialog: MatDialog) {
-    this.filteredDestinationOptions = this.myDestinationControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this.filterDestination(value || '')),
-    );
   }
 
   ngOnChanges() {
@@ -54,6 +50,10 @@ export class StationFormComponent implements OnChanges {
         this.items = this.novelService.getItems(this.station.id);
         this.ownItems = this.novelService.getStationItems(this.station.id);
       }
+      this.filteredDestinationOptions = this.myDestinationControl.valueChanges.pipe(
+        startWith(''),
+        map(value => this.filterDestination(value || '')),
+      );
     }
   }
   
@@ -64,6 +64,20 @@ export class StationFormComponent implements OnChanges {
       const originStation = this.novelService.model.stations.find(s => s.id === this.station.id);
       this.editService.unsaved = JSON.stringify(originStation) !== JSON.stringify(this.station);
     }
+  }
+  
+  checkWinnerLooser(field = 0) {
+    if (field === 0 && this.station.starter) {
+      this.station.winner = false;
+      this.station.looser = false;
+    } else if (field === 1 && this.station.winner) {
+      this.station.starter = false;
+      this.station.looser = false;
+    } else if (field === 2 && this.station.looser) {
+      this.station.starter = false;
+      this.station.winner = false;
+    }
+    this.checkUnsaved();
   }
 
   create() {
@@ -91,11 +105,17 @@ export class StationFormComponent implements OnChanges {
     });
   }
 
-  createRelation(destination:HTMLInputElement, comment: HTMLInputElement) {
+  createRelation(destination:HTMLInputElement, comment: HTMLInputElement, conditionInput: any) {
     const targetId = this.stations.find(s => s.title === destination.value)?.id as any;
-    this.novelService.createRelation(this.station.id, targetId, comment.value);
-    comment.value = '';
-    this.stationChanged.emit(this.station.id + '');
+    if (targetId) {
+      this.novelService.createRelation(this.station.id, targetId, comment.value, conditionInput.checked);
+      comment.value = '';
+      this.stationChanged.emit(this.station.id + '');
+      destination.value = '';
+      comment.value = '';
+      conditionInput.checked = false;
+      console.log(this.myDestinationControl);
+    }
   }
 
   deleteRelation(targetId: number) {
@@ -136,7 +156,8 @@ export class StationFormComponent implements OnChanges {
       this.dialog.open(RelationFormComponent, {data: {relation}, disableClose:true})
         .afterClosed().toPromise().then(result => {
           if(result !== null) {
-            relation.comment = result;
+            relation.comment = result.comment;
+            relation.condition = result.condition;
             this.editService.unsaved = false;
             this.stationChanged.emit(this.station.id + '');
           }
@@ -144,8 +165,8 @@ export class StationFormComponent implements OnChanges {
     }
   }
 
-  getRelationComment(childId: number) {
-    return this.childRoutes?.find(r => r.targetId === childId)?.comment;
+  getRelation(childId: number) {
+    return this.childRoutes?.find(r => r.targetId === childId) as any;
   }
   
   private validateTitle(): boolean {

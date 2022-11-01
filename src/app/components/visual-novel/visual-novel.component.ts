@@ -97,10 +97,12 @@ export class VisualNovelComponent implements OnChanges {
     this.nodes.forEach(node => this.graph.setNode(node.id, {label: node.id}));
     this.edges.forEach(edge => {
       let strokeStyle = 'stroke: #888; stroke-width: 2px; fill: none;';
+      let arrowheadStyle = 'stroke: #888; fill: #888;';
       if (edge.condition) {
-        strokeStyle = strokeStyle + 'stroke-dasharray: 5,5';
+        strokeStyle = 'stroke: #1399d3; stroke-width: 2px; fill: none; stroke-dasharray: 0, 2, 2';
+        arrowheadStyle = 'stroke: #1399d3; fill: #1399d3;';
       }
-      this.graph.setEdge(edge.sourceId, edge.targetId, {label: edge.comment, style: strokeStyle})
+      this.graph.setEdge(edge.sourceId, edge.targetId, {label: edge.comment, style: strokeStyle, arrowheadStyle})
     });
     this.graph.nodes().forEach((v: any) => {
       const d3Node = this.graph.node(v);
@@ -114,6 +116,10 @@ export class VisualNovelComponent implements OnChanges {
       }
       if (node?.starter) {
         classes += ' starter';
+      } else if (node?.winner) {
+        classes += ' winner';
+      } else if (node?.looser) {
+        classes += ' looser';
       }
       d3Node.class = classes;
     });
@@ -217,7 +223,15 @@ export class VisualNovelComponent implements OnChanges {
       } while (text.length);
     }
     html += '</div>';
-    
+
+    if (node.starter) {
+        html += '<div class="icon start"><span class="material-symbols-outlined">my_location</span></div>'
+    } else if (node.winner) {
+        html += '<div class="icon start">&#10026;</div>'
+    } else if (node.looser) {
+        html += '<div class="icon looser">&#128128;</div>'
+    }
+
     if (node.heart || node.skull || node.present) {
       html += '<div class="icon">'
       if (node.heart) {
@@ -230,10 +244,6 @@ export class VisualNovelComponent implements OnChanges {
         html += '&#127873;';
       }
       html += '</div>'
-    }
-
-    if (node.starter) {
-        html += '<div class="icon start">&#10026;</div>'
     }
     html += '</div>';
     return html;

@@ -11,7 +11,8 @@ import {VisualNovel} from './components/visual-novel/visual-novel.model';
 import {VisualNovelMapper} from './components/visual-novel/visual-novel.mapper';
 import {MatDialog} from '@angular/material/dialog';
 
-const EMPTY_NOVEL = '{"title":"New novel","prolog":"","stations":[],"relations":[],"items":[],"stationItems":[],"mortality": true,"handleInventory": true}';
+const EMPTY_NOVEL = '{"title":"New novel","prolog":"","stations":[],"relations":[],"items":[],'+
+  '"stationItems":[],"mortality": true,"handleInventory": true}';
 
 // @ts-ignore
 
@@ -26,17 +27,22 @@ export class AppComponent {
 
   modelString = '{"title":"Lorem ipsum dolor","prolog": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",' +
     '"stations":[' +
-    '{"id":1,"life":0,"index":0,"starter": true,"title":"Indulás a faluból","comment": "","story":"Menj a ##1 vagy ##2.","color":"red"},' +
-    '{"id":2,"life":-1,"index":0,"starter": false,"title":"Elágazás az erdőben","comment": "Consectetur adipiscing elit, sed do eiusmod","story":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","color":"white"},' +
-    '{"id":3,"life":0,"index":0,"starter": false,"title":"Sziklás kihívás","comment": "","story":"Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.   ##1","color":"blue"},' +
-    '{"id":4,"life":2,"index":0,"starter": false,"title":"Völgy","comment": "","story":"","color":"white"},' +
-    '{"id":5,"life":0,"index":0,"starter": false,"title":"Manók","comment": "","story":"Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","color":"white"}' +
+    '{"id":1,"life":0,"index":0,"starter":true,"winner":false,"looser":false,"title":"Indulás a faluból","comment": "","story":"Menj a ##1 vagy ##2.","color":"white"},' +
+    '{"id":2,"life":-1,"index":0,"starter":false,"winner":false,"looser":false,"title":"Elágazás az erdőben","comment": "Consectetur adipiscing elit, sed do eiusmod","story":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","color":"white"},' +
+    '{"id":3,"life":0,"index":0,"starter":false,"winner":false,"looser":false,"title":"Sziklás kihívás","comment": "","story":"Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.   ##1","color":"blue"},' +
+    '{"id":4,"life":2,"index":0,"starter": false,"winner":false,"looser":false,"title":"Völgy","comment": "","story":"","color":"white"},' +
+    '{"id":5,"life":-1,"index":0,"starter": false,"winner":false,"looser":false,"title":"Manók","comment": "","story":"Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","color":"orange"},' +
+    '{"id":6,"title":"Folyópart","story":"ss","color":"white","comment":"","index":0,"starter":false,"winner":true,"looser":false,"life":0},' +
+    '{"id":7,"title":"Gödör","story":"gödör","color":"","comment":"","index":0,"starter":false,"life":0,"winner":false,"looser":true}' +
     '],"relations":[' +
-    '{"sourceId":1,"targetId":2,"comment":"Megnéz"},' +
-    '{"sourceId":1,"targetId":3,"comment":"Leugrik"},' +
-    '{"sourceId":3,"targetId":4,"comment":""},' +
-    '{"sourceId":4,"targetId":5,"comment":"Nyert"}],' +
-    '"stationItems":[{"stationId": 3, "itemId": 1, "count": 2}],' + 
+    '{"sourceId":1,"targetId":2,"comment":"Megnéz","condition":false},' +
+    '{"sourceId":1,"targetId":3,"comment":"Leugrik","condition":true},' +
+    '{"sourceId":3,"targetId":4,"comment":"","condition":false},' +
+    '{"sourceId":2,"targetId":6,"comment":"Esés","condition":false},' +
+    '{"sourceId":4,"targetId":6,"comment":"","condition":true},' +
+    '{"sourceId":5,"targetId":7,"comment":"","condition":false},' +
+    '{"sourceId":4,"targetId":5,"comment":"Nyert","condition":false}],' +
+    '"stationItems":[{"stationId": 3, "itemId": 1, "count": 2}, {"stationId": 5, "itemId": 2, "count": 1}],' + 
     '"items":[{"id":1,"name":"Kard"},{"id": 2,"name":"Kulcs"}],' + 
     '"mortality": true,"handleInventory": true}';
   station: Station = null as any;

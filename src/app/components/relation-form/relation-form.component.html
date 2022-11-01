@@ -7,6 +7,9 @@
     <mat-label>Comment</mat-label>
     <textarea matInput [(ngModel)]="comment"></textarea>
   </mat-form-field>
+  <mat-slide-toggle [color]="'primary'" [(ngModel)]="condition">
+    Condition
+  </mat-slide-toggle>
   
   <div class="actions">
     <button mat-raised-button color="primary" (click)="update()">Update</button>

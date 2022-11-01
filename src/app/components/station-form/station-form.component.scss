@@ -61,7 +61,16 @@
       text-align: center;
       width: 130px;
     }
+    
+    .condition {
+      text-align: center;
+      width: 60px;
+    }
   }
+}
+
+mat-slide-toggle {
+    margin: 0 0 18px 18px;
 }
 
 .flex--row {

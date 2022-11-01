@@ -15,6 +15,8 @@ export class VisualNovelNode {
   title: string = '';
   color: string = '';
   starter: boolean = false;
+  winner: boolean = false;
+  looser: boolean = false;
   alert: boolean = false;
   warning: boolean = false;
   heart: boolean = false;

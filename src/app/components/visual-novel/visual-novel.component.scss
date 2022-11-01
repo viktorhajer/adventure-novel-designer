@@ -20,10 +20,18 @@ $text-color: rgba(33, 41, 44, 1);
   
   .icon {
     text-align: right;
+    border-top: 1px dotted #999;
+    margin-top: 3px;
     
     &.start {
       font-size: 30px;
       text-align: center;
+      border: none;
+    }
+    &.looser {
+      font-size: 20px;
+      text-align: center;
+      border: none;
     }
   }
 
@@ -100,6 +108,22 @@ $text-color: rgba(33, 41, 44, 1);
         stroke-width: 4px;
         stroke-dasharray: none;
         stroke: #444;
+      }
+    }    
+    
+    &.winner {
+      rect {
+        stroke-width: 4px;
+        stroke-dasharray: none;
+        stroke: #77b79b;
+      }
+    }
+    
+    &.looser {
+      rect {
+        stroke-width: 2px;
+        stroke-dasharray: none;
+        stroke: #b94747;
       }
     }
 

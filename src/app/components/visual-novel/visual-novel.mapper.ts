@@ -28,6 +28,8 @@ export class VisualNovelMapper {
     node.title = station.title;
     node.color = station.color;
     node.starter = station.starter;
+    node.winner = station.winner;
+    node.looser = station.looser;
     node.alert = !station.story.trim().length;
     node.warning = !!station.comment.trim().length;
     node.heart = station.life > 0;
@@ -38,7 +40,8 @@ export class VisualNovelMapper {
 
   private static mapRelationToEdge(relation: Relation): VisualNovelEdge {
     if (relation.sourceId && relation.targetId) {
-      return {sourceId: ID_PREFIX + relation.sourceId, targetId: ID_PREFIX + relation.targetId, comment: relation.comment, condition: false};
+      return {sourceId: ID_PREFIX + relation.sourceId, targetId: ID_PREFIX + relation.targetId,
+        comment: relation.comment, condition: relation.condition};
     }
     return null as any;
   }
