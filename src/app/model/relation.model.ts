@@ -1,4 +1,4 @@
 export class Relation {
-  constructor(public readonly sourceID: number, public readonly targetID: number, public readonly comment = '') {
+  constructor(public sourceId: number, public targetId: number, public comment = '') {
   }
 }

@@ -13,7 +13,7 @@ export class VisualNovelMapper {
       const allEdges = novel.relations ?
         novel.relations.map(r => VisualNovelMapper.mapRelationToEdge(r)).filter(e => !!e) : [];
       const uniqueEdges = allEdges.filter((edge, index, self) =>
-        self.map(e => e.sourceID + e.targetID).indexOf(edge.sourceID + edge.targetID) === index);
+        self.map(e => e.sourceId + e.targetId).indexOf(edge.sourceId + edge.targetId) === index);
       return {nodes, edges: uniqueEdges};
     }
     return {nodes: [], edges: []};
@@ -31,8 +31,8 @@ export class VisualNovelMapper {
   }
 
   private static mapRelationToEdge(relation: Relation): VisualNovelEdge {
-    if (relation.sourceID && relation.targetID) {
-      return {sourceID: ID_PREFIX + relation.sourceID, targetID: ID_PREFIX + relation.targetID, comment: relation.comment};
+    if (relation.sourceId && relation.targetId) {
+      return {sourceId: ID_PREFIX + relation.sourceId, targetId: ID_PREFIX + relation.targetId, comment: relation.comment, condition: false};
     }
     return null as any;
   }

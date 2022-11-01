@@ -19,6 +19,8 @@ import {VisualNovelComponent} from './components/visual-novel/visual-novel.compo
 import {MatSelectModule} from '@angular/material/select';
 import {NovelFormComponent} from './components/novel-form/novel-form.component';
 import {NovelViewerComponent} from './components/novel-viewer/novel-viewer.component';
+import {RelationFormComponent} from './components/relation-form/relation-form.component';
+import {ItemFormComponent} from './components/item-form/item-form.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import {NovelViewerComponent} from './components/novel-viewer/novel-viewer.compo
     ConfirmDialogComponent,
     StationViewerComponent,
     NovelViewerComponent,
+    RelationFormComponent,
+    ItemFormComponent,
     VisualNovelComponent
   ],
   imports: [

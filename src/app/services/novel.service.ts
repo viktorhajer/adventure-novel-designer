@@ -4,6 +4,8 @@ import {MatDialog} from '@angular/material/dialog';
 import {ErrorDialogComponent} from '../components/error-dialog/error-dialog.component';
 import {WarningDialogComponent} from '../components/warning-dialog/warning-dialog.component';
 import {Station} from '../model/station.model';
+import {Item} from '../model/item.model';
+import {StationItem} from '../model/station-item.model';
 import {NovelViewerComponent} from '../components/novel-viewer/novel-viewer.component';
 
 @Injectable({
@@ -40,8 +42,25 @@ export class NovelService {
 
   getStations(exceptId: number): Station[] {
     let filtered = this.model.stations.filter(s => s.id !== exceptId);
-    const children = this.model.relations.filter(r => r.sourceID === exceptId).map(r => r.targetID);
+    const children = this.model.relations.filter(r => r.sourceId === exceptId).map(r => r.targetId);
     return filtered.filter(s => !children.includes(s.id));
+  }
+  
+  getItem(id: number): Item {
+    return this.model.items.find(i => i.id === id) as any;
+  }
+  
+  getItems(exceptId: number): Item[] {
+    const expectItems = this.model.stationItems.filter(si => si.stationId === exceptId).map(si => si.itemId);
+    return this.model.items.filter(item => !expectItems.includes(item.id));
+  }
+  
+  getStationItems(stationId: number): {item: Item, stationItem: StationItem}[] {
+    const stationItems = this.model.stationItems.filter(si => si.stationId === stationId);
+    return stationItems.map(si => {
+      const item = this.model.items.find(item => item.id === si.itemId) as any;
+      return {item, stationItem: si};
+    });
   }
 
   createStation(station: Station, parentId?: number, comment = '') {
@@ -49,8 +68,8 @@ export class NovelService {
     this.model.stations.push(station);
     if (!!parentId) {
       this.model.relations.push({
-        sourceID: parentId,
-        targetID: station.id,
+        sourceId: parentId,
+        targetId: station.id,
         comment
       });
     }
@@ -73,19 +92,48 @@ export class NovelService {
 
   deleteStation(id: number) {
     this.model.stations = this.model.stations.filter(s => s.id !== id);
-    this.model.relations = this.model.relations.filter(r => r.sourceID !== id && r.targetID !== id);
+    this.model.relations = this.model.relations.filter(r => r.sourceId !== id && r.targetId !== id);
+    this.model.stationItems = this.model.stationItems.filter(si => si.stationId !== id);
   }
 
-  createRelation(sourceID: number, targetID: number, comment = '') {
-    this.model.relations.push({sourceID, targetID, comment});
+  createRelation(sourceId: number, targetId: number, comment = '') {
+    this.model.relations.push({sourceId, targetId, comment});
   }
 
-  deleteRelation(sourceID: number, targetID: number) {
-    this.model.relations = this.model.relations.filter(r => !(r.sourceID === sourceID && r.targetID === targetID));
+  deleteRelation(sourceId: number, targetId: number) {
+    this.model.relations = this.model.relations.filter(r => !(r.sourceId === sourceId && r.targetId === targetId));
+    this.model.relationItems = this.model.relationItems.filter(ri => !(ri.sourceId !== sourceId && ri.targetId === targetId));
+  }
+  
+  createItem(name: string) {
+    const id = this.getNewItemId();
+    this.model.items.push({id, name});
+  }
+  
+  deleteItem(id: number) {
+    this.model.items = this.model.items.filter(i => i.id !== id);
+    this.model.stationItems = this.model.stationItems.filter(si => si.itemId !== id);
+    this.model.relationItems = this.model.relationItems.filter(ri => ri.itemId !== id);
+  }
+  
+  createRelationItem(sourceId: number, targetId: number, itemId: number){
+    this.model.relationItems.push({sourceId, targetId, itemId});
+  }
+  
+  deleteRelationItem(sourceId: number, targetId: number, itemId: number) {
+    this.model.relationItems = this.model.relationItems.filter(ri => !(ri.sourceId !== sourceId && ri.targetId === targetId && ri.itemId === itemId));
+  }
+  
+  setItem(stationId: number, itemId: number, count: number) {
+    this.model.stationItems.push({stationId, itemId, count});
+  }
+  
+  deleteStationItem(stationId: number, itemId: number) {
+    this.model.stationItems = this.model.stationItems.filter(si => !(si.stationId === stationId && si.itemId === itemId));
   }
 
   getChildren(id: number): Station[] {
-    return this.model.relations.filter(r => r.sourceID === id).map(r => this.model.stations.find(s => s.id === r.targetID) as any);
+    return this.model.relations.filter(r => r.sourceId === id).map(r => this.model.stations.find(s => s.id === r.targetId) as any);
   }
 
   finalize() {
@@ -109,7 +157,7 @@ export class NovelService {
     }
     // Shadow starter
     if (!message) {
-      const targetIds = this.model.relations.map(r => r.targetID);
+      const targetIds = this.model.relations.map(r => r.targetId);
       const abandonedStarters = this.model.stations.filter(s => !s.starter && !targetIds.includes(s.id));
       if (abandonedStarters.length) {
         message = 'Abandoned stations (where there is no route and not first station): '
@@ -125,7 +173,7 @@ export class NovelService {
   private validateMacros() {
     const messages = [];
     for (const s of this.model.stations) {
-      const childrenNumber = this.model.relations.filter(r => r.sourceID === s.id).length;
+      const childrenNumber = this.model.relations.filter(r => r.sourceId === s.id).length;
       for (let i = 1; i < (childrenNumber + 1); i++) {
         if (s.story.indexOf('##' + i) === -1) {
           messages.push(s.title + ': ##' + i);
@@ -189,6 +237,14 @@ export class NovelService {
       max = s.id > max ? s.id : max;
     });
     this.maxID = max;
+  }
+  
+  private getNewItemId(): number {
+    let max = 0;
+    this.model.items.forEach(item => {
+      max = item.id > max ? item.id : max;
+    });
+    return max+1;
   }
 
   private getAffix(num: number): string {

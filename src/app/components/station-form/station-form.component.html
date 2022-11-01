@@ -15,7 +15,7 @@
   </mat-form-field>
 
   <div class="flex--row">
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" *ngIf="novelService.model.mortality">
       <mat-label>Life</mat-label>
       <mat-select [(ngModel)]="station.life" (selectionChange)="checkUnsaved()">
         <mat-option *ngFor="let lf of [-3,-2,-1,0,1,2,3]" [value]="lf">
@@ -49,7 +49,7 @@
     <table mat-table>
       <thead>
       <tr>
-        <th>Macro</th>
+        <th class="macro">Macro</th>
         <th>Title</th>
         <th>Comment</th>
         <th>Action</th>
@@ -57,12 +57,15 @@
       </thead>
       <tbody>
       <tr *ngFor="let s of children; let i = index">
-        <td><div>##{{ i + 1 }}</div></td>
+        <td class="macro">##{{ i + 1 }}</td>
         <td><div>{{ s.title }}</div></td>
         <td><div>{{ getRelationComment(s.id) }}</div></td>
         <td>
-          <button mat-icon-button color="primary" (click)="viewStation(s)">
+          <button mat-icon-button (click)="viewStation(s)">
             <mat-icon>open_in_new</mat-icon>
+          </button>
+          <button mat-icon-button (click)="editRelation(s.id)">
+            <mat-icon>settings</mat-icon>
           </button>
           <button mat-icon-button (click)="deleteRelation(s.id)">
             <mat-icon>delete</mat-icon>
@@ -73,10 +76,33 @@
     </table>
   </div>
 
+  <div class="children-container item-container" *ngIf="!createNew && novelService.model.handleInventory && ownItems.length">
+    <h2>Items</h2>
+    <table mat-table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Count</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let oi of ownItems">
+        <td><div>{{ oi.item.name }}</div></td>
+        <td><div>{{ oi.stationItem.count }}</div></td>
+        <td>
+          <button mat-icon-button (click)="deleteOwnItem(oi.item.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  
   <div class="new-children-container" *ngIf="!createNew && stations.length">
     <h2>Set new route</h2>
     <div class="flex--row">
-    
       <mat-form-field appearance="fill">
         <mat-label>Destination</mat-label>
         <input type="text" matInput [formControl]="myDestinationControl" [matAutocomplete]="auto" #destinationInput>
@@ -86,12 +112,32 @@
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
-
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Comment</mat-label>
         <input matInput #commentInput>
       </mat-form-field>
+      <button mat-raised-button (click)="createRelation(destinationInput, commentInput)">Set</button>
     </div>
-    <button mat-raised-button (click)="createRelation(destinationInput, commentInput)">Set</button>
   </div>
+
+  <div class="new-children-container" *ngIf="!createNew && novelService.model.handleInventory && items.length">
+    <h2>Set new item</h2>
+    <div class="flex--row">
+      <mat-form-field appearance="fill">
+        <mat-label>Item</mat-label>
+        <mat-select #itemid>
+          <mat-option *ngFor="let item of items" [value]="item.id">
+            {{item.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Count</mat-label>
+        <input matInput #itemcount type="number" value="1">
+      </mat-form-field>
+      <button mat-raised-button (click)="setItem(station.id, itemid, itemcount)">Set</button>
+    </div>
+  </div>
+
+  
 </div>

@@ -11,7 +11,7 @@ import {VisualNovel} from './components/visual-novel/visual-novel.model';
 import {VisualNovelMapper} from './components/visual-novel/visual-novel.mapper';
 import {MatDialog} from '@angular/material/dialog';
 
-const EMPTY_NOVEL = '{"title":"New novel","prolog":"","stations":[],"relations":[]}';
+const EMPTY_NOVEL = '{"title":"New novel","prolog":"","stations":[],"relations":[],"items":[],"stationItems":[],"mortality": true,"handleInventory": true}';
 
 // @ts-ignore
 
@@ -32,10 +32,13 @@ export class AppComponent {
     '{"id":4,"life":0,"index":0,"starter": false,"title":"Völgy","comment": "","story":"","color":"white"},' +
     '{"id":5,"life":0,"index":0,"starter": false,"title":"Manók","comment": "","story":"Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","color":"white"}' +
     '],"relations":[' +
-    '{"sourceID":1,"targetID":2,"comment":"Megnéz"},' +
-    '{"sourceID":1,"targetID":3,"comment":"Leugrik"},' +
-    '{"sourceID":3,"targetID":4,"comment":""},' +
-    '{"sourceID":4,"targetID":5,"comment":"Nyert"}]}';
+    '{"sourceId":1,"targetId":2,"comment":"Megnéz"},' +
+    '{"sourceId":1,"targetId":3,"comment":"Leugrik"},' +
+    '{"sourceId":3,"targetId":4,"comment":""},' +
+    '{"sourceId":4,"targetId":5,"comment":"Nyert"}],' +
+    '"stationItems":[{"stationId": 3, "itemId": 1, "count": 2}],' + 
+    '"items":[{"id":1,"name":"Kard"},{"id": 2,"name":"Kulcs"}],' + 
+    '"mortality": true,"handleInventory": true}';
   station: Station = null as any;
   visualModel: VisualNovel = null as any;
   formTrigger = 0;
@@ -65,6 +68,8 @@ export class AppComponent {
         data: {message: 'Raw model was copied to the clipboard successfully.', warning: false}
       }).afterClosed();
     }
+    this.visualModel = null as any;
+    this.station = null as any;
     this.novelService.clearModel();
   }
 

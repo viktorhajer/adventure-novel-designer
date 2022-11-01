@@ -1,0 +1,15 @@
+<h2>
+  <mat-icon>diamond</mat-icon>
+  <div>Update item name</div>
+</h2>
+<mat-dialog-content class="mat-typography">
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <textarea matInput [(ngModel)]="name"></textarea>
+  </mat-form-field>
+  
+  <div class="actions">
+    <button mat-raised-button color="primary" (click)="update()">Update</button>
+    <button mat-raised-button (click)="cancel()">Cancel</button>
+  </div>
+</mat-dialog-content>

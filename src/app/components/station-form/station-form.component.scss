@@ -12,6 +12,17 @@
     margin-top: 20px;
     display: flex;
     flex-flow: column;
+    
+    &.item-container {
+      th:last-child, td:last-child, th:nth-child(2), td:nth-child(2) {
+        width: 60px;
+        text-align: center;
+      }
+    }
+
+    .macro {
+      width: 50px;
+    }
   }
 
   table {
@@ -48,13 +59,14 @@
 
     th:last-child, td:last-child {
       text-align: center;
-      width: 100px;
+      width: 130px;
     }
   }
 }
 
 .flex--row {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
   
@@ -64,5 +76,10 @@
 
   *:first-child {
     margin-right: 10px;
+  }
+  
+  button {
+    margin-bottom: 20px;
+    margin-left: 10px;
   }
 }

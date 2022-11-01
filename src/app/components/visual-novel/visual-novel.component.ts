@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewEn
 import * as dagreD3 from 'dagre-d3';
 import * as d3 from 'd3';
 import {VisualNovelEdge, VisualNovelNode} from './visual-novel.model';
+import {NovelService} from '../../services/novel.service';
 
 const VISUAL_NOVEL_ID = 'visual-novel';
 
@@ -31,32 +32,8 @@ export class VisualNovelComponent implements OnChanges {
       element.classList.remove('selected');
     });
   }
-
-  private static createNodeContent(node: VisualNovelNode): string {
-    const charLength = 30;
-    let html = `<div class="node-container ${node.id} row">`;
-    html += `<div class="title" title="${node.title}">`;
-    if (node.alert) {
-      html += '<span class="material-symbols-outlined">error</span>';
-    }
-    if (node.warning) {
-      html += '<span class="material-symbols-outlined warning">warning</span>';
-    }
-    let text = node.title;
-    if (text.length <= charLength) {
-      html += text;
-    } else {
-      do {
-        const slice = text.slice(0, charLength);
-        html += slice;
-        text = text.slice(charLength);
-        if (text.length) {
-          html += '<br/>'
-        }
-      } while (text.length);
-    }
-    html += '</div></div>';
-    return html;
+  
+  constructor(public readonly novelService: NovelService) {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -122,15 +99,21 @@ export class VisualNovelComponent implements OnChanges {
     this.graph = new dagreD3.graphlib.Graph();
     this.graph.setGraph({nodesep: 70, ranksep: 50, rankdir: 'TB', marginx: 20, marginy: 20});
     this.nodes.forEach(node => this.graph.setNode(node.id, {label: node.id}));
-    this.edges.forEach(edge => this.graph.setEdge(edge.sourceID, edge.targetID, {label: edge.comment}));
+    this.edges.forEach(edge => {
+      let strokeStyle = 'stroke: #888; stroke-width: 2px; fill: none;';
+      if (edge.condition) {
+        strokeStyle = strokeStyle + 'stroke-dasharray: 5,5';
+      }
+      this.graph.setEdge(edge.sourceId, edge.targetId, {label: edge.comment, style: strokeStyle})
+    });
     this.graph.nodes().forEach((v: any) => {
       const d3Node = this.graph.node(v);
       const node = this.nodes.find(n => n.id === v);
       d3Node.rx = d3Node.ry = 10; // corner radius of the nodes
-      d3Node.label = VisualNovelComponent.createNodeContent(node as any);
+      d3Node.label = this.createNodeContent(node as any);
       (d3Node as any).labelType = 'html';
       let classes = encodeURI(v) + (this.selectable ? ' selectable' : '') + ' ' + node?.color;
-      if (!this.edges.some(e => e.sourceID === node?.id)) {
+      if (!this.edges.some(e => e.sourceId === node?.id)) {
         classes += ' endpoint';
       }
       if (node?.starter) {
@@ -210,7 +193,47 @@ export class VisualNovelComponent implements OnChanges {
 
   private cleanUpData() {
     const ids = this.nodes.map(node => node.id);
-    this.edges = this.edges.filter(e => e.sourceID && e.targetID && e.sourceID !== e.targetID);
-    this.edges = this.edges.filter(e => ids.some(id => e.sourceID === id) && ids.some(id => e.targetID === id));
+    this.edges = this.edges.filter(e => e.sourceId && e.targetId && e.sourceId !== e.targetId);
+    this.edges = this.edges.filter(e => ids.some(id => e.sourceId === id) && ids.some(id => e.targetId === id));
+  }
+  
+  private createNodeContent(node: VisualNovelNode): string {
+    const charLength = 30;
+    let html = `<div class="node-container ${node.id} row">`;
+    html += `<div class="title" title="${node.title}">`;
+    if (node.alert) {
+      html += '<span class="material-symbols-outlined">error</span>';
+    }
+    if (node.warning) {
+      html += '<span class="material-symbols-outlined warning">warning</span>';
+    }
+    let text = node.title;
+    if (text.length <= charLength) {
+      html += text;
+    } else {
+      do {
+        const slice = text.slice(0, charLength);
+        html += slice;
+        text = text.slice(charLength);
+        if (text.length) {
+          html += '<br/>'
+        }
+      } while (text.length);
+    }
+    html += '</div>';
+    
+    //if (this.novelService.model.mortality && this.novelService.model.handleInventory) {
+      // skull: &#128128;
+      // heart: &#x1F9E1;
+      // present: &#127873;
+      // html += '<div class="icon">&#127873;</div>'
+    //}
+
+    
+    if (node.starter) {
+        html += '<div class="icon start">&#10026;</div>'
+    }
+    html += '</div>';
+    return html;
   }
 }

@@ -9,6 +9,16 @@
     <textarea matInput [(ngModel)]="novelService.model.prolog"></textarea>
   </mat-form-field>
   
+  <h2>Editor configuration</h2>
+  <div class="configuration_container">
+    <mat-slide-toggle [color]="'primary'" [(ngModel)]="novelService.model.mortality">
+      Mortality
+    </mat-slide-toggle>
+    <mat-slide-toggle [color]="'primary'" [(ngModel)]="novelService.model.handleInventory">
+      Handle inventory
+    </mat-slide-toggle>
+  </div>
+  
   <h2>Statistics</h2>
   <div class="stat_container">
     <div class="stat">
@@ -18,6 +28,10 @@
     <div class="stat">
       <div class="stat_name">Number of path:</div>
       <div class="stat_value">{{ novelService.model.relations.length }}</div>
+    </div>
+    <div class="stat">
+      <div class="stat_name">Number of items:</div>
+      <div class="stat_value">{{ novelService.model.items.length }}</div>
     </div>
   </div>
   
@@ -31,15 +45,48 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let s of getEditorialStations(); let i = index">
+    <tr *ngFor="let s of getEditorialStations()">
       <td><div>{{ s.title }}</div></td>
       <td><div>{{ s.comment }}</div></td>
       <td>
-        <button mat-icon-button color="primary" (click)="openStation(s.id)">
+        <button mat-icon-button (click)="openStation(s.id)">
           <mat-icon>open_in_new</mat-icon>
         </button>
       </td>
     </tr>
     </tbody>
   </table>
+  
+  <ng-container *ngIf="novelService.model.handleInventory">
+    <h2>Items</h2>
+    <table mat-table *ngIf="novelService.model.items.length">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of novelService.model.items">
+        <td><div>{{ item.name }}</div></td>
+        <td>
+          <button mat-icon-button (click)="editItem(item.id)">
+            <mat-icon>settings</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteItem(item.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <h3>Create new item</h3>
+    <div class="new_item_form">
+      <mat-form-field appearance="fill">
+        <mat-label>Item name</mat-label>
+        <input matInput [(ngModel)]="itemName">
+      </mat-form-field>
+      <button mat-raised-button (click)="createItem()">Create</button>
+    </div>
+  </ng-container>
 </div>

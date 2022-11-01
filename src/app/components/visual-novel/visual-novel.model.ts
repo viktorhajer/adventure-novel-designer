@@ -4,9 +4,10 @@ export class VisualNovel {
 }
 
 export class VisualNovelEdge {
-  sourceID: string = '';
-  targetID: string = '';
+  sourceId: string = '';
+  targetId: string = '';
   comment: string = '';
+  condition: boolean = false;
 }
 
 export class VisualNovelNode {

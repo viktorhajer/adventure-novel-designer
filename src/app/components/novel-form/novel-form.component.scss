@@ -4,10 +4,17 @@
 }
 
 textarea {
-  height: 300px;
+  height: 220px;
   line-height: 20px;
   text-align: justify;
 }
+
+.configuration_container {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
 .stat_container {
   .stat {
     display: flex;
@@ -18,6 +25,10 @@ textarea {
       font-weight: bold;
     }
   }
+}
+
+h2 {
+  margin-top: 20px;
 }
 
 table {
@@ -56,5 +67,20 @@ table {
   th:last-child, td:last-child {
     text-align: center;
     width: 100px;
+  }
+}
+
+.new_item_form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  
+  .mat-form-field {
+    flex: 1;
+  }
+  
+  button {
+    margin-bottom: 20px;
+    margin-left: 10px;
   }
 }
