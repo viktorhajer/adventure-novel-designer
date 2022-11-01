@@ -16,13 +16,14 @@ $text-color: rgba(33, 41, 44, 1);
     &.column {
       flex-flow: column;
     }
-    .icon {
-      text-align: right;
-      
-      &.start {
-        font-size: 30px;
-        text-align: center;
-      }
+  }
+  
+  .icon {
+    text-align: right;
+    
+    &.start {
+      font-size: 30px;
+      text-align: center;
     }
   }
 

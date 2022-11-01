@@ -2,7 +2,6 @@ import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewEn
 import * as dagreD3 from 'dagre-d3';
 import * as d3 from 'd3';
 import {VisualNovelEdge, VisualNovelNode} from './visual-novel.model';
-import {NovelService} from '../../services/novel.service';
 
 const VISUAL_NOVEL_ID = 'visual-novel';
 
@@ -31,9 +30,6 @@ export class VisualNovelComponent implements OnChanges {
     d3.selectAll('.selected').nodes().forEach((element: HTMLElement) => {
       element.classList.remove('selected');
     });
-  }
-  
-  constructor(public readonly novelService: NovelService) {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -222,14 +218,20 @@ export class VisualNovelComponent implements OnChanges {
     }
     html += '</div>';
     
-    //if (this.novelService.model.mortality && this.novelService.model.handleInventory) {
-      // skull: &#128128;
-      // heart: &#x1F9E1;
-      // present: &#127873;
-      // html += '<div class="icon">&#127873;</div>'
-    //}
+    if (node.heart || node.skull || node.present) {
+      html += '<div class="icon">'
+      if (node.heart) {
+        html += '&#x1F9E1;';
+      }
+      if (node.skull) {
+        html += '&#128128;';
+      }
+      if (node.present) {
+        html += '&#127873;';
+      }
+      html += '</div>'
+    }
 
-    
     if (node.starter) {
         html += '<div class="icon start">&#10026;</div>'
     }

@@ -17,4 +17,7 @@ export class VisualNovelNode {
   starter: boolean = false;
   alert: boolean = false;
   warning: boolean = false;
+  heart: boolean = false;
+  skull: boolean = false;
+  present: boolean = false;
 }
