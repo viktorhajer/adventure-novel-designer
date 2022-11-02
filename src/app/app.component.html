@@ -1,4 +1,5 @@
-<button mat-icon-button (click)="createNewStation()" *ngIf="isModelLoaded()" id="create_button" title="Create new station">
+<button mat-icon-button (click)="createNewStation()" *ngIf="isModelLoaded()" id="create_button"
+        title="Create new station">
   <mat-icon>add_circle</mat-icon>
 </button>
 <button mat-icon-button (click)="ui.toggleExpanded()" id="expand_button">
@@ -46,7 +47,31 @@
 
     <div id="right" [class.expanded]="ui.expanded">
       <div id="visual-novel-container">
-        <app-visual-novel [nodes]="(!!visualModel ? visualModel.nodes:[])" [edges]="(!!visualModel ? visualModel.edges:[])"
+
+        <mat-form-field appearance="fill" class="color-selector"
+                        *ngIf="visualModel && isModelLoaded() && colors.length">
+          <mat-label><i>Select color</i></mat-label>
+          <mat-select [(ngModel)]="color" (selectionChange)="visualFilter()">
+            <mat-option></mat-option>
+            <mat-option *ngFor="let c of colors" [value]="c.value">
+              {{c.title}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="region-selector"
+                        *ngIf="visualModel && isModelLoaded() && novelService.model.regions.length">
+          <mat-label><i>Select region</i></mat-label>
+          <mat-select [(ngModel)]="regionId" (selectionChange)="visualFilter()">
+            <mat-option></mat-option>
+            <mat-option *ngFor="let r of novelService.model.regions" [value]="r.id">
+              {{r.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <app-visual-novel [nodes]="(!!visualModel ? visualModel.nodes:[])"
+                          [edges]="(!!visualModel ? visualModel.edges:[])"
                           [trigger]="formTrigger+''"
                           [selected]="(station && !!station.id ? 'node_' + station.id : '')"
                           (nodeSelected)="openStation($event)" #visualizer>

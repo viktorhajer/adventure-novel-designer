@@ -5,7 +5,7 @@ import {Injectable} from '@angular/core';
 })
 export class UiService {
   expanded = false;
-  
+
   toggleExpanded() {
     this.expanded = !this.expanded;
   }

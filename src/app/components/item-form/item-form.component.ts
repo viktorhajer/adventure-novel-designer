@@ -12,7 +12,6 @@ export class ItemFormComponent {
   name: string;
 
   constructor(protected dialogRef: MatDialogRef<ItemFormComponent>,
-  
               @Inject(MAT_DIALOG_DATA) public data: { item: Item }) {
     this.name = this.data.item.name;
   }

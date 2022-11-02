@@ -17,17 +17,18 @@ $text-color: rgba(33, 41, 44, 1);
       flex-flow: column;
     }
   }
-  
+
   .icon {
     text-align: right;
     border-top: 1px dotted #999;
     margin-top: 3px;
-    
+
     &.start {
       font-size: 30px;
       text-align: center;
       border: none;
     }
+
     &.looser {
       font-size: 20px;
       text-align: center;
@@ -65,31 +66,31 @@ $text-color: rgba(33, 41, 44, 1);
         fill: #dff8ca;
       }
     }
-    
+
     &.yellow {
       rect {
         fill: #fff1a3;
       }
     }
-    
+
     &.violet {
       rect {
         fill: #e9b1e9;
       }
-    }  
-    
+    }
+
     &.orange {
       rect {
         fill: #ffd484;
       }
-    }    
-    
+    }
+
     &.gray {
       rect {
         fill: #d5d5d5;
       }
     }
-    
+
     &.dgray {
       rect {
         fill: #787878;
@@ -98,7 +99,7 @@ $text-color: rgba(33, 41, 44, 1);
 
     &.endpoint {
       rect {
-        stroke-dasharray: 2,5;
+        stroke-dasharray: 2, 5;
         stroke: #888;
       }
     }
@@ -109,8 +110,8 @@ $text-color: rgba(33, 41, 44, 1);
         stroke-dasharray: none;
         stroke: #444;
       }
-    }    
-    
+    }
+
     &.winner {
       rect {
         stroke-width: 4px;
@@ -118,7 +119,7 @@ $text-color: rgba(33, 41, 44, 1);
         stroke: #77b79b;
       }
     }
-    
+
     &.looser {
       rect {
         stroke-width: 2px;

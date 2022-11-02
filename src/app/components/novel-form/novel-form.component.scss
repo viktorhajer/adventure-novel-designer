@@ -19,7 +19,7 @@ textarea {
   .stat {
     display: flex;
     margin-bottom: 8px;
-    
+
     .stat_name {
       width: 200px;
       font-weight: bold;
@@ -38,6 +38,7 @@ table {
     tr:hover {
       background: #e5e9fc;
     }
+
     tr:nth-child(odd) {
       background: #f2f2f2;
     }
@@ -74,11 +75,11 @@ table {
   width: 100%;
   display: flex;
   align-items: center;
-  
+
   .mat-form-field {
     flex: 1;
   }
-  
+
   button {
     margin-bottom: 20px;
     margin-left: 10px;

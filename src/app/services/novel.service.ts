@@ -45,17 +45,17 @@ export class NovelService {
     const children = this.model.relations.filter(r => r.sourceId === exceptId).map(r => r.targetId);
     return filtered.filter(s => !children.includes(s.id));
   }
-  
+
   getItem(id: number): Item {
     return this.model.items.find(i => i.id === id) as any;
   }
-  
+
   getItems(exceptId: number): Item[] {
     const expectItems = this.model.stationItems.filter(si => si.stationId === exceptId).map(si => si.itemId);
     return this.model.items.filter(item => !expectItems.includes(item.id));
   }
-  
-  getStationItems(stationId: number): {item: Item, stationItem: StationItem}[] {
+
+  getStationItems(stationId: number): { item: Item, stationItem: StationItem }[] {
     const stationItems = this.model.stationItems.filter(si => si.stationId === stationId);
     return stationItems.map(si => {
       const item = this.model.items.find(item => item.id === si.itemId) as any;
@@ -82,6 +82,7 @@ export class NovelService {
       originStation.title = station.title;
       originStation.story = station.story;
       originStation.comment = station.comment;
+      originStation.regionId = station.regionId;
       originStation.color = station.color;
       originStation.starter = station.starter;
       originStation.winner = station.winner;
@@ -106,27 +107,37 @@ export class NovelService {
   deleteRelation(sourceId: number, targetId: number) {
     this.model.relations = this.model.relations.filter(r => !(r.sourceId === sourceId && r.targetId === targetId));
   }
-  
+
   createItem(name: string) {
     const id = this.getNewItemId();
     this.model.items.push({id, name});
   }
-  
+
   deleteItem(id: number) {
     this.model.items = this.model.items.filter(i => i.id !== id);
     this.model.stationItems = this.model.stationItems.filter(si => si.itemId !== id);
   }
-  
+
   setItem(stationId: number, itemId: number, count: number) {
     this.model.stationItems.push({stationId, itemId, count});
   }
-  
+
   deleteStationItem(stationId: number, itemId: number) {
     this.model.stationItems = this.model.stationItems.filter(si => !(si.stationId === stationId && si.itemId === itemId));
   }
 
   getChildren(id: number): Station[] {
     return this.model.relations.filter(r => r.sourceId === id).map(r => this.model.stations.find(s => s.id === r.targetId) as any);
+  }
+
+  createRegion(name: string) {
+    const id = this.getNewRegionId();
+    this.model.regions.push({id, name});
+  }
+
+  deleteRegion(id: number) {
+    this.model.regions = this.model.regions.filter(i => i.id !== id);
+    this.model.stations.filter(s => s.regionId === id).forEach(s => s.regionId = 0);
   }
 
   finalize() {
@@ -162,7 +173,7 @@ export class NovelService {
     }
     return !message.length;
   }
-  
+
   private validateMacros() {
     const messages = [];
     for (const s of this.model.stations) {
@@ -185,13 +196,13 @@ export class NovelService {
       let i = 1;
       this.getChildren(s.id).forEach(c => {
         s.story = s.story.replace(`[##${i}]`, this.addAnchor(c.index, c.index + this.getAffix(c.index)))
-         .replace(`##${i}`, this.addAnchor(c.index, c.index+''));
+          .replace(`##${i}`, this.addAnchor(c.index, c.index + ''));
         i++;
       });
     });
     return stations;
   }
-  
+
   private addAnchor(index: number, indexStr: string): string {
     return `<span class="anchor ${index}">${indexStr}</span>`;
   }
@@ -231,13 +242,21 @@ export class NovelService {
     });
     this.maxID = max;
   }
-  
+
   private getNewItemId(): number {
     let max = 0;
     this.model.items.forEach(item => {
       max = item.id > max ? item.id : max;
     });
-    return max+1;
+    return max + 1;
+  }
+
+  private getNewRegionId(): number {
+    let max = 0;
+    this.model.regions.forEach(region => {
+      max = region.id > max ? region.id : max;
+    });
+    return max + 1;
   }
 
   private getAffix(num: number): string {
@@ -260,7 +279,7 @@ export class NovelService {
       data: {message}
     }).afterClosed();
   }
-  
+
   private openWarning(message: string) {
     this.dialog.open(WarningDialogComponent, {
       panelClass: 'small-dialog',

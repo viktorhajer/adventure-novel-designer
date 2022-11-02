@@ -2,6 +2,7 @@ import {Station} from './station.model';
 import {Relation} from './relation.model';
 import {Item} from './item.model';
 import {StationItem} from './station-item.model';
+import {Region} from './region.model';
 
 export class Novel {
   title: string = '';
@@ -10,6 +11,6 @@ export class Novel {
   relations: Relation[] = [];
   stationItems: StationItem[] = [];
   items: Item[] = [];
+  regions: Region[] = [];
   mortality = true;
-  handleInventory = true;
 }

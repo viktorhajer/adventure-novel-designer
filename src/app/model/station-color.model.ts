@@ -4,7 +4,7 @@ export class StationColor {
 }
 
 export const STATION_COLORS = [
-  new StationColor('White', ''),
+  new StationColor('White', 'white'),
   new StationColor('Gray', 'gray'),
   new StationColor('Dark Gray', 'dgray'),
   new StationColor('Red', 'red'),

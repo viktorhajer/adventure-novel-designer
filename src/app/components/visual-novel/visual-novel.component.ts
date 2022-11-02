@@ -46,7 +46,7 @@ export class VisualNovelComponent implements OnChanges {
       this.setSelectableNodes();
       this.initZoom(transform as any);
       if (this.selected) {
-        this.selectNode(this.selected)
+        this.selectNode(this.selected);
       }
     } else {
       this.cleanUpData();
@@ -102,7 +102,7 @@ export class VisualNovelComponent implements OnChanges {
         strokeStyle = 'stroke: #1399d3; stroke-width: 2px; fill: none; stroke-dasharray: 0, 2, 2';
         arrowheadStyle = 'stroke: #1399d3; fill: #1399d3;';
       }
-      this.graph.setEdge(edge.sourceId, edge.targetId, {label: edge.comment, style: strokeStyle, arrowheadStyle})
+      this.graph.setEdge(edge.sourceId, edge.targetId, {label: edge.comment, style: strokeStyle, arrowheadStyle});
     });
     this.graph.nodes().forEach((v: any) => {
       const d3Node = this.graph.node(v);
@@ -198,7 +198,7 @@ export class VisualNovelComponent implements OnChanges {
     this.edges = this.edges.filter(e => e.sourceId && e.targetId && e.sourceId !== e.targetId);
     this.edges = this.edges.filter(e => ids.some(id => e.sourceId === id) && ids.some(id => e.targetId === id));
   }
-  
+
   private createNodeContent(node: VisualNovelNode): string {
     const charLength = 30;
     let html = `<div class="node-container ${node.id} row">`;
@@ -218,22 +218,22 @@ export class VisualNovelComponent implements OnChanges {
         html += slice;
         text = text.slice(charLength);
         if (text.length) {
-          html += '<br/>'
+          html += '<br/>';
         }
       } while (text.length);
     }
     html += '</div>';
 
     if (node.starter) {
-        html += '<div class="icon start"><span class="material-symbols-outlined">my_location</span></div>'
+      html += '<div class="icon start"><span class="material-symbols-outlined">my_location</span></div>';
     } else if (node.winner) {
-        html += '<div class="icon start">&#10026;</div>'
+      html += '<div class="icon start">&#10026;</div>';
     } else if (node.looser) {
-        html += '<div class="icon looser">&#128128;</div>'
+      html += '<div class="icon looser">&#128128;</div>';
     }
 
     if (node.heart || node.skull || node.present) {
-      html += '<div class="icon">'
+      html += '<div class="icon">';
       if (node.heart) {
         html += '&#x1F9E1;';
       }
@@ -243,7 +243,7 @@ export class VisualNovelComponent implements OnChanges {
       if (node.present) {
         html += '&#127873;';
       }
-      html += '</div>'
+      html += '</div>';
     }
     html += '</div>';
     return html;

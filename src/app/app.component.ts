@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {NovelService} from './services/novel.service';
 import {UiService} from './services/ui.service';
 import {EditService} from './services/edit.service';
@@ -10,9 +10,12 @@ import {VisualNovelComponent} from './components/visual-novel/visual-novel.compo
 import {VisualNovel} from './components/visual-novel/visual-novel.model';
 import {VisualNovelMapper} from './components/visual-novel/visual-novel.mapper';
 import {MatDialog} from '@angular/material/dialog';
+import {firstValueFrom} from 'rxjs';
+import {Region} from './model/region.model';
+import {STATION_COLORS, StationColor} from './model/station-color.model';
 
-const EMPTY_NOVEL = '{"title":"New novel","prolog":"","stations":[],"relations":[],"items":[],'+
-  '"stationItems":[],"mortality": true,"handleInventory": true}';
+const EMPTY_NOVEL = '{"title":"New novel","prolog":"","stations":[],"relations":[],"items":[],' +
+  '"stationItems":[],"regions": [],"mortality": true}';
 
 // @ts-ignore
 
@@ -27,13 +30,14 @@ export class AppComponent {
 
   modelString = '{"title":"Lorem ipsum dolor","prolog": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",' +
     '"stations":[' +
-    '{"id":1,"life":0,"index":0,"starter":true,"winner":false,"looser":false,"title":"Indulás a faluból","comment": "","story":"Menj a ##1 vagy ##2.","color":"white"},' +
-    '{"id":2,"life":-1,"index":0,"starter":false,"winner":false,"looser":false,"title":"Elágazás az erdőben","comment": "Consectetur adipiscing elit, sed do eiusmod","story":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","color":"white"},' +
-    '{"id":3,"life":0,"index":0,"starter":false,"winner":false,"looser":false,"title":"Sziklás kihívás","comment": "","story":"Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.   ##1","color":"blue"},' +
-    '{"id":4,"life":2,"index":0,"starter": false,"winner":false,"looser":false,"title":"Völgy","comment": "","story":"","color":"white"},' +
-    '{"id":5,"life":-1,"index":0,"starter": false,"winner":false,"looser":false,"title":"Manók","comment": "","story":"Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","color":"orange"},' +
-    '{"id":6,"title":"Folyópart","story":"ss","color":"white","comment":"","index":0,"starter":false,"winner":true,"looser":false,"life":0},' +
-    '{"id":7,"title":"Gödör","story":"gödör","color":"","comment":"","index":0,"starter":false,"life":0,"winner":false,"looser":true}' +
+    '{"id":1,"regionId":1,"life":0,"index":0,"starter":true,"winner":false,"looser":false,"title":"Indulás a faluból","comment": "","story":"Menj a ##1 vagy ##2.","color":"white"},' +
+    '{"id":2,"regionId":1,"life":-1,"index":0,"starter":false,"winner":false,"looser":false,"title":"Elágazás az erdőben","comment": "Consectetur adipiscing elit, sed do eiusmod","story":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","color":"white"},' +
+    '{"id":3,"regionId":1,"life":0,"index":0,"starter":false,"winner":false,"looser":false,"title":"Sziklás kihívás","comment": "","story":"Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.   ##1","color":"blue"},' +
+    '{"id":4,"regionId":2,"life":2,"index":0,"starter": false,"winner":false,"looser":false,"title":"Völgy","comment": "","story":"","color":"white"},' +
+    '{"id":5,"regionId":2,"life":-1,"index":0,"starter": false,"winner":false,"looser":false,"title":"Manók","comment": "","story":"Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","color":"orange"},' +
+    '{"id":6,"regionId":0,"life":0,"title":"Folyópart","story":"ss","color":"white","comment":"","index":0,"starter":false,"winner":true,"looser":false},' +
+    '{"id":7,"regionId":2,"life":0,"title":"Gödör","story":"gödör","color":"","comment":"","index":0,"starter":false,"winner":false,"looser":true},' +
+    '{"id":8,"title":"Völgyben elágazás","story":"xxx","color":"blue","comment":"","index":0,"starter":false,"life":0,"winner":false,"looser":false,"regionId":1}' +
     '],"relations":[' +
     '{"sourceId":1,"targetId":2,"comment":"Megnéz","condition":false},' +
     '{"sourceId":1,"targetId":3,"comment":"Leugrik","condition":true},' +
@@ -41,19 +45,26 @@ export class AppComponent {
     '{"sourceId":2,"targetId":6,"comment":"Esés","condition":false},' +
     '{"sourceId":4,"targetId":6,"comment":"","condition":true},' +
     '{"sourceId":5,"targetId":7,"comment":"","condition":false},' +
-    '{"sourceId":4,"targetId":5,"comment":"Nyert","condition":false}],' +
-    '"stationItems":[{"stationId": 3, "itemId": 1, "count": 2}, {"stationId": 5, "itemId": 2, "count": 1}],' + 
-    '"items":[{"id":1,"name":"Kard"},{"id": 2,"name":"Kulcs"}],' + 
-    '"mortality": true,"handleInventory": true}';
+    '{"sourceId":4,"targetId":5,"comment":"Nyert","condition":false},' +
+    '{"sourceId":4,"targetId":8,"comment":"","condition":true},' +
+    '{"sourceId":3,"targetId":8,"comment":"","condition":true}' +
+    '],"stationItems":[{"stationId": 3, "itemId": 1, "count": 2}, {"stationId": 5, "itemId": 2, "count": 1}],' +
+    '"items":[{"id":1,"name":"Kard"},{"id": 2,"name":"Kulcs"}],' +
+    '"regions":[{"id":1,"name":"Középfölde"},{"id": 2,"name":"Tündérország"}],' +
+    '"mortality": true}';
   station: Station = null as any;
   visualModel: VisualNovel = null as any;
   formTrigger = 0;
   previousStation: number = 0;
+  regionId: number = 0;
+  color: string = '';
+  colors: StationColor[] = [];
 
   constructor(public readonly novelService: NovelService,
-    private readonly dialog: MatDialog,
-    private readonly editService: EditService,
-    public readonly ui: UiService) {
+              private readonly dialog: MatDialog,
+              private readonly editService: EditService,
+              private readonly visualNovelMapper: VisualNovelMapper,
+              public readonly ui: UiService) {
   }
 
   isModelLoaded(): boolean {
@@ -62,7 +73,8 @@ export class AppComponent {
 
   load() {
     this.novelService.loadModel(this.modelString);
-    this.visualModel = VisualNovelMapper.mapNovel(this.novelService.model);
+    this.visualModel = this.visualNovelMapper.mapNovel(this.novelService.model);
+    this.initColors();
   }
 
   save() {
@@ -118,7 +130,7 @@ export class AppComponent {
       this.navigateToStation(id);
     }
   }
-  
+
   clearStation() {
     if (this.station) {
       if (this.editService.unsaved) {
@@ -132,22 +144,34 @@ export class AppComponent {
       }
     }
   }
-  
+
+  visualFilter() {
+    if (this.station) {
+      this.visual.selectNode('node_' + this.station.id);
+      this.previousStation = 0;
+      this.station = null as any;
+    }
+    this.changeTrigger();
+  }
+
   private navigateToNovel() {
     this.visual.selectNode('node_' + this.station.id);
     this.editService.unsaved = false;
     this.previousStation = 0;
-    this.station = null as any; 
+    this.station = null as any;
   }
-  
+
   private navigateToCreateNew() {
+    let regionId = 0;
     if (this.station && !!this.station.id) {
       this.previousStation = this.station.id;
+      regionId = this.station.regionId;
     }
     this.station = new Station(0);
+    this.station.regionId = regionId;
     this.changeTrigger();
   }
-  
+
   private navigateToStation(id: string) {
     if (id) {
       const station = JSON.parse(JSON.stringify(this.novelService.getStation(+id.replace('node_', ''))));
@@ -157,6 +181,7 @@ export class AppComponent {
           data: {station}
         }).afterClosed();
       } else {
+        this.initColors();
         this.editService.unsaved = false;
         this.previousStation = station.id;
         this.station = station;
@@ -170,14 +195,23 @@ export class AppComponent {
   }
 
   private changeTrigger() {
-    this.visualModel = VisualNovelMapper.mapNovel(this.novelService.model);
+    this.visualModel = this.visualNovelMapper.mapNovel(this.novelService.model, this.regionId, this.color);
     this.formTrigger++;
   }
-  
+
   private openConfirmation(message: string): Promise<boolean> {
-    return this.dialog.open(ConfirmDialogComponent, {
+    return firstValueFrom(this.dialog.open(ConfirmDialogComponent, {
       data: {message},
-      disableClose:true
-    }).afterClosed().toPromise();
+      disableClose: true
+    }).afterClosed());
+  }
+
+  private initColors() {
+    const cols = this.novelService.model.stations.filter(s => !!s.color).map(s => s.color)
+      .filter((c, index, self) => self.indexOf(c) === index);
+    this.colors = cols.map(s => {
+      const color = STATION_COLORS.find(c => c.value === s);
+      return color ? color : null as any;
+    }).filter(s => !!s);
   }
 }

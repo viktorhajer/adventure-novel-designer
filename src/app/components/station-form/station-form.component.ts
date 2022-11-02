@@ -12,8 +12,9 @@ import {Relation} from '../../model/relation.model';
 import {STATION_COLORS} from '../../model/station-color.model';
 import {ErrorDialogComponent} from '../error-dialog/error-dialog.component';
 import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs';
+import {firstValueFrom, Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import {Region} from '../../model/region.model';
 
 @Component({
   selector: 'app-station-form',
@@ -25,12 +26,14 @@ export class StationFormComponent implements OnChanges {
   @Input() station: Station = null as any;
   @Input() previousStation = 0;
   @Output() stationChanged = new EventEmitter();
+
   children: Station[] = [];
   childRoutes: Relation[] = [];
   createNew = true;
+  regions: Region[] = [];
   stations: Station[] = [];
   items: Item[] = [];
-  ownItems: {item: Item, stationItem: StationItem}[] = [];
+  ownItems: { item: Item, stationItem: StationItem }[] = [];
   colors = STATION_COLORS;
   myDestinationControl = new FormControl('');
   filteredDestinationOptions: Observable<Station[]> = null as any;
@@ -41,6 +44,7 @@ export class StationFormComponent implements OnChanges {
   }
 
   ngOnChanges() {
+    this.regions = this.novelService.model.regions;
     if (this.station) {
       this.createNew = !this.station.id;
       if (!this.createNew) {
@@ -56,7 +60,7 @@ export class StationFormComponent implements OnChanges {
       );
     }
   }
-  
+
   checkUnsaved() {
     if (this.createNew) {
       this.editService.unsaved = true;
@@ -65,7 +69,7 @@ export class StationFormComponent implements OnChanges {
       this.editService.unsaved = JSON.stringify(originStation) !== JSON.stringify(this.station);
     }
   }
-  
+
   checkWinnerLooser(field = 0) {
     if (field === 0 && this.station.starter) {
       this.station.winner = false;
@@ -105,7 +109,7 @@ export class StationFormComponent implements OnChanges {
     });
   }
 
-  createRelation(destination:HTMLInputElement, comment: HTMLInputElement, conditionInput: any) {
+  createRelation(destination: HTMLInputElement, comment: HTMLInputElement, conditionInput: any) {
     const targetId = this.stations.find(s => s.title === destination.value)?.id as any;
     if (targetId) {
       this.novelService.createRelation(this.station.id, targetId, comment.value, conditionInput.checked);
@@ -114,7 +118,6 @@ export class StationFormComponent implements OnChanges {
       destination.value = '';
       comment.value = '';
       conditionInput.checked = false;
-      console.log(this.myDestinationControl);
     }
   }
 
@@ -126,7 +129,7 @@ export class StationFormComponent implements OnChanges {
       }
     });
   }
-  
+
   deleteOwnItem(itemId: number) {
     this.openConfirmation().then(result => {
       if (result) {
@@ -135,7 +138,7 @@ export class StationFormComponent implements OnChanges {
       }
     });
   }
-  
+
   setItem(stationId: number, itemId: any, count: HTMLInputElement) {
     this.novelService.setItem(stationId, itemId.value, +count.value);
     itemId.value = '';
@@ -149,26 +152,26 @@ export class StationFormComponent implements OnChanges {
       data: {station}
     }).afterClosed();
   }
-  
+
   editRelation(targetId: number) {
     const relation = this.novelService.model.relations.find(r => r.targetId === targetId && r.sourceId === this.station.id);
     if (relation) {
-      this.dialog.open(RelationFormComponent, {data: {relation}, disableClose:true})
-        .afterClosed().toPromise().then(result => {
-          if(result !== null) {
-            relation.comment = result.comment;
-            relation.condition = result.condition;
-            this.editService.unsaved = false;
-            this.stationChanged.emit(this.station.id + '');
-          }
-        });
+      firstValueFrom(this.dialog.open(RelationFormComponent, {data: {relation}, disableClose: true})
+        .afterClosed()).then(result => {
+        if (result !== null) {
+          relation.comment = result.comment;
+          relation.condition = result.condition;
+          this.editService.unsaved = false;
+          this.stationChanged.emit(this.station.id + '');
+        }
+      });
     }
   }
 
   getRelation(childId: number) {
     return this.childRoutes?.find(r => r.targetId === childId) as any;
   }
-  
+
   private validateTitle(): boolean {
     if (!this.station.title.trim()) {
       this.dialog.open(ErrorDialogComponent, {
@@ -185,12 +188,12 @@ export class StationFormComponent implements OnChanges {
     }
     return true;
   }
-  
+
   private openConfirmation(): Promise<boolean> {
-    return this.dialog.open(ConfirmDialogComponent, {data: {message: 'Are you sure to delete?'}, disableClose:true})
-      .afterClosed().toPromise();
+    return firstValueFrom(this.dialog.open(ConfirmDialogComponent, {data: {message: 'Are you sure to delete?'}, disableClose: true})
+      .afterClosed());
   }
-  
+
   private filterDestination(value: string): Station[] {
     const filterValue = value.toLowerCase();
     return this.stations.filter(s => s.title.toLowerCase().includes(filterValue));

@@ -15,6 +15,15 @@
   </mat-form-field>
 
   <div class="flex--row">
+    <mat-form-field appearance="fill" *ngIf="regions.length">
+      <mat-label>Region</mat-label>
+      <mat-select [(ngModel)]="station.regionId" (selectionChange)="checkUnsaved()">
+        <mat-option *ngFor="let r of regions" [value]="r.id">
+          {{r.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
     <mat-form-field appearance="fill">
       <mat-label>Color</mat-label>
       <mat-select [(ngModel)]="station.color" (selectionChange)="checkUnsaved()">
@@ -23,7 +32,7 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    
+
     <mat-form-field appearance="fill" *ngIf="novelService.model.mortality">
       <mat-label>Life</mat-label>
       <mat-select [(ngModel)]="station.life" (selectionChange)="checkUnsaved()">
@@ -33,21 +42,21 @@
       </mat-select>
     </mat-form-field>
   </div>
-  
+
   <div class="flex--row">
     <mat-slide-toggle [color]="'primary'" [(ngModel)]="station.starter" (change)="checkWinnerLooser(0)">
       First station
     </mat-slide-toggle>
-    
+
     <mat-slide-toggle [color]="'primary'" [(ngModel)]="station.winner" (change)="checkWinnerLooser(1)">
       Winner station
     </mat-slide-toggle>
-    
+
     <mat-slide-toggle [color]="'primary'" [(ngModel)]="station.looser" (change)="checkWinnerLooser(2)">
       Looser station
     </mat-slide-toggle>
   </div>
-  
+
   <div class="actions-bar">
     <button mat-raised-button *ngIf="createNew" (click)="create()">Create</button>
     <button mat-raised-button *ngIf="!createNew" (click)="update()">Update</button>
@@ -69,8 +78,12 @@
       <tbody>
       <tr *ngFor="let s of children; let i = index">
         <td class="macro">##{{ i + 1 }}</td>
-        <td><div>{{ s.title }}</div></td>
-        <td><div>{{ getRelation(s.id).comment }}</div></td>
+        <td>
+          <div>{{ s.title }}</div>
+        </td>
+        <td>
+          <div>{{ getRelation(s.id).comment }}</div>
+        </td>
         <td class="condition">
           <mat-icon *ngIf="getRelation(s.id).condition">done</mat-icon>
           <mat-icon *ngIf="!getRelation(s.id).condition">close</mat-icon>
@@ -91,7 +104,8 @@
     </table>
   </div>
 
-  <div class="children-container item-container" *ngIf="!createNew && novelService.model.handleInventory && ownItems.length">
+  <div class="children-container item-container"
+       *ngIf="!createNew && ownItems.length">
     <h2>Items</h2>
     <table mat-table>
       <thead>
@@ -103,8 +117,12 @@
       </thead>
       <tbody>
       <tr *ngFor="let oi of ownItems">
-        <td><div>{{ oi.item.name }}</div></td>
-        <td><div>{{ oi.stationItem.count }}</div></td>
+        <td>
+          <div>{{ oi.item.name }}</div>
+        </td>
+        <td>
+          <div>{{ oi.stationItem.count }}</div>
+        </td>
         <td>
           <button mat-icon-button (click)="deleteOwnItem(oi.item.id)">
             <mat-icon>delete</mat-icon>
@@ -114,7 +132,7 @@
       </tbody>
     </table>
   </div>
-  
+
   <div class="new-children-container" *ngIf="!createNew && stations.length">
     <h2>Set new route</h2>
     <div class="flex--row">
@@ -138,7 +156,7 @@
     </div>
   </div>
 
-  <div class="new-children-container" *ngIf="!createNew && novelService.model.handleInventory && items.length">
+  <div class="new-children-container" *ngIf="!createNew && items.length">
     <h2>Set new item</h2>
     <div class="flex--row">
       <mat-form-field appearance="fill">
@@ -157,5 +175,5 @@
     </div>
   </div>
 
-  
+
 </div>

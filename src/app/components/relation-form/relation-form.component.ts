@@ -13,7 +13,6 @@ export class RelationFormComponent {
   condition: boolean;
 
   constructor(protected dialogRef: MatDialogRef<RelationFormComponent>,
-  
               @Inject(MAT_DIALOG_DATA) public data: { relation: Relation }) {
     this.comment = this.data.relation.comment;
     this.condition = this.data.relation.condition;

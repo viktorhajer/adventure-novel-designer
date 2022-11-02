@@ -12,7 +12,7 @@
     margin-top: 20px;
     display: flex;
     flex-flow: column;
-    
+
     &.item-container {
       th:last-child, td:last-child, th:nth-child(2), td:nth-child(2) {
         width: 60px;
@@ -32,6 +32,7 @@
       tr:hover {
         background: #e5e9fc;
       }
+
       tr:nth-child(odd) {
         background: #f2f2f2;
       }
@@ -61,7 +62,7 @@
       text-align: center;
       width: 130px;
     }
-    
+
     .condition {
       text-align: center;
       width: 60px;
@@ -70,7 +71,7 @@
 }
 
 mat-slide-toggle {
-    margin: 0 0 18px 18px;
+  margin: 0 0 18px 18px;
 }
 
 .flex--row {
@@ -78,15 +79,16 @@ mat-slide-toggle {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  
+
   * {
     flex: 1;
+    margin-left: 10px;
   }
 
   *:first-child {
-    margin-right: 10px;
+    margin-left: 0;
   }
-  
+
   button {
     margin-bottom: 20px;
     margin-left: 10px;
