@@ -17,6 +17,9 @@
       <button mat-icon-button (click)="finalize()" *ngIf="isModelLoaded()" title="Get final novel">
         <mat-icon>menu_book</mat-icon>
       </button>
+      <button mat-icon-button (click)="simulation()" *ngIf="isModelLoaded()" title="Start simulation">
+        <mat-icon>rocket_launch</mat-icon>
+      </button>
       <button mat-icon-button (click)="clearNovel()" title="New novel">
         <mat-icon>file_open</mat-icon>
       </button>

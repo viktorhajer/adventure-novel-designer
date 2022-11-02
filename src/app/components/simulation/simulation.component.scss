@@ -1,0 +1,65 @@
+h2 {
+  display: flex;
+  align-items: center;
+
+  div {
+    margin-left: 10px;
+  }
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.actions {
+  margin-top: 20px;
+  padding: 10px 10px;
+  text-align: right;
+
+  button {
+    margin-left: 10px;
+  }
+}
+
+.simulation-container {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+
+  .station-arrow {
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+
+    .station {
+      border: 2px solid #d8d8d8;
+      padding: 10px;
+      border-radius: 10px;
+      min-width: 170px;
+
+      &.zeroLife {
+        background: #ffe4e4;
+      }
+
+      .station-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 150px;
+        white-space: nowrap;
+        text-align: center;
+        font-weight: bold;
+        font-size: 12px;
+      }
+    }
+
+    .station, .mat-icon {
+      margin-right: 15px;
+      margin-bottom: 15px;
+    }
+
+    .life {
+      font-size: 10px;
+      text-align: center;
+    }
+  }
+}

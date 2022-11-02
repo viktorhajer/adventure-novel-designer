@@ -235,10 +235,10 @@ export class VisualNovelComponent implements OnChanges {
     if (node.heart || node.skull || node.present) {
       html += '<div class="icon">';
       if (node.heart) {
-        html += '&#x1F9E1;';
+        html += '&#x1F9E1;' + (node.heart > 1 ? ' ' + node.heart : '');
       }
       if (node.skull) {
-        html += '&#128128;';
+        html += '&#128128;' + (node.skull > 1 ? ' ' + node.skull : '');
       }
       if (node.present) {
         html += '&#127873;';

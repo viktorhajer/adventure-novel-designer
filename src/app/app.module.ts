@@ -22,6 +22,7 @@ import {NovelViewerComponent} from './components/novel-viewer/novel-viewer.compo
 import {RelationFormComponent} from './components/relation-form/relation-form.component';
 import {ItemFormComponent} from './components/item-form/item-form.component';
 import {RegionFormComponent} from './components/region-form/region-form.component';
+import {SimulationComponent} from './components/simulation/simulation.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {RegionFormComponent} from './components/region-form/region-form.componen
     RelationFormComponent,
     ItemFormComponent,
     RegionFormComponent,
+    SimulationComponent,
     VisualNovelComponent
   ],
   imports: [

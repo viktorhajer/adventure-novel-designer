@@ -48,8 +48,8 @@ export class VisualNovelMapper {
     node.looser = station.looser;
     node.alert = !station.story.trim().length;
     node.warning = !!station.comment.trim().length;
-    node.heart = this.novelService.model.mortality && station.life > 0;
-    node.skull = this.novelService.model.mortality && station.life < 0;
+    node.heart = this.novelService.model.mortality && station.life > 0 ? Math.abs(station.life) : 0;
+    node.skull = this.novelService.model.mortality && station.life < 0 ? Math.abs(station.life) : 0;
     node.present = hasItems;
     return node;
   }

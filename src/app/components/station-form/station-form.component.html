@@ -36,7 +36,7 @@
     <mat-form-field appearance="fill" *ngIf="novelService.model.mortality">
       <mat-label>Life</mat-label>
       <mat-select [(ngModel)]="station.life" (selectionChange)="checkUnsaved()">
-        <mat-option *ngFor="let lf of [-3,-2,-1,0,1,2,3]" [value]="lf">
+        <mat-option *ngFor="let lf of [-3,-2,-1,0,1,2,3,4,5,6,7,8,9,10,11,12]" [value]="lf">
           {{lf}}
         </mat-option>
       </mat-select>

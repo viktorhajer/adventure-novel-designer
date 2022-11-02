@@ -19,7 +19,7 @@ export class VisualNovelNode {
   looser: boolean = false;
   alert: boolean = false;
   warning: boolean = false;
-  heart: boolean = false;
-  skull: boolean = false;
+  heart: number = 0;
+  skull: number = 0;
   present: boolean = false;
 }

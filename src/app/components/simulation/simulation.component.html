@@ -1,0 +1,36 @@
+<h2>
+  <mat-icon>rocket_launch</mat-icon>
+  <div>Simulation</div>
+</h2>
+<mat-dialog-content class="mat-typography">
+
+  <p *ngIf="!destinations.length">Please select winner station.</p>
+  <p *ngIf="error">{{ error }}</p>
+
+  <mat-form-field appearance="fill" *ngIf="destinations.length && !simulation && !error">
+    <mat-label>Winner stations:</mat-label>
+    <mat-select [(ngModel)]="selectedDestinationId">
+      <mat-option *ngFor="let d of destinations" [value]="d.id">
+        {{d.title}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="simulation-container" *ngIf="simulation">
+    <div class="station-arrow" *ngFor="let p of simulation.path; let i = index">
+      <div class="station" [class.zeroLife]="destinationLife.length && destinationLife[i] < 1">
+        <div class="station-title">{{i+1}}. {{ p.title }}</div>
+        <div class="life" *ngIf="destinationLife.length">Life: {{destinationLife[i]}}</div>
+      </div>
+      <mat-icon *ngIf="i < (simulation.path.length - 1)">chevron_right</mat-icon>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button mat-raised-button [disabled]="!destinations.length || !selectedDestinationId"
+            *ngIf="!simulation && !error"
+            color="primary" (click)="start()">Start</button>
+    <button mat-raised-button *ngIf="simulation || error" color="primary" (click)="clear()">Clear</button>
+    <button mat-raised-button (click)="close()">Cancel</button>
+  </div>
+</mat-dialog-content>

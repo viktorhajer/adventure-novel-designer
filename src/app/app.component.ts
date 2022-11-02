@@ -13,6 +13,9 @@ import {MatDialog} from '@angular/material/dialog';
 import {firstValueFrom} from 'rxjs';
 import {Region} from './model/region.model';
 import {STATION_COLORS, StationColor} from './model/station-color.model';
+import {SimulationService} from './services/simulation.service';
+import {NovelViewerComponent} from './components/novel-viewer/novel-viewer.component';
+import {SimulationComponent} from './components/simulation/simulation.component';
 
 const EMPTY_NOVEL = '{"title":"New novel","prolog":"","stations":[],"relations":[],"items":[],' +
   '"stationItems":[],"regions": [],"mortality": true}';
@@ -30,24 +33,26 @@ export class AppComponent {
 
   modelString = '{"title":"Lorem ipsum dolor","prolog": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",' +
     '"stations":[' +
-    '{"id":1,"regionId":1,"life":0,"index":0,"starter":true,"winner":false,"looser":false,"title":"Indulás a faluból","comment": "","story":"Menj a ##1 vagy ##2.","color":"white"},' +
+    '{"id":1,"regionId":1,"life":4,"index":0,"starter":true,"winner":false,"looser":false,"title":"Indulás a faluból","comment": "","story":"Menj a ##1 vagy ##2.","color":"white"},' +
     '{"id":2,"regionId":1,"life":-1,"index":0,"starter":false,"winner":false,"looser":false,"title":"Elágazás az erdőben","comment": "Consectetur adipiscing elit, sed do eiusmod","story":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","color":"white"},' +
     '{"id":3,"regionId":1,"life":0,"index":0,"starter":false,"winner":false,"looser":false,"title":"Sziklás kihívás","comment": "","story":"Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.   ##1","color":"blue"},' +
     '{"id":4,"regionId":2,"life":2,"index":0,"starter": false,"winner":false,"looser":false,"title":"Völgy","comment": "","story":"","color":"white"},' +
     '{"id":5,"regionId":2,"life":-1,"index":0,"starter": false,"winner":false,"looser":false,"title":"Manók","comment": "","story":"Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","color":"orange"},' +
-    '{"id":6,"regionId":0,"life":0,"title":"Folyópart","story":"ss","color":"white","comment":"","index":0,"starter":false,"winner":true,"looser":false},' +
+    '{"id":6,"regionId":0,"life":1,"title":"Folyópart","story":"ss","color":"white","comment":"","index":0,"starter":false,"winner":true,"looser":false},' +
     '{"id":7,"regionId":2,"life":0,"title":"Gödör","story":"gödör","color":"","comment":"","index":0,"starter":false,"winner":false,"looser":true},' +
-    '{"id":8,"title":"Völgyben elágazás","story":"xxx","color":"blue","comment":"","index":0,"starter":false,"life":0,"winner":false,"looser":false,"regionId":1}' +
+    '{"id":8,"title":"Völgyben elágazás","story":"xxx","color":"blue","comment":"","index":0,"starter":false,"life":0,"winner":false,"looser":false,"regionId":1},' +
+    '{"id":9,"title":"Kisállat simogató","story":"","color":"","comment":"","index":6,"starter":false,"life":-3,"winner":false,"looser":false,"regionId":1}' +
     '],"relations":[' +
     '{"sourceId":1,"targetId":2,"comment":"Megnéz","condition":false},' +
     '{"sourceId":1,"targetId":3,"comment":"Leugrik","condition":true},' +
     '{"sourceId":3,"targetId":4,"comment":"","condition":false},' +
-    '{"sourceId":2,"targetId":6,"comment":"Esés","condition":false},' +
     '{"sourceId":4,"targetId":6,"comment":"","condition":true},' +
     '{"sourceId":5,"targetId":7,"comment":"","condition":false},' +
     '{"sourceId":4,"targetId":5,"comment":"Nyert","condition":false},' +
     '{"sourceId":4,"targetId":8,"comment":"","condition":true},' +
-    '{"sourceId":3,"targetId":8,"comment":"","condition":true}' +
+    '{"sourceId":3,"targetId":8,"comment":"","condition":true},' +
+    '{"sourceId":2,"targetId":9,"comment":"","condition":false},' +
+    '{"sourceId":9,"targetId":6,"comment":"","condition":false}' +
     '],"stationItems":[{"stationId": 3, "itemId": 1, "count": 2}, {"stationId": 5, "itemId": 2, "count": 1}],' +
     '"items":[{"id":1,"name":"Kard"},{"id": 2,"name":"Kulcs"}],' +
     '"regions":[{"id":1,"name":"Középfölde"},{"id": 2,"name":"Tündérország"}],' +
@@ -63,6 +68,7 @@ export class AppComponent {
   constructor(public readonly novelService: NovelService,
               private readonly dialog: MatDialog,
               private readonly editService: EditService,
+              private readonly simulationService: SimulationService,
               private readonly visualNovelMapper: VisualNovelMapper,
               public readonly ui: UiService) {
   }
@@ -93,6 +99,13 @@ export class AppComponent {
 
   finalize() {
     this.novelService.finalize();
+  }
+
+  simulation() {
+    this.dialog.open(SimulationComponent, {
+      disableClose: true,
+      panelClass: 'big-dialog'
+    }).afterClosed();
   }
 
   clearNovel() {
