@@ -3,11 +3,24 @@
   <div>Update region name</div>
 </h2>
 <mat-dialog-content class="mat-typography">
-  <mat-form-field appearance="fill">
-    <mat-label>Name</mat-label>
-    <textarea matInput [(ngModel)]="name"></textarea>
-  </mat-form-field>
-
+  <div class="fields">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="name">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Color</mat-label>
+      <mat-select [(ngModel)]="color">
+        <mat-option *ngFor="let c of colors" [value]="c.value">
+          {{c.title}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput [(ngModel)]="description"></textarea>
+    </mat-form-field>
+  </div>
   <div class="actions">
     <button mat-raised-button color="primary" (click)="update()">Update</button>
     <button mat-raised-button (click)="cancel()">Cancel</button>

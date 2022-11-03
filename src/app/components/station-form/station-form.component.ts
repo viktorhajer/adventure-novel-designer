@@ -71,16 +71,21 @@ export class StationFormComponent implements OnChanges {
   }
 
   checkWinnerLooser(field = 0) {
-    if (field === 0 && this.station.starter) {
-      this.station.winner = false;
-      this.station.looser = false;
-    } else if (field === 1 && this.station.winner) {
-      this.station.starter = false;
-      this.station.looser = false;
-    } else if (field === 2 && this.station.looser) {
-      this.station.starter = false;
-      this.station.winner = false;
+    const hasChild = this.novelService.model.relations.some(r => r.sourceId === this.station.id);
+    if (field !== 0 && (this.station.winner  || this.station.looser) && hasChild) {
+      const marker = field === 1 && this.station.winner ? 'winner' : 'looser';
+      const message = `Are you sure you are marking the station as a ${marker}? All routes from this station will be deleted.`;
+      this.openConfirmation(message).then(result => {
+        if (!result) {
+          this.station.winner = false;
+          this.station.looser = false;
+        } else {
+          this.setStarterWinnerLooser(field);
+        }
+      });
+      return;
     }
+    this.setStarterWinnerLooser(field);
     this.checkUnsaved();
   }
 
@@ -189,13 +194,26 @@ export class StationFormComponent implements OnChanges {
     return true;
   }
 
-  private openConfirmation(): Promise<boolean> {
-    return firstValueFrom(this.dialog.open(ConfirmDialogComponent, {data: {message: 'Are you sure to delete?'}, disableClose: true})
+  private openConfirmation(message = 'Are you sure to delete?'): Promise<boolean> {
+    return firstValueFrom(this.dialog.open(ConfirmDialogComponent, {data: {message}, disableClose: true})
       .afterClosed());
   }
 
   private filterDestination(value: string): Station[] {
     const filterValue = value.toLowerCase();
     return this.stations.filter(s => s.title.toLowerCase().includes(filterValue));
+  }
+
+  private setStarterWinnerLooser(field: number) {
+    if (field === 0 && this.station.starter) {
+      this.station.winner = false;
+      this.station.looser = false;
+    } else if (field === 1 && this.station.winner) {
+      this.station.starter = false;
+      this.station.looser = false;
+    } else if (field === 2 && this.station.looser) {
+      this.station.starter = false;
+      this.station.winner = false;
+    }
   }
 }

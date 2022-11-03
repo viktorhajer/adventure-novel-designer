@@ -7,13 +7,13 @@ h2 {
   }
 }
 
-.fields {
-  mat-form-field {
-    width: 100%;
+mat-form-field {
+  width: 100%;
 
-    textarea {
-      height: 200px;
-    }
+  textarea {
+    height: 400px;
+    font-family: monospace;
+    font-size: 12px;
   }
 }
 

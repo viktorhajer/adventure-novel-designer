@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {NovelService} from './services/novel.service';
 import {UiService} from './services/ui.service';
 import {EditService} from './services/edit.service';
@@ -11,14 +11,13 @@ import {VisualNovel} from './components/visual-novel/visual-novel.model';
 import {VisualNovelMapper} from './components/visual-novel/visual-novel.mapper';
 import {MatDialog} from '@angular/material/dialog';
 import {firstValueFrom} from 'rxjs';
-import {Region} from './model/region.model';
 import {STATION_COLORS, StationColor} from './model/station-color.model';
 import {SimulationService} from './services/simulation.service';
-import {NovelViewerComponent} from './components/novel-viewer/novel-viewer.component';
 import {SimulationComponent} from './components/simulation/simulation.component';
+import {NotesFormComponent} from './components/notes-form/notes-form.component';
 
-const EMPTY_NOVEL = '{"title":"New novel","prolog":"","stations":[],"relations":[],"items":[],' +
-  '"stationItems":[],"regions": [],"mortality": true}';
+const EMPTY_NOVEL = '{"title":"New novel","prolog":"","notes":"","stations":[],"relations":[],"items":[],' +
+  '"stationItems":[],"regions": [],"mortality": true,"showRegions": false}';
 
 // @ts-ignore
 
@@ -31,7 +30,7 @@ export class AppComponent {
 
   @ViewChild(VisualNovelComponent) visual: VisualNovelComponent = null as any;
 
-  modelString = '{"title":"Lorem ipsum dolor","prolog": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",' +
+  modelString = '{"title":"Lorem ipsum dolor","showRegions": false,"notes":"","prolog": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",' +
     '"stations":[' +
     '{"id":1,"regionId":1,"life":4,"index":0,"starter":true,"winner":false,"looser":false,"title":"Indulás a faluból","comment": "","story":"Menj a ##1 vagy ##2.","color":"white"},' +
     '{"id":2,"regionId":1,"life":-1,"index":0,"starter":false,"winner":false,"looser":false,"title":"Elágazás az erdőben","comment": "Consectetur adipiscing elit, sed do eiusmod","story":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","color":"white"},' +
@@ -55,7 +54,7 @@ export class AppComponent {
     '{"sourceId":9,"targetId":6,"comment":"","condition":false}' +
     '],"stationItems":[{"stationId": 3, "itemId": 1, "count": 2}, {"stationId": 5, "itemId": 2, "count": 1}],' +
     '"items":[{"id":1,"name":"Kard"},{"id": 2,"name":"Kulcs"}],' +
-    '"regions":[{"id":1,"name":"Középfölde"},{"id": 2,"name":"Tündérország"}],' +
+    '"regions":[{"id":1,"name":"Középfölde","color":"green","description":""},{"id": 2,"name":"Tündérország","color":"blue","description":""}],' +
     '"mortality": true}';
   station: Station = null as any;
   visualModel: VisualNovel = null as any;
@@ -107,6 +106,14 @@ export class AppComponent {
       panelClass: 'big-dialog'
     }).afterClosed();
   }
+
+  takingNotes() {
+    this.dialog.open(NotesFormComponent, {
+      disableClose: true,
+      panelClass: 'big-dialog'
+    }).afterClosed();
+  }
+
 
   clearNovel() {
     this.modelString = EMPTY_NOVEL;

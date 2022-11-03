@@ -21,7 +21,7 @@ export class VisualNovelMapper {
       .filter(station => color === '' || station.color === color)
       .map(station => {
         const hasItems = novel.stationItems.some(si => si.stationId === station.id);
-        return this.mapStationsToNode(station, hasItems);
+        return this.mapStationsToNode(novel, station, hasItems);
       }) : [];
     if (nodes.length) {
       const ids = novel.stations
@@ -38,11 +38,16 @@ export class VisualNovelMapper {
     return {nodes: [], edges: []};
   }
 
-  private mapStationsToNode(station: Station, hasItems: boolean): VisualNovelNode {
+  private mapStationsToNode(novel: Novel, station: Station, hasItems: boolean): VisualNovelNode {
     const node = new VisualNovelNode();
     node.id = ID_PREFIX + station.id;
     node.title = station.title;
-    node.color = station.color;
+    if (novel.showRegions) {
+      const region = station.regionId ? novel.regions.find(r => r.id === station.regionId) : null as any;
+      node.color = region ? region.color : 'white';
+    } else {
+      node.color = station.color;
+    }
     node.starter = station.starter;
     node.winner = station.winner;
     node.looser = station.looser;

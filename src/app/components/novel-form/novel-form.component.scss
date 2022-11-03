@@ -34,6 +34,19 @@ h2 {
 table {
   border-spacing: 0;
 
+  th.color_column, td.color_column {
+    width: 50px;
+    text-align: center;
+
+    .color_box {
+      width: 14px;
+      height: 14px;
+      border: 1px solid #cdcdcd;
+      box-shadow: 2px 2px 3px rgb(0 0 0 / 10%);
+      margin-left: 18px;
+    }
+  }
+
   tbody {
     tr:hover {
       background: #e5e9fc;

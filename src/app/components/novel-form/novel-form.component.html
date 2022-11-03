@@ -14,6 +14,11 @@
     <mat-slide-toggle [color]="'primary'" [(ngModel)]="novelService.model.mortality" (change)="changePlugin()">
       Mortality
     </mat-slide-toggle>
+
+    <mat-slide-toggle [color]="'primary'" [(ngModel)]="novelService.model.showRegions"
+                      *ngIf="novelService.model.regions.length" (change)="changePlugin()">
+      Show regions
+    </mat-slide-toggle>
   </div>
 
   <h2>Statistics</h2>
@@ -96,14 +101,15 @@
     <thead>
     <tr>
       <th>Name</th>
+      <th class="color_column">Color</th>
       <th></th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let region of novelService.model.regions">
-      <td>
-        <div>{{ region.name }}</div>
-      </td>
+      <td>{{ region.name }}</td>
+      <td class="color_column">
+        <div class="color_box" [style.background-color]="uiService.getColorHex(region.color)">&nbsp;</div></td>
       <td>
         <button mat-icon-button (click)="editRegion(region.id)">
           <mat-icon>settings</mat-icon>

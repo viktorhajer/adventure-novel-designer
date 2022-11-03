@@ -23,6 +23,8 @@ import {RelationFormComponent} from './components/relation-form/relation-form.co
 import {ItemFormComponent} from './components/item-form/item-form.component';
 import {RegionFormComponent} from './components/region-form/region-form.component';
 import {SimulationComponent} from './components/simulation/simulation.component';
+import {NotesFormComponent} from './components/notes-form/notes-form.component';
+import {RegionColorBoxComponent} from './components/region-color-box/region-color-box.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import {SimulationComponent} from './components/simulation/simulation.component'
     RelationFormComponent,
     ItemFormComponent,
     RegionFormComponent,
+    RegionColorBoxComponent,
     SimulationComponent,
+    NotesFormComponent,
     VisualNovelComponent
   ],
   imports: [

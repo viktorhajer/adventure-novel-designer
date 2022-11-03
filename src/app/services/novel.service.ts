@@ -88,6 +88,9 @@ export class NovelService {
       originStation.winner = station.winner;
       originStation.looser = station.looser;
       originStation.life = station.life;
+      if (station.winner || station.looser) {
+        this.model.relations = this.model.relations.filter(r => r.sourceId !== station.id);
+      }
       if (station.starter) {
         this.model.stations.filter(s => s.id !== station.id).forEach(s => s.starter = false);
       }
@@ -132,7 +135,7 @@ export class NovelService {
 
   createRegion(name: string) {
     const id = this.getNewRegionId();
-    this.model.regions.push({id, name});
+    this.model.regions.push({id, name, color: '#ffffff', description: ''});
   }
 
   deleteRegion(id: number) {

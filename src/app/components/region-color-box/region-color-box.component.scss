@@ -1,0 +1,27 @@
+#region_color_container {
+  position: absolute;
+  bottom: 40px;
+  border: 1px solid #c0c0c0;
+  color: #2d2d2d;
+  background: #ffffff;
+  padding: 10px;
+  margin-left: 5px;
+}
+
+.region {
+  display: flex;
+  font-size: 12px;
+  margin-top: 10px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  .color_box {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #cdcdcd;
+    box-shadow: 2px 2px 3px rgb(0 0 0 / 10%);
+    margin-right: 10px;
+  }
+}

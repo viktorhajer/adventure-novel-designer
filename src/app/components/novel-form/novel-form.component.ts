@@ -9,6 +9,7 @@ import {RegionFormComponent} from '../region-form/region-form.component';
 import {ErrorDialogComponent} from '../error-dialog/error-dialog.component';
 import {Item} from '../../model/item.model';
 import {Region} from '../../model/region.model';
+import {UiService} from '../../services/ui.service';
 
 @Component({
   selector: 'app-novel-form',
@@ -21,6 +22,7 @@ export class NovelFormComponent {
   regionName = '';
 
   constructor(public readonly novelService: NovelService,
+              public readonly uiService: UiService,
               private readonly dialog: MatDialog) {
   }
 
@@ -73,8 +75,11 @@ export class NovelFormComponent {
     if (region) {
       firstValueFrom(this.dialog.open(RegionFormComponent, {data: {region}, disableClose: true})
         .afterClosed()).then(result => {
-        if (result !== null && this.validateName(result, this.novelService.model.regions, id)) {
-          region.name = result;
+        if (result !== null && this.validateName(result.name, this.novelService.model.regions, id)) {
+          region.name = result.name;
+          region.color = result.color;
+          region.description = result.description;
+          this.changePlugin();
         }
       });
     }

@@ -1,0 +1,15 @@
+<h2>
+  <mat-icon>edit_note</mat-icon>
+  <div>Taking notes</div>
+</h2>
+<mat-dialog-content class="mat-typography">
+  <mat-form-field appearance="fill">
+    <mat-label>Notes</mat-label>
+    <textarea matInput [(ngModel)]="notes"></textarea>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-raised-button color="primary" (click)="update()">Update</button>
+    <button mat-raised-button (click)="cancel()">Cancel</button>
+  </div>
+</mat-dialog-content>

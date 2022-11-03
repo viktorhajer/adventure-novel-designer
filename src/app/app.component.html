@@ -8,13 +8,16 @@
 
 <div id="main-container">
   <div class="main-header">
-    <h1 *ngIf="!isModelLoaded()">Adventure Novel Designer</h1>
+    <h1 *ngIf="!isModelLoaded()">RPG Book Designer</h1>
     <h1 *ngIf="isModelLoaded()" (click)="clearStation()">{{ novelService.model.title }}</h1>
     <div class="main-actions">
-      <button mat-icon-button (click)="save()" *ngIf="isModelLoaded()" title="Save the raw novel">
+      <button mat-icon-button (click)="save()" *ngIf="isModelLoaded()" title="Save the raw">
         <mat-icon>save</mat-icon>
       </button>
-      <button mat-icon-button (click)="finalize()" *ngIf="isModelLoaded()" title="Get final novel">
+      <button mat-icon-button (click)="takingNotes()" *ngIf="isModelLoaded()" title="Taking notes">
+        <mat-icon>edit_note</mat-icon>
+      </button>
+      <button mat-icon-button (click)="finalize()" *ngIf="isModelLoaded()" title="Get final">
         <mat-icon>menu_book</mat-icon>
       </button>
       <button mat-icon-button (click)="simulation()" *ngIf="isModelLoaded()" title="Start simulation">
@@ -72,6 +75,9 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
+
+        <app-region-color-box *ngIf="visualModel && isModelLoaded()">
+        </app-region-color-box>
 
         <app-visual-novel [nodes]="(!!visualModel ? visualModel.nodes:[])"
                           [edges]="(!!visualModel ? visualModel.edges:[])"

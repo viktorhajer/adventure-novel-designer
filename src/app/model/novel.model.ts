@@ -7,10 +7,12 @@ import {Region} from './region.model';
 export class Novel {
   title: string = '';
   prolog: string = '';
+  notes: string = '';
   stations: Station[] = [];
   relations: Relation[] = [];
   stationItems: StationItem[] = [];
   items: Item[] = [];
   regions: Region[] = [];
   mortality = true;
+  showRegions = false;
 }
