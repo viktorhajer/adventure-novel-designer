@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import {NovelService} from '../../services/novel.service';
+import {BookService} from '../../services/book.service';
 import {Station} from '../../model/station.model';
 import {ItemFormComponent} from '../item-form/item-form.component';
 import {MatDialog} from '@angular/material/dialog';
@@ -12,23 +12,23 @@ import {Region} from '../../model/region.model';
 import {UiService} from '../../services/ui.service';
 
 @Component({
-  selector: 'app-novel-form',
-  templateUrl: './novel-form.component.html',
-  styleUrls: ['./novel-form.component.scss']
+  selector: 'app-book-form',
+  templateUrl: './book-form.component.html',
+  styleUrls: ['./book-form.component.scss']
 })
-export class NovelFormComponent {
+export class BookFormComponent {
   @Output() stationSelected = new EventEmitter();
   itemName = '';
   regionName = '';
 
-  constructor(public readonly novelService: NovelService,
+  constructor(public readonly bookService: BookService,
               public readonly uiService: UiService,
               private readonly dialog: MatDialog) {
   }
 
   createItem() {
-    if (this.validateName(this.itemName, this.novelService.model.items)) {
-      this.novelService.createItem(this.itemName);
+    if (this.validateName(this.itemName, this.bookService.model.items)) {
+      this.bookService.createItem(this.itemName);
       this.itemName = '';
     }
   }
@@ -37,17 +37,17 @@ export class NovelFormComponent {
     firstValueFrom(this.dialog.open(ConfirmDialogComponent, {data: {message: 'Are you sure to delete?'}, disableClose: true})
       .afterClosed()).then(result => {
       if (result) {
-        this.novelService.deleteItem(id);
+        this.bookService.deleteItem(id);
       }
     });
   }
 
   editItem(id: number) {
-    const item = this.novelService.model.items.find(item => item.id === id);
+    const item = this.bookService.model.items.find(item => item.id === id);
     if (item) {
       firstValueFrom(this.dialog.open(ItemFormComponent, {data: {item}, disableClose: true})
         .afterClosed()).then(result => {
-        if (result !== null && this.validateName(result, this.novelService.model.items, id)) {
+        if (result !== null && this.validateName(result, this.bookService.model.items, id)) {
           item.name = result;
         }
       });
@@ -55,8 +55,8 @@ export class NovelFormComponent {
   }
 
   createRegion() {
-    if (this.validateName(this.regionName, this.novelService.model.regions)) {
-      this.novelService.createRegion(this.regionName.trim());
+    if (this.validateName(this.regionName, this.bookService.model.regions)) {
+      this.bookService.createRegion(this.regionName.trim());
       this.regionName = '';
     }
   }
@@ -65,17 +65,17 @@ export class NovelFormComponent {
     firstValueFrom(this.dialog.open(ConfirmDialogComponent, {data: {message: 'Are you sure to delete?'}, disableClose: true})
       .afterClosed()).then(result => {
       if (result) {
-        this.novelService.deleteRegion(id);
+        this.bookService.deleteRegion(id);
       }
     });
   }
 
   editRegion(id: number) {
-    const region = this.novelService.model.regions.find(region => region.id === id);
+    const region = this.bookService.model.regions.find(region => region.id === id);
     if (region) {
       firstValueFrom(this.dialog.open(RegionFormComponent, {data: {region}, disableClose: true})
         .afterClosed()).then(result => {
-        if (result !== null && this.validateName(result.name, this.novelService.model.regions, id)) {
+        if (result !== null && this.validateName(result.name, this.bookService.model.regions, id)) {
           region.name = result.name;
           region.color = result.color;
           region.description = result.description;
@@ -86,7 +86,7 @@ export class NovelFormComponent {
   }
 
   getEditorialStations(): Station[] {
-    return this.novelService.model.stations.filter(s => !!s.comment);
+    return this.bookService.model.stations.filter(s => !!s.comment);
   }
 
   openStation(id: number) {

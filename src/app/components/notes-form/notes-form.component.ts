@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
-import {NovelService} from '../../services/novel.service';
+import {BookService} from '../../services/book.service';
 
 @Component({
   selector: 'app-notes-form',
@@ -12,12 +12,12 @@ export class NotesFormComponent {
   notes: string;
 
   constructor(private readonly dialogRef: MatDialogRef<NotesFormComponent>,
-              private readonly novelService: NovelService) {
-    this.notes = this.novelService.model.notes;
+              private readonly bookService: BookService) {
+    this.notes = this.bookService.model.notes;
   }
 
   update() {
-    this.novelService.model.notes = this.notes;
+    this.bookService.model.notes = this.notes;
     this.dialogRef.close();
   }
 

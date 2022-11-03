@@ -1,20 +1,20 @@
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewEncapsulation} from '@angular/core';
 import * as dagreD3 from 'dagre-d3';
 import * as d3 from 'd3';
-import {VisualNovelEdge, VisualNovelNode} from './visual-novel.model';
+import {VisualEdge, VisualNode} from './visual-book.model';
 
-const VISUAL_NOVEL_ID = 'visual-novel';
+const VISUAL_BOOK_ID = 'visual-book';
 
 @Component({
-  selector: 'app-visual-novel',
-  template: '<svg id="visual-novel"></svg>',
-  styleUrls: ['./visual-novel.component.scss'],
+  selector: 'app-visual-book',
+  template: '<svg id="visual-book"></svg>',
+  styleUrls: ['./visual-book.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class VisualNovelComponent implements OnChanges {
+export class VisualBookComponent implements OnChanges {
 
-  @Input() nodes: VisualNovelNode[] = [];
-  @Input() edges: VisualNovelEdge[] = [];
+  @Input() nodes: VisualNode[] = [];
+  @Input() edges: VisualEdge[] = [];
   @Input() trigger: string = '';
   @Input() selectable = true;
   @Input() selected: string = '';
@@ -35,7 +35,7 @@ export class VisualNovelComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (this.nodes && this.nodes.length && this.edges && this.edges.length) {
       let transform;
-      const group = document.getElementById(VISUAL_NOVEL_ID)?.getElementsByTagName('g');
+      const group = document.getElementById(VISUAL_BOOK_ID)?.getElementsByTagName('g');
       const transformGroup = group ? group[0] : null;
       if (transformGroup) {
         transform = transformGroup.getAttribute('transform');
@@ -56,8 +56,8 @@ export class VisualNovelComponent implements OnChanges {
   }
 
   zoom(ratio = 1) {
-    const width = document.getElementById(VISUAL_NOVEL_ID)?.getBoundingClientRect().width;
-    const height = document.getElementById(VISUAL_NOVEL_ID)?.getBoundingClientRect().height;
+    const width = document.getElementById(VISUAL_BOOK_ID)?.getBoundingClientRect().width;
+    const height = document.getElementById(VISUAL_BOOK_ID)?.getBoundingClientRect().height;
     let initialScale = ratio;
     if (width && height) {
       if (ratio === 0) {
@@ -83,7 +83,7 @@ export class VisualNovelComponent implements OnChanges {
           d3Node.attr('class', classes.replace('selected', '').trim());
         } else {
           if (!this.multiSelect) {
-            VisualNovelComponent.deselectAllComponents();
+            VisualBookComponent.deselectAllComponents();
           }
           d3Node.attr('class', classes + ' selected');
         }
@@ -126,12 +126,12 @@ export class VisualNovelComponent implements OnChanges {
   }
 
   private renderGraph() {
-    d3.select('#visual-novel').selectAll('*').remove();
-    this.svg = d3.select('#visual-novel');
+    d3.select('#visual-book').selectAll('*').remove();
+    this.svg = d3.select('#visual-book');
     const inner = this.svg.append('g');
 
     /*this.svg.on('click', () => {
-      VisualNovelComponent.deselectAllComponents();
+      VisualBookComponent.deselectAllComponents();
       this.nodeSelected.emit();
     });*/
 
@@ -156,7 +156,7 @@ export class VisualNovelComponent implements OnChanges {
           deselect = true;
         } else {
           if (!self.multiSelect) {
-            VisualNovelComponent.deselectAllComponents();
+            VisualBookComponent.deselectAllComponents();
           }
           // @ts-ignore
           d3.select(this).attr('class', classes + ' selected');
@@ -170,7 +170,7 @@ export class VisualNovelComponent implements OnChanges {
   }
 
   private initZoom(transform?: string) {
-    const container = document.getElementById(VISUAL_NOVEL_ID);
+    const container = document.getElementById(VISUAL_BOOK_ID);
     if (container) {
       if (transform) {
         container.getElementsByTagName('g')[0]
@@ -199,7 +199,7 @@ export class VisualNovelComponent implements OnChanges {
     this.edges = this.edges.filter(e => ids.some(id => e.sourceId === id) && ids.some(id => e.targetId === id));
   }
 
-  private createNodeContent(node: VisualNovelNode): string {
+  private createNodeContent(node: VisualNode): string {
     const charLength = 30;
     let html = `<div class="node-container ${node.id} row">`;
     html += `<div class="title" title="${node.title}">`;

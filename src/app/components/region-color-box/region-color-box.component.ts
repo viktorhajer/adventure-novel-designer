@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {UiService} from '../../services/ui.service';
-import {NovelService} from '../../services/novel.service';
+import {BookService} from '../../services/book.service';
 
 @Component({
   selector: 'app-region-color-box',
@@ -10,10 +10,10 @@ import {NovelService} from '../../services/novel.service';
 export class RegionColorBoxComponent {
 
   constructor(public readonly uiService: UiService,
-              public readonly novelService: NovelService) {
+              public readonly bookService: BookService) {
   }
 
   displayed(): boolean {
-    return this.novelService.model.showRegions && !!this.novelService.model.regions.length;
+    return this.bookService.model.showRegions && !!this.bookService.model.regions.length;
   }
 }

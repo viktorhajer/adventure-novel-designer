@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 import {Station} from '../../model/station.model';
 import {Item} from '../../model/item.model';
 import {StationItem} from '../../model/station-item.model';
-import {NovelService} from '../../services/novel.service';
+import {BookService} from '../../services/book.service';
 import {EditService} from '../../services/edit.service';
 import {MatDialog} from '@angular/material/dialog';
 import {StationViewerComponent} from '../station-viewer/station-viewer.component';
@@ -38,21 +38,21 @@ export class StationFormComponent implements OnChanges {
   myDestinationControl = new FormControl('');
   filteredDestinationOptions: Observable<Station[]> = null as any;
 
-  constructor(public readonly novelService: NovelService,
+  constructor(public readonly bookService: BookService,
               private readonly editService: EditService,
               private readonly dialog: MatDialog) {
   }
 
   ngOnChanges() {
-    this.regions = this.novelService.model.regions;
+    this.regions = this.bookService.model.regions;
     if (this.station) {
       this.createNew = !this.station.id;
       if (!this.createNew) {
-        this.children = this.novelService.getChildren(this.station.id);
-        this.childRoutes = this.novelService.model.relations.filter(r => r.sourceId === this.station.id);
-        this.stations = this.novelService.getStations(this.station.id);
-        this.items = this.novelService.getItems(this.station.id);
-        this.ownItems = this.novelService.getStationItems(this.station.id);
+        this.children = this.bookService.getChildren(this.station.id);
+        this.childRoutes = this.bookService.model.relations.filter(r => r.sourceId === this.station.id);
+        this.stations = this.bookService.getStations(this.station.id);
+        this.items = this.bookService.getItems(this.station.id);
+        this.ownItems = this.bookService.getStationItems(this.station.id);
       }
       this.filteredDestinationOptions = this.myDestinationControl.valueChanges.pipe(
         startWith(''),
@@ -65,13 +65,13 @@ export class StationFormComponent implements OnChanges {
     if (this.createNew) {
       this.editService.unsaved = true;
     } else {
-      const originStation = this.novelService.model.stations.find(s => s.id === this.station.id);
+      const originStation = this.bookService.model.stations.find(s => s.id === this.station.id);
       this.editService.unsaved = JSON.stringify(originStation) !== JSON.stringify(this.station);
     }
   }
 
   checkWinnerLooser(field = 0) {
-    const hasChild = this.novelService.model.relations.some(r => r.sourceId === this.station.id);
+    const hasChild = this.bookService.model.relations.some(r => r.sourceId === this.station.id);
     if (field !== 0 && (this.station.winner  || this.station.looser) && hasChild) {
       const marker = field === 1 && this.station.winner ? 'winner' : 'looser';
       const message = `Are you sure you are marking the station as a ${marker}? All routes from this station will be deleted.`;
@@ -91,7 +91,7 @@ export class StationFormComponent implements OnChanges {
 
   create() {
     if (this.validateTitle()) {
-      this.novelService.createStation(this.station, this.previousStation);
+      this.bookService.createStation(this.station, this.previousStation);
       this.editService.unsaved = false;
       this.stationChanged.emit(this.station.id + '');
     }
@@ -99,7 +99,7 @@ export class StationFormComponent implements OnChanges {
 
   update() {
     if (this.validateTitle()) {
-      this.novelService.updateStation(this.station);
+      this.bookService.updateStation(this.station);
       this.editService.unsaved = false;
       this.stationChanged.emit(this.station.id + '');
     }
@@ -108,7 +108,7 @@ export class StationFormComponent implements OnChanges {
   delete() {
     this.openConfirmation().then(result => {
       if (result) {
-        this.novelService.deleteStation(this.station.id);
+        this.bookService.deleteStation(this.station.id);
         this.stationChanged.emit(null);
       }
     });
@@ -117,7 +117,7 @@ export class StationFormComponent implements OnChanges {
   createRelation(destination: HTMLInputElement, comment: HTMLInputElement, conditionInput: any) {
     const targetId = this.stations.find(s => s.title === destination.value)?.id as any;
     if (targetId) {
-      this.novelService.createRelation(this.station.id, targetId, comment.value, conditionInput.checked);
+      this.bookService.createRelation(this.station.id, targetId, comment.value, conditionInput.checked);
       comment.value = '';
       this.stationChanged.emit(this.station.id + '');
       destination.value = '';
@@ -129,7 +129,7 @@ export class StationFormComponent implements OnChanges {
   deleteRelation(targetId: number) {
     this.openConfirmation().then(result => {
       if (result) {
-        this.novelService.deleteRelation(this.station.id, targetId);
+        this.bookService.deleteRelation(this.station.id, targetId);
         this.stationChanged.emit(this.station.id + '');
       }
     });
@@ -138,14 +138,16 @@ export class StationFormComponent implements OnChanges {
   deleteOwnItem(itemId: number) {
     this.openConfirmation().then(result => {
       if (result) {
-        this.novelService.deleteStationItem(this.station.id, itemId);
+        this.bookService.deleteStationItem(this.station.id, itemId);
         this.stationChanged.emit(this.station.id + '');
       }
     });
   }
 
   setItem(stationId: number, itemId: any, count: HTMLInputElement) {
-    this.novelService.setItem(stationId, itemId.value, +count.value);
+    let value = !!(+count.value) ? +count.value : 1;
+    value = value > 0 ? value : 1;
+    this.bookService.setItem(stationId, itemId.value, value);
     itemId.value = '';
     count.value = '1';
     this.stationChanged.emit(this.station.id + '');
@@ -159,7 +161,7 @@ export class StationFormComponent implements OnChanges {
   }
 
   editRelation(targetId: number) {
-    const relation = this.novelService.model.relations.find(r => r.targetId === targetId && r.sourceId === this.station.id);
+    const relation = this.bookService.model.relations.find(r => r.targetId === targetId && r.sourceId === this.station.id);
     if (relation) {
       firstValueFrom(this.dialog.open(RelationFormComponent, {data: {relation}, disableClose: true})
         .afterClosed()).then(result => {
@@ -184,7 +186,7 @@ export class StationFormComponent implements OnChanges {
         data: {message: 'Please enter a valid title.'}
       }).afterClosed();
       return false;
-    } else if (this.novelService.model.stations.some(s => s.title === this.station.title && s.id !== this.station.id)) {
+    } else if (this.bookService.model.stations.some(s => s.title === this.station.title && s.id !== this.station.id)) {
       this.dialog.open(ErrorDialogComponent, {
         panelClass: 'full-modal',
         data: {message: 'Station title should be unique.'}

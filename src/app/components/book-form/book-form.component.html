@@ -1,22 +1,22 @@
-<div id="edit-novel-form">
+<div id="edit-book-form">
   <mat-form-field appearance="fill">
     <mat-label>Title</mat-label>
-    <input matInput [(ngModel)]="novelService.model.title">
+    <input matInput [(ngModel)]="bookService.model.title">
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Prolog</mat-label>
-    <textarea matInput [(ngModel)]="novelService.model.prolog"></textarea>
+    <textarea matInput [(ngModel)]="bookService.model.prolog"></textarea>
   </mat-form-field>
 
   <h2>Editor configuration</h2>
   <div class="configuration_container">
-    <mat-slide-toggle [color]="'primary'" [(ngModel)]="novelService.model.mortality" (change)="changePlugin()">
+    <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.mortality" (change)="changePlugin()">
       Mortality
     </mat-slide-toggle>
 
-    <mat-slide-toggle [color]="'primary'" [(ngModel)]="novelService.model.showRegions"
-                      *ngIf="novelService.model.regions.length" (change)="changePlugin()">
+    <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.showRegions"
+                      *ngIf="bookService.model.regions.length" (change)="changePlugin()">
       Show regions
     </mat-slide-toggle>
   </div>
@@ -25,15 +25,15 @@
   <div class="stat_container">
     <div class="stat">
       <div class="stat_name">Number of stations:</div>
-      <div class="stat_value">{{ novelService.model.stations.length }}</div>
+      <div class="stat_value">{{ bookService.model.stations.length }}</div>
     </div>
     <div class="stat">
       <div class="stat_name">Number of path:</div>
-      <div class="stat_value">{{ novelService.model.relations.length }}</div>
+      <div class="stat_value">{{ bookService.model.relations.length }}</div>
     </div>
     <div class="stat">
       <div class="stat_name">Number of items:</div>
-      <div class="stat_value">{{ novelService.model.items.length }}</div>
+      <div class="stat_value">{{ bookService.model.items.length }}</div>
     </div>
   </div>
 
@@ -64,7 +64,7 @@
   </table>
 
   <h2>Items</h2>
-  <table mat-table *ngIf="novelService.model.items.length">
+  <table mat-table *ngIf="bookService.model.items.length">
     <thead>
     <tr>
       <th>Name</th>
@@ -72,7 +72,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of novelService.model.items">
+    <tr *ngFor="let item of bookService.model.items">
       <td>
         <div>{{ item.name }}</div>
       </td>
@@ -97,7 +97,7 @@
   </div>
 
   <h2>Regions</h2>
-  <table mat-table *ngIf="novelService.model.regions.length">
+  <table mat-table *ngIf="bookService.model.regions.length">
     <thead>
     <tr>
       <th>Name</th>
@@ -106,7 +106,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let region of novelService.model.regions">
+    <tr *ngFor="let region of bookService.model.regions">
       <td>{{ region.name }}</td>
       <td class="color_column">
         <div class="color_box" [style.background-color]="uiService.getColorHex(region.color)">&nbsp;</div></td>

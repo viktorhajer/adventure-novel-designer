@@ -1,35 +1,38 @@
 import {Injectable} from '@angular/core';
-import {Novel} from '../model/novel.model';
+import {Book} from '../model/book.model';
 import {MatDialog} from '@angular/material/dialog';
 import {ErrorDialogComponent} from '../components/error-dialog/error-dialog.component';
 import {WarningDialogComponent} from '../components/warning-dialog/warning-dialog.component';
 import {Station} from '../model/station.model';
 import {Item} from '../model/item.model';
 import {StationItem} from '../model/station-item.model';
-import {NovelViewerComponent} from '../components/novel-viewer/novel-viewer.component';
+import {BookCorrectorService} from './book-corrector.service';
+import {BookViewerComponent} from '../components/book-viewer/book-viewer.component';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NovelService {
+export class BookService {
   loaded = false;
-  model: Novel;
-  maxID = 1;
+  model: Book;
+  maxStationID = 1;
 
-  constructor(private readonly dialog: MatDialog) {
-    this.model = new Novel();
+  constructor(private readonly dialog: MatDialog,
+              private readonly corrector: BookCorrectorService) {
+    this.model = new Book();
   }
 
   clearModel() {
-    this.model = new Novel();
+    this.model = new Book();
     this.loaded = false;
   }
 
   loadModel(content: string) {
     try {
       this.model = JSON.parse(content);
+      this.corrector.fixModel(this.model);
       this.loaded = true;
-      this.setMaxID();
+      this.setMaxStationID();
     } catch (e) {
       this.openError('Failed to load the model due syntax error.');
     }
@@ -64,7 +67,7 @@ export class NovelService {
   }
 
   createStation(station: Station, parentId?: number, comment = '') {
-    station.id = ++this.maxID;
+    station.id = ++this.maxStationID;
     this.model.stations.push(station);
     if (!!parentId) {
       this.model.relations.push({
@@ -144,14 +147,14 @@ export class NovelService {
   }
 
   finalize() {
-    if (this.isValidNovel()) {
+    if (this.isValidBook()) {
       this.generateIndexes();
-      this.openNovelViewer(this.sortAndReplaceMacros());
+      this.openBookViewer(this.sortAndReplaceMacros());
       this.validateMacros();
     }
   }
 
-  private isValidNovel() {
+  private isValidBook() {
     let message = '';
     // One starter
     const starters = this.model.stations.filter(s => s.starter);
@@ -227,23 +230,23 @@ export class NovelService {
     }
   }
 
-  private openNovelViewer(stations: Station[]) {
-    const novel = new Novel();
-    novel.title = this.model.title;
-    novel.prolog = this.model.prolog;
-    novel.stations = stations;
-    this.dialog.open(NovelViewerComponent, {
+  private openBookViewer(stations: Station[]) {
+    const book = new Book();
+    book.title = this.model.title;
+    book.prolog = this.model.prolog;
+    book.stations = stations;
+    this.dialog.open(BookViewerComponent, {
       panelClass: 'full-modal',
-      data: {novel}
+      data: {book}
     }).afterClosed();
   }
 
-  private setMaxID() {
+  private setMaxStationID() {
     let max = 0;
     this.model.stations.forEach(s => {
       max = s.id > max ? s.id : max;
     });
-    this.maxID = max;
+    this.maxStationID = max;
   }
 
   private getNewItemId(): number {

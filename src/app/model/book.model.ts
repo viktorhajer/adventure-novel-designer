@@ -4,7 +4,7 @@ import {Item} from './item.model';
 import {StationItem} from './station-item.model';
 import {Region} from './region.model';
 
-export class Novel {
+export class Book {
   title: string = '';
   prolog: string = '';
   notes: string = '';

@@ -9,7 +9,7 @@
 <div id="main-container">
   <div class="main-header">
     <h1 *ngIf="!isModelLoaded()">RPG Book Designer</h1>
-    <h1 *ngIf="isModelLoaded()" (click)="clearStation()">{{ novelService.model.title }}</h1>
+    <h1 *ngIf="isModelLoaded()" (click)="clearStation()">{{ bookService.model.title }}</h1>
     <div class="main-actions">
       <button mat-icon-button (click)="save()" *ngIf="isModelLoaded()" title="Save the raw">
         <mat-icon>save</mat-icon>
@@ -23,7 +23,7 @@
       <button mat-icon-button (click)="simulation()" *ngIf="isModelLoaded()" title="Start simulation">
         <mat-icon>rocket_launch</mat-icon>
       </button>
-      <button mat-icon-button (click)="clearNovel()" title="New novel">
+      <button mat-icon-button (click)="clearBook()" title="New book">
         <mat-icon>file_open</mat-icon>
       </button>
     </div>
@@ -32,8 +32,8 @@
   <div id="main">
     <div id="left" [class.hidden]="ui.expanded">
       <span class="material-symbols-outlined" style="position: fixed; top: -100px;">error</span>
-      <app-novel-form *ngIf="isModelLoaded() && !station" (stationSelected)="openStation($event)">
-      </app-novel-form>
+      <app-book-form *ngIf="isModelLoaded() && !station" (stationSelected)="openStation($event)">
+      </app-book-form>
 
       <app-station-form *ngIf="station" [station]="station" [trigger]="formTrigger"
                         [previousStation]="previousStation"
@@ -52,7 +52,7 @@
     </div>
 
     <div id="right" [class.expanded]="ui.expanded">
-      <div id="visual-novel-container">
+      <div id="visual-book-container">
 
         <mat-form-field appearance="fill" class="color-selector"
                         *ngIf="visualModel && isModelLoaded() && colors.length">
@@ -66,11 +66,11 @@
         </mat-form-field>
 
         <mat-form-field appearance="fill" class="region-selector"
-                        *ngIf="visualModel && isModelLoaded() && novelService.model.regions.length">
+                        *ngIf="visualModel && isModelLoaded() && bookService.model.regions.length">
           <mat-label><i>Select region</i></mat-label>
           <mat-select [(ngModel)]="regionId" (selectionChange)="visualFilter()">
             <mat-option></mat-option>
-            <mat-option *ngFor="let r of novelService.model.regions" [value]="r.id">
+            <mat-option *ngFor="let r of bookService.model.regions" [value]="r.id">
               {{r.name}}
             </mat-option>
           </mat-select>
@@ -79,12 +79,12 @@
         <app-region-color-box *ngIf="visualModel && isModelLoaded()">
         </app-region-color-box>
 
-        <app-visual-novel [nodes]="(!!visualModel ? visualModel.nodes:[])"
+        <app-visual-book [nodes]="(!!visualModel ? visualModel.nodes:[])"
                           [edges]="(!!visualModel ? visualModel.edges:[])"
                           [trigger]="formTrigger+''"
                           [selected]="(station && !!station.id ? 'node_' + station.id : '')"
                           (nodeSelected)="openStation($event)" #visualizer>
-        </app-visual-novel>
+        </app-visual-book>
         <div class="buttonGroup" *ngIf="visualModel">
           <button mat-raised-button (click)="visualizer.zoom(0)">Fit</button>
           <button mat-raised-button (click)="visualizer.zoom(0.5)"> 50%</button>

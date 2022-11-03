@@ -1,5 +1,5 @@
 <div id="region_color_container" *ngIf="displayed()">
-  <div class="region" *ngFor="let region of novelService.model.regions">
+  <div class="region" *ngFor="let region of bookService.model.regions">
     <div class="color_box" [style.background-color]="uiService.getColorHex(region.color)">&nbsp;</div>
     <div class="region_name">{{ region.name }}</div>
   </div>

@@ -1,19 +1,18 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {Novel} from '../../model/novel.model';
+import {Book} from '../../model/book.model';
 
 @Component({
-  selector: 'app-novel-viewer',
-  templateUrl: './novel-viewer.component.html',
-  styleUrls: ['./novel-viewer.component.scss']
+  selector: 'app-book-viewer',
+  templateUrl: './book-viewer.component.html',
+  styleUrls: ['./book-viewer.component.scss']
 })
-export class NovelViewerComponent implements OnInit {
+export class BookViewerComponent implements OnInit {
+  book: Book;
 
-  novel: Novel;
-
-  constructor(protected dialogRef: MatDialogRef<NovelViewerComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: { novel: Novel }) {
-    this.novel = this.data.novel;
+  constructor(protected dialogRef: MatDialogRef<BookViewerComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: { book: Book }) {
+    this.book = this.data.book;
   }
 
   ngOnInit() {

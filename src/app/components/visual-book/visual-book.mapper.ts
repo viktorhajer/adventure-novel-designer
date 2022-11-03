@@ -1,34 +1,34 @@
-import {VisualNovel, VisualNovelEdge, VisualNovelNode} from './visual-novel.model';
-import {Novel} from '../../model/novel.model';
+import {Book} from '../../model/book.model';
 import {Station} from '../../model/station.model';
 import {Relation} from '../../model/relation.model';
 import {Injectable} from '@angular/core';
-import {NovelService} from '../../services/novel.service';
+import {BookService} from '../../services/book.service';
+import {VisualEdge, VisualModel, VisualNode} from './visual-book.model';
 
 export const ID_PREFIX = 'node_';
 
 @Injectable({
   providedIn: 'root'
 })
-export class VisualNovelMapper {
+export class VisualBookMapper {
 
-  constructor(private readonly novelService: NovelService) {
+  constructor(private readonly bookService: BookService) {
   }
 
-  mapNovel(novel: Novel, regionId = 0, color = ''): VisualNovel {
-    const nodes = novel && novel.stations ? novel.stations
+  mapModel(book: Book, regionId = 0, color = ''): VisualModel {
+    const nodes = book && book.stations ? book.stations
       .filter(station => regionId === 0 || station.regionId === regionId)
       .filter(station => color === '' || station.color === color)
       .map(station => {
-        const hasItems = novel.stationItems.some(si => si.stationId === station.id);
-        return this.mapStationsToNode(novel, station, hasItems);
+        const hasItems = book.stationItems.some(si => si.stationId === station.id);
+        return this.mapStationsToNode(book, station, hasItems);
       }) : [];
     if (nodes.length) {
-      const ids = novel.stations
+      const ids = book.stations
         .filter(station => regionId === 0 || station.regionId === regionId)
         .filter(station => color === '' || station.color === color)
         .map(s => s.id);
-      const allEdges = novel.relations ? novel.relations
+      const allEdges = book.relations ? book.relations
         .filter(r => ids.includes(r.sourceId) && ids.includes(r.targetId))
         .map(r => this.mapRelationToEdge(r)).filter(e => !!e) : [];
       const uniqueEdges = allEdges.filter((edge, index, self) =>
@@ -38,12 +38,12 @@ export class VisualNovelMapper {
     return {nodes: [], edges: []};
   }
 
-  private mapStationsToNode(novel: Novel, station: Station, hasItems: boolean): VisualNovelNode {
-    const node = new VisualNovelNode();
+  private mapStationsToNode(book: Book, station: Station, hasItems: boolean): VisualNode {
+    const node = new VisualNode();
     node.id = ID_PREFIX + station.id;
     node.title = station.title;
-    if (novel.showRegions) {
-      const region = station.regionId ? novel.regions.find(r => r.id === station.regionId) : null as any;
+    if (book.showRegions) {
+      const region = station.regionId ? book.regions.find(r => r.id === station.regionId) : null as any;
       node.color = region ? region.color : 'white';
     } else {
       node.color = station.color;
@@ -53,13 +53,13 @@ export class VisualNovelMapper {
     node.looser = station.looser;
     node.alert = !station.story.trim().length;
     node.warning = !!station.comment.trim().length;
-    node.heart = this.novelService.model.mortality && station.life > 0 ? Math.abs(station.life) : 0;
-    node.skull = this.novelService.model.mortality && station.life < 0 ? Math.abs(station.life) : 0;
+    node.heart = this.bookService.model.mortality && station.life > 0 ? Math.abs(station.life) : 0;
+    node.skull = this.bookService.model.mortality && station.life < 0 ? Math.abs(station.life) : 0;
     node.present = hasItems;
     return node;
   }
 
-  private mapRelationToEdge(relation: Relation): VisualNovelEdge {
+  private mapRelationToEdge(relation: Relation): VisualEdge {
     if (relation.sourceId && relation.targetId) {
       return {
         sourceId: ID_PREFIX + relation.sourceId, targetId: ID_PREFIX + relation.targetId,

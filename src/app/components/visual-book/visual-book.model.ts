@@ -1,16 +1,16 @@
-export class VisualNovel {
-  nodes: VisualNovelNode[] = [];
-  edges: VisualNovelEdge[] = [];
+export class VisualModel {
+  nodes: VisualNode[] = [];
+  edges: VisualEdge[] = [];
 }
 
-export class VisualNovelEdge {
+export class VisualEdge {
   sourceId: string = '';
   targetId: string = '';
   comment: string = '';
   condition: boolean = false;
 }
 
-export class VisualNovelNode {
+export class VisualNode {
   id: string = '';
   title: string = '';
   color: string = '';

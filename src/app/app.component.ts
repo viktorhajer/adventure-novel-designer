@@ -1,22 +1,22 @@
 import {Component, ViewChild} from '@angular/core';
-import {NovelService} from './services/novel.service';
+import {BookService} from './services/book.service';
 import {UiService} from './services/ui.service';
 import {EditService} from './services/edit.service';
 import {Station} from './model/station.model';
 import {StationViewerComponent} from './components/station-viewer/station-viewer.component';
 import {ConfirmDialogComponent} from './components/confirm-dialog/confirm-dialog.component';
 import {WarningDialogComponent} from './components/warning-dialog/warning-dialog.component';
-import {VisualNovelComponent} from './components/visual-novel/visual-novel.component';
-import {VisualNovel} from './components/visual-novel/visual-novel.model';
-import {VisualNovelMapper} from './components/visual-novel/visual-novel.mapper';
 import {MatDialog} from '@angular/material/dialog';
 import {firstValueFrom} from 'rxjs';
 import {STATION_COLORS, StationColor} from './model/station-color.model';
 import {SimulationService} from './services/simulation.service';
 import {SimulationComponent} from './components/simulation/simulation.component';
 import {NotesFormComponent} from './components/notes-form/notes-form.component';
+import {VisualBookComponent} from './components/visual-book/visual-book.component';
+import {VisualModel} from './components/visual-book/visual-book.model';
+import {VisualBookMapper} from './components/visual-book/visual-book.mapper';
 
-const EMPTY_NOVEL = '{"title":"New novel","prolog":"","notes":"","stations":[],"relations":[],"items":[],' +
+const EMPTY_BOOK = '{"title":"New book","prolog":"","notes":"","stations":[],"relations":[],"items":[],' +
   '"stationItems":[],"regions": [],"mortality": true,"showRegions": false}';
 
 // @ts-ignore
@@ -28,7 +28,7 @@ const EMPTY_NOVEL = '{"title":"New novel","prolog":"","notes":"","stations":[],"
 })
 export class AppComponent {
 
-  @ViewChild(VisualNovelComponent) visual: VisualNovelComponent = null as any;
+  @ViewChild(VisualBookComponent) visual: VisualBookComponent = null as any;
 
   modelString = '{"title":"Lorem ipsum dolor","showRegions": false,"notes":"","prolog": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",' +
     '"stations":[' +
@@ -57,33 +57,33 @@ export class AppComponent {
     '"regions":[{"id":1,"name":"Középfölde","color":"green","description":""},{"id": 2,"name":"Tündérország","color":"blue","description":""}],' +
     '"mortality": true}';
   station: Station = null as any;
-  visualModel: VisualNovel = null as any;
+  visualModel: VisualModel = null as any;
   formTrigger = 0;
   previousStation: number = 0;
   regionId: number = 0;
   color: string = '';
   colors: StationColor[] = [];
 
-  constructor(public readonly novelService: NovelService,
+  constructor(public readonly bookService: BookService,
               private readonly dialog: MatDialog,
               private readonly editService: EditService,
               private readonly simulationService: SimulationService,
-              private readonly visualNovelMapper: VisualNovelMapper,
+              private readonly visualBookMapper: VisualBookMapper,
               public readonly ui: UiService) {
   }
 
   isModelLoaded(): boolean {
-    return this.novelService.loaded;
+    return this.bookService.loaded;
   }
 
   load() {
-    this.novelService.loadModel(this.modelString);
-    this.visualModel = this.visualNovelMapper.mapNovel(this.novelService.model);
+    this.bookService.loadModel(this.modelString);
+    this.visualModel = this.visualBookMapper.mapModel(this.bookService.model);
     this.initColors();
   }
 
   save() {
-    this.modelString = JSON.stringify(this.novelService.model);
+    this.modelString = JSON.stringify(this.bookService.model);
     if (navigator.clipboard) {
       navigator.clipboard.writeText(this.modelString);
       this.dialog.open(WarningDialogComponent, {
@@ -93,11 +93,11 @@ export class AppComponent {
     }
     this.visualModel = null as any;
     this.station = null as any;
-    this.novelService.clearModel();
+    this.bookService.clearModel();
   }
 
   finalize() {
-    this.novelService.finalize();
+    this.bookService.finalize();
   }
 
   simulation() {
@@ -115,11 +115,11 @@ export class AppComponent {
   }
 
 
-  clearNovel() {
-    this.modelString = EMPTY_NOVEL;
+  clearBook() {
+    this.modelString = EMPTY_BOOK;
     this.station = null as any;
     this.visualModel = null as any;
-    this.novelService.clearModel();
+    this.bookService.clearModel();
     this.changeTrigger();
   }
 
@@ -156,11 +156,11 @@ export class AppComponent {
       if (this.editService.unsaved) {
         this.openConfirmation('Are you sure to navigate without saving?').then(result => {
           if (result) {
-            this.navigateToNovel();
+            this.navigateToBook();
           }
         });
       } else {
-        this.navigateToNovel();
+        this.navigateToBook();
       }
     }
   }
@@ -174,7 +174,7 @@ export class AppComponent {
     this.changeTrigger();
   }
 
-  private navigateToNovel() {
+  private navigateToBook() {
     this.visual.selectNode('node_' + this.station.id);
     this.editService.unsaved = false;
     this.previousStation = 0;
@@ -194,7 +194,7 @@ export class AppComponent {
 
   private navigateToStation(id: string) {
     if (id) {
-      const station = JSON.parse(JSON.stringify(this.novelService.getStation(+id.replace('node_', ''))));
+      const station = JSON.parse(JSON.stringify(this.bookService.getStation(+id.replace('node_', ''))));
       if (this.ui.expanded) {
         this.dialog.open(StationViewerComponent, {
           panelClass: 'full-modal',
@@ -215,7 +215,7 @@ export class AppComponent {
   }
 
   private changeTrigger() {
-    this.visualModel = this.visualNovelMapper.mapNovel(this.novelService.model, this.regionId, this.color);
+    this.visualModel = this.visualBookMapper.mapModel(this.bookService.model, this.regionId, this.color);
     this.formTrigger++;
   }
 
@@ -227,7 +227,7 @@ export class AppComponent {
   }
 
   private initColors() {
-    const cols = this.novelService.model.stations.filter(s => !!s.color).map(s => s.color)
+    const cols = this.bookService.model.stations.filter(s => !!s.color).map(s => s.color)
       .filter((c, index, self) => self.indexOf(c) === index);
     this.colors = cols.map(s => {
       const color = STATION_COLORS.find(c => c.value === s);

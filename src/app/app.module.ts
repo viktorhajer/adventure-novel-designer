@@ -15,34 +15,34 @@ import {ConfirmDialogComponent} from './components/confirm-dialog/confirm-dialog
 import {MatIconModule} from '@angular/material/icon';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {StationViewerComponent} from './components/station-viewer/station-viewer.component';
-import {VisualNovelComponent} from './components/visual-novel/visual-novel.component';
 import {MatSelectModule} from '@angular/material/select';
-import {NovelFormComponent} from './components/novel-form/novel-form.component';
-import {NovelViewerComponent} from './components/novel-viewer/novel-viewer.component';
+import {BookFormComponent} from './components/book-form/book-form.component';
+import {BookViewerComponent} from './components/book-viewer/book-viewer.component';
 import {RelationFormComponent} from './components/relation-form/relation-form.component';
 import {ItemFormComponent} from './components/item-form/item-form.component';
 import {RegionFormComponent} from './components/region-form/region-form.component';
 import {SimulationComponent} from './components/simulation/simulation.component';
 import {NotesFormComponent} from './components/notes-form/notes-form.component';
 import {RegionColorBoxComponent} from './components/region-color-box/region-color-box.component';
+import {VisualBookComponent} from './components/visual-book/visual-book.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NovelFormComponent,
+    BookFormComponent,
     StationFormComponent,
     ErrorDialogComponent,
     WarningDialogComponent,
     ConfirmDialogComponent,
     StationViewerComponent,
-    NovelViewerComponent,
+    BookViewerComponent,
     RelationFormComponent,
     ItemFormComponent,
     RegionFormComponent,
     RegionColorBoxComponent,
     SimulationComponent,
     NotesFormComponent,
-    VisualNovelComponent
+    VisualBookComponent
   ],
   imports: [
     CommonModule,

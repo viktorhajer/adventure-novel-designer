@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {NovelService} from './novel.service';
+import {BookService} from './book.service';
 import {Relation} from '../model/relation.model';
 import {StationItem} from '../model/simulation.model';
 import {MatDialog} from '@angular/material/dialog';
@@ -12,22 +12,22 @@ export const INFINITY = 9999999;
 })
 export class SimulationService {
 
-  constructor(private readonly novelService: NovelService,
+  constructor(private readonly bookService: BookService,
               private readonly dialog: MatDialog) {
   }
 
   start(endId: number): StationItem {
-    const start = this.novelService.model.stations.find(s => s.starter);
+    const start = this.bookService.model.stations.find(s => s.starter);
     if (!start) {
       this.dialog.open(ErrorDialogComponent, {
         panelClass: 'full-modal',
         data: {message: 'Please select first station.'}
       }).afterClosed();
     } else {
-      const rawPath = this.findShortestPath(this.novelService.model.relations, start.id, endId);
+      const rawPath = this.findShortestPath(this.bookService.model.relations, start.id, endId);
       return {
         distance: rawPath.distance,
-        path: rawPath.path.map(id => this.novelService.getStation(id))
+        path: rawPath.path.map(id => this.bookService.getStation(id))
       }
     }
     return null as any;
