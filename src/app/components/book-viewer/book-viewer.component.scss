@@ -23,6 +23,11 @@ h2 {
     font-size: 15px;
     font-weight: bold;
   }
+
+  .chapter_content {
+    white-space: break-spaces;
+    font-family: 'Roboto';
+  }
 }
 
 .chapter:nth-child(odd) {

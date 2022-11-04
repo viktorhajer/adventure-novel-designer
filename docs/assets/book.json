@@ -1,100 +1,287 @@
 {
-  "title": "Loaded2",
-  "showRegions": true,
-  "notes": "",
-  "prolog": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  "title": "Az elveszett időérme",
+  "prolog": "",
+  "notes": "\n[help1]\nTündérországban a kastélyhoz közeledve egy őzzel találkozunk. Ha van nálunk szecsa, mert nem ettük meg az alején, akkor meg tudjuk etetni. Cserébe ad segítséget. \n\n[help2]\na kőtengernél egy manó segítséget kér, mert az apja lába beszorult a sziklák közé, miközben a paras követ kereste. A segítségért cserébe elárulja az utat a Békavároshoz, sőt még ad egy tanácsot is, hogy mit kell megdícsérni a békakirályon. A végén ők is ott lesznek és elmondják, hogy meglelték végül a paras követ, de azonnal el is vesztették. \n\n[Választás]\nBogárhotelbe menet kísérőt kell választani. Lehet az Herkules a varangyosbéka vagy Izi, a katicabogárlány, aki nagyon okos. Herkules választása esetén konfliktba is kerülünk, de nem nyerünk, elfognak minket és próbát kell kiállni. Izi esetén sikerül észrevétleün besurrannunk. \n\n\n[Egyéb]\nA béka elmondja, hogy a holló kérte fel őt, aki a holló palotában lakik, ahova csak egy csiga segítségével juthatnak el észrevétlenül. ",
   "stations": [
     {
       "id": 1,
-      "regionId": 1,
-      "life": 4,
-      "index": 0,
+      "title": "Móló a Tükörtavon",
+      "story": "Hősünk az iskolából kerékpározik haza. Útja a Tükörtó mellett vezet. Úgy dönt, hogy elfogyasztja a megmaradt ebédjét a mólón. Leül a szélére és előveszi a szendvicsét, amikor egy gyönyörű hattyú jelenik meg. \n\nHa úgy döntesz, hogy tovább eszed a szendvicsed, akkor lapozz az [##1], ha megpróbálsz benyújtani egy falatot a hattyúnak, akkor lapozz a [##2]. ",
+      "color": "white",
+      "comment": "",
+      "index": 1,
       "starter": true,
+      "life": 0,
       "winner": false,
       "looser": false,
-      "title": "Indulás a faluból",
-      "comment": "",
-      "story": "Menj a ##1 vagy ##2.",
-      "color": "white"
+      "regionId": 2
     },
     {
       "id": 2,
-      "regionId": 1,
-      "life": -1,
-      "index": 0,
+      "title": "Megeszem a szendvicsem",
+      "story": "Jóízűen elfogyasztod a szendvicsed és gyönyörködsz a látványban. Miután végeztél felállsz, hogy folytasd az utad haza, de ekkor megbillensz és beleesel a tóba. Lapozz a [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 6,
       "starter": false,
+      "life": 0,
       "winner": false,
       "looser": false,
-      "title": "Elágazás az erdőben",
-      "comment": "Consectetur adipiscing elit, sed do eiusmod",
-      "story": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "color": "white"
+      "regionId": 2
     },
     {
       "id": 3,
-      "regionId": 1,
-      "life": 0,
-      "index": 0,
+      "title": "Megetetem a hattyút",
+      "story": "Nagyon kedveled az állatokat, úgy döntesz, hogy megosztod a hattyúval az ebéded. Letörsz egy falatot és ahogy nyújtanád felé kibillensz az egyensúlyodból és egyenesen a tóba esel kezedben a szendvicseddel. \n\nUgorj a [##1].  ",
+      "color": "white",
+      "comment": "",
+      "index": 9,
       "starter": false,
+      "life": 0,
       "winner": false,
       "looser": false,
-      "title": "Sziklás kihívás",
-      "comment": "",
-      "story": "Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.   ##1",
-      "color": "blue"
+      "regionId": 2
     },
     {
       "id": 4,
-      "regionId": 2,
-      "life": 2,
-      "index": 0,
-      "starter": false,
-      "winner": false,
-      "looser": false,
-      "title": "Völgy",
-      "comment": "",
-      "story": "",
-      "color": "white"
-    },
-    {
-      "id": 6,
-      "regionId": 0,
-      "life": 1,
-      "title": "Folyópart",
-      "story": "ss",
+      "title": "Ébredés egy új világban - Találkozás Ijimas-szal",
+      "story": "Lassan kinyitod a szemed és egy fényes új világ tárul eléd. Épületeknek és embereknek nyoma sincs, csupán egy poros földutat látsz körben hatalmas méretű fákkal. Közel hozzád egy öregembert pillantasz meg, aki egy kövön ül és pipázik. Kopott köpenyt és kalapot visel, kalapjában tollat, hosszú ősz szakálla és haja van. Ahogy közelebb mész hozzá kedves mosollyal üdvözöl. Megkérdezed, hogy mi ez a hely? Ő azt válaszolja: \n- Hát Tündérország! Közel a királyi fához. Nem csodálom, hogy elveszve érzed magad. Mióta az időérmét ellopták sok furcsaság történik a világban. Ijimas vagyok a vándor. \n\nElmondod neki, hogy mi történt veled, nem érted az egészet, de szeretnél hazajutni. Az öreg azt a tanácsot adja, hogy beszélj Tündérország uralkodójával. A tündérek sok varázslatos dolgot tudnak véghez vinni, ha valakik, hát ők biztos tudnak segíteni. Megmutatja, hogy merre kell elindulnod. Végig nézel az úton és a végén a távolban egy hatalmas fát pillantasz meg, bizonyára az lehet a királyi fa, ahol az uralkodó pár lakik. Megfordulsz, hogy megköszönd az útbaigazítást és megkérdezd, hogy veled tart-e, de az öregembernek már csak a hűlt helyét találod. \n\nHa elfogadod az útbaigazítást, akkor lépj a [##1], ha inkább várakozol a segítségre, lépj a [##2].",
       "color": "white",
       "comment": "",
-      "index": 0,
-      "starter": false,
-      "winner": false,
-      "looser": false
-    },
-    {
-      "id": 8,
-      "title": "Völgyben elágazás",
-      "story": "xxx",
-      "color": "blue",
-      "comment": "",
-      "index": 0,
+      "index": 8,
       "starter": false,
       "life": 0,
       "winner": false,
       "looser": false,
       "regionId": 1
+    },
+    {
+      "id": 5,
+      "title": "Szimbólum a csuklón",
+      "story": "Ahogy haladsz az úton egy égető érzésre leszel figyelmes a csuklódon. Felhúzod a ruhád ujját és egy halványan világító homokóra szimbólumot veszel észre.  Próbálod megdörzsölni, de mintha odatetoválták volna. Ezt is hozzáírod a furcsaságok listájához és folytatod az utad. Lépj a [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 4,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 1
+    },
+    {
+      "id": 6,
+      "title": "Várakozás az út mellett",
+      "story": "Egy ideig vársz, de nem érkezik senki az úton. Kezd esteledni, ezért úgy döntesz, hogy lepihensz az út mellett. \n\nLépj [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 15,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 1
+    },
+    {
+      "id": 7,
+      "title": "Álom az örvényről",
+      "story": "Álmodban egy színes örvénybe kerülsz, amely elnyel. Ekkor felriadsz és még mindig ugyanazon az úton találod magad. Az út szélén ismét ott ül az öreg. Üdvözlöd Ijimas-t, de ő nem ismer fel. Hasonló jelenet játszódik le, mint ami az előző nap. \n\nHa úgy döntesz, hogy követed az útbaigazítást, lapozz a [##1], ha folytatod a várakozást a [##2]. ",
+      "color": "white",
+      "comment": "",
+      "index": 13,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 1
+    },
+    {
+      "id": 8,
+      "title": "A medve",
+      "story": "Ahogy haladsz az úton hirtelen egy medve ugrik eléd és hangosan rád üvölt. \n\nHa történetünk elején nem fogyasztottad el a szendvicsed, akkor abból még maradt a zsebedben, így tudod használni, lépj a [##1], ha megetted, akkor lépj a [##2]. \n",
+      "color": "white",
+      "comment": "",
+      "index": 12,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 1
+    },
+    {
+      "id": 9,
+      "title": "Hálás medve",
+      "story": "Odadobod a medvének a szendvicsed és földbegyökerezett lábbal várod, hogy megelégszik-e ennyivel. A medve elfogyasztja és megszólal: \n- Köszönöm az ételt, néha kiállhatatlan vagyok, ha kimarad egy étkezés. \n- Akkor nem akarsz megenni? És egyáltalán mikor tanultam meg medvéül? - kérdeztem csodálkozva. \n- Megenni? Milyen furcsa kérdés ez? Én még a világon nem hallottam olyat, hogy az egyik lény megeszi a másikat. Gazdag és furcsa a fantáziád. Továbbá a mi világunkban mindenki ért mindenkit. Furcsákat kérdezel, lehet, hogy neked nagyobb szükség lett volna az ételre. \n\nA medve elmeséli, hogy egy béka ellopta a csemegéjét és ezért maradt éhen. Biztos benne, hogy béka volt, mert parókát viselt és a világon mindenki tudja, hogy a békáknak nagyon fontos a parókájuk. Ezután még beszélt és beszélt, leginkább az ételekről. \n\nEleget hallottál már, lépj a [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 7,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 1
+    },
+    {
+      "id": 10,
+      "title": "Szomorú medve",
+      "story": "Mivel tudod, hogy egy medve elől szinte képtelenség meglépni és nincs semmid, amit felajánlhatnál, így a földre rogysz és felkiáltasz: \"Ne egyél meg!\". Ekkor a medve megáll és hangosan elkezd kacagni, végül megszólal: \n - Megenni? Téged? Még sosem hallottam arról, hogy bárki megevett volna bárkit ezen a földön. Furcsa egy szerzet vagy te. Szomorú voltam, de most alig tudok beszélni a nevetéstől. \n\nAzzal eloldalgott és még a távolból is lehetett hallani a röhögést. Te csodálkozol, hogy értetted minden szavát, de lassan kezded elfogadni, hogy ezen a helyen minden lehetséges - elvégre éppen a tündérekhez mész segítségért. \n\nLépj a [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 16,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 1
+    },
+    {
+      "id": 11,
+      "title": "Tündér fa bejárata",
+      "story": "A királyi fához közeledve furcsa apró alakokat pillantasz meg. A fejük és testük egy-egy fahasáb és a végtagjaik ágak. Bizonyára ők lehetnek a tündérek, bár kicsit sem hasonlítanak az általad elképzelt tündérekhez. \nÖssze-vissza futkároznak a fa egyik repedése körül, látszik, hogy keresnek valamit. \n\nHa úgy gondold, hogy szerencsét próbálsz és közelebb lépsz hozzájuk, akkor lépj a [##1], ha inkább megpróbálsz beosonni anélkül, hogy észrevennének, lépj a [##2]. ",
+      "color": "white",
+      "comment": "",
+      "index": 14,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 1
+    },
+    {
+      "id": 12,
+      "title": "Találkozás a tündér őrökkel",
+      "story": "Megpróbálod óvatosan, feltartott kézzel megközelíteni az őröket. Viszont ahogy haladsz előre megbotlasz egy kőben és hatalmas robajjal gurulsz a bejárat elég, még az egyik őrt is fellököd. A másik őr az égre emeli a kezét és mormol valamit, mire te egy kukaccá változol. \n\nLépj a [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 5,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 1
+    },
+    {
+      "id": 13,
+      "title": "Kukaclét",
+      "story": "A tündérek elvisznek a közeli erdőbe és egész nap ott kell kúsznod-másznod. De legalább tudod, hogy ilyen formában is biztonságban vagy, nem fog senki megenni. Az este leszáll és te mély álomba merülsz. Álmodban egy örvényt látsz, ami beszippant. Miután kinyitottad a szemed ismételten a főúton találod magad, de ezúttal egészen közel a királyi fához. Lépj a [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 2,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 1
+    },
+    {
+      "id": 14,
+      "title": "Besurranás",
+      "story": "Óvatosan megközelíted a bejáratot. Hallod, ahogy az egyik őr azt meséli éppen a másiknak, hogy a medve barátja találkozott egy furcsa lénnyel, aki azt hitte, hogy megeszi. Ezen mindketten elkezdtek nevetni, neked pedig alkalmad nyílt besurrani. A fa belseje egy egész várost rejtett, rengeteg tündérrel. Gyorsan el kell rejtőzni, hogy nehogy lelepleződj. Ha lehasalsz a földre, akkor lépj a [##1], ha eltakarod a pulóvereddel az arcod, lépj a [##2], ha bebújnál egy váza mögé, lépj a [##3]. ",
+      "color": "white",
+      "comment": "",
+      "index": 10,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 1
+    },
+    {
+      "id": 15,
+      "title": "Álca: fetrengés",
+      "story": "Gyorsan lehasalsz, hátha nem vesznek észre, de igazából mindenki megbámul, sőt az egyik tündér még fel is bukik benned. Lépj a [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 3,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 1
+    },
+    {
+      "id": 16,
+      "title": "Álca: pulóver",
+      "story": "Sajnos nem sikerül ilyen módon elrejtőzni, mivel a tündérek nem is viselnek ruhát. Az egyik őr odamegy hozzád és megkopogtatja a fejed. Lépj a [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 11,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 1
+    },
+    {
+      "id": 17,
+      "title": "Álca: váza",
+      "story": "Sajnos a nagy kapkodásba sikerül leverni a vázát, ami nagy csörömpölés közepette összetörik. Ekkor minden tekintet rád szegeződik és a tömegből felemelkedik a medve feje, akivel korábban találkoztál. Rád mutat és hangosan elkezd röhögni. Lépj a [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 19,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 1
+    },
+    {
+      "id": 18,
+      "title": "Elkapnak",
+      "story": "Az őrök közelebb lépnek és már éppen varázslásra nyújtották a kezüket, amikor az egyik észrevette a világító jelet a csuklódon. Úgy döntenek, hogy a király elé visznek. Lépj a [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 18,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 1
+    },
+    {
+      "id": 19,
+      "title": "Találkozás a királlyal",
+      "story": "A trónterembe visznek, ahol találkozol a királlyal. Megtudod tőle, hogy ősi írások szólnak róla, hogy egy nap ellopják az időérmet, amely segítségével a tündék egyensúlyban tudják tartani az időt, de azt is megjövendölik, hogy érkezik egy hős egy másik világból, aki vissza fogja szerezni és ezzel újra egyensúlyt teremt. Ez a hős ugyanazt a szimbólumot fogja viselni, mint ami az időérmen szerepel, egy homokórát. \n\nElmondod neki, hogy nem vagy hős, csak egy gyermek, aki haza szeretne jutni. A király azt válaszolja, hogy ez csak az időéremmel lehetséges. Ha nála lesz, akkor vissza is tud küldeni a világodba. A küldetéshez sajnos segítséget nem tud adni, csupán információt, mivel a tündék a nagy fából születnek és nem is hagyhatják el annak körzetét, különben élettelen fadarabokká válnak. \n\nMegtudod, hogy az időérme ellopása óta a világ minden lénye ugyanazt a napot éli át újra és újra, és csupán a nagy erővel rendelkezők emlékeznek arra, hogy mi történik, és képesek valamennyire befolyásolni, hogy hol kelljenek fel másnap. Az is valószínű, hogy a lopásért a békák a felelősek, tehát náluk kell kezdeni a keresést. A Békavárosba a Kő-tengeren keresztül vezet az út.  \n\nElhatározod, hogy bátor leszel és azonnal nekivágsz az útnak, hogy a reggel ne a palotában érjen, és újra sokat kelljen magyarázkodnod. Lépj a [##1].  ",
+      "color": "white",
+      "comment": "",
+      "index": 17,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 1
+    },
+    {
+      "id": 20,
+      "title": "Megpillantani a Kő-tengert",
+      "story": "A Békavároshoz a Kő-tengeren keresztül vezetett az út. Első ránézésre hétköznapi tengernek nézett ki, de a mélysége alig volt pár centiméter és alatta néhol kisebb kavicsok, máshol hatalmas sziklák feküdtek. Itt-ott kisebb dombok emelkedtek ki, ami ellehetetlenítette a közlekedést bármilyen eszközzel. Nem mintha sok autót vagy repülőt láttál volna az eddigi utad során. Valahogy semmilyen lénynek nem volt érdeke, hogy utazzon, mindenki jól érezte magát ott, ahol volt. \n\nAmikor beleléptél a vízbe, egy ismerős hang szólalt meg melletted. \n\nFOLYT. KÖV.",
+      "color": "",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 5
     }
   ],
   "relations": [
     {
       "sourceId": 1,
       "targetId": 2,
-      "comment": "Megnéz",
+      "comment": "",
       "condition": false
     },
     {
       "sourceId": 1,
       "targetId": 3,
-      "comment": "Leugrik",
-      "condition": true
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 2,
+      "targetId": 4,
+      "comment": "",
+      "condition": false
     },
     {
       "sourceId": 3,
@@ -104,65 +291,210 @@
     },
     {
       "sourceId": 4,
-      "targetId": 6,
-      "comment": "",
-      "condition": true
+      "targetId": 5,
+      "comment": "Irány a palota",
+      "condition": false
     },
     {
       "sourceId": 4,
-      "targetId": 8,
-      "comment": "",
-      "condition": true
+      "targetId": 6,
+      "comment": "Várakozás",
+      "condition": false
     },
     {
-      "sourceId": 3,
+      "sourceId": 6,
+      "targetId": 7,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 7,
+      "targetId": 5,
+      "comment": "Irány a palota",
+      "condition": false
+    },
+    {
+      "sourceId": 7,
+      "targetId": 6,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 5,
       "targetId": 8,
       "comment": "",
-      "condition": true
-    }
-  ],
-  "stationItems": [
+      "condition": false
+    },
     {
-      "stationId": 3,
-      "itemId": 1,
-      "count": 2
+      "sourceId": 8,
+      "targetId": 9,
+      "comment": "medve eszik",
+      "condition": false
+    },
+    {
+      "sourceId": 8,
+      "targetId": 10,
+      "comment": "medve éhes marad",
+      "condition": false
+    },
+    {
+      "sourceId": 9,
+      "targetId": 11,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 10,
+      "targetId": 11,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 11,
+      "targetId": 12,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 12,
+      "targetId": 13,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 11,
+      "targetId": 14,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 13,
+      "targetId": 14,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 14,
+      "targetId": 15,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 14,
+      "targetId": 16,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 14,
+      "targetId": 17,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 15,
+      "targetId": 18,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 16,
+      "targetId": 18,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 17,
+      "targetId": 18,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 18,
+      "targetId": 19,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 19,
+      "targetId": 20,
+      "comment": "",
+      "condition": false
     }
   ],
   "items": [
     {
       "id": 1,
-      "name": "Kard"
-    },
-    {
-      "id": 2,
-      "name": "Kulcs"
+      "name": "Időérme",
+      "description": "A tündérek ezzel az eszközzel képesek egyensúlyban tartani az időt. Ellopták, vissza kell szerezni és visszajuttatni a tündérekhez. Ezután tudnak segíteni hazajutni. "
     }
   ],
+  "stationItems": [],
   "regions": [
     {
       "id": 1,
-      "name": "Középfölde",
-      "color": "green",
-      "description": ""
+      "name": "Tündérország",
+      "color": "yellow",
+      "description": "Ide érkezik meg először hősünk. \n\nA királyi palota egy hatalmas fa. A tündérek falények. Külsőleg nem igazán hasonlítanak a hétköznapi tündérekhez. \n\nA tündérek irányítják az időt az időérme segítségével, amit elloptak. Ezért a világban mindenki ugyanazt a napot éli át, kivéve azt, akin ott van a jel. Ezzel a jellel a tündérek születésüktől fogva rendelkeznek. Hősünk Ijimastól kapja meg, amikor a világra érkezik. A tündérek a nagy fától kapják az erejüket, ezért nem indulhatnak az érme után. "
     },
     {
       "id": 2,
-      "name": "Tündérország",
+      "name": "Valóság",
+      "color": "white",
+      "description": "A valóvilág, innen származik hősünk és ide szeretne visszajutni. \n\nHősünk egy közönséges iskolás gyermek életét éli. Szeret biciklizni. "
+    },
+    {
+      "id": 3,
+      "name": "Békaváros",
+      "color": "green",
+      "description": "Itt élnek a békák, ők felelősek az időérme eltünéséért, de végül kiderül, hogy csak felbérelték őket. \n\nVégül útbaigazítást adnak. "
+    },
+    {
+      "id": 4,
+      "name": "Bogárhotel",
+      "color": "violet",
+      "description": ""
+    },
+    {
+      "id": 5,
+      "name": "Kő-tenger",
       "color": "blue",
+      "description": "Olyan mint egy nagy tenger, de csupán kövekből és kavicsokból. Nem szükséges hajó, ill. semmilyen jármű, mert csak gyalogosan lehet átvágni rajta. "
+    },
+    {
+      "id": 6,
+      "name": "Holló palota",
+      "color": "dgray",
       "description": ""
     }
   ],
-  "mortality": true,
   "characters": [
     {
       "id": 1,
-      "name": "fdsafda",
-      "description": "fdsafdsa2"
+      "name": "Ijimas a vándor",
+      "description": "Ijimas egy öreg vándor, poros köpenyben és kalapban. Ebben a világban a vándoroknak varázserejük van. Álltalánba pipázik és segíteni hősünk útját. A kalapjában hattyútoll van. Ő hívja segítségül hősünket a valóvilágból hattyú formájában. \n\nSegítségadás után mindig nyoma veszik. "
     },
     {
       "id": 2,
-      "name": "fdsafda2",
+      "name": "Izi a katicalány",
+      "description": "Egy nagyon okos katica, akinek a segítségével észrevétel eljuthatunk a célunkig a Bogárhotelben. "
+    },
+    {
+      "id": 3,
+      "name": "Herkules a varangy",
+      "description": "Egy erős varangy, de sajnos ereje kevésnek bizonyul és elkapnak minket a Bogárhotelben. "
+    },
+    {
+      "id": 4,
+      "name": "Porshe csiga",
       "description": ""
+    },
+    {
+      "id": 5,
+      "name": "Donatello a békák vezetője",
+      "description": "A külsejére nagyon kényes béka úr. Legfőképpen a parókáját szereti, ebből gyűjteménye is van. Egy új parókáért lopta el az időérmet. "
     }
-  ]
+  ],
+  "mortality": false,
+  "showRegions": true
 }

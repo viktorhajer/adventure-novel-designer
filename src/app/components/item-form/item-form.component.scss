@@ -9,6 +9,10 @@ h2 {
 
 mat-form-field {
   width: 100%;
+
+  textarea {
+    height: 200px;
+  }
 }
 
 .actions {

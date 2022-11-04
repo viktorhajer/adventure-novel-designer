@@ -116,7 +116,7 @@ export class BookService {
 
   createItem(name: string) {
     const id = this.getNewItemId();
-    this.model.items.push({id, name});
+    this.model.items.push({id, name, description: ''});
   }
 
   deleteItem(id: number) {

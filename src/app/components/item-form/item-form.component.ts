@@ -10,14 +10,16 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 export class ItemFormComponent {
 
   name: string;
+  description: string;
 
   constructor(protected dialogRef: MatDialogRef<ItemFormComponent>,
               @Inject(MAT_DIALOG_DATA) public data: { item: Item }) {
     this.name = this.data.item.name;
+    this.description = this.data.item.description;
   }
 
   update() {
-    this.dialogRef.close(this.name);
+    this.dialogRef.close({name: this.name, description: this.description});
   }
 
   cancel() {

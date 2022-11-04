@@ -49,8 +49,9 @@ export class BookFormComponent {
     if (item) {
       firstValueFrom(this.dialog.open(ItemFormComponent, {data: {item}, disableClose: true})
         .afterClosed()).then(result => {
-        if (result !== null && this.validateName(result, this.bookService.model.items, id)) {
-          item.name = result;
+        if (result !== null && this.validateName(result.name, this.bookService.model.items, id)) {
+          item.name = result.name;
+          item.description = result.description;
         }
       });
     }
