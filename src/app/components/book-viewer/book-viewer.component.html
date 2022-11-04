@@ -8,7 +8,7 @@
 
   <div class="chapter" *ngFor="let s of book.stations; let i = index">
     <div class="chapter_index" id="chapter_{{s.index}}">{{ s.index }}.</div>
-    <pre class="chapter_content" [innerHtml]="getStory(s.story)"></pre>
+    <pre class="chapter_content" [innerHtml]="s.story"></pre>
     <div class="comment" *ngIf="s.comment">{{ s.comment }}</div>
   </div>
 

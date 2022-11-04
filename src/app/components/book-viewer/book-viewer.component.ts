@@ -29,11 +29,6 @@ export class BookViewerComponent implements OnInit {
     }, 100);
   }
 
-  getStory(content: string): string {
-    return content;
-    // return content.replace('\n', '<br/>');
-  }
-
   close() {
     this.dialogRef.close();
   }

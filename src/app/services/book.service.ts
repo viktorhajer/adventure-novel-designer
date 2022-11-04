@@ -210,7 +210,9 @@ export class BookService {
     stations.forEach(s => {
       let i = 1;
       this.getChildren(s.id).forEach(c => {
-        s.story = s.story.replace(`[##${i}]`, this.addAnchor(c.index, c.index + this.getAffix(c.index)))
+        s.story = s.story
+          .replace(`[##${i}]`, this.addAnchor(c.index, c.index + this.getAffix(c.index)))
+          .replace(`(##${i})`, this.addAnchor(c.index, c.index + this.getAffix2(c.index)))
           .replace(`##${i}`, this.addAnchor(c.index, c.index + ''));
         i++;
       });
@@ -289,6 +291,22 @@ export class BookService {
       return '-ra';
     } else {
       return '-ra';
+    }
+  }
+
+  private getAffix2(num: number): string {
+    if (num % 10 !== 0 && [1, 4, 5, 7, 9].includes(num % 10)) {
+      return '-hez';
+    } else if (num % 10 !== 0 && [2, 5].includes(num % 10)) {
+      return '-höz';
+    } else if (num % 10 !== 0) {
+      return '-hoz';
+    } else if (num % 100 !== 0 && [1, 4, 5, 7, 9].includes(num % 100 / 10)) {
+      return '-hez';
+    } else if (num % 100 !== 0) {
+      return '-hoz';
+    } else {
+      return '-hoz';
     }
   }
 
