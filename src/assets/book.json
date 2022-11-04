@@ -1,12 +1,12 @@
 {
   "title": "Az elveszett időérme",
   "prolog": "",
-  "notes": "\n[help1]\nTündérországban a kastélyhoz közeledve egy őzzel találkozunk. Ha van nálunk szecsa, mert nem ettük meg az alején, akkor meg tudjuk etetni. Cserébe ad segítséget. \n\n[help2]\na kőtengernél egy manó segítséget kér, mert az apja lába beszorult a sziklák közé, miközben a paras követ kereste. A segítségért cserébe elárulja az utat a Békavároshoz, sőt még ad egy tanácsot is, hogy mit kell megdícsérni a békakirályon. A végén ők is ott lesznek és elmondják, hogy meglelték végül a paras követ, de azonnal el is vesztették. \n\n[Választás]\nBogárhotelbe menet kísérőt kell választani. Lehet az Herkules a varangyosbéka vagy Izi, a katicabogárlány, aki nagyon okos. Herkules választása esetén konfliktba is kerülünk, de nem nyerünk, elfognak minket és próbát kell kiállni. Izi esetén sikerül észrevétleün besurrannunk. \n\n\n[Egyéb]\nA béka elmondja, hogy a holló kérte fel őt, aki a holló palotában lakik, ahova csak egy csiga segítségével juthatnak el észrevétlenül. ",
+  "notes": "\n[help1]\nTündérországban a kastélyhoz közeledve egy őzzel találkozunk. Ha van nálunk szecsa, mert nem ettük meg az alején, akkor meg tudjuk etetni. Cserébe ad segítséget. \n\n[help2]\na kőtengernél egy manó segítséget kér, mert az apja lába beszorult a sziklák közé, miközben a paras követ kereste. A segítségért cserébe elárulja az utat a Békavároshoz, sőt még ad egy tanácsot is, hogy mit kell megdícsérni a békakirályon. A végén ők is ott lesznek és elmondják, hogy meglelték végül a paras követ, de azonnal el is vesztették. \n\n[Választás]\nBogárhotelbe menet kísérőt kell választani. Lehet az Herkules a varangyosbéka vagy Izi, a katicabogárlány, aki nagyon okos. Herkules választása esetén konfliktba is kerülünk, de nem nyerünk, elfognak minket és próbát kell kiállni. Izi esetén sikerül észrevétleün besurrannunk. \n\n\n[Egyéb]\nA béka elmondja, hogy a holló kérte fel őt, aki a holló palotában lakik, ahova csak egy csiga segítségével juthatnak el észrevétlenül. CSerébe a kívánságelixirt ígérte, de nem adta meg. \nA békának az elixir kell, amitől olyan erőt szerez, hogy bármihez hozzáért, az arannyá változik. ",
   "stations": [
     {
       "id": 1,
       "title": "Móló a Tükörtavon",
-      "story": "Hősünk az iskolából kerékpározik haza. Útja a Tükörtó mellett vezet. Úgy dönt, hogy elfogyasztja a megmaradt ebédjét a mólón. Leül a szélére és előveszi a szendvicsét, amikor egy gyönyörű hattyú jelenik meg. \n\nHa úgy döntesz, hogy tovább eszed a szendvicsed, akkor lapozz az [##1], ha megpróbálsz benyújtani egy falatot a hattyúnak, akkor lapozz a [##2]. ",
+      "story": "Éppen az iskolából kerékpározol haza, utad egy csodálatos tó mellett vezet el. Úgy döntesz, hogy az ebéded maradékát a mólón fogyasztod el. Leülsz a végében és előveszed a zsemlédet. Éppen beleharapnál, amikor egy gyönyörű hattyú jelenik meg. \n\nHa úgy döntesz, hogy tovább eszed a szendvicsed, akkor lapozz az [##1], ha megpróbálsz adni egy falatot a hattyúnak, akkor lapozz a [##2]. ",
       "color": "white",
       "comment": "",
       "index": 1,
@@ -19,7 +19,7 @@
     {
       "id": 2,
       "title": "Megeszem a szendvicsem",
-      "story": "Jóízűen elfogyasztod a szendvicsed és gyönyörködsz a látványban. Miután végeztél felállsz, hogy folytasd az utad haza, de ekkor megbillensz és beleesel a tóba. Lapozz a [##1]. ",
+      "story": "Jóízűen elfogyasztod a szendvicsed és gyönyörködsz a látványban. Miután végeztél felállsz, hogy folytasd az utad hazafelé, de ekkor az egyik meggyengül fadeszka megbillen alattad és te a tóba esel. Lapozz a [##1]. ",
       "color": "white",
       "comment": "",
       "index": 6,
@@ -32,7 +32,7 @@
     {
       "id": 3,
       "title": "Megetetem a hattyút",
-      "story": "Nagyon kedveled az állatokat, úgy döntesz, hogy megosztod a hattyúval az ebéded. Letörsz egy falatot és ahogy nyújtanád felé kibillensz az egyensúlyodból és egyenesen a tóba esel kezedben a szendvicseddel. \n\nUgorj a [##1].  ",
+      "story": "Nagyon kedveled az állatokat, úgy döntesz, hogy megosztod a hattyúval az ebéded. Letörsz egy falatot és ahogy nyújtanád felé kibillensz az egyensúlyodból és egyenesen a tóba esel. \n\nLapozz a [##1].  ",
       "color": "white",
       "comment": "",
       "index": 9,
@@ -44,8 +44,8 @@
     },
     {
       "id": 4,
-      "title": "Ébredés egy új világban - Találkozás Ijimas-szal",
-      "story": "Lassan kinyitod a szemed és egy fényes új világ tárul eléd. Épületeknek és embereknek nyoma sincs, csupán egy poros földutat látsz körben hatalmas méretű fákkal. Közel hozzád egy öregembert pillantasz meg, aki egy kövön ül és pipázik. Kopott köpenyt és kalapot visel, kalapjában tollat, hosszú ősz szakálla és haja van. Ahogy közelebb mész hozzá kedves mosollyal üdvözöl. Megkérdezed, hogy mi ez a hely? Ő azt válaszolja: \n- Hát Tündérország! Közel a királyi fához. Nem csodálom, hogy elveszve érzed magad. Mióta az időérmét ellopták sok furcsaság történik a világban. Ijimas vagyok a vándor. \n\nElmondod neki, hogy mi történt veled, nem érted az egészet, de szeretnél hazajutni. Az öreg azt a tanácsot adja, hogy beszélj Tündérország uralkodójával. A tündérek sok varázslatos dolgot tudnak véghez vinni, ha valakik, hát ők biztos tudnak segíteni. Megmutatja, hogy merre kell elindulnod. Végig nézel az úton és a végén a távolban egy hatalmas fát pillantasz meg, bizonyára az lehet a királyi fa, ahol az uralkodó pár lakik. Megfordulsz, hogy megköszönd az útbaigazítást és megkérdezd, hogy veled tart-e, de az öregembernek már csak a hűlt helyét találod. \n\nHa elfogadod az útbaigazítást, akkor lépj a [##1], ha inkább várakozol a segítségre, lépj a [##2].",
+      "title": "Ébredés egy új világban - Találkozás Ijimasszal",
+      "story": "Lassan kinyitod a szemeid és egy fényes új világ tárul eléd. Épületeknek vagy a mólónak nyoma sincs, csupán egy poros földutat látsz körben hatalmas méretű fákkal. Közel hozzád egy öregembert pillantasz meg, aki egy kövön ül és pipázik. Kopott köpenyt és kalapot visel, kalapján egy tollat, hosszú ősz szakálla és haja van. Ahogy közelebb mész hozzá kedves mosollyal üdvözöl. Megkérdezed, hogy mi ez a hely? Ő azt válaszolja: \n- Hát Tündérország! Közel a nagy fához. Nem csodálom, hogy elveszve érzed magad. Mióta az időérmét ellopták sok furcsaság történik a világban. Ijimasnak hívnak. \n\nElmondod neki, hogy mi történt veled, nem érted az egészet, de szeretnél hazajutni. Az öreg azt feleli, hogy \"soha nem lehetünk annyira elveszve, hogy az angyalaink ne találnának ránk\", de azért a helyedben beszélne Tündérország uralkodójával. A tündérek sok varázslatos dolgot tudnak véghez vinni, ha valakik, hát ők biztos tudnak segíteni. Megmutatja, hogy merre kell elindulnod. Végig nézel az úton és a távolban egy hatalmas fát pillantasz meg, bizonyára az lehet a \"nagy fa\", ahol a tündérek élnek. Megfordulsz, hogy megköszönd az útbaigazítást és megkérdezd, hogy veled tart-e, de az öregembernek már csak a hűlt helyét találod. \n\nHa elfogadod az útbaigazítást, akkor lapozz a [##1], ha inkább várakozol más segítségre, lapozz a [##2].",
       "color": "white",
       "comment": "",
       "index": 8,
@@ -58,7 +58,7 @@
     {
       "id": 5,
       "title": "Szimbólum a csuklón",
-      "story": "Ahogy haladsz az úton egy égető érzésre leszel figyelmes a csuklódon. Felhúzod a ruhád ujját és egy halványan világító homokóra szimbólumot veszel észre.  Próbálod megdörzsölni, de mintha odatetoválták volna. Ezt is hozzáírod a furcsaságok listájához és folytatod az utad. Lépj a [##1]. ",
+      "story": "Ahogy haladsz az úton egy égető érzésre leszel figyelmes a csuklódon. Felhúzod a ruhád ujját és egy halványan világító homokóra szimbólumot veszel észre. Próbálod ledörzsölni, de mintha odaégették volna. Ezt is hozzáírod a furcsaságok listájához és folytatod az utad. Lapozz a [##1]. ",
       "color": "white",
       "comment": "",
       "index": 4,
@@ -71,7 +71,7 @@
     {
       "id": 6,
       "title": "Várakozás az út mellett",
-      "story": "Egy ideig vársz, de nem érkezik senki az úton. Kezd esteledni, ezért úgy döntesz, hogy lepihensz az út mellett. \n\nLépj [##1]. ",
+      "story": "Egy ideig vársz, de nem érkezik senki az úton. Kezd esteledni, ezért úgy döntesz, hogy lepihensz az út mellett. \n\nLapozz a [##1]. ",
       "color": "white",
       "comment": "",
       "index": 15,
@@ -84,7 +84,7 @@
     {
       "id": 7,
       "title": "Álom az örvényről",
-      "story": "Álmodban egy színes örvénybe kerülsz, amely elnyel. Ekkor felriadsz és még mindig ugyanazon az úton találod magad. Az út szélén ismét ott ül az öreg. Üdvözlöd Ijimas-t, de ő nem ismer fel. Hasonló jelenet játszódik le, mint ami az előző nap. \n\nHa úgy döntesz, hogy követed az útbaigazítást, lapozz a [##1], ha folytatod a várakozást a [##2]. ",
+      "story": "Álmodban egy színes örvénybe kerülsz, amely elnyel. Ekkor felriadsz és még mindig ugyanazon az úton találod magad. Az út szélén ismét ott ül az öreg. Üdvözlöd Ijimast, de ő nem ismer fel. Hasonló jelenet játszódik le, mint ami az előző nap. Az öreg ezúttal azt javasolja, hogy bízz abban, amit érzel és nem abban, amit gondolsz. \n\nHa úgy döntesz, hogy megfogadod a tanácsot, lapozz a [##1], ha folytatod a várakozást a [##2]. ",
       "color": "white",
       "comment": "",
       "index": 13,
@@ -97,7 +97,7 @@
     {
       "id": 8,
       "title": "A medve",
-      "story": "Ahogy haladsz az úton hirtelen egy medve ugrik eléd és hangosan rád üvölt. \n\nHa történetünk elején nem fogyasztottad el a szendvicsed, akkor abból még maradt a zsebedben, így tudod használni, lépj a [##1], ha megetted, akkor lépj a [##2]. \n",
+      "story": "Az utad során hirtelen egy hatalmas, dühös medve ugrik eléd. Ha történetünk elején nem fogyasztottad el a szendvicsed, akkor abból még maradt a zsebedben, így fel tudod ajánlani a medvének, lapozz a [##1], ha megetted, akkor lapozz a [##2]. \n",
       "color": "white",
       "comment": "",
       "index": 12,
@@ -110,7 +110,7 @@
     {
       "id": 9,
       "title": "Hálás medve",
-      "story": "Odadobod a medvének a szendvicsed és földbegyökerezett lábbal várod, hogy megelégszik-e ennyivel. A medve elfogyasztja és megszólal: \n- Köszönöm az ételt, néha kiállhatatlan vagyok, ha kimarad egy étkezés. \n- Akkor nem akarsz megenni? És egyáltalán mikor tanultam meg medvéül? - kérdeztem csodálkozva. \n- Megenni? Milyen furcsa kérdés ez? Én még a világon nem hallottam olyat, hogy az egyik lény megeszi a másikat. Gazdag és furcsa a fantáziád. Továbbá a mi világunkban mindenki ért mindenkit. Furcsákat kérdezel, lehet, hogy neked nagyobb szükség lett volna az ételre. \n\nA medve elmeséli, hogy egy béka ellopta a csemegéjét és ezért maradt éhen. Biztos benne, hogy béka volt, mert parókát viselt és a világon mindenki tudja, hogy a békáknak nagyon fontos a parókájuk. Ezután még beszélt és beszélt, leginkább az ételekről. \n\nEleget hallottál már, lépj a [##1]. ",
+      "story": "Odadobod a medvének a zsemléd és megdermedve reménykedsz, hogy megelégszik-e ennyivel. A medve elfogyasztja és megszólal: \n- Köszönöm az ételt, néha kiállhatatlan vagyok, ha kimarad egy étkezés. \n- Akkor nem akarsz megenni? És egyáltalán mikor tanultam meg medvéül? - kérdeztem csodálkozva. \n- Megenni!? - kacag fel a medve. - Milyen furcsa kérdés ez? Én még a világon nem hallottam olyat, hogy az egyik lény megeszi a másikat. Gazdag a fantáziád. Továbbá a mi világunkban mindenki ért mindenkit. Furcsákat kérdezel, lehet, hogy neked nagyobb szükség lett volna az ételre. \n\nA medve elmeséli, hogy egy béka ellopta a csemegéjét és ezért maradt éhen. Biztos benne, hogy béka volt, mert parókát viselt és a világon mindenki tudja, hogy a békáknak nagyon fontos a parókájuk. Ezután még beszélt és beszélt, leginkább az ételekről. Egy idő után megunod és megszólasz: \n- Ha az álatok nálunk is ennyit beszélnének, biztos nem ennénk meg őket. \n- Bár fiatal medve vagyok, annyit megtanultam, hogy minden lénynek van szava, csak kell, aki meg is hallja - válaszolta a medve. \n\nElköszöntök és te folytatod az utad. Lapozz a  [##1]. ",
       "color": "white",
       "comment": "",
       "index": 7,
@@ -123,7 +123,7 @@
     {
       "id": 10,
       "title": "Szomorú medve",
-      "story": "Mivel tudod, hogy egy medve elől szinte képtelenség meglépni és nincs semmid, amit felajánlhatnál, így a földre rogysz és felkiáltasz: \"Ne egyél meg!\". Ekkor a medve megáll és hangosan elkezd kacagni, végül megszólal: \n - Megenni? Téged? Még sosem hallottam arról, hogy bárki megevett volna bárkit ezen a földön. Furcsa egy szerzet vagy te. Szomorú voltam, de most alig tudok beszélni a nevetéstől. \n\nAzzal eloldalgott és még a távolból is lehetett hallani a röhögést. Te csodálkozol, hogy értetted minden szavát, de lassan kezded elfogadni, hogy ezen a helyen minden lehetséges - elvégre éppen a tündérekhez mész segítségért. \n\nLépj a [##1]. ",
+      "story": "Mivel tudod, hogy egy medve elől szinte képtelenség meglépni és nincs semmid, amit felajánlhatnál, így a földre rogysz és felkiáltasz: \"Ne egyél meg!\". Ekkor a medve megáll és hangosan elkezd kacagni, végül megszólal: \n - Megenni? Téged? Még sosem hallottam arról, hogy bárki megevett volna bárkit ezen a földön. Furcsa egy szerzet vagy te. Szomorú voltam, de most alig tudok beszélni a nevetéstől. \n\nAzzal eloldalgott és még a távolból is lehetett hallani a röhögést. Bár csodálkozol, hogy értetted minden szavát, de lassan kezded elfogadni, hogy ezen a helyen minden lehetséges, elvégre éppen a tündérekhez mész segítségért. \n\nLapozz a [##1]. ",
       "color": "white",
       "comment": "",
       "index": 16,
@@ -136,7 +136,7 @@
     {
       "id": 11,
       "title": "Tündér fa bejárata",
-      "story": "A királyi fához közeledve furcsa apró alakokat pillantasz meg. A fejük és testük egy-egy fahasáb és a végtagjaik ágak. Bizonyára ők lehetnek a tündérek, bár kicsit sem hasonlítanak az általad elképzelt tündérekhez. \nÖssze-vissza futkároznak a fa egyik repedése körül, látszik, hogy keresnek valamit. \n\nHa úgy gondold, hogy szerencsét próbálsz és közelebb lépsz hozzájuk, akkor lépj a [##1], ha inkább megpróbálsz beosonni anélkül, hogy észrevennének, lépj a [##2]. ",
+      "story": "A nagy fához közeledve furcsa apró alakokat pillantasz meg. A fejük és testük egy-egy fahasáb és a végtagjaik ágak. Bizonyára ők lehetnek a tündérek, bár kicsit sem hasonlítanak az általad elképzelt tündérekhez. \nÖssze-vissza futkároznak a fa egyik repedése körül, látszik, hogy keresnek valamit. \n\nHa úgy gondold, hogy szerencsét próbálsz és közelebb lépsz hozzájuk, akkor lapozz a [##1], ha inkább megpróbálsz beosonni anélkül, hogy észrevennének, lapozz a [##2]. ",
       "color": "white",
       "comment": "",
       "index": 14,
@@ -149,7 +149,7 @@
     {
       "id": 12,
       "title": "Találkozás a tündér őrökkel",
-      "story": "Megpróbálod óvatosan, feltartott kézzel megközelíteni az őröket. Viszont ahogy haladsz előre megbotlasz egy kőben és hatalmas robajjal gurulsz a bejárat elég, még az egyik őrt is fellököd. A másik őr az égre emeli a kezét és mormol valamit, mire te egy kukaccá változol. \n\nLépj a [##1]. ",
+      "story": "Megpróbálod óvatosan, feltartott kézzel megközelíteni az őröket. Viszont ahogy haladsz előre megbotlasz egy kőben és hatalmas robajjal gurulsz a bejárat elé, még az egyik őrt is fellököd. A másik őr az égre emeli a kezét és mormol valamit, mire te egy kukaccá változol. \n\nLapozz a [##1]. ",
       "color": "white",
       "comment": "",
       "index": 5,
@@ -162,7 +162,7 @@
     {
       "id": 13,
       "title": "Kukaclét",
-      "story": "A tündérek elvisznek a közeli erdőbe és egész nap ott kell kúsznod-másznod. De legalább tudod, hogy ilyen formában is biztonságban vagy, nem fog senki megenni. Az este leszáll és te mély álomba merülsz. Álmodban egy örvényt látsz, ami beszippant. Miután kinyitottad a szemed ismételten a főúton találod magad, de ezúttal egészen közel a királyi fához. Lépj a [##1]. ",
+      "story": "A tündérek elvisznek a közeli erdőbe és egész nap ott kell kúsznod-másznod. Az este leszáll és te mély álomba merülsz. Álmodban egy örvényt látsz, ami beszippant. Miután kinyitottad a szemed ismételten a főúton találod magad, de ezúttal egészen közel a fához. Lapozz a [##1]. ",
       "color": "white",
       "comment": "",
       "index": 2,
@@ -175,7 +175,7 @@
     {
       "id": 14,
       "title": "Besurranás",
-      "story": "Óvatosan megközelíted a bejáratot. Hallod, ahogy az egyik őr azt meséli éppen a másiknak, hogy a medve barátja találkozott egy furcsa lénnyel, aki azt hitte, hogy megeszi. Ezen mindketten elkezdtek nevetni, neked pedig alkalmad nyílt besurrani. A fa belseje egy egész várost rejtett, rengeteg tündérrel. Gyorsan el kell rejtőzni, hogy nehogy lelepleződj. Ha lehasalsz a földre, akkor lépj a [##1], ha eltakarod a pulóvereddel az arcod, lépj a [##2], ha bebújnál egy váza mögé, lépj a [##3]. ",
+      "story": "Óvatosan megközelíted a bejáratot. Hallod, ahogy az egyik őr azt meséli éppen a másiknak, hogy a medve barátja találkozott egy furcsa lénnyel, aki azt hitte, hogy megeszi. Ezen mindketten elkezdtek nevetni, neked pedig alkalmad nyílik besurrani. A fa belseje egy egész várost rejt, rengeteg különös lénnyel. Gyorsan el kell rejtőznöd, hogy nehogy lelepleződj. Ha lehasalsz a földre, akkor lapozz a [##1], ha eltakarod a pulóvereddel az arcod, lapozz\n a [##2], ha bebújnál egy váza mögé, lapozz a [##3]. ",
       "color": "white",
       "comment": "",
       "index": 10,
@@ -188,7 +188,7 @@
     {
       "id": 15,
       "title": "Álca: fetrengés",
-      "story": "Gyorsan lehasalsz, hátha nem vesznek észre, de igazából mindenki megbámul, sőt az egyik tündér még fel is bukik benned. Lépj a [##1]. ",
+      "story": "Gyorsan lehasalsz, hátha nem vesznek észre, de igazából mindenki megbámul, sőt az egyik tündér még fel is bukik benned. Lapozz a [##1]. ",
       "color": "white",
       "comment": "",
       "index": 3,
@@ -201,7 +201,7 @@
     {
       "id": 16,
       "title": "Álca: pulóver",
-      "story": "Sajnos nem sikerül ilyen módon elrejtőzni, mivel a tündérek nem is viselnek ruhát. Az egyik őr odamegy hozzád és megkopogtatja a fejed. Lépj a [##1]. ",
+      "story": "Sajnos nem sikerül ilyen módon elrejtőzni, mivel a tündérek nem is viselnek ruhát. Az egyik őr odamegy hozzád és megkopogtatja a fejed. Lapozz a [##1]. ",
       "color": "white",
       "comment": "",
       "index": 11,
@@ -214,7 +214,7 @@
     {
       "id": 17,
       "title": "Álca: váza",
-      "story": "Sajnos a nagy kapkodásba sikerül leverni a vázát, ami nagy csörömpölés közepette összetörik. Ekkor minden tekintet rád szegeződik és a tömegből felemelkedik a medve feje, akivel korábban találkoztál. Rád mutat és hangosan elkezd röhögni. Lépj a [##1]. ",
+      "story": "Sajnos a nagy kapkodásban sikerül leverni a vázát, ami nagy csörömpölés közepette összetörik. Ekkor minden tekintet rád szegeződik és a tömegből felemelkedik a medve feje, akivel korábban találkoztál. Rád mutat és hangosan elkezd röhögni. Lapozz a [##1]. ",
       "color": "white",
       "comment": "",
       "index": 19,
@@ -227,7 +227,7 @@
     {
       "id": 18,
       "title": "Elkapnak",
-      "story": "Az őrök közelebb lépnek és már éppen varázslásra nyújtották a kezüket, amikor az egyik észrevette a világító jelet a csuklódon. Úgy döntenek, hogy a király elé visznek. Lépj a [##1]. ",
+      "story": "Az őrök közelebb lépnek és már éppen varázslásra nyújtották a kezüket, amikor az egyik észreveszi a világító jelet a csuklódon. Úgy döntenek, hogy a király elé visznek. Lapozz a [##1]. ",
       "color": "white",
       "comment": "",
       "index": 18,
@@ -240,7 +240,7 @@
     {
       "id": 19,
       "title": "Találkozás a királlyal",
-      "story": "A trónterembe visznek, ahol találkozol a királlyal. Megtudod tőle, hogy ősi írások szólnak róla, hogy egy nap ellopják az időérmet, amely segítségével a tündék egyensúlyban tudják tartani az időt, de azt is megjövendölik, hogy érkezik egy hős egy másik világból, aki vissza fogja szerezni és ezzel újra egyensúlyt teremt. Ez a hős ugyanazt a szimbólumot fogja viselni, mint ami az időérmen szerepel, egy homokórát. \n\nElmondod neki, hogy nem vagy hős, csak egy gyermek, aki haza szeretne jutni. A király azt válaszolja, hogy ez csak az időéremmel lehetséges. Ha nála lesz, akkor vissza is tud küldeni a világodba. A küldetéshez sajnos segítséget nem tud adni, csupán információt, mivel a tündék a nagy fából születnek és nem is hagyhatják el annak körzetét, különben élettelen fadarabokká válnak. \n\nMegtudod, hogy az időérme ellopása óta a világ minden lénye ugyanazt a napot éli át újra és újra, és csupán a nagy erővel rendelkezők emlékeznek arra, hogy mi történik, és képesek valamennyire befolyásolni, hogy hol kelljenek fel másnap. Az is valószínű, hogy a lopásért a békák a felelősek, tehát náluk kell kezdeni a keresést. A Békavárosba a Kő-tengeren keresztül vezet az út.  \n\nElhatározod, hogy bátor leszel és azonnal nekivágsz az útnak, hogy a reggel ne a palotában érjen, és újra sokat kelljen magyarázkodnod. Lépj a [##1].  ",
+      "story": "A trónteremben találkozol a királlyal. Megtudod tőle, hogy ősi írások szólnak arról, hogy egy nap ellopják az időérmet, amely segítségével a tündérek egyensúlyban tudják tartani az időt, de azt is megjövendölik, hogy érkezik egy hős egy másik világból, aki vissza fogja szerezni és ezzel újra egyensúlyt teremt. Ez a hős ugyanazt a szimbólumot fogja viselni, mint ami az időérmen szerepel, egy homokórát. \n\nElmondod neki, hogy nem vagy hős, csupán egy gyerek, aki haza szeretne jutni. A király azt válaszolja, hogy ez csak az időéremmel lehetséges. Ha nála lesz, akkor meg tudja idézni a nagy varázslót, aki képes utazni a világok között. Ő biztosan vissza fog majd küldeni a saját világodba. A küldetéshez sajnos segítséget nem tud adni, csupán információt, mivel a tündérek a nagy fából születnek és nem is hagyhatják el annak körzetét, különben élettelen fadarabokká válnak. \n\nMegtudod, hogy az időérme ellopása óta a világ minden lénye ugyanazt a napot éli át újra és újra, és csupán a nagy erővel rendelkezők emlékeznek arra, hogy mi történt korábban, és képesek valamennyire befolyásolni, hogy hol kelljenek fel másnap. Ez az állapot sem maradhat fent sokáig, mielőbb vissza kell szerezni az érmet. A lopásért valószínűleg a békák a felelősek, mint szinte minden gaztettért a világban, tehát náluk kell kezdeni a keresést. A Békavárosba a Kő-tengeren keresztül vezet az út.  \n\nElhatározod, hogy bátor leszel és azonnal belefogsz a küldetésbe. Búcsút intesz a nagy fának. \n\nLapozz a [##1].  ",
       "color": "white",
       "comment": "",
       "index": 17,
@@ -253,8 +253,21 @@
     {
       "id": 20,
       "title": "Megpillantani a Kő-tengert",
-      "story": "A Békavároshoz a Kő-tengeren keresztül vezetett az út. Első ránézésre hétköznapi tengernek nézett ki, de a mélysége alig volt pár centiméter és alatta néhol kisebb kavicsok, máshol hatalmas sziklák feküdtek. Itt-ott kisebb dombok emelkedtek ki, ami ellehetetlenítette a közlekedést bármilyen eszközzel. Nem mintha sok autót vagy repülőt láttál volna az eddigi utad során. Valahogy semmilyen lénynek nem volt érdeke, hogy utazzon, mindenki jól érezte magát ott, ahol volt. \n\nAmikor beleléptél a vízbe, egy ismerős hang szólalt meg melletted. \n\nFOLYT. KÖV.",
-      "color": "",
+      "story": "Kilépve a fából hatalmas fáradtság nehezdik rád és mély álomba merülsz. Álmodban a szüleidet látod és hatalmas félelem és szomorúság kerít hatalmába. Ezután megjelenik egy örvény és felriadsz. A Kő-tenger mellett fekszel. \n\nElső ránézésre inkább tűnik labirintusnak, mint tengernek. A mélysége alig pár centiméter és alatta néhol apró kavicsok, máshol hatalmas sziklák fekszenek. Itt-ott kisebb dombok emelkednek ki labirintussá változtata a felszínt, és ellehetetlenítve a közlekedést bármilyen eszközzel. Nem mintha sok autót vagy repülőt láttál volna az eddigi utad során. Valahogy semmilyen lénynek nem érdeke ebben a világban, hogy utazzon, mindenki jól érezi magát ott, ahol van. \n\nAmikor beleléptél a vízbe, egy ismerős hang szólalt meg melletted. Lapozz a [##1].",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 5
+    },
+    {
+      "id": 21,
+      "title": "Ismét találkozó Ijimasszal.",
+      "story": "A hang azt mondja: \"Nem tudsz átkelni a tengeren csupán bámulva a vizet\". Megfordulsz és a korábbi öreg vándort pillantod meg. Megszólítod: \n- Útjaink ismét keresztezik egymást. \n- Ismét? - nézett rá kérdőn az öreg. \n- Felejtsd el! Nagy feladatot kaptam és fogalmam nincs, hogy képes leszek-e rá. Nem értem, hogy miért vállaltam el? - feleled, miközben bánatosan fürkészed a vizet. \n- A lehetetlen elérésének az egyetlen módja, ha elhiszed, hogy lehetséges - válaszolja az öreg. \n- Én csak haza akarok jutni! - kiálltod felé, de már csak a kavicsos partot találod. \n\nAzt gondolod, hogy ez jellemző rá, bár lehetséges, hogy csak a képzeleted játszik veled. Összeszeded magad és folytatod az utad. Lapozz a [##1]. ",
+      "color": "white",
       "comment": "",
       "index": 0,
       "starter": false,
@@ -418,6 +431,12 @@
     {
       "sourceId": 19,
       "targetId": 20,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 20,
+      "targetId": 21,
       "comment": "",
       "condition": false
     }
