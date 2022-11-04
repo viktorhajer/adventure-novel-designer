@@ -1,20 +1,12 @@
 <h2>
-  <mat-icon>public</mat-icon>
-  <div>Update region</div>
+  <mat-icon>face</mat-icon>
+  <div>Update character</div>
 </h2>
 <mat-dialog-content class="mat-typography">
   <div class="fields">
     <mat-form-field appearance="fill">
       <mat-label>Name</mat-label>
       <input matInput [(ngModel)]="name">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Color</mat-label>
-      <mat-select [(ngModel)]="color">
-        <mat-option *ngFor="let c of colors" [value]="c.value">
-          {{c.title}}
-        </mat-option>
-      </mat-select>
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Description</mat-label>

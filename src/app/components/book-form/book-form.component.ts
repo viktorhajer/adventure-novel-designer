@@ -10,6 +10,7 @@ import {ErrorDialogComponent} from '../error-dialog/error-dialog.component';
 import {Item} from '../../model/item.model';
 import {Region} from '../../model/region.model';
 import {UiService} from '../../services/ui.service';
+import {CharacterFormComponent} from '../character-form/character-form.component';
 
 @Component({
   selector: 'app-book-form',
@@ -20,6 +21,7 @@ export class BookFormComponent {
   @Output() stationSelected = new EventEmitter();
   itemName = '';
   regionName = '';
+  characterName = '';
 
   constructor(public readonly bookService: BookService,
               public readonly uiService: UiService,
@@ -79,6 +81,36 @@ export class BookFormComponent {
           region.name = result.name;
           region.color = result.color;
           region.description = result.description;
+          this.changePlugin();
+        }
+      });
+    }
+  }
+
+  createCharacter() {
+    if (this.validateName(this.characterName, this.bookService.model.characters)) {
+      this.bookService.createCharacter(this.characterName.trim());
+      this.characterName = '';
+    }
+  }
+
+  deleteCharacter(id: number) {
+    firstValueFrom(this.dialog.open(ConfirmDialogComponent, {data: {message: 'Are you sure to delete?'}, disableClose: true})
+      .afterClosed()).then(result => {
+      if (result) {
+        this.bookService.deleteCharacter(id);
+      }
+    });
+  }
+
+  editCharacter(id: number) {
+    const character = this.bookService.model.characters.find(character => character.id === id);
+    if (character) {
+      firstValueFrom(this.dialog.open(CharacterFormComponent, {data: {character}, disableClose: true})
+        .afterClosed()).then(result => {
+        if (result !== null && this.validateName(result.name, this.bookService.model.characters, id)) {
+          character.name = result.name;
+          character.description = result.description;
           this.changePlugin();
         }
       });

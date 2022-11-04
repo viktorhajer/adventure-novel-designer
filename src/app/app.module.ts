@@ -25,6 +25,8 @@ import {SimulationComponent} from './components/simulation/simulation.component'
 import {NotesFormComponent} from './components/notes-form/notes-form.component';
 import {RegionColorBoxComponent} from './components/region-color-box/region-color-box.component';
 import {VisualBookComponent} from './components/visual-book/visual-book.component';
+import {CharacterFormComponent} from './components/character-form/character-form.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,12 +42,14 @@ import {VisualBookComponent} from './components/visual-book/visual-book.componen
     ItemFormComponent,
     RegionFormComponent,
     RegionColorBoxComponent,
+    CharacterFormComponent,
     SimulationComponent,
     NotesFormComponent,
     VisualBookComponent
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     FormsModule,
     BrowserModule,
     BrowserAnimationsModule,

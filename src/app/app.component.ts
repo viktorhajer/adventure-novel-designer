@@ -15,9 +15,10 @@ import {NotesFormComponent} from './components/notes-form/notes-form.component';
 import {VisualBookComponent} from './components/visual-book/visual-book.component';
 import {VisualModel} from './components/visual-book/visual-book.model';
 import {VisualBookMapper} from './components/visual-book/visual-book.mapper';
+import {BookLoaderService} from './services/book-loader.service';
 
 const EMPTY_BOOK = '{"title":"New book","prolog":"","notes":"","stations":[],"relations":[],"items":[],' +
-  '"stationItems":[],"regions": [],"mortality": true,"showRegions": false}';
+  '"stationItems":[],"regions": [],"characters": [],"mortality": true,"showRegions": false}';
 
 // @ts-ignore
 
@@ -55,7 +56,7 @@ export class AppComponent {
     '],"stationItems":[{"stationId": 3, "itemId": 1, "count": 2}, {"stationId": 5, "itemId": 2, "count": 1}],' +
     '"items":[{"id":1,"name":"Kard"},{"id": 2,"name":"Kulcs"}],' +
     '"regions":[{"id":1,"name":"Középfölde","color":"green","description":""},{"id": 2,"name":"Tündérország","color":"blue","description":""}],' +
-    '"mortality": true}';
+    '"mortality": true,"characters": []}';
   station: Station = null as any;
   visualModel: VisualModel = null as any;
   formTrigger = 0;
@@ -69,6 +70,7 @@ export class AppComponent {
               private readonly editService: EditService,
               private readonly simulationService: SimulationService,
               private readonly visualBookMapper: VisualBookMapper,
+              private readonly bookLoader: BookLoaderService,
               public readonly ui: UiService) {
   }
 
@@ -80,6 +82,13 @@ export class AppComponent {
     this.bookService.loadModel(this.modelString);
     this.visualModel = this.visualBookMapper.mapModel(this.bookService.model);
     this.initColors();
+  }
+
+  loadStored() {
+    this.bookLoader.loadStored().subscribe(data => {
+      this.modelString = JSON.stringify(data);
+      this.load();
+    })
   }
 
   save() {

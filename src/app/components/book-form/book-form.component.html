@@ -63,39 +63,6 @@
     </tbody>
   </table>
 
-  <h2>Items</h2>
-  <table mat-table *ngIf="bookService.model.items.length">
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let item of bookService.model.items">
-      <td>
-        <div>{{ item.name }}</div>
-      </td>
-      <td>
-        <button mat-icon-button (click)="editItem(item.id)">
-          <mat-icon>settings</mat-icon>
-        </button>
-        <button mat-icon-button (click)="deleteItem(item.id)">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-  <h3>Create new item</h3>
-  <div class="new_item_form">
-    <mat-form-field appearance="fill">
-      <mat-label>Item name</mat-label>
-      <input matInput [(ngModel)]="itemName">
-    </mat-form-field>
-    <button mat-raised-button (click)="createItem()">Create</button>
-  </div>
-
   <h2>Regions</h2>
   <table mat-table *ngIf="bookService.model.regions.length">
     <thead>
@@ -128,5 +95,71 @@
       <input matInput [(ngModel)]="regionName">
     </mat-form-field>
     <button mat-raised-button (click)="createRegion()">Create</button>
+  </div>
+
+  <h2>Characters</h2>
+  <table mat-table *ngIf="bookService.model.characters.length">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let character of bookService.model.characters">
+      <td>
+        <div>{{ character.name }}</div>
+      </td>
+      <td>
+        <button mat-icon-button (click)="editCharacter(character.id)">
+          <mat-icon>settings</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteCharacter(character.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <h3>Create new character</h3>
+  <div class="new_item_form">
+    <mat-form-field appearance="fill">
+      <mat-label>Character name</mat-label>
+      <input matInput [(ngModel)]="characterName">
+    </mat-form-field>
+    <button mat-raised-button (click)="createCharacter()">Create</button>
+  </div>
+
+  <h2>Items</h2>
+  <table mat-table *ngIf="bookService.model.items.length">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of bookService.model.items">
+      <td>
+        <div>{{ item.name }}</div>
+      </td>
+      <td>
+        <button mat-icon-button (click)="editItem(item.id)">
+          <mat-icon>settings</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteItem(item.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <h3>Create new item</h3>
+  <div class="new_item_form">
+    <mat-form-field appearance="fill">
+      <mat-label>Item name</mat-label>
+      <input matInput [(ngModel)]="itemName">
+    </mat-form-field>
+    <button mat-raised-button (click)="createItem()">Create</button>
   </div>
 </div>

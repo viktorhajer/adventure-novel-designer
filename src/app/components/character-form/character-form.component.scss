@@ -1,0 +1,28 @@
+h2 {
+  display: flex;
+  align-items: center;
+
+  div {
+    margin-left: 10px;
+  }
+}
+
+.fields {
+  mat-form-field {
+    width: 100%;
+
+    textarea {
+      height: 200px;
+    }
+  }
+}
+
+.actions {
+  margin-top: 20px;
+  padding: 10px 10px;
+  text-align: right;
+
+  button {
+    margin-left: 10px;
+  }
+}

@@ -33,7 +33,7 @@ export class VisualBookComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.nodes && this.nodes.length && this.edges && this.edges.length) {
+    if (this.nodes && this.nodes.length) {
       let transform;
       const group = document.getElementById(VISUAL_BOOK_ID)?.getElementsByTagName('g');
       const transformGroup = group ? group[0] : null;

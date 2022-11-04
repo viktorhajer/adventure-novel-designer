@@ -146,6 +146,15 @@ export class BookService {
     this.model.stations.filter(s => s.regionId === id).forEach(s => s.regionId = 0);
   }
 
+  createCharacter(name: string) {
+    const id = this.getNewCharacterId();
+    this.model.characters.push({id, name, description: ''});
+  }
+
+  deleteCharacter(id: number) {
+    this.model.characters = this.model.characters.filter(i => i.id !== id);
+  }
+
   finalize() {
     if (this.isValidBook()) {
       this.generateIndexes();
@@ -250,17 +259,21 @@ export class BookService {
   }
 
   private getNewItemId(): number {
-    let max = 0;
-    this.model.items.forEach(item => {
-      max = item.id > max ? item.id : max;
-    });
-    return max + 1;
+    return this.getNewId(this.model.items);
   }
 
   private getNewRegionId(): number {
+    return this.getNewId(this.model.regions);
+  }
+
+  private getNewCharacterId(): number {
+    return this.getNewId(this.model.characters);
+  }
+
+  private getNewId(list: { id: number }[]): number {
     let max = 0;
-    this.model.regions.forEach(region => {
-      max = region.id > max ? region.id : max;
+    list.forEach(entity => {
+      max = entity.id > max ? entity.id : max;
     });
     return max + 1;
   }

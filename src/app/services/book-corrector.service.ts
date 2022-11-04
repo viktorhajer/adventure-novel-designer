@@ -48,6 +48,18 @@ export class BookCorrectorService {
     // fix station items
     model.stationItems = model.stationItems.filter(si => stationIds.includes(si.stationId) && itemIds.includes(si.itemId));
     model.stationItems.forEach(si => si.count = isNaN(+si.count) || +si.count === 0 ? 1 : +si.count);
+
+    // fix characters
+    model.characters.forEach(c => c.name = !!c.name && !!c.name.trim() ? c.name.trim() : ('Character_' + Date.now()));
+
+    // fix: only one starter
+    if (model.stations.filter(s => s.starter).length > 1) {
+      const first = model.stations.find(s => s.starter);
+      model.stations.forEach(s => s.starter = false);
+      if (first) {
+        first.starter = true;
+      }
+    }
   }
 
   private fixRegion(regionIds: number[], station: Station) {
