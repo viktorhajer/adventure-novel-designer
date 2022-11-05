@@ -32,7 +32,7 @@
     {
       "id": 3,
       "title": "Megetetem a hattyút",
-      "story": "Nagyon kedveled az állatokat, úgy döntesz, hogy megosztod a hattyúval az ebéded. Letörsz egy falatot és ahogy nyújtanád felé kibillensz az egyensúlyodból és egyenesen a tóba esel. \n\nLapozz [##1].  ",
+      "story": "Nagyon kedveled az állatokat, úgy döntesz, hogy megosztod a hattyúval az ebéded. Letörsz egy falatot és ahogy nyújtanád felé kibillensz az egyensúlyodból és egyenesen a tóba esel. \n\nLapozz [##1].  ",
       "color": "white",
       "comment": "",
       "index": 4,
@@ -240,7 +240,7 @@
     {
       "id": 19,
       "title": "Találkozás a királlyal",
-      "story": "A trónteremben találkozol a királlyal. Megtudod tőle, hogy ősi írások szólnak arról, hogy egy nap ellopják az időérmet, amely segítségével a tündérek egyensúlyban tudják tartani az időt, de azt is megjövendölik, hogy érkezik egy hős egy másik világból, aki vissza fogja szerezni és ezzel újra egyensúlyt teremt. Ez a hős ugyanazt a szimbólumot fogja viselni, mint ami az időérmen szerepel, egy homokórát. \n\nElmondod neki, hogy nem vagy hős, csupán egy gyerek, aki haza szeretne jutni. A király azt válaszolja, hogy ez csak az időéremmel lehetséges. Ha nála lesz, akkor meg tudja idézni a nagy varázslót, aki képes utazni a világok között. Ő biztosan vissza fog majd küldeni a saját világodba. A küldetéshez sajnos segítséget nem tud adni, csupán információt, mivel a tündérek a nagy fából születnek és nem is hagyhatják el annak körzetét, különben élettelen fadarabokká válnak. \n\nMegtudod, hogy az időérme ellopása óta a világ minden lénye ugyanazt a napot éli át újra és újra, és csupán a nagy erővel rendelkezők emlékeznek arra, hogy mi történt korábban, és képesek valamennyire befolyásolni, hogy hol kelljenek fel másnap. Ez az állapot sem maradhat fent sokáig, mielőbb vissza kell szerezni az érmet. A lopásért valószínűleg a békák a felelősek, mint szinte minden gaztettért a világban, tehát náluk kell kezdeni a keresést. A Békavárosba a Kő-tengeren keresztül vezet az út.  \n\nElhatározod, hogy bátor leszel és azonnal belefogsz a küldetésbe. Búcsút intesz a nagy fának. \n\nLapozz [##1].  ",
+      "story": "A trónteremben találkozol a királlyal. Megtudod tőle, hogy ősi írások szólnak arról, hogy egy nap ellopják az időérmet, amely segítségével a tündérek egyensúlyban tudják tartani az időt, de azt is megjövendölik, hogy érkezik egy hős egy másik világból, aki vissza fogja szerezni és ezzel újra egyensúlyt teremt. Ez a hős ugyanazt a szimbólumot fogja viselni, mint ami az időérmen szerepel, egy homokórát. \n\nElmondod neki, hogy nem vagy hős, csupán egy gyerek, aki haza szeretne jutni. A király azt válaszolja, hogy ez csak az időéremmel lehetséges. Ha nála lesz, akkor meg tudja idézni a nagy varázslót, aki képes utazni a világok között. Ő biztosan vissza fog majd küldeni a saját világodba. A küldetéshez sajnos segítséget nem tud adni, csupán információt, mivel a tündérek a nagy fából születnek és nem is hagyhatják el annak körzetét, különben élettelen fadarabokká válnak. \n\nMegtudod, hogy az időérme ellopása óta a világ minden lénye ugyanazt a napot éli át újra és újra, és csupán a nagy erővel rendelkezők emlékeznek arra, hogy mi történt korábban, és képesek valamennyire befolyásolni, hogy hol kelljenek fel másnap. Ez az állapot sem maradhat fent sokáig, mielőbb vissza kell szerezni az érmet. A lopásért valószínűleg a békák a felelősek, mint szinte minden gaztettért a világban, tehát náluk kell kezdeni a keresést. A Békavárosba a Kő-tengeren keresztül vezet az út.  \n\nElhatározod, hogy bátor leszel és azonnal belefogsz a küldetésbe. Búcsút intesz a nagy fának. \n\nLapozz [##1].  ",
       "color": "white",
       "comment": "",
       "index": 3,
@@ -253,7 +253,7 @@
     {
       "id": 20,
       "title": "Megpillantani a Kő-tengert",
-      "story": "Kilépve a fából hatalmas fáradtság nehezdik rád és mély álomba merülsz. Álmodban a szüleidet látod és hatalmas félelem és szomorúság kerít hatalmába. Ezután megjelenik egy örvény és felriadsz. A Kő-tenger mellett fekszel. \n\nElső ránézésre inkább tűnik labirintusnak, mint tengernek. A mélysége alig pár centiméter és alatta néhol apró kavicsok, máshol hatalmas sziklák fekszenek. Itt-ott kisebb dombok emelkednek ki labirintussá változtata a felszínt, és ellehetetlenítve a közlekedést bármilyen eszközzel. Nem mintha sok autót vagy repülőt láttál volna az eddigi utad során. Valahogy semmilyen lénynek nem érdeke ebben a világban, hogy utazzon, mindenki jól érezi magát ott, ahol van. \n\nAmikor beleléptél a vízbe, egy ismerős hang szólalt meg melletted. Lapozz [##1].",
+      "story": "Kilépve a fából hatalmas fáradtság nehezdik rád és mély álomba merülsz. Álmodban a szüleidet látod és hatalmas félelem és szomorúság kerít hatalmába. Ezután megjelenik egy örvény és felriadsz. A Kő-tenger mellett fekszel. \n\nElső ránézésre inkább tűnik labirintusnak, mint tengernek. A mélysége alig pár centiméter és alatta néhol apró kavicsok, máshol hatalmas sziklák fekszenek. Itt-ott kisebb dombok és nagyobb kövek emelkednek ki labirintussá változtatva a felszínt, és ellehetetlenítve a közlekedést bármilyen eszközzel. Nem mintha sok autót vagy repülőt láttál volna az eddigi utad során. Valahogy semmilyen lénynek nem érdeke ebben a világban, hogy utazzon, mindenki jól érezi magát ott, ahol van. \n\nAz idő sem kegyes hozzád, hatalmas köd nehezíti a tájékozódást. Amikor belépsz a vízbe, egy ismerős hang szólal meg melletted. Lapozz [##1].",
       "color": "white",
       "comment": "",
       "index": 17,
@@ -279,7 +279,7 @@
     {
       "id": 22,
       "title": "Labirintus - B",
-      "story": "",
+      "story": "Folytatva az utad nem kell sokáig sétálnod, mire egy újabb elágazáshoz érsz. Balra kicsit sekélyebbnek tűnik a víz, jobbra viszont szélesebb a folyosó. Ha jobbra fordulsz, lapozz [##1], egyébként a [##2]. ",
       "color": "white",
       "comment": "",
       "index": 0,
@@ -292,7 +292,7 @@
     {
       "id": 24,
       "title": "Labirintus - BJ v JJ",
-      "story": "",
+      "story": "A folyosó egyre csak szélesedik, majd az egyik pillanatban teljesen elmerülsz a vízben, és csak a szerencsédnek köszönheted, hogy vissza tudsz mászni. Egy nagy mélyedés keresztezi az utad, egy vízalatti kráter. Ha úgy döntesz, hogy jobbról kerülöd meg, lapozz [##2], ha a másik oldalról akkor [##1]. ",
       "color": "white",
       "comment": "",
       "index": 0,
@@ -305,7 +305,7 @@
     {
       "id": 25,
       "title": "Labirintus - J",
-      "story": "",
+      "story": "Haladsz előre, amikor egy kis emelkedőhöz érsz. Választhatsz, hogy megkerülöd, ekkor lapozz [##1], vagy balra fordulsz és keresztülmászol rajta. Ha így döntesz, akkor lapozz [##2]. ",
       "color": "white",
       "comment": "",
       "index": 0,
@@ -318,7 +318,7 @@
     {
       "id": 26,
       "title": "Labirintus - JB",
-      "story": "",
+      "story": "A köd egyre erősebb és majdnem fejjel ütközöl egy falba. Jobb lesz, ha nem lankad a figyelmed, nehogy bajod essen. Elkezded tapogatni a falat és két szűk átjárót találsz közel egymáshoz. Bekukucskálsz, de a köd miatt nem látsz a túloldalon semmit. Ha a jobb oldaliban folytatod az utad, lapozz [##1], ha a bal oldaliban, lapozz [##2]. ",
       "color": "white",
       "comment": "",
       "index": 0,
@@ -331,7 +331,7 @@
     {
       "id": 27,
       "title": "Labirintus - JBJ",
-      "story": "",
+      "story": "Egy sekély vizű teremben találod magad, de nagyon nagy a sötétség. A fal mentén tapogatózva haladsz, és van egy olyan érzésed, mintha körbe járnál. Ha folytatod a haladást, lapozz [##1], ha megindulsz a terem közepére, lapozz [##2].  ",
       "color": "white",
       "comment": "",
       "index": 0,
@@ -344,7 +344,7 @@
     {
       "id": 31,
       "title": "Labirintus - Bejárat",
-      "story": "",
+      "story": "Nekivágsz a Kő-tengernek, de hamar rá kell ébredj, hogy ez még gyalogosan is komoly vállalkozás. A sok szikla és domb között igazán könnyű elveszni, illetve itt-ott mély lyukak is lassítják a haladást. \n\nVégül egy kis ösvényt pillantasz meg, ami mellett a sziklába egy üzenetet véstek: \n\"Kedves vándor, jobb nem próbára tenni a balsorsod, mert történeted balul végződhet.\"\n\nVészjósló figyelmeztetés, de nincs választásod. Elindulsz az úton, majd kis idő után kereszteződéshez érsz. Ha balra folytatod az utad, lapozz [##2], ha a másik irányt választod, akkor lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 0,
@@ -357,7 +357,7 @@
     {
       "id": 32,
       "title": "Labirintus - NYERT - JBB",
-      "story": "",
+      "story": "Ahogy mész egyenesen a köd elkezdsz tisztulni, a folyosó pedig szűkülni. Az utolsó pár méteren már olyan keskeny, hogy egészen össze kell préselned magad, hogy előre tudj haladni. Már éppen azon gondolkozol, hogy visszafordulsz, amikor megpillantasz egy üreget az út legvégén. Átmászol rajta és a túloldalon meglátsz egy kis erdőt. Átértél a Kő-tengeren. A fal mellett egy aprócska emberszerű lényt pillantasz meg. Megszólítod. Lapozz [##1].",
       "color": "white",
       "comment": "",
       "index": 0,
@@ -369,8 +369,8 @@
     },
     {
       "id": 33,
-      "title": "Találkozás a manóval",
-      "story": "",
+      "title": "Találkozás a kobolddal",
+      "story": "Közelebb lépve a kis teremtmény rád néz és látszik, hogy nagyon szomorú. Megkérdezheted, hogy mi a baj, lapozz [##1], vagy egy köszönés után folytathatod az utad, lapozz [##2]. ",
       "color": "white",
       "comment": "",
       "index": 0,
@@ -382,8 +382,8 @@
     },
     {
       "id": 34,
-      "title": "Segítség a manónak",
-      "story": "",
+      "title": "Bajba esett kobold",
+      "story": "A furcsa lény elárulja, hogy ő egy kobold és itt él a Kő-tenger és a Békaváros határában a szüleivel. Édesapja a paras kő megszállítója, amely egy olyan tárgy, ami bármilyen fémet arannyá tud változtatni. Az ősi könyvek elárulják, hogy a paras kő külsőleg olyan, mint bármilyen más kő, és a Kő-tengerben rejtették el. A kobold édesapja minden napját úgy tölti, hogy kimegy a tengerre és sorra próbálgatja az összes követ és kavicsot. Ma egy nagyobb szikla mellett keresgélt, amikor az megcsúszott és beszorította a lábát. Mivel a koboldok kicsik és gyengék, így nem tudták elmozdítani a sziklát. A kis kobold fél, hogy apja örökre a tenger fogságában marad. \n\nHa felkínálod a segítséged, akkor lapozz [##1], ha kifejezed sajnálatod és elköszönsz, lapozz [##2].",
       "color": "white",
       "comment": "",
       "index": 0,
@@ -408,9 +408,9 @@
     },
     {
       "id": 36,
-      "title": "Manó mesél",
-      "story": "",
-      "color": "",
+      "title": "Segítség a kolboldnak",
+      "story": "Egy rövid séta után megérkeztek a kobold édesapjához. Úgy tűnt, hogy már ereje végét járja, annyira kimerült a sok erőlködésben, hogy kiszabadítsa magát. Nekifeszülsz a kis kobolddal a sziklának, és együttes erővel, mindent beleadva sikerül eldönteni a nagy követ és kiszabadítani a koboldot. \n\nAz öreg kobold köszöntet mond neked, a családjának pedig megígéri, hogy felhagy a paras kő keresésével és élete hátralevő részét nekik szenteli, mivel az élet túl rövid, az idő pedig túl értékes, hogy hasztalan dolgokra fecséreljük.  \n\nBúcsúzóul azt a tanácsot adja, hogy sohase bízz egy békában, ne köss vele szövetséget. Elköszöntök, lapozz [##1]. ",
+      "color": "white",
       "comment": "",
       "index": 0,
       "starter": false,
@@ -687,6 +687,12 @@
     },
     {
       "sourceId": 36,
+      "targetId": 35,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 34,
       "targetId": 35,
       "comment": "",
       "condition": false
