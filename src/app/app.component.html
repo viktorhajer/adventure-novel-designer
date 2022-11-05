@@ -56,7 +56,7 @@
       <div id="visual-book-container">
 
         <mat-form-field appearance="fill" class="color-selector"
-                        *ngIf="visualModel && isModelLoaded() && colors.length">
+                        *ngIf="visualModel && isModelLoaded() && colors.length && !bookService.model.showRegions">
           <mat-label><i>Select color</i></mat-label>
           <mat-select [(ngModel)]="color" (selectionChange)="visualFilter()">
             <mat-option></mat-option>

@@ -157,7 +157,14 @@ export class BookService {
 
   finalize() {
     if (this.isValidBook()) {
-      this.generateIndexes();
+      let generation = 0;
+      do {
+        generation++;
+        this.generateIndexes();
+      } while(!this.validateIndexes());
+      if (generation > 0) {
+        console.log('Regenerate: ' + generation);
+      }
       this.openBookViewer(this.sortAndReplaceMacros());
       this.validateMacros();
     }
@@ -211,9 +218,9 @@ export class BookService {
       let i = 1;
       this.getChildren(s.id).forEach(c => {
         s.story = s.story
-          .replace(`[##${i}]`, this.addAnchor(c.index, c.index + this.getAffix(c.index)))
-          .replace(`(##${i})`, this.addAnchor(c.index, c.index + this.getAffix2(c.index)))
-          .replace(`##${i}`, this.addAnchor(c.index, c.index + ''));
+          .replace(`[##${i}]`, this.getArticle(c.index) + this.addAnchor(c.index, c.index + this.getAffix(c.index)))
+          .replace(`(##${i})`, this.getArticle(c.index) + this.addAnchor(c.index, c.index + this.getAffix2(c.index)))
+          .replace(`##${i}`, this.getArticle(c.index) + this.addAnchor(c.index, c.index + ''));
         i++;
       });
     });
@@ -239,6 +246,20 @@ export class BookService {
       this.getStation(id).index = index;
       stations = stations.filter(s => s.id !== id);
     }
+  }
+  
+  private validateIndexes(): boolean {
+    let wrongIndex = 0;
+    if (this.model.stations.length > 10) {
+      const nums: number[] = [];
+      this.model.stations.forEach(s => nums[s.id] = s.index);
+      for(const r of this.model.relations) {
+        if (Math.abs(nums[r.sourceId] - nums[r.targetId]) === 1) {
+          wrongIndex++;
+        }
+      }
+    }
+    return wrongIndex === 0;
   }
 
   private openBookViewer(stations: Station[]) {
@@ -307,6 +328,15 @@ export class BookService {
       return '-hoz';
     } else {
       return '-hoz';
+    }
+  }
+  
+  private getArticle(num: number): string {
+    const numStr = num + '';
+    if (numStr.substr(0,1) === '5' || (numStr.length === 4 && numStr.substr(0,1) === '1') || num === 1) {
+      return 'az ';
+    } else {
+      return 'a ';
     }
   }
 

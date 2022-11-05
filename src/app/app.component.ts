@@ -79,6 +79,8 @@ export class AppComponent {
   }
 
   load() {
+    this.color = '';
+    this.regionId = 0;
     this.bookService.loadModel(this.modelString);
     this.visualModel = this.visualBookMapper.mapModel(this.bookService.model);
     this.initColors();
@@ -147,6 +149,10 @@ export class AppComponent {
   }
 
   openStation(id: string) {
+    if (this.bookService.model.showRegions) {
+      this.color = '';
+    }
+  
     if (this.editService.unsaved) {
       this.openConfirmation('Are you sure to navigate without saving?').then(result => {
         if (result) {
