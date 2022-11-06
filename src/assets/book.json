@@ -45,7 +45,7 @@
     {
       "id": 4,
       "title": "Ébredés egy új világban - Találkozás Ijimasszal",
-      "story": "Lassan kinyitod a szemeid és egy fényes új világ tárul eléd. Épületeknek vagy a mólónak nyoma sincs, csupán egy poros földutat látsz körben hatalmas méretű fákkal. Közel hozzád egy öregembert pillantasz meg, aki egy kövön ül és pipázik. Kopott köpenyt és kalapot visel, kalapján egy tollat, hosszú ősz szakálla és haja van. Ahogy közelebb mész hozzá kedves mosollyal üdvözöl. Megkérdezed, hogy mi ez a hely? Ő azt válaszolja: \n- Hát Tündérország! Közel a nagy fához. Nem csodálom, hogy elveszve érzed magad. Mióta az időérmét ellopták sok furcsaság történik a világban. Ijimasnak hívnak. \n\nElmondod neki, hogy mi történt veled, nem érted az egészet, de szeretnél hazajutni. Az öreg azt feleli, hogy \"soha nem lehetünk annyira elveszve, hogy az angyalaink ne találnának ránk\", de azért a helyedben beszélne Tündérország uralkodójával. A tündérek sok varázslatos dolgot tudnak véghez vinni, ha valakik, hát ők biztos tudnak segíteni. Megmutatja, hogy merre kell elindulnod. Végig nézel az úton és a távolban egy hatalmas fát pillantasz meg, bizonyára az lehet a \"nagy fa\", ahol a tündérek élnek. Megfordulsz, hogy megköszönd az útbaigazítást és megkérdezd, hogy veled tart-e, de az öregembernek már csak a hűlt helyét találod. \n\nHa elfogadod az útbaigazítást, akkor lapozz [##1], ha inkább várakozol más segítségre, lapozz [##2].",
+      "story": "Lassan kinyitod a szemeid és egy fényes új világ tárul eléd. Épületeknek vagy a mólónak nyoma sincs, csupán egy poros földutat látsz körben hatalmas méretű fákkal. Olyan érzésed van, mintha összementél volna, vagy minden megnőtt volna körülötted. Közel hozzád egy öregembert pillantasz meg, aki egy kövön ül és pipázik. Kopott köpenyt és kalapot visel, kalapján egy tollat, hosszú ősz szakálla és haja van. Ahogy közelebb mész hozzá kedves mosollyal üdvözöl. Megkérdezed, hogy mi ez a hely? Ő azt válaszolja: \n- Hát Tündérország! Közel a nagy fához. Nem csodálom, hogy elveszve érzed magad. Mióta az időérmét ellopták sok furcsaság történik a világban. Ijimasnak hívnak. \n\nElmondod neki, hogy mi történt veled, nem érted az egészet, de szeretnél hazajutni. Az öreg azt feleli, hogy \"soha nem lehetünk annyira elveszve, hogy az angyalaink ne találnának ránk\", de azért a helyedben beszélne Tündérország uralkodójával. A tündérek sok varázslatos dolgot tudnak véghez vinni, ha valakik, hát ők biztos tudnak segíteni. Megmutatja, hogy merre kell elindulnod. Végig nézel az úton és a távolban egy hatalmas fát pillantasz meg, bizonyára az lehet a \"nagy fa\", ahol a tündérek élnek. Megfordulsz, hogy megköszönd az útbaigazítást és megkérdezd, hogy veled tart-e, de az öregembernek már csak a hűlt helyét találod. \n\nHa elfogadod az útbaigazítást, akkor lapozz [##1], ha inkább várakozol más segítségre, lapozz [##2].",
       "color": "white",
       "comment": "",
       "index": 6,
@@ -96,8 +96,8 @@
     },
     {
       "id": 8,
-      "title": "A medve",
-      "story": "Az utad során hirtelen egy hatalmas, dühös medve ugrik eléd. Ha történetünk elején nem fogyasztottad el a szendvicsed, akkor abból még maradt a zsebedben, így fel tudod ajánlani a medvének, lapozz a [##1], ha megetted, akkor lapozz [##2]. \n",
+      "title": "A patkány",
+      "story": "Az utad során hirtelen egy hatalmas, dühös patkány ugrik eléd, méretre majdnem nagyobb, mint te. Ha történetünk elején nem fogyasztottad el a zsemléd, akkor abból még maradt valamennyi a zsebedben, így fel tudod ajánlani a támadónak, lapozz a [##1], ha megetted, akkor lapozz [##2]. \n",
       "color": "white",
       "comment": "",
       "index": 7,
@@ -109,8 +109,8 @@
     },
     {
       "id": 9,
-      "title": "Hálás medve",
-      "story": "Odadobod a medvének a zsemléd és megdermedve reménykedsz, hogy megelégszik ennyivel. A medve elfogyasztja és megszólal: \n- Köszönöm az ételt, néha kiállhatatlan vagyok, ha kimarad egy étkezés. \n- Akkor nem akarsz megenni? És egyáltalán mikor tanultam meg medvéül? - kérdezed csodálkozva. \n- Megenni!? - kacag fel a medve. - Milyen furcsa kérdés ez? Én még a világon nem hallottam olyat, hogy az egyik lény megeszi a másikat. Gazdag a fantáziád. Továbbá a mi világunkban mindenki ért mindenkit. Furcsákat kérdezel, lehet, hogy neked nagyobb szükség lett volna az ételre. \n\nA medve elmeséli, hogy egy béka ellopta a csemegéjét és ezért maradt éhen. Biztos benne, hogy béka volt, mert parókát viselt és a világon mindenki tudja, hogy a békáknak nagyon fontos a parókájuk. Ezután még beszélt és beszélt, leginkább az ételekről. Egy idő után megunod és megszólasz: \n- Ha az álatok nálunk is ennyit beszélnének, biztos nem ennénk meg őket. \n- Bár fiatal medve vagyok, annyit megtanultam, hogy minden lénynek van szava, csak kell, aki meg is hallja - válaszolta a medve. \n\nElköszöntök és te folytatod az utad. Lapozz [##1]. ",
+      "title": "Hálás patkány",
+      "story": "Odadobod a rágcsálónak a zsemléd és megdermedve reménykedsz, hogy megelégszik ennyivel. Miután elfogyasztja, megszólal: \n- Köszönöm az ételt, néha kiállhatatlan vagyok, ha kimarad egy étkezés. \n- Akkor nem akarsz megenni? És egyáltalán mikor tanultam meg patkányul? - kérdezed csodálkozva. \n- Megenni!? - kacag fel. - Milyen furcsa kérdés ez? Én még a világon nem hallottam olyat, hogy az egyik lény megeszi a másikat. Gazdag a fantáziád. Továbbá a világon mindenki ért mindenkit. Furcsákat kérdezel, lehet, hogy neked nagyobb szükséged lett volna az ételre. \n\nA patkány elmeséli, hogy egy béka ellopta a csemegéjét és ezért maradt éhen. Biztos benne, hogy béka volt, mert parókát viselt és a világon mindenki tudja, hogy a békáknak nagyon fontos a parókájuk. Ezután még beszélt és beszélt, leginkább az ételekről. Egy idő után megunod és megszólalsz: \n- Ha az állatok nálunk is ennyit beszélnének, biztos nem ennénk meg őket. \n- Gonosz egy vidékről érkezhettél! Bár még fiatal vagyok, annyit megtanultam, hogy minden lénynek van szava, csak kell, aki meg is hallja - válaszolta a patkány. \n\nElköszöntök és te folytatod az utad. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 21,
@@ -214,7 +214,7 @@
     {
       "id": 17,
       "title": "Álca: váza",
-      "story": "Sajnos a nagy kapkodásban sikerül leverni a vázát, ami nagy csörömpölés közepette összetörik. Ekkor minden tekintet rád szegeződik és a tömegből felemelkedik a medve feje, akivel korábban találkoztál. Rád mutat és hangosan elkezd röhögni. Lapozz [##1]. ",
+      "story": "Sajnos a nagy kapkodásban sikerül leverni a vázát, ami nagy csörömpölés közepette összetörik. Ekkor minden tekintet rád szegeződik. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 2,
@@ -357,7 +357,7 @@
     {
       "id": 32,
       "title": "Labirintus - NYERT - JBB",
-      "story": "Ahogy mész egyenesen a köd elkezdsz tisztulni, a folyosó pedig szűkülni. Az utolsó pár méteren már olyan keskeny, hogy egészen össze kell préselned magad, hogy előre tudj haladni. Már éppen azon gondolkozol, hogy visszafordulsz, amikor megpillantasz egy üreget az út legvégén. Átmászol rajta és a túloldalon meglátsz egy kis erdőt. Átértél a Kő-tengeren. A fal mellett egy aprócska emberszerű lényt pillantasz meg. Megszólítod. Lapozz [##1].",
+      "story": "Ahogy mész egyenesen a köd elkezdsz tisztulni, a folyosó pedig szűkülni. Az utolsó pár méteren már olyan keskeny, hogy egészen össze kell préselned magad, hogy előre tudj haladni. Már éppen azon gondolkozol, hogy visszafordulsz, amikor megpillantasz egy üreget az út legvégén. Átmászol rajta és a túloldalon meglátsz egy kis erdőt. Átértél a Kő-tengeren. A fal mellett egy aprócska egérszerű lényt pillantasz meg. Megszólítod. Lapozz [##1].",
       "color": "white",
       "comment": "",
       "index": 0,
@@ -369,7 +369,7 @@
     },
     {
       "id": 33,
-      "title": "Találkozás a kobolddal",
+      "title": "Találkozás az egérkével",
       "story": "Közelebb lépve a kis teremtmény rád néz és látszik, hogy nagyon szomorú. Megkérdezheted, hogy mi a baj, lapozz [##1], vagy egy köszönés után folytathatod az utad, lapozz [##2]. ",
       "color": "white",
       "comment": "",
@@ -382,8 +382,8 @@
     },
     {
       "id": 34,
-      "title": "Bajba esett kobold",
-      "story": "A furcsa lény elárulja, hogy ő egy kobold és itt él a Kő-tenger és a Békaváros határában a szüleivel. Édesapja a paras kő megszállítója, amely egy olyan tárgy, ami bármilyen fémet arannyá tud változtatni. Az ősi könyvek elárulják, hogy a paras kő külsőleg olyan, mint bármilyen más kő, és a Kő-tengerben rejtették el. A kobold édesapja minden napját úgy tölti, hogy kimegy a tengerre és sorra próbálgatja az összes követ és kavicsot. Ma egy nagyobb szikla mellett keresgélt, amikor az megcsúszott és beszorította a lábát. Mivel a koboldok kicsik és gyengék, így nem tudták elmozdítani a sziklát. A kis kobold fél, hogy apja örökre a tenger fogságában marad. \n\nHa felkínálod a segítséged, akkor lapozz [##1], ha kifejezed sajnálatod és elköszönsz, lapozz [##2].",
+      "title": "Bajba esett egér",
+      "story": "Az egérke elárulja, hogy Timothynak hívják és itt él a Kő-tenger és a Békaváros határában a szüleivel. Édesapja a paras kő megszállítója, amely egy olyan tárgy, ami bármilyen fémet arannyá tud változtatni. Az ősi könyvek elárulják, hogy a paras kő külsőleg olyan, mint bármilyen más kő, és a Kő-tengerben rejtették el. A kobold édesapja minden napját úgy tölti, hogy kimegy a tengerre és sorra próbálgatja az összes követ és kavicsot. Ma egy nagyobb szikla mellett keresgélt, amikor az megcsúszott és beszorította a lábát. Mivel az egerek kicsik és gyengék, így nem tudták elmozdítani a sziklát. Timothy fél, hogy apja örökre a tenger fogságában marad. \n\nHa felkínálod a segítséged, akkor lapozz [##1], ha kifejezed sajnálatod és elköszönsz, lapozz [##2].",
       "color": "white",
       "comment": "",
       "index": 0,
@@ -395,8 +395,8 @@
     },
     {
       "id": 35,
-      "title": "Kijutás a Kő-tengerről",
-      "story": "",
+      "title": "Kijutás a Kő-tengerről - Ijimas",
+      "story": "Elhagyva a tengert barátságosabb környezetben találod magad. És egy kis séta után az erdőben egy ismerős arc üdvözöl. \n- Örülök, hogy ismét látjuk egymást barátom. A reggeli találkozásunk óta nagy utat tettél meg - fogad nagy mosollyal Ijimas.  \n- A labirintus a Kő-tengerben egy örökkévalóságnak tűnt, pedig csak pár óra volt az út. Szerencsére sikerült kijutnom. \n- A szerencsének ehhez nincs köze. Tudd meg fiam, hogy cselekedeteid sikere belső meggyőződésed erejétől és önfegyelmedtől függ. Szóval ne veszítsd el a bátorságod, és soha ne add fel. Elszántságodra most talán még nagyobb szükséged lesz. \n- Azt gondolom. Hogy jutottál gyorsabban ki a labirintusból, mint én?\n\nA válasz nem érkezik meg, Ijimas ismét köddé vált. Későre jár, a távolban megpillantod a Békaváros fényeit. Úgy döntesz, hogy lepihensz és másnap újult erővel veszed célba a várost. Lapozz [##1].",
       "color": "white",
       "comment": "",
       "index": 0,
@@ -408,8 +408,8 @@
     },
     {
       "id": 36,
-      "title": "Segítség a kolboldnak",
-      "story": "Egy rövid séta után megérkeztek a kobold édesapjához. Úgy tűnt, hogy már ereje végét járja, annyira kimerült a sok erőlködésben, hogy kiszabadítsa magát. Nekifeszülsz a kis kobolddal a sziklának, és együttes erővel, mindent beleadva sikerül eldönteni a nagy követ és kiszabadítani a koboldot. \n\nAz öreg kobold köszöntet mond neked, a családjának pedig megígéri, hogy felhagy a paras kő keresésével és élete hátralevő részét nekik szenteli, mivel az élet túl rövid, az idő pedig túl értékes, hogy hasztalan dolgokra fecséreljük.  \n\nBúcsúzóul azt a tanácsot adja, hogy sohase bízz egy békában, ne köss vele szövetséget. Elköszöntök, lapozz [##1]. ",
+      "title": "Segítség az egérnek",
+      "story": "Egy rövid séta után megérkeztek Timothy apjához. Úgy tűnt, hogy már ereje végét járja, annyira kimerült a sok erőlködésben, hogy kiszabadítsa magát. Nekifeszülsz a kis kobolddal a sziklának, és együttes erővel, mindent beleadva sikerül eldönteni a nagy követ és kiszabadítani az öreget. \n\nTimothy édesapja köszöntet mond neked, a családjának pedig megígéri, hogy felhagy a paras kő keresésével és élete hátralevő részét nekik szenteli, mivel az élet túl rövid, az idő pedig túl értékes, hogy hasztalan dolgokra fecséreljük.  \n\nBúcsúzóul azt a tanácsot adja, hogy sohase bízz egy békában, ne köss vele szövetséget. Elköszöntök, lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 0,
@@ -418,6 +418,253 @@
       "winner": false,
       "looser": false,
       "regionId": 5
+    },
+    {
+      "id": 37,
+      "title": "Békaváros első ránézésre",
+      "story": "Másnap nem vesztegeted az időt és megközelíted a várost. Az utcák telis-tele van hatalmas békákkal és mindegyik parókát visel. A házak sárral összetapasztott sziklákból állnak és mindenhol rengeteg a szemét és a kosz. Az egyik épület kiemelkedik a többi közül és egy békaőr áll a kapujában. Azt gondolod, hogy ez lehet a város uralkodójának a háza és bizonyára ott őrzik az érmét is. Az őrségváltásnál megragadod az alkalmat és besurransz az épületbe. \n\nLapozz [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 3
+    },
+    {
+      "id": 38,
+      "title": "Lebukás",
+      "story": "A terembe lépve összefutsz egy másik őrséggel. Ismét próbára kell tenned ravaszságod. Ha úgy döntesz, hogy szilárd elhatározottsággal és teljes komolysággal rájuk nézel és brekkentesz egyet, akkor lapozz [##1]. Ha megpróbálod elterelni a figyelmüket azzal, hogy a hátuk mögé mutatsz és azt mondod \"Vigyázzatok patkány\", lapozz [##2].",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 3
+    },
+    {
+      "id": 39,
+      "title": "Brekegés",
+      "story": "Meglepődnek, de nem néznek békának, sokkal inkább bolondnak. Viszont ez nem tart sokáig, elkapnak és bedobnak a város börtönébe, amíg értesítik az uralkodót. Lapozz [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 3
+    },
+    {
+      "id": 40,
+      "title": "Patkány!!!",
+      "story": "A tervből kimaradt az elmenekülés. Bár a békák a hátuk mögé néznek, miután visszafordulnak, te még mindig a helyeden vagy, és kissé bárgyú mosolyt öltesz magadra, majd leengeded a kezed. Most már késő brekegni, elvisznek és bedobnak egy cellába. Ott kell várnod a város uralkodójára. Lapozz [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 3
+    },
+    {
+      "id": 41,
+      "title": "Cellatárs - Izi a katica",
+      "story": "Nagyapád mindig azt mondta, hogy bármit, amit meg akarsz tenni, tedd szilárd elhatározással, így a siker biztosan nem marad el. Ez bizonyára nem vonatkozik az őrök kijátszására, mert rövid időn belül ez már a második alkalom volt, hogy nem jártál sikerrel. Ahogy azon gondolkozol, hogy hogyan kerülj ki szorult helyzetedből, mögötted egy halk neszre leszel figyelmes. Megfordulsz és egy katicára hasonlító alakot veszel észre a cella túlsó végében. \n\nBeszédbe elegyedtek és kiderül, hogy Izinek hívják. Reggel kapták el az őrök, ahogy éppen a közeli mezőn sétált. Megtudod tőle azt is, hogy a békáknál a paróka nagyon fontos státuszszimbólum, minél díszesebb, annál magasabb pozíciót foglal el a viselője. Éppen kezdtek összebarátkozni, amikor ismét megjelennek az őrök és az uralkodó elé visznek. Lapozz [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 3
+    },
+    {
+      "id": 42,
+      "title": "Donatello az uralkodó",
+      "story": "Donatello a békák vezetője fogad téged a termében. Hatalmas aranyparókájával a fején szinte szétfolyik a kanapén. Közönyösen megkérdezi, hogy mit keresel a házában, miközben szinte rád sem emeli a tekintetét. Ha egyenesen nekiszegezed a kérdést az ellopott időérméről, lapozz [##1], ha hízelgéssel próbálsz meg információt kicsikarni, lapozz [##2]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 3
+    },
+    {
+      "id": 43,
+      "title": "Donatello mérges",
+      "story": "Szinte azonnal sikerül felbosszantanod a vezetőt, aki dühösen utasítja az őröket, hogy azonnal vigyenek vissza a celládba. Sajnos nem tudtál meg semmit az időérméről. Későre jár, mély álomba kerülsz kissé izgulva. hogy hol virrad rád az új nap. Lapozz [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 3
+    },
+    {
+      "id": 44,
+      "title": "Új nap, új lehetőség",
+      "story": "Reggel szerencsére a város bejáratánál ébredsz fel egy bokor aljában. Megkeresed az őrzött ház kapuját és ismét besurransz. Lapozz [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 3
+    },
+    {
+      "id": 45,
+      "title": "Hízelgés",
+      "story": "Elkezded ecsetelni, hogy milyen különlegesen szép hely ez a Békaváros, és sokat hallottál a város uralkodójának nagyszerű.... \n\nHa a csodás szemeit emeled ki, akkor lapozz [##1], ha a dús haját, lapozz [##2], ha az izmos combjait, lapozz [##3]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 3
+    },
+    {
+      "id": 46,
+      "title": "Szemek",
+      "story": "Bár nagyon igyekszel, és megpróbálsz ódákat zengeni a nagy fekete szemeiről, amiben nem lelhető fel az értelem szikrája sem, az ábrázatod mindent elárul és az undorral elkevert bárgyú vigyorod inkább csak felhergeli Donatellót. Lapozz [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 3
+    },
+    {
+      "id": 47,
+      "title": "Haj",
+      "story": "Elmeséled neki, hogy a csodás hajkoronája messzeföldön híres, mindenki irigyli a dús fürtjeit, lágy esését, csillogását. Valóban szép paróka volt, még akkor is, ha a viselője történetesen egy gusztustalan varangy.  Donatellonak ez nagyon tetszik, öröm számára, hogy végre találkozik egy olyan teremtménnyel, aki igazán tudja, mi a fontos. \n\nKözben megemlíted, hogy a tündérek földjéről érkeztél, akik nagyon keresik az elveszett időérmet. Elmondod, hogy mekkora veszélyt jelent az egész világra nézve az eltűnése és megkérdezed, hogy hallott-e valamit. Az uralkodó büszkén vallja be, hogy ők lopták el. Nem volt nehéz, hiszen az érme hordozója a világukon belül bárhova el tud utazni egy szempillantás alatt. Csupán meg kellett érintenie az egyik szolgálójának és azonnal a tündérek trónterméből a békavárosban termett. \n\nDonatello számára nem jelent nagy értéket az érme, ezért megígéri, hogy segít, de cserébe ő is kér valamit. Lapozz [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 3
+    },
+    {
+      "id": 48,
+      "title": "Combok",
+      "story": "Éppen belekezdenél mondani, hogy a \"Combjai olyan, olyan\"... és közben ránézel Donatello hájas, kelésekkel borított lábaira. Látszik, hogy jó ideje nem használta már őket. Ezen felül valami furcsa, megmagyarázhatatlan szag is terjed belőlük. Nagyon erősen próbálkozol keresni valami szép jelzőt, de nem jutott semmi az eszedbe. Az uralkodó türelme pedig eközben lejárt. Lapozz [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 3
+    },
+    {
+      "id": 49,
+      "title": "Alku",
+      "story": "Donatello elmeséli, hogy a közeli Bogárhotelben egy aranyelixír nevű csodás varázsitalt tartanak elzárva. Bárki, aki elfogyasztja hatalmas képességre tesz szert. Bármit megérint, az arannyá változik. Már többször tett kísérletet az ellopására sikertelenül. Ha megszerzed neki varázsitalt, hajlandó ő is segíteni neked. Mivel az elixírt szigorúan őrzik, így felajánlja a legerősebb békaemberét Geronimot. Ő bármilyen akadályt képes legyőzni. Ha elfogadod a segítséget, lapozz [##1], ha inkább a börtönben raboskodó katicát, Izit vinnéd magaddal, lapozz [##2]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 3
+    },
+    {
+      "id": 50,
+      "title": "Geronimoval az úton",
+      "story": "El is indultok és hamarosan kiderül, hogy az új útitársad érdeklődése nem igazán terjed tovább saját erején túlra. A Bogárhotel nagyon közel van, és hamarosan egy csapat felfegyverzett bogárba ütköztök. Csendben próbálsz elbújni az út szélén, de ekkor Geronimo felpattan és csatakiáltással megindul a csoport felé. Nincs mit tenni, te is csatlakozol az eszement támadáshoz. A következő pillanatban már egy bűzösbogár kábítófelhőjében csücsültök félig eszméletlenül. Utolsó gondolatod, mielőtt álomra csukod a szemeid, hogy máskor jobban választasz társat a küldetéshez. \n\nReggel felébredsz a Bogárvárosnál és megpróbálsz mindent pontosan úgy csinálni, ahogy az előző nap, egészen az útitárs választásig. Lapozz [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 3
+    },
+    {
+      "id": 51,
+      "title": "Izivel a Bogárhotelben",
+      "story": "Izivel útközben még jobban összebarátkoztok. Ő elmeséli, hogy az egész gyermekkorát a Bogárhotelben töltötte és pontosan tudja, hogy hol tartják elzárva az aranyelixírt, te pedig elmondod neki, hogy hogyan jutottál el ide, és azt, hogy mennyire hiányzik a családod, szeretnél hazajutni. \n\nA hotelhez érve, az őröket megkerülve egy titkos úton el tudtok jutni egészen a szobáig, ahol az elixír van elhelyezve. Ahogy elemeled a helyéről a kis üveget, amely sárgás színben megvilágítja az egész szobát, belép egy nagy öreg bogár és megindul feléd. Támadásra emeli hatalmas csápjait, te pedig arra gondolsz, hogy itt a vég, amikor Izi felkiált melletted. \"Ne bántsd apa!\". Lapozz [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 3
+    },
+    {
+      "id": 52,
+      "title": "Az elixír megszerzése",
+      "story": "Kiderül, hogy Izi a Bogárhotel vezetőjének a lánya. Elmesél mindent az apjának, aki ekkor feléd fordul és a következőt mondja:\n- Az aranyelixír számunkra nem egy féltett kincs, hanem egy átok, amelyet elzárva kell tartani. Megmentetted a lányom, így az adósod vagyok. Vedd az elixírt és használd belátásod szerint, de figyelmeztetlek, ne engedd át magad a vágyaidnak, ne hagyd, hogy függővé tegyenek. A békák elpazarolják az életüket a futó élvezetek kergetésében, te ne hagyd, hogy ezek rabjává válj. \n\nElköszöntök és te visszaindulsz Bogárvárosba. Lapozz [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 3
+    },
+    {
+      "id": 53,
+      "title": "Útban a békákhoz - Ijimas",
+      "story": "A vagyont becsületes úton kell megszerezni. Jövedelmedet saját munkáddal, saját erőfeszítéseddel szerezd meg, és jóra használd.\n\nA szükségtelenül felhalmozott anyagi javak teherré válnak, gondot okoznak.\n\nKerüld azokat a helyeket, ahol nem látnak szívesen.",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 3
+    },
+    {
+      "id": 54,
+      "title": "Felhasználjuk az elixírt",
+      "story": "",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 3
+    },
+    {
+      "id": 55,
+      "title": "Odaadjuk Donatellonak",
+      "story": "",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 3
     }
   ],
   "relations": [
@@ -696,6 +943,150 @@
       "targetId": 35,
       "comment": "",
       "condition": false
+    },
+    {
+      "sourceId": 35,
+      "targetId": 37,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 37,
+      "targetId": 38,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 38,
+      "targetId": 39,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 38,
+      "targetId": 40,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 39,
+      "targetId": 41,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 40,
+      "targetId": 41,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 41,
+      "targetId": 42,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 42,
+      "targetId": 43,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 43,
+      "targetId": 44,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 44,
+      "targetId": 38,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 42,
+      "targetId": 45,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 45,
+      "targetId": 46,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 46,
+      "targetId": 43,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 45,
+      "targetId": 47,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 45,
+      "targetId": 48,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 48,
+      "targetId": 43,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 47,
+      "targetId": 49,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 49,
+      "targetId": 50,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 50,
+      "targetId": 49,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 49,
+      "targetId": 51,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 51,
+      "targetId": 52,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 52,
+      "targetId": 53,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 53,
+      "targetId": 54,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 53,
+      "targetId": 55,
+      "comment": "",
+      "condition": false
     }
   ],
   "items": [
@@ -757,18 +1148,23 @@
     },
     {
       "id": 3,
-      "name": "Herkules a varangy",
+      "name": "Geronimo a varangy",
       "description": "Egy erős varangy, de sajnos ereje kevésnek bizonyul és elkapnak minket a Bogárhotelben. "
     },
     {
       "id": 4,
-      "name": "Porshe csiga",
+      "name": "Porshe v Maisy csiga",
       "description": ""
     },
     {
       "id": 5,
       "name": "Donatello a békák vezetője",
       "description": "A külsejére nagyon kényes béka úr. Legfőképpen a parókáját szereti, ebből gyűjteménye is van. Egy új parókáért lopta el az időérmet. "
+    },
+    {
+      "id": 6,
+      "name": "Timothy a kisegér",
+      "description": ""
     }
   ],
   "mortality": false,
