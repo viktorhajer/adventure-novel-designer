@@ -266,7 +266,7 @@
     {
       "id": 21,
       "title": "Ismét találkozó Ijimasszal.",
-      "story": "A hang azt mondja: \"Nem tudsz átkelni a tengeren csupán bámulva a vizet\". Megfordulsz és a korábbi öreg vándort pillantod meg. Megszólítod: \n- Útjaink ismét keresztezik egymást. \n- Ismét? - nézett rá kérdőn az öreg. \n- Felejtsd el! Nagy feladatot kaptam és fogalmam nincs, hogy képes leszek-e rá. Nem értem, hogy miért vállaltam el? - feleled, miközben bánatosan fürkészed a vizet. \n- A lehetetlen elérésének az egyetlen módja, ha elhiszed, hogy lehetséges - válaszolja az öreg. \n- Én csak haza akarok jutni! - kiálltod felé, de már csak a kavicsos partot találod. \n\nAzt gondolod, hogy ez jellemző rá, bár lehetséges, hogy csak a képzeleted játszik veled. Összeszeded magad és folytatod az utad. Lapozz [##1]. ",
+      "story": "A hang azt mondja: \"Nem tudsz átkelni a tengeren csupán bámulva a vizet\". Megfordulsz és a korábbi öreg vándort pillantod meg. Megszólítod: \n- Útjaink ismét keresztezik egymást. \n- Ismét? - nézett rá kérdőn az öreg. \n- Felejtsd el! Nagy feladatot kaptam és fogalmam nincs, hogy képes leszek-e rá. Nem értem, hogy miért vállaltam el - feleled, miközben bánatosan fürkészed a vizet. \n- A lehetetlen elérésének az egyetlen módja, ha elhiszed, hogy lehetséges - válaszolja az öreg. \n- Én csak haza akarok jutni! - kiálltod felé, de már csak a kavicsos partot találod. \n\nAzt gondolod, hogy ez jellemző rá, bár lehetséges, hogy csak a képzeleted játszik veled. Összeszeded magad és folytatod az utad. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 12,
@@ -344,7 +344,7 @@
     {
       "id": 31,
       "title": "Labirintus - Bejárat",
-      "story": "Nekivágsz a Kő-tengernek, de hamar rá kell ébredj, hogy ez még gyalogosan is komoly vállalkozás. A sok szikla és domb között igazán könnyű elveszni, illetve itt-ott mély lyukak is lassítják a haladást. \n\nVégül egy kis ösvényt pillantasz meg, ami mellett a sziklába egy üzenetet véstek: \n\"Kedves vándor, jobb nem próbára tenni a balsorsod, mert történeted balul végződhet.\"\n\nVészjósló figyelmeztetés, de nincs választásod. Elindulsz az úton, majd kis idő után kereszteződéshez érsz. Ha balra folytatod az utad, lapozz [##2], ha a másik irányt választod, akkor lapozz [##1]. ",
+      "story": "Nekivágsz a Kő-tengernek, de hamar rá kell ébredned, hogy ez még gyalogosan is komoly vállalkozás. A sok szikla és domb között igazán könnyű elveszni, illetve itt-ott mély lyukak is lassítják a haladást. \n\nVégül egy kis ösvényt pillantasz meg, ami mellett a sziklába egy üzenetet véstek: \n\"Kedves vándor, utadra jól figyelj, jobb nem próbára tenni a balsorsod, mert történeted balul végződhet.\"\n\nVészjósló figyelmeztetés, de nincs választásod. Elindulsz az úton, majd kis idő után kereszteződéshez érsz. Ha balra folytatod az utad, lapozz [##2], ha a másik irányt választod, akkor lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 42,
@@ -422,7 +422,7 @@
     {
       "id": 37,
       "title": "Békaváros első ránézésre",
-      "story": "Másnap nem vesztegeted az időt és megközelíted a várost. Az utcák telis-tele van hatalmas békákkal és mindegyik parókát visel. A házak sárral összetapasztott sziklákból állnak és mindenhol rengeteg a szemét és a kosz. Az egyik épület kiemelkedik a többi közül és egy békaőr áll a kapujában. Azt gondolod, hogy ez lehet a város uralkodójának a háza és bizonyára ott őrzik az érmét is. Az őrségváltásnál megragadod az alkalmat és besurransz az épületbe. \n\nLapozz [##1]. ",
+      "story": "Másnap nem vesztegeted az időt és megközelíted a várost. Az utcák telis-tele vannak hatalmas békákkal és mindegyik parókát visel. A házak sárral összetapasztott sziklákból állnak, mindenhol rengeteg a szemét és a kosz. Az egyik épület kiemelkedik a többi közül, és egy békaőr áll a kapujában. Azt gondolod, hogy ez lehet a város uralkodójának a háza, és bizonyára ott őrzik az érmét is. Az őrségváltásnál megragadod az alkalmat és besurransz az épületbe. \n\nLapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 29,
@@ -474,7 +474,7 @@
     {
       "id": 41,
       "title": "Cellatárs - Izi a katica",
-      "story": "Nagyapád mindig azt mondta, hogy bármit, amit meg akarsz tenni, tedd szilárd elhatározással, így a siker biztosan nem marad el. Ez bizonyára nem vonatkozik az őrök kijátszására, mert rövid időn belül ez már a második alkalom volt, hogy nem jártál sikerrel. Ahogy azon gondolkozol, hogy hogyan kerülj ki szorult helyzetedből, mögötted egy halk neszre leszel figyelmes. Megfordulsz és egy katicára hasonlító alakot veszel észre a cella túlsó végében. \n\nBeszédbe elegyedtek és kiderül, hogy Izinek hívják. Reggel kapták el az őrök, ahogy éppen a közeli mezőn sétált. Megtudod tőle azt is, hogy a békáknál a paróka nagyon fontos státuszszimbólum, minél díszesebb, annál magasabb pozíciót foglal el a viselője. Éppen kezdtek összebarátkozni, amikor ismét megjelennek az őrök és az uralkodó elé visznek. Lapozz [##1]. ",
+      "story": "Nagyapád mindig azt mondta, hogy bármit, amit meg akarsz tenni, tedd szilárd elhatározással, így a siker biztosan nem marad el. Ez bizonyára nem vonatkozik az őrök kijátszására, mert rövid időn belül ez már a második alkalom volt, hogy nem jártál sikerrel. Ahogy azon gondolkozol, hogy hogyan kerülj ki szorult helyzetedből, mögötted egy halk neszre leszel figyelmes. Megfordulsz és egy katicára hasonlító alakot veszel észre a cella túlsó végében. \n\nBeszédbe elegyedtek, kiderül, hogy Izinek hívják. Reggel kapták el az őrök, ahogy éppen a közeli mezőn sétált. Megtudod tőle azt is, hogy a békáknál a paróka nagyon fontos státuszszimbólum, minél díszesebb, annál magasabb pozíciót foglal el a viselője. Éppen kezdtek összebarátkozni, amikor ismét megjelennek az őrök, és az uralkodó elé visznek. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 35,
@@ -500,7 +500,7 @@
     {
       "id": 43,
       "title": "Donatello mérges",
-      "story": "Szinte azonnal sikerül felbosszantanod a vezetőt, aki dühösen utasítja az őröket, hogy azonnal vigyenek vissza a celládba. Sajnos nem tudtál meg semmit az időérméről. Későre jár, mély álomba kerülsz kissé izgulva. hogy hol virrad rád az új nap. Lapozz [##1]. ",
+      "story": "Szinte azonnal sikerül felbosszantanod a vezetőt, aki dühösen utasítja az őröket, hogy azonnal vigyenek vissza a celládba. Sajnos nem tudtál meg semmit az időérméről. Későre jár, mély álomba merülsz kissé szorongva, hogy hol virrad rád az új nap. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 27,
@@ -539,7 +539,7 @@
     {
       "id": 46,
       "title": "Szemek",
-      "story": "Bár nagyon igyekszel, és megpróbálsz ódákat zengeni a nagy fekete szemeiről, amiben nem lelhető fel az értelem szikrája sem, az ábrázatod mindent elárul és az undorral elkevert bárgyú vigyorod inkább csak felhergeli Donatellót. Lapozz [##1]. ",
+      "story": "Bár nagyon igyekszel, és megpróbálsz ódákat zengeni a nagy fekete szemeiről, amiben nem lelhető fel az értelem szikrája sem, az ábrázatod mindent elárul, undorral kevert bárgyú vigyorod inkább csak felhergeli Donatellót. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 13,
@@ -552,7 +552,7 @@
     {
       "id": 47,
       "title": "Haj",
-      "story": "Elmeséled neki, hogy a csodás hajkoronája messzeföldön híres, mindenki irigyli a dús fürtjeit, lágy esését, csillogását. Valóban szép paróka volt, még akkor is, ha a viselője történetesen egy gusztustalan varangy.  Donatellonak ez nagyon tetszik, öröm számára, hogy végre találkozik egy olyan teremtménnyel, aki igazán tudja, mi a fontos. \n\nKözben megemlíted, hogy a tündérek földjéről érkeztél, akik nagyon keresik az elveszett időérmet. Elmondod, hogy mekkora veszélyt jelent az egész világra nézve az eltűnése és megkérdezed, hogy hallott-e valamit. Az uralkodó büszkén vallja be, hogy ők lopták el. Nem volt nehéz, hiszen az érme hordozója a világukon belül bárhova el tud utazni egy szempillantás alatt. Csupán meg kellett érintenie az egyik szolgálójának és azonnal a tündérek trónterméből a békavárosban termett. \n\nDonatello számára nem jelent nagy értéket az érme, ezért megígéri, hogy segít, de cserébe ő is kér valamit. Lapozz [##1]. ",
+      "story": "Elmeséled neki, hogy a csodás hajkoronája messzeföldön híres, mindenki irigyli a dús fürtjeit, lágy esését, csillogását. Valóban szép paróka volt, még akkor is, ha a viselője történetesen egy gusztustalan varangy.  Donatellonak ez nagyon tetszik, öröm számára, hogy végre találkozik egy olyan teremtménnyel, aki igazán tudja, mi a fontos. \n\nKözben megemlíted, hogy a tündérek földjéről érkeztél, akik nagyon keresik az elveszett időérmet. Elmondod, hogy mekkora veszélyt jelent az egész világra nézve az eltűnése és megkérdezed, hogy hallott-e valamit. Az uralkodó büszkén vallja be, hogy ők lopták el. Nem volt nehéz, hiszen az érme hordozója a világukon belül bárhova el tud utazni egy szempillantás alatt. Csupán meg kellett érintenie az egyik szolgálójának, és a tündérek tróntermébő azonnal a békavárosban termett. \n\nDonatello számára nem jelent nagy értéket az érme, ezért megígéri, hogy segít, de cserébe ő is kér valamit. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 52,
@@ -565,7 +565,7 @@
     {
       "id": 48,
       "title": "Combok",
-      "story": "Éppen belekezdenél mondani, hogy a \"Combjai olyan, olyan\"... és közben ránézel Donatello hájas, kelésekkel borított lábaira. Látszik, hogy jó ideje nem használta már őket. Ezen felül valami furcsa, megmagyarázhatatlan szag is terjed belőlük. Nagyon erősen próbálkozol keresni valami szép jelzőt, de nem jutott semmi az eszedbe. Az uralkodó türelme pedig eközben lejárt. Lapozz [##1]. ",
+      "story": "Éppen belekezdenél mondandódba, mely szerint \"Combjai olyan, olyan\"..., közben ránézel Donatello hájas, kelésekkel borított lábaira. Látszik, hogy jó ideje nem használta már őket. Ezen felül valami furcsa, megmagyarázhatatlan szag is terjed belőlük. Nagyon erősen próbálkozol keresni valami szép jelzőt, de nem jut semmi az eszedbe. Az uralkodó türelme pedig eközben lejárt. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 36,
@@ -578,7 +578,7 @@
     {
       "id": 49,
       "title": "Alku",
-      "story": "Donatello elmeséli, hogy a közeli Bogárhotelben egy aranyelixír nevű csodás varázsitalt tartanak elzárva. Bárki, aki elfogyasztja hatalmas képességre tesz szert. Bármit megérint, az arannyá változik. Már többször tett kísérletet az ellopására sikertelenül. Ha megszerzed neki varázsitalt, hajlandó ő is segíteni neked. Mivel az elixírt szigorúan őrzik, így felajánlja a legerősebb békaemberét Geronimot. Ő bármilyen akadályt képes legyőzni. Ha elfogadod a segítséget, lapozz [##1], ha inkább a börtönben raboskodó katicát, Izit vinnéd magaddal, lapozz [##2]. ",
+      "story": "Donatello elmeséli, hogy a közeli Bogárhotelben egy aranyelixír nevű csodás varázsitalt tartanak elzárva. Bárki, aki elfogyasztja, hatalmas képességre tesz szert. Bármit megérint, az arannyá változik. Már többször tett kísérletet az ellopására, sikertelenül. Ha megszerzed neki a varázsitalt, hajlandó ő is segíteni neked. Mivel az elixírt szigorúan őrzik, így felajánlja a legerősebb békaemberét, Geronimot. Ő bármilyen akadályt képes legyőzni. Ha elfogadod a segítséget, lapozz [##1], ha inkább a börtönben raboskodó katicát, Izit vinnéd magaddal, lapozz [##2]. ",
       "color": "white",
       "comment": "",
       "index": 7,
@@ -591,7 +591,7 @@
     {
       "id": 50,
       "title": "Geronimoval az úton",
-      "story": "El is indultok és hamarosan kiderül, hogy az új útitársad érdeklődése nem igazán terjed tovább saját erején túlra. A Bogárhotel nagyon közel van, és hamarosan egy csapat felfegyverzett bogárba ütköztök. Csendben próbálsz elbújni az út szélén, de ekkor Geronimo felpattan és csatakiáltással megindul a csoport felé. Nincs mit tenni, te is csatlakozol az eszement támadáshoz. A következő pillanatban már egy bűzösbogár kábítófelhőjében csücsültök félig eszméletlenül. Utolsó gondolatod, mielőtt álomra csukod a szemeid, hogy máskor jobban választasz társat a küldetéshez. \n\nReggel felébredsz a Bogárvárosnál és megpróbálsz mindent pontosan úgy csinálni, ahogy az előző nap, egészen az útitárs választásig. Lapozz [##1]. ",
+      "story": "El is indultok és hamarosan kiderül, hogy az új útitársad érdeklődése nem igazán terjed tovább saját erején túlra. A Bogárhotel nagyon közel van, és hamarosan egy csapat felfegyverzett bogárba ütköztök. Csendben próbálsz elbújni az út szélén, de ekkor Geronimo felpattan, és csatakiáltással megindul a csoport felé. Nincs mit tenni, te is csatlakozol az eszement támadáshoz. A következő pillanatban már egy bűzösbogár kábítófelhőjében csücsültök, félig eszméletlenül. Utolsó gondolatod, mielőtt álomra csukod a szemeid, hogy máskor jobban választasz társat a küldetéshez. \n\nReggel felébredsz a Bogárvárosnál, és megpróbálsz mindent pontosan úgy csinálni, ahogy az előző nap, egészen az útitárs választásig. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 18,
@@ -604,7 +604,7 @@
     {
       "id": 51,
       "title": "Izivel a Bogárhotelben",
-      "story": "Izivel útközben még jobban összebarátkoztok. Ő elmeséli, hogy az egész gyermekkorát a Bogárhotelben töltötte és pontosan tudja, hogy hol tartják elzárva az aranyelixírt, te pedig elmondod neki, hogy hogyan jutottál el ide, és azt, hogy mennyire hiányzik a családod, szeretnél hazajutni. \n\nA hotelhez érve, az őröket megkerülve egy titkos úton el tudtok jutni egészen a szobáig, ahol az elixír van elhelyezve. Ahogy elemeled a helyéről a kis üveget, amely sárgás színben megvilágítja az egész szobát, belép egy nagy öreg bogár és megindul feléd. Támadásra emeli hatalmas csápjait, te pedig arra gondolsz, hogy itt a vég, amikor Izi felkiált melletted. \"Ne bántsd apa!\". Lapozz [##1]. ",
+      "story": "Izivel útközben még jobban összebarátkoztok. Ő elmeséli, hogy az egész gyermekkorát a Bogárhotelben töltötte, és pontosan tudja, hogy hol tartják elzárva az aranyelixírt, te pedig elmondod neki, hogy hogyan jutottál el ide, és azt, hogy mennyire hiányzik a családod, szeretnél hazajutni. \n\nA hotelhez érve, az őröket megkerülve egy titkos úton el tudtok jutni egészen a szobáig, ahol az elixír van elhelyezve. Ahogy elemeled a helyéről a kis üveget, amely sárgás színben megvilágítja az egész szobát, belép egy nagy öreg bogár és megindul feléd. Támadásra emeli hatalmas csápjait, te pedig arra gondolsz, hogy itt a vég, amikor Izi felkiált melletted. \"Ne bántsd apa!\". Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 3,
@@ -617,7 +617,7 @@
     {
       "id": 52,
       "title": "Az elixír megszerzése",
-      "story": "Kiderül, hogy Izi a Bogárhotel vezetőjének a lánya. Elmesél mindent az apjának, aki ekkor feléd fordul és a következőt mondja:\n- Az aranyelixír számunkra nem egy féltett kincs, hanem egy átok, amelyet elzárva kell tartani. Megmentetted a lányom, így az adósod vagyok. Vedd az elixírt és használd belátásod szerint, de figyelmeztetlek, ne engedd át magad a vágyaidnak, ne hagyd, hogy függővé tegyenek. A békák elpazarolják az életüket a futó élvezetek kergetésében, te ne hagyd, hogy ezek rabjává válj. \n\nElköszöntök és te visszaindulsz Bogárvárosba. Lapozz [##1]. ",
+      "story": "Kiderül, hogy Izi a Bogárhotel vezetőjének a lánya. Elmesél mindent az apjának, aki ekkor feléd fordul és a következőt mondja:\n- Az aranyelixír számunkra nem egy féltett kincs, hanem egy átok, amelyet elzárva kell tartani. Megmentetted a lányom, így az adósod vagyok. Vedd az elixírt és használd belátásod szerint, de figyelmeztetlek, ne engedd át magad a vágyaidnak, ne hagyd, hogy függővé tegyenek. A békák elpazarolják az életüket a futó élvezetek kergetésében, te ne hagyd, hogy ezek rabjává válj. \n\nElköszöntök és te visszaindulsz Békavárosba. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 16,
@@ -656,7 +656,7 @@
     {
       "id": 55,
       "title": "Visszatérés Békavárosba",
-      "story": "Másnap felébredsz és az elixír ott ragyog a kezedben. Visszamész a békák városába és azonnal át is nyújtod Donatellonak a varázsitalt, és cserébe elkéred az időérmet, hogy késlekedés nélkül visszaindulhass. \n\nDonatello vigyorogva néz rád, és azt mondja, hogy szívesen odaadná, de nincs nála az érme. Lapozz [##1]. ",
+      "story": "Másnap felébredsz és az elixír ott ragyog a kezedben. Visszamész a békák városába, és azonnal át is nyújtod Donatellonak a varázsitalt. Cserébe elkéred az időérmet, hogy késlekedés nélkül visszaindulhass. \n\nDonatello vigyorogva néz rád, és azt mondja, hogy szívesen odaadná, de nincs nála az érme. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 2,
@@ -669,7 +669,7 @@
     {
       "id": 56,
       "title": "Búcsú a békáktól",
-      "story": "Mérgesen válaszolsz: \n- Megegyeztünk! Azt mondtad, hogy átadod az érmét cserébe az elixírért! \n- Nem mondtam, hogy átadom az érmét, hanem csak annyit, hogy segítek. Valóban mi loptuk el, de felbérelt minket Lukrécia, az öreg szarka. Az elixírt adta volna cserébe, de átrázott minket, és ahogy megérintette az érmét, azonnal köddé vált. Bizonyára a faházában tartja, ami nincs messze, de a belépés körülményes. \n- Merre találom, hogy jutok el oda? \n- A faház egy nagy fa tetején van, amire csupán egy csiga képes felvinni, de ők nem olyan segítőkészek, mint mi békák. A hely, ahol élnek, a csigakert, innen délre. De most már idegesítesz, ideje elhagynod a városunkat. Az elixírt pedig köszönjük - mondta gúnyosan Donatello. \n\nAzzal fogta az üvegcsét és lehörpintette az egészet. Egy pillanatra meg is szédült, de az egyik szolgája azonnal mellé termett és elkapta. Nem esett el, de a szolga azonnal arannyá változott. Donatello felkacagott és elkezdett mindent összefogdosni a szobában. Miután elfáradt úgy gondolta, hogy leül és eszik egy picit, de ahogy az ételt megfogta, az azonnal arannyá változott. Gondolta iszik egy kortyot, de az itallal is ugyanaz történt. Ezután már nem öröm, hanem inkább kétségbeesés tükröződött a nagy fekete szemeiben. \n\nJó kerülni azokat a helyeket, ahol nem látnak szívesen. Úgy döntesz, hogy nem várod ki, hogy mi lesz a vége, szép lassan elhagytad az uralkodó házát Békavárossal együtt és útnak indulsz délre. Lapozz [##1]. ",
+      "story": "Mérgesen válaszolsz: \n- Megegyeztünk! Azt mondtad, hogy átadod az érmét cserébe az elixírért! \n- Nem mondtam, hogy átadom az érmét, hanem csak annyit, hogy segítek. Valóban mi loptuk el, de felbérelt minket Lukrécia, az öreg szarka. Az elixírt adta volna cserébe, de átrázott minket, és ahogy megérintette az érmét, azonnal köddé vált. Bizonyára a faházában tartja, ami nincs messze, de a belépés körülményes. \n- Merre találom, hogy jutok el oda? \n- A faház egy nagy fa tetején van, amire csupán egy csiga képes felvinni, de ők nem olyan segítőkészek, mint mi, békák. A hely, ahol élnek, a csigakert, innen délre. De most már idegesítesz, ideje elhagynod a városunkat. Az elixírt pedig köszönjük - mondta gúnyosan Donatello. \n\nAzzal fogta az üvegcsét és lehörpintette az egészet. Egy pillanatra meg is szédült, de az egyik szolgája azonnal mellé termett és elkapta. Nem esett el, de a szolga azonnal arannyá változott. Donatello felkacagott és elkezdett mindent összefogdosni a szobában. Miután elfáradt úgy gondolta, hogy leül és eszik egy picit. Azonban ahogy az ételt megfogta, az azonnal arannyá változott. Gondolta iszik egy kortyot, de az itallal is ugyanaz történt. Ezután már nem öröm, hanem inkább kétségbeesés tükröződött a nagy fekete szemeiben. \n\nJó kerülni azokat a helyeket, ahol nem látnak szívesen. Úgy döntesz, nem várod ki, hogy mi lesz a vége, szép lassan elhagyod az uralkodó házát Békavárossal együtt, és útnak indulsz délre. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 46,
