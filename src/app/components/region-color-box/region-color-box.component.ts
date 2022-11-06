@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {UiService} from '../../services/ui.service';
 import {BookService} from '../../services/book.service';
 
@@ -9,11 +9,17 @@ import {BookService} from '../../services/book.service';
 })
 export class RegionColorBoxComponent {
 
+  @Output() regionChanged = new EventEmitter();
+
   constructor(public readonly uiService: UiService,
               public readonly bookService: BookService) {
   }
 
+  setId(id: number) {
+    this.regionChanged.emit(id);
+  }
+
   displayed(): boolean {
-    return this.bookService.model.showRegions && !!this.bookService.model.regions.length;
+    return !!this.bookService.model.regions.length;
   }
 }

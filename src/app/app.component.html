@@ -66,18 +66,7 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field appearance="fill" class="region-selector"
-                        *ngIf="visualModel && isModelLoaded() && bookService.model.regions.length">
-          <mat-label><i>Select region</i></mat-label>
-          <mat-select [(ngModel)]="regionId" (selectionChange)="visualFilter()">
-            <mat-option></mat-option>
-            <mat-option *ngFor="let r of bookService.model.regions" [value]="r.id">
-              {{r.name}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <app-region-color-box *ngIf="visualModel && isModelLoaded()">
+        <app-region-color-box *ngIf="visualModel && isModelLoaded()" (regionChanged)="setRegionFilter($event)">
         </app-region-color-box>
 
         <app-visual-book [nodes]="(!!visualModel ? visualModel.nodes:[])"
@@ -86,7 +75,7 @@
                           [selected]="(station && !!station.id ? 'node_' + station.id : '')"
                           (nodeSelected)="openStation($event)" #visualizer>
         </app-visual-book>
-        <div class="buttonGroup" *ngIf="visualModel">
+        <div class="buttonGroup" *ngIf="visualModel && !!visualModel.nodes.length">
           <button mat-raised-button (click)="visualizer.zoom(0)">Fit</button>
           <button mat-raised-button (click)="visualizer.zoom(0.5)"> 50%</button>
           <button mat-raised-button (click)="visualizer.zoom()"> 100%</button>

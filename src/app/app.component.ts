@@ -188,6 +188,15 @@ export class AppComponent {
     }
     this.changeTrigger();
   }
+  
+  setRegionFilter(id: any) {
+    this.regionId = id;
+    this.visualFilter();
+    if (this.visualModel && !!this.visualModel.nodes.length) {
+      setTimeout(() => this.visual.zoom(0));
+    }
+
+  }
 
   private navigateToBook() {
     this.visual.selectNode('node_' + this.station.id);
