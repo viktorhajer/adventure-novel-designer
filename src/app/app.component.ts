@@ -16,8 +16,9 @@ import {VisualBookComponent} from './components/visual-book/visual-book.componen
 import {VisualModel} from './components/visual-book/visual-book.model';
 import {VisualBookMapper} from './components/visual-book/visual-book.mapper';
 import {BookLoaderService} from './services/book-loader.service';
+import {ReviewFormComponent} from './components/review-form/review-form.component';
 
-const EMPTY_BOOK = '{"title":"New book","prolog":"","notes":"","stations":[],"relations":[],"items":[],' +
+const EMPTY_BOOK = '{"title":"New book","backgroundStory":"","notes":"","stations":[],"relations":[],"items":[],' +
   '"stationItems":[],"regions": [],"characters": [],"mortality": true,"showRegions": false}';
 
 // @ts-ignore
@@ -31,7 +32,7 @@ export class AppComponent {
 
   @ViewChild(VisualBookComponent) visual: VisualBookComponent = null as any;
 
-  modelString = '{"title":"Lorem ipsum dolor","showRegions": false,"notes":"","prolog": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",' +
+  modelString = '{"title":"Lorem ipsum dolor","showRegions": false,"notes":"","backgroundStory": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",' +
     '"stations":[' +
     '{"id":1,"regionId":1,"life":4,"index":0,"starter":true,"winner":false,"looser":false,"title":"Indulás a faluból","comment": "","story":"Menj a ##1 vagy ##2.","color":"white"},' +
     '{"id":2,"regionId":1,"life":-1,"index":0,"starter":false,"winner":false,"looser":false,"title":"Elágazás az erdőben","comment": "Consectetur adipiscing elit, sed do eiusmod","story":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","color":"white"},' +
@@ -111,6 +112,14 @@ export class AppComponent {
     this.bookService.finalize();
   }
 
+  review() {
+    this.dialog.open(ReviewFormComponent, {
+      disableClose: true,
+      data: {id: this.station ? this.station.id : null},
+      panelClass: 'big-dialog'
+    }).afterClosed().subscribe(() => this.changeTrigger());
+  }
+
   simulation() {
     this.dialog.open(SimulationComponent, {
       disableClose: true,
@@ -152,7 +161,7 @@ export class AppComponent {
     if (this.bookService.model.showRegions) {
       this.color = '';
     }
-  
+
     if (this.editService.unsaved) {
       this.openConfirmation('Are you sure to navigate without saving?').then(result => {
         if (result) {
@@ -188,7 +197,7 @@ export class AppComponent {
     }
     this.changeTrigger();
   }
-  
+
   setRegionFilter(id: any) {
     this.regionId = id;
     this.visualFilter();

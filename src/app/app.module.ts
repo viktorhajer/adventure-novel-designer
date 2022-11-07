@@ -27,6 +27,7 @@ import {RegionColorBoxComponent} from './components/region-color-box/region-colo
 import {VisualBookComponent} from './components/visual-book/visual-book.component';
 import {CharacterFormComponent} from './components/character-form/character-form.component';
 import {HttpClientModule} from '@angular/common/http';
+import {ReviewFormComponent} from './components/review-form/review-form.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {HttpClientModule} from '@angular/common/http';
     CharacterFormComponent,
     SimulationComponent,
     NotesFormComponent,
-    VisualBookComponent
+    VisualBookComponent,
+    ReviewFormComponent
   ],
   imports: [
     CommonModule,

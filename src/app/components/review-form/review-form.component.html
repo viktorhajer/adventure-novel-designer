@@ -1,0 +1,21 @@
+<h2>
+  <mat-icon>plagiarism</mat-icon>
+  <div>Review - {{ station.title }}</div>
+</h2>
+<mat-dialog-content class="mat-typography">
+  <mat-form-field appearance="fill">
+    <mat-label>Story</mat-label>
+    <textarea matInput [(ngModel)]="station.story" class="story"></textarea>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Editorial comment</mat-label>
+    <textarea matInput [(ngModel)]="station.comment" class="comment"></textarea>
+  </mat-form-field>
+  <div class="actions">
+    <button mat-raised-button (click)="back()" [disabled]="!history.length">Back</button>
+    <button mat-raised-button *ngFor="let r of children; let i = index" (click)="open(r)">
+      ##{{ i+1 }}
+    </button>
+    <button mat-raised-button (click)="close()">Close</button>
+  </div>
+</mat-dialog-content>

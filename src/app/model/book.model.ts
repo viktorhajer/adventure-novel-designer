@@ -7,7 +7,7 @@ import {Character} from './character.model';
 
 export class Book {
   title: string = '';
-  prolog: string = '';
+  backgroundStory: string = '';
   notes: string = '';
   stations: Station[] = [];
   relations: Relation[] = [];

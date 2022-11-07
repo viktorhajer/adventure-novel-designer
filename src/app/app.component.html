@@ -17,6 +17,10 @@
       <button mat-icon-button (click)="takingNotes()" *ngIf="isModelLoaded()" title="Taking notes">
         <mat-icon>edit_note</mat-icon>
       </button>
+      <button mat-icon-button (click)="review()" *ngIf="isModelLoaded() && !!bookService.model.stations.length"
+              title="Editorial review">
+        <mat-icon>plagiarism</mat-icon>
+      </button>
       <button mat-icon-button (click)="finalize()" *ngIf="isModelLoaded()" title="Get final">
         <mat-icon>menu_book</mat-icon>
       </button>

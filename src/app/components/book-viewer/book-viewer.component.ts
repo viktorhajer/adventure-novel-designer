@@ -10,7 +10,7 @@ import {Book} from '../../model/book.model';
 export class BookViewerComponent implements OnInit {
   book: Book;
 
-  constructor(protected dialogRef: MatDialogRef<BookViewerComponent>,
+  constructor(private dialogRef: MatDialogRef<BookViewerComponent>,
               @Inject(MAT_DIALOG_DATA) public data: { book: Book }) {
     this.book = this.data.book;
   }

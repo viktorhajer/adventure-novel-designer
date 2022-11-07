@@ -247,7 +247,7 @@ export class BookService {
       stations = stations.filter(s => s.id !== id);
     }
   }
-  
+
   private validateIndexes(): boolean {
     let wrongIndex = 0;
     if (this.model.stations.length > 10) {
@@ -265,7 +265,7 @@ export class BookService {
   private openBookViewer(stations: Station[]) {
     const book = new Book();
     book.title = this.model.title;
-    book.prolog = this.model.prolog;
+    book.backgroundStory = this.model.backgroundStory;
     book.stations = stations;
     this.dialog.open(BookViewerComponent, {
       panelClass: 'full-modal',
@@ -330,7 +330,7 @@ export class BookService {
       return '-hoz';
     }
   }
-  
+
   private getArticle(num: number): string {
     const numStr = num + '';
     if (numStr.substr(0,1) === '5' || (numStr.length === 4 && numStr.substr(0,1) === '1') || num === 1) {
