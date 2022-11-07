@@ -6,7 +6,7 @@
     {
       "id": 1,
       "title": "Móló a Tükörtavon",
-      "story": "Éppen az iskolából kerékpározol haza, utad egy csodálatos tó mellett vezet el. Úgy döntesz, hogy az ebéded maradékát a mólón fogyasztod el. Leülsz a végében és előveszed a zsemlédet. Éppen beleharapnál, amikor egy gyönyörű hattyú jelenik meg. \n\nHa úgy döntesz, hogy tovább eszed a szendvicsed, akkor lapozz [##1], ha megpróbálsz adni egy falatot a hattyúnak, akkor lapozz [##2]. ",
+      "story": "Éppen az iskolából kerékpározol haza, utad egy csodálatos tó mellett vezet el. Úgy döntesz, hogy az ebéded maradékát a mólón fogyasztod el. Leülsz a végében és előveszed a szendvicsed. Éppen beleharapnál, amikor egy gyönyörű hattyú jelenik meg. Különös érzésed támad, itt még sohasem találkoztál ilyen madárral, pedig szinte minden héten megállsz a mólón kicsit pihenni és gyönyörködni a látványban. Hirtelen egy éles hangra leszel figyelmes. A móló aljában egy hattyú fiókát pillantasz meg, aki belegabalyodott egy horgászzsinórba. \n\nHa úgy döntesz, hogy tovább eszed a szendvicsed, akkor lapozz [##1], ha megpróbálsz segíteni a csapdába esett madáron, akkor lapozz [##2]. ",
       "color": "white",
       "comment": "",
       "index": 1,
@@ -19,7 +19,7 @@
     {
       "id": 2,
       "title": "Megeszem a szendvicsem",
-      "story": "Jóízűen elfogyasztod a szendvicsed és gyönyörködsz a látványban. Miután végeztél felállsz, hogy folytasd az utad hazafelé, de ekkor az egyik meggyengül fadeszka megbillen alattad és te a tóba esel. Lapozz [##1]. ",
+      "story": "Jóízűen elfogyasztod a szendvicsed és gyönyörködsz a látványban. Miután végeztél felállsz, hogy folytasd az utad hazafelé, de ekkor az egyik meggyengült fadeszka megbillen alattad és te a tóba esel. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 21,
@@ -31,8 +31,8 @@
     },
     {
       "id": 3,
-      "title": "Megetetem a hattyút",
-      "story": "Nagyon kedveled az állatokat, úgy döntesz, hogy megosztod a hattyúval az ebéded. Letörsz egy falatot és ahogy nyújtanád felé kibillensz az egyensúlyodból és egyenesen a tóba esel. \n\nLapozz [##1].  ",
+      "title": "Segítek a hattyúnak",
+      "story": "Nagy állatbarát vagy, nem bírod nézni, ahogy ez a kis élőlény szenved. Úgy döntesz, hogy segítesz kiszabadulni neki, hogy ismét az anyukájával lehessen. Ahogy nyúlnál a hattyú felé, kibillensz az egyensúlyodból és egyenesen a tóba esel. \n\nLapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 10,
@@ -97,7 +97,7 @@
     {
       "id": 8,
       "title": "A patkány",
-      "story": "Az utad során hirtelen egy hatalmas, dühös patkány ugrik eléd, méretre majdnem nagyobb, mint te. Ha történetünk elején nem fogyasztottad el a zsemléd, akkor abból még maradt valamennyi a zsebedben, így fel tudod ajánlani a támadónak, lapozz a [##1], ha megetted, akkor lapozz [##2]. \n",
+      "story": "Az utad során hirtelen egy hatalmas, dühös patkány ugrik eléd, méretre majdnem nagyobb, mint te. Ha történetünk elején nem fogyasztottad el a szendvicsed, hanem segítettél a bajba jutott hattyúnak, akkor abból még maradt valamennyi a zsebedben, így fel tudod ajánlani a támadónak, lapozz a [##1], ha megetted, akkor lapozz [##2]. \n",
       "color": "white",
       "comment": "",
       "index": 48,
@@ -122,8 +122,8 @@
     },
     {
       "id": 10,
-      "title": "Szomorú medve",
-      "story": "Mivel tudod, hogy egy medve elől szinte képtelenség meglépni és nincs semmid, amit felajánlhatnál, így a földre rogysz és felkiáltasz: \"Ne egyél meg!\". Ekkor a medve megáll és hangosan elkezd kacagni, végül megszólal: \n - Megenni? Téged? Még sosem hallottam arról, hogy bárki megevett volna bárkit ezen a földön. Furcsa egy szerzet vagy te. Szomorú voltam, de most alig tudok beszélni a nevetéstől. \n\nAzzal eloldalgott és még a távolból is lehetett hallani a röhögést. Bár csodálkozol, hogy értetted minden szavát, de lassan kezded elfogadni, hogy ezen a helyen minden lehetséges, elvégre éppen a tündérekhez mész segítségért. \n\nLapozz [##1]. ",
+      "title": "Szomorú patkány",
+      "story": "Mivel tudod, hogy semmi esélyed meglépni és nincs semmid, amit felajánlhatnál, így a földre rogysz és felkiáltasz: \"Ne egyél meg!\". Ekkor a patkány megáll és hangosan elkezd kacagni, végül megszólal: \n - Megenni? Téged? Még sosem hallottam arról, hogy bárki megevett volna bárkit ezen a földön. Furcsa egy szerzet vagy te. Szomorú voltam, de most alig tudok beszélni a nevetéstől. \n\nAzzal eloldalgott és még a távolból is lehetett hallani a röhögést. Bár csodálkozol, hogy értetted minden szavát, de lassan kezded elfogadni, hogy ezen a helyen minden lehetséges, elvégre éppen a tündérekhez mész segítségért. \n\nLapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 32,
@@ -175,7 +175,7 @@
     {
       "id": 14,
       "title": "Besurranás",
-      "story": "Óvatosan megközelíted a bejáratot. Hallod, ahogy az egyik őr azt meséli éppen a másiknak, hogy a medve barátja találkozott egy furcsa lénnyel, aki azt hitte, hogy megeszi. Ezen mindketten elkezdtek nevetni, neked pedig alkalmad nyílik besurrani. A fa belseje egy egész várost rejt, rengeteg különös lénnyel. Gyorsan el kell rejtőznöd, hogy nehogy lelepleződj. Ha lehasalsz a földre, akkor lapozz [##1], ha eltakarod a pulóvereddel az arcod, lapozz\n [##2], ha bebújnál egy váza mögé, lapozz [##3]. ",
+      "story": "Óvatosan megközelíted a bejáratot. Hallod, ahogy az egyik őr azt meséli éppen a másiknak, hogy a patkány barátja találkozott egy furcsa lénnyel, aki azt hitte, hogy megeszi. Ezen mindketten elkezdtek nevetni, neked pedig alkalmad nyílik besurrani. A fa belseje egy egész várost rejt, rengeteg különös lénnyel. Gyorsan el kell rejtőznöd, hogy nehogy lelepleződj. Ha lehasalsz a földre, akkor lapozz [##1], ha eltakarod a pulóvereddel az arcod, lapozz\n [##2], ha bebújnál egy váza mögé, lapozz [##3]. ",
       "color": "white",
       "comment": "",
       "index": 8,
@@ -757,13 +757,13 @@
     {
       "sourceId": 8,
       "targetId": 9,
-      "comment": "medve eszik",
+      "comment": "patkány eszik",
       "condition": true
     },
     {
       "sourceId": 8,
       "targetId": 10,
-      "comment": "medve éhes marad",
+      "comment": "patkány éhes marad",
       "condition": false
     },
     {
