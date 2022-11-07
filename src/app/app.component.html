@@ -34,6 +34,7 @@
   </div>
 
   <div id="main">
+
     <div id="left" [class.hidden]="ui.expanded">
       <span class="material-symbols-outlined" style="position: fixed; top: -100px;">error</span>
       <app-book-form *ngIf="isModelLoaded() && !station" (stationSelected)="openStation($event)">
