@@ -43,7 +43,7 @@
     <tr>
       <th>Title</th>
       <th>Comment</th>
-      <th></th>
+      <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -55,7 +55,7 @@
         <div>{{ s.comment }}</div>
       </td>
       <td>
-        <button mat-icon-button (click)="openStation(s.id)">
+        <button mat-icon-button (click)="openStation(s.id)" title="Open station">
           <mat-icon>open_in_new</mat-icon>
         </button>
       </td>
@@ -69,7 +69,7 @@
     <tr>
       <th>Name</th>
       <th class="color_column">Color</th>
-      <th></th>
+      <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -78,10 +78,10 @@
       <td class="color_column">
         <div class="color_box" [style.background-color]="uiService.getColorHex(region.color)">&nbsp;</div></td>
       <td>
-        <button mat-icon-button (click)="editRegion(region.id)">
+        <button mat-icon-button (click)="editRegion(region.id)" title="Edit region">
           <mat-icon>settings</mat-icon>
         </button>
-        <button mat-icon-button (click)="deleteRegion(region.id)">
+        <button mat-icon-button (click)="deleteRegion(region.id)" title="Delete region">
           <mat-icon>delete</mat-icon>
         </button>
       </td>
@@ -102,7 +102,7 @@
     <thead>
     <tr>
       <th>Name</th>
-      <th></th>
+      <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -111,10 +111,10 @@
         <div>{{ character.name }}</div>
       </td>
       <td>
-        <button mat-icon-button (click)="editCharacter(character.id)">
+        <button mat-icon-button (click)="editCharacter(character.id)" title="Edit character">
           <mat-icon>settings</mat-icon>
         </button>
-        <button mat-icon-button (click)="deleteCharacter(character.id)">
+        <button mat-icon-button (click)="deleteCharacter(character.id)" title="Delete character">
           <mat-icon>delete</mat-icon>
         </button>
       </td>
@@ -135,7 +135,7 @@
     <thead>
     <tr>
       <th>Name</th>
-      <th></th>
+      <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -144,10 +144,10 @@
         <div>{{ item.name }}</div>
       </td>
       <td>
-        <button mat-icon-button (click)="editItem(item.id)">
+        <button mat-icon-button (click)="editItem(item.id)" title="Edit item">
           <mat-icon>settings</mat-icon>
         </button>
-        <button mat-icon-button (click)="deleteItem(item.id)">
+        <button mat-icon-button (click)="deleteItem(item.id)" title="Delete item">
           <mat-icon>delete</mat-icon>
         </button>
       </td>

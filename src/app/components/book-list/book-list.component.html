@@ -4,7 +4,7 @@
     <thead>
     <tr>
       <th>Title</th>
-      <th></th>
+      <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -13,14 +13,18 @@
         <div>{{ book.title }}</div>
       </td>
       <td>
-        <button mat-icon-button (click)="openBook.emit(book.id)">
+        <button mat-icon-button (click)="openBook.emit(book.id)" title="Open book">
           <mat-icon>open_in_new</mat-icon>
         </button>
-        <button mat-icon-button (click)="deleteBook(book.id)">
+        <button mat-icon-button (click)="download(book.id)" title="Download raw">
+          <mat-icon>download</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteBook(book.id)" title="Delete from storage">
           <mat-icon>delete</mat-icon>
         </button>
       </td>
     </tr>
     </tbody>
   </table>
+  <p *ngIf="!bookList.length">There is no book in the local browser storage.</p>
 </div>

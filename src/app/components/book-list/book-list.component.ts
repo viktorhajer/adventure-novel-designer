@@ -5,6 +5,7 @@ import {StorageService} from '../../services/storage.service';
 import {BookListItem} from '../../model/book-list-item.model';
 import {firstValueFrom} from 'rxjs';
 import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
+import {DownloadService} from '../../services/download.service';
 
 @Component({
   selector: 'app-book-list',
@@ -17,12 +18,17 @@ export class BookListComponent implements OnInit {
   bookList: BookListItem[] = [];
 
   constructor(private readonly bookService: BookService,
+              private readonly downloadService: DownloadService,
               private readonly storage: StorageService,
               private readonly dialog: MatDialog) {
   }
 
   ngOnInit() {
     this.bookList = this.storage.getBookList();
+  }
+
+  download(id: number) {
+    this.downloadService.downloadRawBook(JSON.parse(this.storage.openBook(id)));
   }
 
   deleteBook(id: number) {

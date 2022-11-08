@@ -20,6 +20,7 @@ import {ReviewFormComponent} from './components/review-form/review-form.componen
 import {Book} from './model/book.model';
 import {StorageService} from './services/storage.service';
 import {BookListItem} from './model/book-list-item.model';
+import {DownloadService} from './services/download.service';
 
 const EMPTY_BOOK = '{"id":0,"title":"New book","backgroundStory":"","notes":"","stations":[],"relations":[],"items":[],' +
   '"stationItems":[],"regions": [],"characters": [],"mortality": true,"showRegions": false}';
@@ -74,6 +75,7 @@ export class AppComponent {
               private readonly editService: EditService,
               private readonly simulationService: SimulationService,
               private readonly storage: StorageService,
+              private readonly downloadService: DownloadService,
               private readonly visualBookMapper: VisualBookMapper,
               private readonly bookLoader: BookLoaderService,
               public readonly ui: UiService) {
@@ -125,6 +127,10 @@ export class AppComponent {
 
   finalize() {
     this.bookService.finalize();
+  }
+
+  downloadFinal() {
+    this.downloadService.downloadGeneratedBook(this.bookService.model, this.bookService.finalize(false));
   }
 
   review() {

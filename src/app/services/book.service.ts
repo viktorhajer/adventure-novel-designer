@@ -155,7 +155,7 @@ export class BookService {
     this.model.characters = this.model.characters.filter(i => i.id !== id);
   }
 
-  finalize() {
+  finalize(withDialog = true): Station[] {
     if (this.isValidBook()) {
       let generation = 0;
       do {
@@ -165,9 +165,14 @@ export class BookService {
       if (generation > 0) {
         console.log('Regenerate: ' + generation);
       }
-      this.openBookViewer(this.sortAndReplaceMacros());
-      this.validateMacros();
+      const stations = this.sortAndReplaceMacros();
+      if (withDialog) {
+        this.openBookViewer(stations);
+        this.validateMacros();
+      }
+      return stations;
     }
+    return [];
   }
 
   private isValidBook() {
