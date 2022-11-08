@@ -28,6 +28,7 @@ import {VisualBookComponent} from './components/visual-book/visual-book.componen
 import {CharacterFormComponent} from './components/character-form/character-form.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ReviewFormComponent} from './components/review-form/review-form.component';
+import {BookListComponent} from './components/book-list/book-list.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import {ReviewFormComponent} from './components/review-form/review-form.componen
     ConfirmDialogComponent,
     StationViewerComponent,
     BookViewerComponent,
+    BookListComponent,
     RelationFormComponent,
     ItemFormComponent,
     RegionFormComponent,

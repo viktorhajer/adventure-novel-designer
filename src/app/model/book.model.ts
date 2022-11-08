@@ -6,6 +6,7 @@ import {Region} from './region.model';
 import {Character} from './character.model';
 
 export class Book {
+  id: number = 0;
   title: string = '';
   backgroundStory: string = '';
   notes: string = '';

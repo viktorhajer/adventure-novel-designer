@@ -1,0 +1,48 @@
+#book-list-container {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+table {
+  border-spacing: 0;
+
+  tbody {
+    tr:hover {
+      background: #e5e9fc;
+    }
+
+    tr:nth-child(odd) {
+      background: #f2f2f2;
+    }
+  }
+
+  th, td {
+    padding: 0 10px;
+
+    div {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  thead {
+    tr {
+      background: #dde0f1;
+    }
+  }
+
+  th {
+    text-align: left;
+    padding: 5px 10px;
+  }
+
+  th:last-child, td:last-child {
+    text-align: center;
+    width: 100px;
+  }
+}

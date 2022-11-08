@@ -65,11 +65,10 @@
   #load-model-form {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-between;
-    height: 100%;
+    justify-content: flex-start;
 
     textarea {
-      height: calc(100vh - 245px);
+      height: calc(50vh - 100px);
       font-family: monospace;
       font-size: 12px;
     }

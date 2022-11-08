@@ -1,0 +1,26 @@
+<div id="book-list-container">
+  <h2>Stored books</h2>
+  <table mat-table *ngIf="bookList.length">
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let book of bookList">
+      <td>
+        <div>{{ book.title }}</div>
+      </td>
+      <td>
+        <button mat-icon-button (click)="openBook.emit(book.id)">
+          <mat-icon>open_in_new</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteBook(book.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

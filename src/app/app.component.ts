@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {BookService} from './services/book.service';
 import {UiService} from './services/ui.service';
 import {EditService} from './services/edit.service';
@@ -17,8 +17,11 @@ import {VisualModel} from './components/visual-book/visual-book.model';
 import {VisualBookMapper} from './components/visual-book/visual-book.mapper';
 import {BookLoaderService} from './services/book-loader.service';
 import {ReviewFormComponent} from './components/review-form/review-form.component';
+import {Book} from './model/book.model';
+import {StorageService} from './services/storage.service';
+import {BookListItem} from './model/book-list-item.model';
 
-const EMPTY_BOOK = '{"title":"New book","backgroundStory":"","notes":"","stations":[],"relations":[],"items":[],' +
+const EMPTY_BOOK = '{"id":0,"title":"New book","backgroundStory":"","notes":"","stations":[],"relations":[],"items":[],' +
   '"stationItems":[],"regions": [],"characters": [],"mortality": true,"showRegions": false}';
 
 // @ts-ignore
@@ -32,7 +35,7 @@ export class AppComponent {
 
   @ViewChild(VisualBookComponent) visual: VisualBookComponent = null as any;
 
-  modelString = '{"title":"Lorem ipsum dolor","showRegions": false,"notes":"","backgroundStory": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",' +
+  modelString = '{"id":1667885870598,"title":"Lorem ipsum dolor","showRegions": false,"notes":"","backgroundStory": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",' +
     '"stations":[' +
     '{"id":1,"regionId":1,"life":4,"index":0,"starter":true,"winner":false,"looser":false,"title":"Indulás a faluból","comment": "","story":"Menj a ##1 vagy ##2.","color":"white"},' +
     '{"id":2,"regionId":1,"life":-1,"index":0,"starter":false,"winner":false,"looser":false,"title":"Elágazás az erdőben","comment": "Consectetur adipiscing elit, sed do eiusmod","story":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","color":"white"},' +
@@ -70,6 +73,7 @@ export class AppComponent {
               private readonly dialog: MatDialog,
               private readonly editService: EditService,
               private readonly simulationService: SimulationService,
+              private readonly storage: StorageService,
               private readonly visualBookMapper: VisualBookMapper,
               private readonly bookLoader: BookLoaderService,
               public readonly ui: UiService) {
@@ -82,6 +86,7 @@ export class AppComponent {
   load() {
     this.color = '';
     this.regionId = 0;
+    this.clearStage();
     this.bookService.loadModel(this.modelString);
     this.visualModel = this.visualBookMapper.mapModel(this.bookService.model);
     this.initColors();
@@ -94,6 +99,18 @@ export class AppComponent {
     })
   }
 
+  loadBookFromStorage(id: number) {
+    this.modelString = this.storage.openBook(id);
+    this.load();
+  }
+
+  loadNew() {
+    const book = JSON.parse(EMPTY_BOOK) as Book;
+    book.id = Date.now();
+    this.modelString = JSON.stringify(book);
+    this.load();
+  }
+
   save() {
     this.modelString = JSON.stringify(this.bookService.model);
     if (navigator.clipboard) {
@@ -102,10 +119,8 @@ export class AppComponent {
         panelClass: 'small-dialog',
         data: {message: 'Raw model was copied to the clipboard successfully.', warning: false}
       }).afterClosed();
+      this.storage.updateStorage(this.bookService.model);
     }
-    this.visualModel = null as any;
-    this.station = null as any;
-    this.bookService.clearModel();
   }
 
   finalize() {
@@ -134,9 +149,7 @@ export class AppComponent {
     }).afterClosed();
   }
 
-
-  clearBook() {
-    this.modelString = EMPTY_BOOK;
+  clearStage() {
     this.station = null as any;
     this.visualModel = null as any;
     this.bookService.clearModel();

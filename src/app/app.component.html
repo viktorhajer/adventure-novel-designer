@@ -10,25 +10,25 @@
   <div class="main-header">
     <h1 *ngIf="!isModelLoaded()">RPG Book Designer</h1>
     <h1 *ngIf="isModelLoaded()" (click)="clearStation()">{{ bookService.model.title }}</h1>
-    <div class="main-actions">
-      <button mat-icon-button (click)="save()" *ngIf="isModelLoaded()" title="Save the raw">
+    <div class="main-actions" *ngIf="isModelLoaded()">
+      <button mat-icon-button (click)="clearStage()" title="New book">
+        <mat-icon>home</mat-icon>
+      </button>
+      <button mat-icon-button (click)="save()" title="Save the raw">
         <mat-icon>save</mat-icon>
       </button>
-      <button mat-icon-button (click)="takingNotes()" *ngIf="isModelLoaded()" title="Taking notes">
+      <button mat-icon-button (click)="takingNotes()" title="Taking notes">
         <mat-icon>edit_note</mat-icon>
       </button>
-      <button mat-icon-button (click)="review()" *ngIf="isModelLoaded() && !!bookService.model.stations.length"
+      <button mat-icon-button (click)="review()" *ngIf="!!bookService.model.stations.length"
               title="Editorial review">
         <mat-icon>plagiarism</mat-icon>
       </button>
-      <button mat-icon-button (click)="finalize()" *ngIf="isModelLoaded()" title="Get final">
+      <button mat-icon-button (click)="finalize()" title="Get final">
         <mat-icon>menu_book</mat-icon>
       </button>
-      <button mat-icon-button (click)="simulation()" *ngIf="isModelLoaded()" title="Start simulation">
+      <button mat-icon-button (click)="simulation()" title="Start simulation">
         <mat-icon>rocket_launch</mat-icon>
-      </button>
-      <button mat-icon-button (click)="clearBook()" title="New book">
-        <mat-icon>file_open</mat-icon>
       </button>
     </div>
   </div>
@@ -37,6 +37,7 @@
 
     <div id="left" [class.hidden]="ui.expanded">
       <span class="material-symbols-outlined" style="position: fixed; top: -100px;">error</span>
+
       <app-book-form *ngIf="isModelLoaded() && !station" (stationSelected)="openStation($event)">
       </app-book-form>
 
@@ -45,16 +46,20 @@
                         (stationChanged)="openStation($event)">
       </app-station-form>
 
+
       <div id="load-model-form" *ngIf="!isModelLoaded()">
         <mat-form-field appearance="fill">
           <mat-label>Load model</mat-label>
           <textarea matInput [(ngModel)]="modelString"></textarea>
         </mat-form-field>
         <div class="actions-bar">
-          <button mat-raised-button (click)="load()">Load</button>
-          <button mat-raised-button (click)="loadStored()">Load stored</button>
+          <button mat-raised-button (click)="load()" [color]="'primary'" [disabled]="!modelString">Load</button>
+          <button mat-raised-button (click)="loadNew()">New</button>
+          <button mat-raised-button (click)="loadStored()">LS</button>
         </div>
       </div>
+      <app-book-list *ngIf="!isModelLoaded()" (openBook)="loadBookFromStorage($event)"></app-book-list>
+
     </div>
 
     <div id="right" [class.expanded]="ui.expanded">
@@ -75,10 +80,10 @@
         </app-region-color-box>
 
         <app-visual-book [nodes]="(!!visualModel ? visualModel.nodes:[])"
-                          [edges]="(!!visualModel ? visualModel.edges:[])"
-                          [trigger]="formTrigger+''"
-                          [selected]="(station && !!station.id ? 'node_' + station.id : '')"
-                          (nodeSelected)="openStation($event)" #visualizer>
+                         [edges]="(!!visualModel ? visualModel.edges:[])"
+                         [trigger]="formTrigger+''"
+                         [selected]="(station && !!station.id ? 'node_' + station.id : '')"
+                         (nodeSelected)="openStation($event)" #visualizer>
         </app-visual-book>
         <div class="buttonGroup" *ngIf="visualModel && !!visualModel.nodes.length">
           <button mat-raised-button (click)="visualizer.zoom(0)">Fit</button>

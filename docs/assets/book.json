@@ -1,7 +1,8 @@
 {
+  "id": 1667885870560,
   "title": "Az elveszett időérme",
   "backgroundStory": "",
-  "notes": "csigáknál próbákat kellene kiállni\n\nAz egyik ilyen, hogy át kell kellni a folyón köveken ugrálva, de van olyan kő, ami lesüllyed rálépve. \n\n",
+  "notes": "Csigák: domb, a tetejére spirálban vezet az út, mint egy csigaház. Nincsenek házak, inkább növények, virágok, minden szép és természetes. Kiderül, hogy nem is gonoszak. Nincs uralkodó, hanem tanács van, 3 vénnel. \nA 3 vén 1-1 kérdést tesz fel, amire ha helyesen válaszolsz, akkor adnak segítséget. \n\nTörténet vége: A szarka azért lopta el az érmet, mert a fiókája valamilyen bajba került. Vissza akart menni, de csak 1 napra tud. \nValahogy segítesz neki feláldozva valamit, akkor ő visszaadja az érmét. Téged pedig az érme szelleme ment majd meg. ",
   "stations": [
     {
       "id": 1,
@@ -669,7 +670,7 @@
     {
       "id": 56,
       "title": "Búcsú a békáktól",
-      "story": "Mérgesen válaszolsz: \n- Megegyeztünk! Azt mondtad, hogy átadod az érmét cserébe az elixírért! \n- Nem mondtam, hogy átadom az érmét, hanem csak annyit, hogy segítek. Valóban mi loptuk el, de felbérelt minket Lukrécia, az öreg szarka. Az elixírt adta volna cserébe, de átrázott minket, és ahogy megérintette az érmét, azonnal köddé vált. Bizonyára a faházában tartja, ami nincs messze, de a belépés körülményes. \n- Merre találom, hogy jutok el oda? \n- A faház egy nagy fa tetején van, amire csupán egy csiga képes felvinni, de ők nem olyan segítőkészek, mint mi, békák. A hely, ahol élnek, a csigakert, innen délre. De most már idegesítesz, ideje elhagynod a városunkat. Az elixírt pedig köszönjük - mondta gúnyosan Donatello. \n\nAzzal fogta az üvegcsét és lehörpintette az egészet. Egy pillanatra meg is szédült, de az egyik szolgája azonnal mellé termett és elkapta. Nem esett el, de a szolga azonnal arannyá változott. Donatello felkacagott és elkezdett mindent összefogdosni a szobában. Miután elfáradt úgy gondolta, hogy leül és eszik egy picit. Azonban ahogy az ételt megfogta, az azonnal arannyá változott. Gondolta iszik egy kortyot, de az itallal is ugyanaz történt. Ezután már nem öröm, hanem inkább kétségbeesés tükröződött a nagy fekete szemeiben. \n\nJó kerülni azokat a helyeket, ahol nem látnak szívesen. Úgy döntesz, nem várod ki, hogy mi lesz a vége, szép lassan elhagyod az uralkodó házát Békavárossal együtt, és útnak indulsz délre. Lapozz [##1]. ",
+      "story": "Mérgesen válaszolsz: \n- Megegyeztünk! Azt mondtad, hogy átadod az érmét cserébe az elixírért! \n- Nem mondtam, hogy átadom az érmét, hanem csak annyit, hogy segítek. Valóban mi loptuk el, de felbérelt minket Molly, a szarka. Az elixírt adta volna cserébe, de átrázott minket, és ahogy megérintette az érmét, azonnal köddé vált. Bizonyára a faházában gyűjti a csillogó kincseit, ami nincs is olyan messze, de a belépés körülményes. \n- Merre találom, hogy jutok el oda? \n- A faház egy nagy fa tetején van, amire csupán egy csiga képes felvinni, de ők nem olyan segítőkészek, mint mi, békák. A hely, ahol élnek, a csigakert, innen délre. De most már idegesítesz, ideje elhagynod a városunkat. Az elixírt pedig köszönjük - mondta gúnyosan Donatello. \n\nAzzal fogta az üvegcsét és lehörpintette az egészet. Egy pillanatra meg is szédült, de az egyik szolgája azonnal mellé termett és elkapta. Nem esett el, de a szolga azonnal arannyá változott. Donatello felkacagott és elkezdett mindent összefogdosni a szobában. Miután elfáradt úgy gondolta, hogy leül és eszik egy picit. Azonban ahogy az ételt megfogta, az azonnal arannyá változott. Gondolta iszik egy kortyot, de az itallal is ugyanaz történt. Ezután már nem öröm, hanem inkább kétségbeesés tükröződött a nagy fekete szemeiben. \n\nJó kerülni azokat a helyeket, ahol nem látnak szívesen. Úgy döntesz, nem várod ki, hogy mi lesz a vége, szép lassan elhagyod az uralkodó házát Békavárossal együtt, és útnak indulsz délre. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 46,
@@ -1201,11 +1202,6 @@
       "description": "Egy erős varangy, de sajnos ereje kevésnek bizonyul és elkapnak minket a Bogárhotelben. "
     },
     {
-      "id": 4,
-      "name": "Porshe v Maisy csiga",
-      "description": ""
-    },
-    {
       "id": 5,
       "name": "Donatello a békák vezetője",
       "description": "A külsejére nagyon kényes béka úr. Legfőképpen a parókáját szereti, ebből gyűjteménye is van. Egy új parókáért lopta el az időérmet. "
@@ -1217,7 +1213,7 @@
     },
     {
       "id": 7,
-      "name": "Lukrécia - öreg szarka anyó",
+      "name": "Molly - öreg szarka anyó",
       "description": ""
     }
   ],
