@@ -2,7 +2,7 @@
         title="Create new station">
   <mat-icon>add_circle</mat-icon>
 </button>
-<button mat-icon-button (click)="ui.toggleExpanded()" id="expand_button">
+<button mat-icon-button (click)="ui.toggleExpanded()" *ngIf="isModelLoaded()" id="expand_button">
   <mat-icon>settings_overscan</mat-icon>
 </button>
 

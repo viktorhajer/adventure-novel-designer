@@ -90,6 +90,7 @@ export class AppComponent {
     this.clearStage();
     this.bookService.loadModel(this.modelString);
     this.visualModel = this.visualBookMapper.mapModel(this.bookService.model);
+    this.ui.expanded = false;
     this.initColors();
   }
 
@@ -161,6 +162,7 @@ export class AppComponent {
     this.station = null as any;
     this.visualModel = null as any;
     this.bookService.clearModel();
+    this.ui.expanded = false;
     this.changeTrigger();
   }
 
