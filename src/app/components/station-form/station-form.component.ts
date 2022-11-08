@@ -72,7 +72,7 @@ export class StationFormComponent implements OnChanges {
 
   checkWinnerLooser(field = 0) {
     const hasChild = this.bookService.model.relations.some(r => r.sourceId === this.station.id);
-    if (field !== 0 && (this.station.winner  || this.station.looser) && hasChild) {
+    if (field !== 0 && (this.station.winner || this.station.looser) && hasChild) {
       const marker = field === 1 && this.station.winner ? 'winner' : 'looser';
       const message = `Are you sure you are marking the station as a ${marker}? All routes from this station will be deleted.`;
       this.openConfirmation(message).then(result => {
@@ -155,6 +155,7 @@ export class StationFormComponent implements OnChanges {
 
   viewStation(station: Station) {
     this.dialog.open(StationViewerComponent, {
+      width: '70vw',
       panelClass: 'full-modal',
       data: {station}
     }).afterClosed();
@@ -163,7 +164,7 @@ export class StationFormComponent implements OnChanges {
   editRelation(targetId: number) {
     const relation = this.bookService.model.relations.find(r => r.targetId === targetId && r.sourceId === this.station.id);
     if (relation) {
-      firstValueFrom(this.dialog.open(RelationFormComponent, {data: {relation}, disableClose: true})
+      firstValueFrom(this.dialog.open(RelationFormComponent, {width: '70vw', data: {relation}, disableClose: true})
         .afterClosed()).then(result => {
         if (result !== null) {
           relation.comment = result.comment;
@@ -182,12 +183,14 @@ export class StationFormComponent implements OnChanges {
   private validateTitle(): boolean {
     if (!this.station.title.trim()) {
       this.dialog.open(ErrorDialogComponent, {
+        width: '300px',
         panelClass: 'full-modal',
         data: {message: 'Please enter a valid title.'}
       }).afterClosed();
       return false;
     } else if (this.bookService.model.stations.some(s => s.title === this.station.title && s.id !== this.station.id)) {
       this.dialog.open(ErrorDialogComponent, {
+        width: '300px',
         panelClass: 'full-modal',
         data: {message: 'Station title should be unique.'}
       }).afterClosed();
@@ -197,7 +200,7 @@ export class StationFormComponent implements OnChanges {
   }
 
   private openConfirmation(message = 'Are you sure to delete?'): Promise<boolean> {
-    return firstValueFrom(this.dialog.open(ConfirmDialogComponent, {data: {message}, disableClose: true})
+    return firstValueFrom(this.dialog.open(ConfirmDialogComponent, {width: '300px', data: {message}, disableClose: true})
       .afterClosed());
   }
 

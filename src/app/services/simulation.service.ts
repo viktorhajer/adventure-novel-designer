@@ -20,6 +20,7 @@ export class SimulationService {
     const start = this.bookService.model.stations.find(s => s.starter);
     if (!start) {
       this.dialog.open(ErrorDialogComponent, {
+        width: '300px',
         panelClass: 'full-modal',
         data: {message: 'Please select first station.'}
       }).afterClosed();

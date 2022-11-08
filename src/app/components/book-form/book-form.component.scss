@@ -13,9 +13,13 @@ textarea {
   display: flex;
   width: 100%;
   justify-content: space-evenly;
+  height: 40px;
+  margin-top: 25px;
 }
 
 .stat_container {
+  margin: 35px;
+
   .stat {
     display: flex;
     margin-bottom: 8px;
@@ -33,6 +37,8 @@ h2 {
 
 table {
   border-spacing: 0;
+  margin-top: 20px;
+  width: 100%;
 
   th.color_column, td.color_column {
     width: 50px;

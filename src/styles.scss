@@ -33,10 +33,6 @@ h2 {
   }
 }
 
-.mat-dialog-container {
-  width: 700px !important;
-}
-
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 1,
   'wght' 700,
@@ -57,5 +53,14 @@ h2 {
   span {
     cursor: pointer;
     font-weight: bold;
+  }
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+
+  div {
+    margin-left: 10px;
   }
 }

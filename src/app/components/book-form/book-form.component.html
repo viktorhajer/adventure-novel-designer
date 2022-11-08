@@ -9,157 +9,160 @@
     <textarea matInput [(ngModel)]="bookService.model.backgroundStory"></textarea>
   </mat-form-field>
 
-  <h2>Editor configuration</h2>
-  <div class="configuration_container">
-    <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.mortality" (change)="changePlugin()">
-      Mortality
-    </mat-slide-toggle>
+  <mat-tab-group>
+    <mat-tab label="Configuration">
+      <div class="configuration_container">
+        <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.mortality" (change)="changePlugin()">
+          Mortality
+        </mat-slide-toggle>
 
-    <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.showRegions"
-                      *ngIf="bookService.model.regions.length" (change)="changePlugin()">
-      Show regions
-    </mat-slide-toggle>
-  </div>
-
-  <h2>Statistics</h2>
-  <div class="stat_container">
-    <div class="stat">
-      <div class="stat_name">Number of stations:</div>
-      <div class="stat_value">{{ bookService.model.stations.length }}</div>
-    </div>
-    <div class="stat">
-      <div class="stat_name">Number of path:</div>
-      <div class="stat_value">{{ bookService.model.relations.length }}</div>
-    </div>
-    <div class="stat">
-      <div class="stat_name">Number of items:</div>
-      <div class="stat_value">{{ bookService.model.items.length }}</div>
-    </div>
-  </div>
-
-  <h2>Editorial</h2>
-  <table mat-table>
-    <thead>
-    <tr>
-      <th>Title</th>
-      <th>Comment</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let s of getEditorialStations()">
-      <td>
-        <div>{{ s.title }}</div>
-      </td>
-      <td>
-        <div>{{ s.comment }}</div>
-      </td>
-      <td>
-        <button mat-icon-button (click)="openStation(s.id)" title="Open station">
-          <mat-icon>open_in_new</mat-icon>
-        </button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-
-  <h2>Regions</h2>
-  <table mat-table *ngIf="bookService.model.regions.length">
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th class="color_column">Color</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let region of bookService.model.regions">
-      <td>{{ region.name }}</td>
-      <td class="color_column">
-        <div class="color_box" [style.background-color]="uiService.getColorHex(region.color)">&nbsp;</div></td>
-      <td>
-        <button mat-icon-button (click)="editRegion(region.id)" title="Edit region">
-          <mat-icon>settings</mat-icon>
-        </button>
-        <button mat-icon-button (click)="deleteRegion(region.id)" title="Delete region">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-  <h3>Create new region</h3>
-  <div class="new_item_form">
-    <mat-form-field appearance="fill">
-      <mat-label>Region name</mat-label>
-      <input matInput [(ngModel)]="regionName">
-    </mat-form-field>
-    <button mat-raised-button (click)="createRegion()">Create</button>
-  </div>
-
-  <h2>Characters</h2>
-  <table mat-table *ngIf="bookService.model.characters.length">
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let character of bookService.model.characters">
-      <td>
-        <div>{{ character.name }}</div>
-      </td>
-      <td>
-        <button mat-icon-button (click)="editCharacter(character.id)" title="Edit character">
-          <mat-icon>settings</mat-icon>
-        </button>
-        <button mat-icon-button (click)="deleteCharacter(character.id)" title="Delete character">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-  <h3>Create new character</h3>
-  <div class="new_item_form">
-    <mat-form-field appearance="fill">
-      <mat-label>Character name</mat-label>
-      <input matInput [(ngModel)]="characterName">
-    </mat-form-field>
-    <button mat-raised-button (click)="createCharacter()">Create</button>
-  </div>
-
-  <h2>Items</h2>
-  <table mat-table *ngIf="bookService.model.items.length">
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let item of bookService.model.items">
-      <td>
-        <div>{{ item.name }}</div>
-      </td>
-      <td>
-        <button mat-icon-button (click)="editItem(item.id)" title="Edit item">
-          <mat-icon>settings</mat-icon>
-        </button>
-        <button mat-icon-button (click)="deleteItem(item.id)" title="Delete item">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-  <h3>Create new item</h3>
-  <div class="new_item_form">
-    <mat-form-field appearance="fill">
-      <mat-label>Item name</mat-label>
-      <input matInput [(ngModel)]="itemName">
-    </mat-form-field>
-    <button mat-raised-button (click)="createItem()">Create</button>
-  </div>
+        <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.showRegions"
+                          *ngIf="bookService.model.regions.length" (change)="changePlugin()">
+          Show regions
+        </mat-slide-toggle>
+      </div>
+    </mat-tab>
+    <mat-tab label="Statistics">
+      <div class="stat_container">
+        <div class="stat">
+          <div class="stat_name">Number of stations:</div>
+          <div class="stat_value">{{ bookService.model.stations.length }}</div>
+        </div>
+        <div class="stat">
+          <div class="stat_name">Number of path:</div>
+          <div class="stat_value">{{ bookService.model.relations.length }}</div>
+        </div>
+        <div class="stat">
+          <div class="stat_name">Number of items:</div>
+          <div class="stat_value">{{ bookService.model.items.length }}</div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Editorial" *ngIf="getEditorialStations().length">
+      <table mat-table>
+        <thead>
+        <tr>
+          <th>Title</th>
+          <th>Comment</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let s of getEditorialStations()">
+          <td>
+            <div>{{ s.title }}</div>
+          </td>
+          <td>
+            <div>{{ s.comment }}</div>
+          </td>
+          <td>
+            <button mat-icon-button (click)="openStation(s.id)" title="Open station">
+              <mat-icon>open_in_new</mat-icon>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+    <mat-tab label="Regions">
+      <table mat-table *ngIf="bookService.model.regions.length">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th class="color_column">Color</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let region of bookService.model.regions">
+          <td>{{ region.name }}</td>
+          <td class="color_column">
+            <div class="color_box" [style.background-color]="uiService.getColorHex(region.color)">&nbsp;</div></td>
+          <td>
+            <button mat-icon-button (click)="editRegion(region.id)" title="Edit region">
+              <mat-icon>settings</mat-icon>
+            </button>
+            <button mat-icon-button (click)="deleteRegion(region.id)" title="Delete region">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <h3>Create new region</h3>
+      <div class="new_item_form">
+        <mat-form-field appearance="fill">
+          <mat-label>Region name</mat-label>
+          <input matInput [(ngModel)]="regionName">
+        </mat-form-field>
+        <button mat-raised-button (click)="createRegion()">Create</button>
+      </div>
+    </mat-tab>
+    <mat-tab label="Characters">
+      <table mat-table *ngIf="bookService.model.characters.length">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let character of bookService.model.characters">
+          <td>
+            <div>{{ character.name }}</div>
+          </td>
+          <td>
+            <button mat-icon-button (click)="editCharacter(character.id)" title="Edit character">
+              <mat-icon>settings</mat-icon>
+            </button>
+            <button mat-icon-button (click)="deleteCharacter(character.id)" title="Delete character">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <h3>Create new character</h3>
+      <div class="new_item_form">
+        <mat-form-field appearance="fill">
+          <mat-label>Character name</mat-label>
+          <input matInput [(ngModel)]="characterName">
+        </mat-form-field>
+        <button mat-raised-button (click)="createCharacter()">Create</button>
+      </div>
+    </mat-tab>
+    <mat-tab label="Items">
+      <table mat-table *ngIf="bookService.model.items.length">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of bookService.model.items">
+          <td>
+            <div>{{ item.name }}</div>
+          </td>
+          <td>
+            <button mat-icon-button (click)="editItem(item.id)" title="Edit item">
+              <mat-icon>settings</mat-icon>
+            </button>
+            <button mat-icon-button (click)="deleteItem(item.id)" title="Delete item">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <h3>Create new item</h3>
+      <div class="new_item_form">
+        <mat-form-field appearance="fill">
+          <mat-label>Item name</mat-label>
+          <input matInput [(ngModel)]="itemName">
+        </mat-form-field>
+        <button mat-raised-button (click)="createItem()">Create</button>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 </div>

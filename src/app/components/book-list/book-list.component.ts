@@ -32,7 +32,7 @@ export class BookListComponent implements OnInit {
   }
 
   deleteBook(id: number) {
-    firstValueFrom(this.dialog.open(ConfirmDialogComponent, {data: {message: 'Are you sure to delete?'}, disableClose: true})
+    firstValueFrom(this.dialog.open(ConfirmDialogComponent, {width: '300px', data: {message: 'Are you sure to delete?'}, disableClose: true})
       .afterClosed()).then(result => {
       if (result) {
         this.storage.deleteBook(id);

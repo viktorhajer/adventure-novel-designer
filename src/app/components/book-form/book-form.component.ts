@@ -36,7 +36,7 @@ export class BookFormComponent {
   }
 
   deleteItem(id: number) {
-    firstValueFrom(this.dialog.open(ConfirmDialogComponent, {data: {message: 'Are you sure to delete?'}, disableClose: true})
+    firstValueFrom(this.dialog.open(ConfirmDialogComponent, {width: '300px', data: {message: 'Are you sure to delete?'}, disableClose: true})
       .afterClosed()).then(result => {
       if (result) {
         this.bookService.deleteItem(id);
@@ -47,7 +47,7 @@ export class BookFormComponent {
   editItem(id: number) {
     const item = this.bookService.model.items.find(item => item.id === id);
     if (item) {
-      firstValueFrom(this.dialog.open(ItemFormComponent, {data: {item}, disableClose: true})
+      firstValueFrom(this.dialog.open(ItemFormComponent, {width: '70vw', data: {item}, disableClose: true})
         .afterClosed()).then(result => {
         if (result !== null && this.validateName(result.name, this.bookService.model.items, id)) {
           item.name = result.name;
@@ -65,7 +65,7 @@ export class BookFormComponent {
   }
 
   deleteRegion(id: number) {
-    firstValueFrom(this.dialog.open(ConfirmDialogComponent, {data: {message: 'Are you sure to delete?'}, disableClose: true})
+    firstValueFrom(this.dialog.open(ConfirmDialogComponent, {width: '300px', data: {message: 'Are you sure to delete?'}, disableClose: true})
       .afterClosed()).then(result => {
       if (result) {
         this.bookService.deleteRegion(id);
@@ -76,7 +76,7 @@ export class BookFormComponent {
   editRegion(id: number) {
     const region = this.bookService.model.regions.find(region => region.id === id);
     if (region) {
-      firstValueFrom(this.dialog.open(RegionFormComponent, {data: {region}, disableClose: true})
+      firstValueFrom(this.dialog.open(RegionFormComponent, {width: '70vw', data: {region}, disableClose: true})
         .afterClosed()).then(result => {
         if (result !== null && this.validateName(result.name, this.bookService.model.regions, id)) {
           region.name = result.name;
@@ -96,7 +96,7 @@ export class BookFormComponent {
   }
 
   deleteCharacter(id: number) {
-    firstValueFrom(this.dialog.open(ConfirmDialogComponent, {data: {message: 'Are you sure to delete?'}, disableClose: true})
+    firstValueFrom(this.dialog.open(ConfirmDialogComponent, {width: '300px', data: {message: 'Are you sure to delete?'}, disableClose: true})
       .afterClosed()).then(result => {
       if (result) {
         this.bookService.deleteCharacter(id);
@@ -107,7 +107,7 @@ export class BookFormComponent {
   editCharacter(id: number) {
     const character = this.bookService.model.characters.find(character => character.id === id);
     if (character) {
-      firstValueFrom(this.dialog.open(CharacterFormComponent, {data: {character}, disableClose: true})
+      firstValueFrom(this.dialog.open(CharacterFormComponent, {width: '70vw', data: {character}, disableClose: true})
         .afterClosed()).then(result => {
         if (result !== null && this.validateName(result.name, this.bookService.model.characters, id)) {
           character.name = result.name;
@@ -133,12 +133,14 @@ export class BookFormComponent {
   private validateName(name: string, list: Item[] | Region[], id = 0): boolean {
     if (!name.trim()) {
       this.dialog.open(ErrorDialogComponent, {
+        width: '300px',
         panelClass: 'full-modal',
         data: {message: 'Please enter a valid name.'}
       }).afterClosed();
       return false;
     } else if (list.some(s => s.name === name && (id === 0 || s.id !== id))) {
       this.dialog.open(ErrorDialogComponent, {
+        width: '300px',
         panelClass: 'full-modal',
         data: {message: 'Name should be unique.'}
       }).afterClosed();

@@ -273,6 +273,7 @@ export class BookService {
     book.backgroundStory = this.model.backgroundStory;
     book.stations = stations;
     this.dialog.open(BookViewerComponent, {
+      width: '80vw',
       panelClass: 'full-modal',
       data: {book}
     }).afterClosed();
@@ -347,6 +348,7 @@ export class BookService {
 
   private openError(message: string) {
     this.dialog.open(ErrorDialogComponent, {
+      width: '300px',
       panelClass: 'small-dialog',
       data: {message}
     }).afterClosed();
@@ -354,6 +356,7 @@ export class BookService {
 
   private openWarning(message: string) {
     this.dialog.open(WarningDialogComponent, {
+      width: '300px',
       panelClass: 'small-dialog',
       data: {message, warning: true}
     }).afterClosed();

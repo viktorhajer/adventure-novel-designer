@@ -29,6 +29,7 @@ import {CharacterFormComponent} from './components/character-form/character-form
 import {HttpClientModule} from '@angular/common/http';
 import {ReviewFormComponent} from './components/review-form/review-form.component';
 import {BookListComponent} from './components/book-list/book-list.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import {BookListComponent} from './components/book-list/book-list.component';
     MatSlideToggleModule,
     MatSelectModule,
     MatAutocompleteModule,
+    MatTabsModule,
     ReactiveFormsModule
   ],
   providers: [],

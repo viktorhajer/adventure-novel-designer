@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {BookService} from './services/book.service';
 import {UiService} from './services/ui.service';
 import {EditService} from './services/edit.service';
@@ -19,7 +19,6 @@ import {BookLoaderService} from './services/book-loader.service';
 import {ReviewFormComponent} from './components/review-form/review-form.component';
 import {Book} from './model/book.model';
 import {StorageService} from './services/storage.service';
-import {BookListItem} from './model/book-list-item.model';
 import {DownloadService} from './services/download.service';
 
 const EMPTY_BOOK = '{"id":0,"title":"New book","backgroundStory":"","notes":"","stations":[],"relations":[],"items":[],' +
@@ -98,7 +97,7 @@ export class AppComponent {
     this.bookLoader.loadStored().subscribe(data => {
       this.modelString = JSON.stringify(data);
       this.load();
-    })
+    });
   }
 
   loadBookFromStorage(id: number) {
@@ -135,6 +134,7 @@ export class AppComponent {
 
   review() {
     this.dialog.open(ReviewFormComponent, {
+      width: '70vw',
       disableClose: true,
       data: {id: this.station ? this.station.id : null},
       panelClass: 'big-dialog'
@@ -143,6 +143,7 @@ export class AppComponent {
 
   simulation() {
     this.dialog.open(SimulationComponent, {
+      width: '80vw',
       disableClose: true,
       panelClass: 'big-dialog'
     }).afterClosed();
@@ -150,6 +151,7 @@ export class AppComponent {
 
   takingNotes() {
     this.dialog.open(NotesFormComponent, {
+      width: '70vw',
       disableClose: true,
       panelClass: 'big-dialog'
     }).afterClosed();
@@ -249,6 +251,7 @@ export class AppComponent {
       const station = JSON.parse(JSON.stringify(this.bookService.getStation(+id.replace('node_', ''))));
       if (this.ui.expanded) {
         this.dialog.open(StationViewerComponent, {
+          width: '70vw',
           panelClass: 'full-modal',
           data: {station}
         }).afterClosed();
@@ -273,6 +276,7 @@ export class AppComponent {
 
   private openConfirmation(message: string): Promise<boolean> {
     return firstValueFrom(this.dialog.open(ConfirmDialogComponent, {
+      width: '300px',
       data: {message},
       disableClose: true
     }).afterClosed());
