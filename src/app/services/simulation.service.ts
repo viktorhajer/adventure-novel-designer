@@ -3,7 +3,7 @@ import {BookService} from './book.service';
 import {Relation} from '../model/relation.model';
 import {StationItem} from '../model/simulation.model';
 import {MatDialog} from '@angular/material/dialog';
-import {ErrorDialogComponent} from '../components/error-dialog/error-dialog.component';
+import {DialogService} from './dialog.service';
 
 export const INFINITY = 9999999;
 
@@ -13,23 +13,20 @@ export const INFINITY = 9999999;
 export class SimulationService {
 
   constructor(private readonly bookService: BookService,
+              private readonly dialogService: DialogService,
               private readonly dialog: MatDialog) {
   }
 
   start(endId: number): StationItem {
     const start = this.bookService.model.stations.find(s => s.starter);
     if (!start) {
-      this.dialog.open(ErrorDialogComponent, {
-        width: '300px',
-        panelClass: 'full-modal',
-        data: {message: 'Please select first station.'}
-      }).afterClosed();
+      this.dialogService.openError('Please select first station.');
     } else {
       const rawPath = this.findShortestPath(this.bookService.model.relations, start.id, endId);
       return {
         distance: rawPath.distance,
         path: rawPath.path.map(id => this.bookService.getStation(id))
-      }
+      };
     }
     return null as any;
   }

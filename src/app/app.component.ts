@@ -4,10 +4,7 @@ import {UiService} from './services/ui.service';
 import {EditService} from './services/edit.service';
 import {Station} from './model/station.model';
 import {StationViewerComponent} from './components/station-viewer/station-viewer.component';
-import {ConfirmDialogComponent} from './components/confirm-dialog/confirm-dialog.component';
-import {WarningDialogComponent} from './components/warning-dialog/warning-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
-import {firstValueFrom} from 'rxjs';
 import {STATION_COLORS, StationColor} from './model/station-color.model';
 import {SimulationService} from './services/simulation.service';
 import {SimulationComponent} from './components/simulation/simulation.component';
@@ -20,6 +17,7 @@ import {ReviewFormComponent} from './components/review-form/review-form.componen
 import {Book} from './model/book.model';
 import {StorageService} from './services/storage.service';
 import {DownloadService} from './services/download.service';
+import {DialogService} from './services/dialog.service';
 
 const EMPTY_BOOK = '{"id":0,"title":"New book","backgroundStory":"","notes":"","stations":[],"relations":[],"items":[],' +
   '"stationItems":[],"regions": [],"characters": [],"mortality": true,"showRegions": false}';
@@ -72,6 +70,7 @@ export class AppComponent {
   constructor(public readonly bookService: BookService,
               private readonly dialog: MatDialog,
               private readonly editService: EditService,
+              private readonly dialogService: DialogService,
               private readonly simulationService: SimulationService,
               private readonly storage: StorageService,
               private readonly downloadService: DownloadService,
@@ -117,10 +116,7 @@ export class AppComponent {
     this.modelString = JSON.stringify(this.bookService.model);
     if (navigator.clipboard) {
       navigator.clipboard.writeText(this.modelString);
-      this.dialog.open(WarningDialogComponent, {
-        panelClass: 'small-dialog',
-        data: {message: 'Raw model was copied to the clipboard successfully.', warning: false}
-      }).afterClosed();
+      this.dialogService.openInfo('Raw model was copied to the clipboard successfully.');
       this.storage.updateStorage(this.bookService.model);
     }
   }
@@ -168,7 +164,7 @@ export class AppComponent {
 
   createNewStation() {
     if (this.editService.unsaved) {
-      this.openConfirmation('Are you sure to navigate without saving?').then(result => {
+      this.dialogService.openConfirmation('Are you sure to navigate without saving?').then(result => {
         if (result) {
           this.navigateToCreateNew();
         } else {
@@ -186,7 +182,7 @@ export class AppComponent {
     }
 
     if (this.editService.unsaved) {
-      this.openConfirmation('Are you sure to navigate without saving?').then(result => {
+      this.dialogService.openConfirmation('Are you sure to navigate without saving?').then(result => {
         if (result) {
           this.navigateToStation(id);
         } else {
@@ -201,7 +197,7 @@ export class AppComponent {
   clearStation() {
     if (this.station) {
       if (this.editService.unsaved) {
-        this.openConfirmation('Are you sure to navigate without saving?').then(result => {
+        this.dialogService.openConfirmation('Are you sure to navigate without saving?').then(result => {
           if (result) {
             this.navigateToBook();
           }
@@ -274,14 +270,6 @@ export class AppComponent {
   private changeTrigger() {
     this.visualModel = this.visualBookMapper.mapModel(this.bookService.model, this.regionId, this.color);
     this.formTrigger++;
-  }
-
-  private openConfirmation(message: string): Promise<boolean> {
-    return firstValueFrom(this.dialog.open(ConfirmDialogComponent, {
-      width: '300px',
-      data: {message},
-      disableClose: true
-    }).afterClosed());
   }
 
   private initColors() {

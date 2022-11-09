@@ -6,15 +6,14 @@ import {BookService} from '../../services/book.service';
 import {EditService} from '../../services/edit.service';
 import {MatDialog} from '@angular/material/dialog';
 import {StationViewerComponent} from '../station-viewer/station-viewer.component';
-import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
 import {RelationFormComponent} from '../relation-form/relation-form.component';
 import {Relation} from '../../model/relation.model';
 import {STATION_COLORS} from '../../model/station-color.model';
-import {ErrorDialogComponent} from '../error-dialog/error-dialog.component';
 import {FormControl} from '@angular/forms';
 import {firstValueFrom, Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {Region} from '../../model/region.model';
+import {DialogService} from '../../services/dialog.service';
 
 @Component({
   selector: 'app-station-form',
@@ -39,6 +38,7 @@ export class StationFormComponent implements OnChanges {
   filteredDestinationOptions: Observable<Station[]> = null as any;
 
   constructor(public readonly bookService: BookService,
+              private readonly dialogService: DialogService,
               private readonly editService: EditService,
               private readonly dialog: MatDialog) {
   }
@@ -75,7 +75,7 @@ export class StationFormComponent implements OnChanges {
     if (field !== 0 && (this.station.winner || this.station.looser) && hasChild) {
       const marker = field === 1 && this.station.winner ? 'winner' : 'looser';
       const message = `Are you sure you are marking the station as a ${marker}? All routes from this station will be deleted.`;
-      this.openConfirmation(message).then(result => {
+      this.dialogService.openConfirmation(message).then(result => {
         if (!result) {
           this.station.winner = false;
           this.station.looser = false;
@@ -106,7 +106,7 @@ export class StationFormComponent implements OnChanges {
   }
 
   delete() {
-    this.openConfirmation().then(result => {
+    this.dialogService.openConfirmation().then(result => {
       if (result) {
         this.bookService.deleteStation(this.station.id);
         this.stationChanged.emit(null);
@@ -127,7 +127,7 @@ export class StationFormComponent implements OnChanges {
   }
 
   deleteRelation(targetId: number) {
-    this.openConfirmation().then(result => {
+    this.dialogService.openConfirmation().then(result => {
       if (result) {
         this.bookService.deleteRelation(this.station.id, targetId);
         this.stationChanged.emit(this.station.id + '');
@@ -136,7 +136,7 @@ export class StationFormComponent implements OnChanges {
   }
 
   deleteOwnItem(itemId: number) {
-    this.openConfirmation().then(result => {
+    this.dialogService.openConfirmation().then(result => {
       if (result) {
         this.bookService.deleteStationItem(this.station.id, itemId);
         this.stationChanged.emit(this.station.id + '');
@@ -182,26 +182,13 @@ export class StationFormComponent implements OnChanges {
 
   private validateTitle(): boolean {
     if (!this.station.title.trim()) {
-      this.dialog.open(ErrorDialogComponent, {
-        width: '300px',
-        panelClass: 'full-modal',
-        data: {message: 'Please enter a valid title.'}
-      }).afterClosed();
+      this.dialogService.openError('Please enter a valid title.');
       return false;
     } else if (this.bookService.model.stations.some(s => s.title === this.station.title && s.id !== this.station.id)) {
-      this.dialog.open(ErrorDialogComponent, {
-        width: '300px',
-        panelClass: 'full-modal',
-        data: {message: 'Station title should be unique.'}
-      }).afterClosed();
+      this.dialogService.openError('Title should be unique.');
       return false;
     }
     return true;
-  }
-
-  private openConfirmation(message = 'Are you sure to delete?'): Promise<boolean> {
-    return firstValueFrom(this.dialog.open(ConfirmDialogComponent, {width: '300px', data: {message}, disableClose: true})
-      .afterClosed());
   }
 
   private filterDestination(value: string): Station[] {

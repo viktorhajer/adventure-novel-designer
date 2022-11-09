@@ -1,11 +1,9 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {BookService} from '../../services/book.service';
-import {MatDialog} from '@angular/material/dialog';
 import {StorageService} from '../../services/storage.service';
 import {BookListItem} from '../../model/book-list-item.model';
-import {firstValueFrom} from 'rxjs';
-import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
 import {DownloadService} from '../../services/download.service';
+import {DialogService} from '../../services/dialog.service';
 
 @Component({
   selector: 'app-book-list',
@@ -19,8 +17,8 @@ export class BookListComponent implements OnInit {
 
   constructor(private readonly bookService: BookService,
               private readonly downloadService: DownloadService,
-              private readonly storage: StorageService,
-              private readonly dialog: MatDialog) {
+              private readonly dialogService: DialogService,
+              private readonly storage: StorageService) {
   }
 
   ngOnInit() {
@@ -32,8 +30,7 @@ export class BookListComponent implements OnInit {
   }
 
   deleteBook(id: number) {
-    firstValueFrom(this.dialog.open(ConfirmDialogComponent, {width: '300px', data: {message: 'Are you sure to delete?'}, disableClose: true})
-      .afterClosed()).then(result => {
+    this.dialogService.openConfirmation().then(result => {
       if (result) {
         this.storage.deleteBook(id);
         this.bookList = this.storage.getBookList();

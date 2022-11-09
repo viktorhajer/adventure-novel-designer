@@ -1,13 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Book} from '../model/book.model';
 import {MatDialog} from '@angular/material/dialog';
-import {ErrorDialogComponent} from '../components/error-dialog/error-dialog.component';
-import {WarningDialogComponent} from '../components/warning-dialog/warning-dialog.component';
 import {Station} from '../model/station.model';
 import {Item} from '../model/item.model';
 import {StationItem} from '../model/station-item.model';
 import {BookCorrectorService} from './book-corrector.service';
 import {BookViewerComponent} from '../components/book-viewer/book-viewer.component';
+import {DialogService} from './dialog.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +17,7 @@ export class BookService {
   maxStationID = 1;
 
   constructor(private readonly dialog: MatDialog,
+              private readonly dialogService: DialogService,
               private readonly corrector: BookCorrectorService) {
     this.model = new Book();
   }
@@ -34,7 +34,7 @@ export class BookService {
       this.loaded = true;
       this.setMaxStationID();
     } catch (e) {
-      this.openError('Failed to load the model due syntax error.');
+      this.dialogService.openError('Failed to load the model due syntax error.');
     }
   }
 
@@ -161,7 +161,7 @@ export class BookService {
       do {
         generation++;
         this.generateIndexes();
-      } while(!this.validateIndexes());
+      } while (!this.validateIndexes());
       if (generation > 0) {
         console.log('Regenerate: ' + generation);
       }
@@ -196,7 +196,7 @@ export class BookService {
       }
     }
     if (message) {
-      this.openError(message);
+      this.dialogService.openError(message);
     }
     return !message.length;
   }
@@ -212,7 +212,7 @@ export class BookService {
       }
     }
     if (messages.length) {
-      this.openWarning('Unused macro(s): ' + messages.join(', '));
+      this.dialogService.openWarning('Unused macro(s): ' + messages.join(', '));
     }
   }
 
@@ -258,7 +258,7 @@ export class BookService {
     if (this.model.stations.length > 10) {
       const nums: number[] = [];
       this.model.stations.forEach(s => nums[s.id] = s.index);
-      for(const r of this.model.relations) {
+      for (const r of this.model.relations) {
         if (Math.abs(nums[r.sourceId] - nums[r.targetId]) === 1) {
           wrongIndex++;
         }
@@ -339,26 +339,10 @@ export class BookService {
 
   private getArticle(num: number): string {
     const numStr = num + '';
-    if (numStr.substr(0,1) === '5' || (numStr.length === 4 && numStr.substr(0,1) === '1') || num === 1) {
+    if (numStr.substr(0, 1) === '5' || (numStr.length === 4 && numStr.substr(0, 1) === '1') || num === 1) {
       return 'az ';
     } else {
       return 'a ';
     }
-  }
-
-  private openError(message: string) {
-    this.dialog.open(ErrorDialogComponent, {
-      width: '300px',
-      panelClass: 'small-dialog',
-      data: {message}
-    }).afterClosed();
-  }
-
-  private openWarning(message: string) {
-    this.dialog.open(WarningDialogComponent, {
-      width: '300px',
-      panelClass: 'small-dialog',
-      data: {message, warning: true}
-    }).afterClosed();
   }
 }

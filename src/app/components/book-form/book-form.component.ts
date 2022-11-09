@@ -4,13 +4,12 @@ import {Station} from '../../model/station.model';
 import {ItemFormComponent} from '../item-form/item-form.component';
 import {MatDialog} from '@angular/material/dialog';
 import {firstValueFrom} from 'rxjs';
-import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
 import {RegionFormComponent} from '../region-form/region-form.component';
-import {ErrorDialogComponent} from '../error-dialog/error-dialog.component';
 import {Item} from '../../model/item.model';
 import {Region} from '../../model/region.model';
 import {UiService} from '../../services/ui.service';
 import {CharacterFormComponent} from '../character-form/character-form.component';
+import {DialogService} from '../../services/dialog.service';
 
 @Component({
   selector: 'app-book-form',
@@ -25,6 +24,7 @@ export class BookFormComponent {
 
   constructor(public readonly bookService: BookService,
               public readonly uiService: UiService,
+              private readonly dialogService: DialogService,
               private readonly dialog: MatDialog) {
   }
 
@@ -36,8 +36,7 @@ export class BookFormComponent {
   }
 
   deleteItem(id: number) {
-    firstValueFrom(this.dialog.open(ConfirmDialogComponent, {width: '300px', data: {message: 'Are you sure to delete?'}, disableClose: true})
-      .afterClosed()).then(result => {
+    this.dialogService.openConfirmation().then(result => {
       if (result) {
         this.bookService.deleteItem(id);
       }
@@ -65,8 +64,7 @@ export class BookFormComponent {
   }
 
   deleteRegion(id: number) {
-    firstValueFrom(this.dialog.open(ConfirmDialogComponent, {width: '300px', data: {message: 'Are you sure to delete?'}, disableClose: true})
-      .afterClosed()).then(result => {
+    this.dialogService.openConfirmation().then(result => {
       if (result) {
         this.bookService.deleteRegion(id);
       }
@@ -96,8 +94,7 @@ export class BookFormComponent {
   }
 
   deleteCharacter(id: number) {
-    firstValueFrom(this.dialog.open(ConfirmDialogComponent, {width: '300px', data: {message: 'Are you sure to delete?'}, disableClose: true})
-      .afterClosed()).then(result => {
+    this.dialogService.openConfirmation().then(result => {
       if (result) {
         this.bookService.deleteCharacter(id);
       }
@@ -132,18 +129,10 @@ export class BookFormComponent {
 
   private validateName(name: string, list: Item[] | Region[], id = 0): boolean {
     if (!name.trim()) {
-      this.dialog.open(ErrorDialogComponent, {
-        width: '300px',
-        panelClass: 'full-modal',
-        data: {message: 'Please enter a valid name.'}
-      }).afterClosed();
+      this.dialogService.openError('Please enter a valid name.');
       return false;
     } else if (list.some(s => s.name === name && (id === 0 || s.id !== id))) {
-      this.dialog.open(ErrorDialogComponent, {
-        width: '300px',
-        panelClass: 'full-modal',
-        data: {message: 'Name should be unique.'}
-      }).afterClosed();
+      this.dialogService.openError('Name should be unique.');
       return false;
     }
     return true;

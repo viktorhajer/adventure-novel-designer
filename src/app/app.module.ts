@@ -9,8 +9,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {StationFormComponent} from './components/station-form/station-form.component';
-import {ErrorDialogComponent} from './components/error-dialog/error-dialog.component';
-import {WarningDialogComponent} from './components/warning-dialog/warning-dialog.component';
 import {ConfirmDialogComponent} from './components/confirm-dialog/confirm-dialog.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
@@ -30,14 +28,14 @@ import {HttpClientModule} from '@angular/common/http';
 import {ReviewFormComponent} from './components/review-form/review-form.component';
 import {BookListComponent} from './components/book-list/book-list.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import {DialogComponent} from './components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookFormComponent,
     StationFormComponent,
-    ErrorDialogComponent,
-    WarningDialogComponent,
+    DialogComponent,
     ConfirmDialogComponent,
     StationViewerComponent,
     BookViewerComponent,
