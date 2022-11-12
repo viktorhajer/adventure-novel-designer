@@ -134,7 +134,7 @@ export class AppComponent {
       width: '70vw',
       disableClose: true,
       data: {id: this.station ? this.station.id : null},
-      panelClass: 'big-dialog'
+      backdropClass: 'panel-backdrop'
     }).afterClosed().subscribe(() => this.changeTrigger());
   }
 
@@ -142,7 +142,7 @@ export class AppComponent {
     this.dialog.open(SimulationComponent, {
       width: '80vw',
       disableClose: true,
-      panelClass: 'big-dialog'
+      backdropClass: 'panel-backdrop'
     }).afterClosed();
   }
 
@@ -150,7 +150,7 @@ export class AppComponent {
     this.dialog.open(NotesFormComponent, {
       width: '70vw',
       disableClose: true,
-      panelClass: 'big-dialog'
+      backdropClass: 'panel-backdrop'
     }).afterClosed();
   }
 
@@ -250,7 +250,7 @@ export class AppComponent {
       if (this.ui.expanded) {
         this.dialog.open(StationViewerComponent, {
           width: '70vw',
-          panelClass: 'full-modal',
+          backdropClass: 'panel-backdrop',
           data: {station}
         }).afterClosed();
       } else {

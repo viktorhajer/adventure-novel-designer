@@ -46,7 +46,7 @@ export class BookFormComponent {
   editItem(id: number) {
     const item = this.bookService.model.items.find(item => item.id === id);
     if (item) {
-      firstValueFrom(this.dialog.open(ItemFormComponent, {width: '70vw', data: {item}, disableClose: true})
+      firstValueFrom(this.dialog.open(ItemFormComponent, {width: '70vw', backdropClass: 'panel-backdrop', data: {item}, disableClose: true})
         .afterClosed()).then(result => {
         if (result !== null && this.validateName(result.name, this.bookService.model.items, id)) {
           item.name = result.name;
@@ -74,7 +74,7 @@ export class BookFormComponent {
   editRegion(id: number) {
     const region = this.bookService.model.regions.find(region => region.id === id);
     if (region) {
-      firstValueFrom(this.dialog.open(RegionFormComponent, {width: '70vw', data: {region}, disableClose: true})
+      firstValueFrom(this.dialog.open(RegionFormComponent, {width: '70vw', backdropClass: 'panel-backdrop', data: {region}, disableClose: true})
         .afterClosed()).then(result => {
         if (result !== null && this.validateName(result.name, this.bookService.model.regions, id)) {
           region.name = result.name;
@@ -104,7 +104,7 @@ export class BookFormComponent {
   editCharacter(id: number) {
     const character = this.bookService.model.characters.find(character => character.id === id);
     if (character) {
-      firstValueFrom(this.dialog.open(CharacterFormComponent, {width: '70vw', data: {character}, disableClose: true})
+      firstValueFrom(this.dialog.open(CharacterFormComponent, {width: '70vw', backdropClass: 'panel-backdrop', data: {character}, disableClose: true})
         .afterClosed()).then(result => {
         if (result !== null && this.validateName(result.name, this.bookService.model.characters, id)) {
           character.name = result.name;

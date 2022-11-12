@@ -156,7 +156,7 @@ export class StationFormComponent implements OnChanges {
   viewStation(station: Station) {
     this.dialog.open(StationViewerComponent, {
       width: '70vw',
-      panelClass: 'full-modal',
+      backdropClass: 'panel-backdrop',
       data: {station}
     }).afterClosed();
   }
@@ -164,7 +164,7 @@ export class StationFormComponent implements OnChanges {
   editRelation(targetId: number) {
     const relation = this.bookService.model.relations.find(r => r.targetId === targetId && r.sourceId === this.station.id);
     if (relation) {
-      firstValueFrom(this.dialog.open(RelationFormComponent, {width: '70vw', data: {relation}, disableClose: true})
+      firstValueFrom(this.dialog.open(RelationFormComponent, {width: '70vw', backdropClass: 'panel-backdrop', data: {relation}, disableClose: true})
         .afterClosed()).then(result => {
         if (result !== null) {
           relation.comment = result.comment;

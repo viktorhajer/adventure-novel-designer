@@ -274,7 +274,7 @@ export class BookService {
     book.stations = stations;
     this.dialog.open(BookViewerComponent, {
       width: '80vw',
-      panelClass: 'full-modal',
+      backdropClass: 'panel-backdrop',
       data: {book}
     }).afterClosed();
   }

@@ -40,15 +40,6 @@ h2 {
   'opsz' 30
 }
 
-.small-dialog {
-  width: 400px;
-}
-
-.big-dialog {
-  // TODO
-  // width: 800px;
-}
-
 .chapter_content {
   span {
     cursor: pointer;
@@ -66,6 +57,6 @@ h2 {
 }
 
 .panel-backdrop {
-  background-color: #09273d5c;
+  background-color: rgb(0 0 0 / 24%);
   backdrop-filter: blur(4px);
 }
