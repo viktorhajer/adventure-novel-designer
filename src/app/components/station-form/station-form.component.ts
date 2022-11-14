@@ -4,7 +4,6 @@ import {Item} from '../../model/item.model';
 import {StationItem} from '../../model/station-item.model';
 import {BookService} from '../../services/book.service';
 import {EditService} from '../../services/edit.service';
-import {MatDialog} from '@angular/material/dialog';
 import {StationViewerComponent} from '../station-viewer/station-viewer.component';
 import {RelationFormComponent} from '../relation-form/relation-form.component';
 import {Relation} from '../../model/relation.model';
@@ -39,8 +38,7 @@ export class StationFormComponent implements OnChanges {
 
   constructor(public readonly bookService: BookService,
               private readonly dialogService: DialogService,
-              private readonly editService: EditService,
-              private readonly dialog: MatDialog) {
+              private readonly editService: EditService) {
   }
 
   ngOnChanges() {
@@ -154,25 +152,21 @@ export class StationFormComponent implements OnChanges {
   }
 
   viewStation(station: Station) {
-    this.dialog.open(StationViewerComponent, {
-      width: '70vw',
-      backdropClass: 'panel-backdrop',
-      data: {station}
-    }).afterClosed();
+    this.dialogService.openCustomDialog(StationViewerComponent, {width: '70vw'}, {station});
   }
 
   editRelation(targetId: number) {
     const relation = this.bookService.model.relations.find(r => r.targetId === targetId && r.sourceId === this.station.id);
     if (relation) {
-      firstValueFrom(this.dialog.open(RelationFormComponent, {width: '70vw', backdropClass: 'panel-backdrop', data: {relation}, disableClose: true})
-        .afterClosed()).then(result => {
-        if (result !== null) {
-          relation.comment = result.comment;
-          relation.condition = result.condition;
-          this.editService.unsaved = false;
-          this.stationChanged.emit(this.station.id + '');
-        }
-      });
+      firstValueFrom(this.dialogService.openCustomDialog(RelationFormComponent, {width: '70vw', disableClose: true}, {relation}))
+        .then(result => {
+          if (result !== null) {
+            relation.comment = result.comment;
+            relation.condition = result.condition;
+            this.editService.unsaved = false;
+            this.stationChanged.emit(this.station.id + '');
+          }
+        });
     }
   }
 

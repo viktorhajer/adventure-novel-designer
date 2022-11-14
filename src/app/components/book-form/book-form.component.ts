@@ -2,7 +2,6 @@ import {Component, EventEmitter, Output} from '@angular/core';
 import {BookService} from '../../services/book.service';
 import {Station} from '../../model/station.model';
 import {ItemFormComponent} from '../item-form/item-form.component';
-import {MatDialog} from '@angular/material/dialog';
 import {firstValueFrom} from 'rxjs';
 import {RegionFormComponent} from '../region-form/region-form.component';
 import {Item} from '../../model/item.model';
@@ -24,8 +23,7 @@ export class BookFormComponent {
 
   constructor(public readonly bookService: BookService,
               public readonly uiService: UiService,
-              private readonly dialogService: DialogService,
-              private readonly dialog: MatDialog) {
+              private readonly dialogService: DialogService) {
   }
 
   createItem() {
@@ -46,13 +44,13 @@ export class BookFormComponent {
   editItem(id: number) {
     const item = this.bookService.model.items.find(item => item.id === id);
     if (item) {
-      firstValueFrom(this.dialog.open(ItemFormComponent, {width: '70vw', backdropClass: 'panel-backdrop', data: {item}, disableClose: true})
-        .afterClosed()).then(result => {
-        if (result !== null && this.validateName(result.name, this.bookService.model.items, id)) {
-          item.name = result.name;
-          item.description = result.description;
-        }
-      });
+      firstValueFrom(this.dialogService.openCustomDialog(ItemFormComponent, {width: '70vw', disableClose: true}, {item}))
+        .then(result => {
+          if (result !== null && this.validateName(result.name, this.bookService.model.items, id)) {
+            item.name = result.name;
+            item.description = result.description;
+          }
+        });
     }
   }
 
@@ -74,15 +72,15 @@ export class BookFormComponent {
   editRegion(id: number) {
     const region = this.bookService.model.regions.find(region => region.id === id);
     if (region) {
-      firstValueFrom(this.dialog.open(RegionFormComponent, {width: '70vw', backdropClass: 'panel-backdrop', data: {region}, disableClose: true})
-        .afterClosed()).then(result => {
-        if (result !== null && this.validateName(result.name, this.bookService.model.regions, id)) {
-          region.name = result.name;
-          region.color = result.color;
-          region.description = result.description;
-          this.changePlugin();
-        }
-      });
+      firstValueFrom(this.dialogService.openCustomDialog(RegionFormComponent, {width: '70vw', disableClose: true}, {region}))
+        .then(result => {
+          if (result !== null && this.validateName(result.name, this.bookService.model.regions, id)) {
+            region.name = result.name;
+            region.color = result.color;
+            region.description = result.description;
+            this.changePlugin();
+          }
+        });
     }
   }
 
@@ -104,14 +102,14 @@ export class BookFormComponent {
   editCharacter(id: number) {
     const character = this.bookService.model.characters.find(character => character.id === id);
     if (character) {
-      firstValueFrom(this.dialog.open(CharacterFormComponent, {width: '70vw', backdropClass: 'panel-backdrop', data: {character}, disableClose: true})
-        .afterClosed()).then(result => {
-        if (result !== null && this.validateName(result.name, this.bookService.model.characters, id)) {
-          character.name = result.name;
-          character.description = result.description;
-          this.changePlugin();
-        }
-      });
+      firstValueFrom(this.dialogService.openCustomDialog(CharacterFormComponent, {width: '70vw', disableClose: true}, {character}))
+        .then(result => {
+          if (result !== null && this.validateName(result.name, this.bookService.model.characters, id)) {
+            character.name = result.name;
+            character.description = result.description;
+            this.changePlugin();
+          }
+        });
     }
   }
 

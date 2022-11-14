@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import {firstValueFrom} from 'rxjs';
+import {firstValueFrom, Observable} from 'rxjs';
 import {ConfirmDialogComponent} from '../components/confirm-dialog/confirm-dialog.component';
 import {DialogComponent} from '../components/dialog/dialog.component';
 
@@ -33,11 +33,15 @@ export class DialogService {
     return this.openDialog(message, false, false, true);
   }
 
+  openCustomDialog(component: any, config: any, data?: any): Observable<any> {
+    const conf = Object.assign({backdropClass: 'panel-backdrop'}, config);
+    if (data) {
+      conf.data = data;
+    }
+    return this.dialog.open(component, conf).afterClosed();
+  }
+
   private openDialog(message: string, info: boolean, warning: boolean, error: boolean): Promise<boolean> {
-    return firstValueFrom(this.dialog.open(DialogComponent, {
-      width: '300px',
-      backdropClass: 'panel-backdrop',
-      data: {message, info, warning, error}
-    }).afterClosed());
+    return firstValueFrom(this.openCustomDialog(DialogComponent, {width: '300px'}, {message, info, warning, error}));
   }
 }

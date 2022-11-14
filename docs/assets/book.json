@@ -2,7 +2,7 @@
   "id": 1667885870560,
   "title": "Az elveszett időérme",
   "backgroundStory": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "notes": "Csigák: domb, a tetejére spirálban vezet az út, mint egy csigaház. Nincsenek házak, inkább növények, virágok, minden szép és természetes. Kiderül, hogy nem is gonoszak. Nincs uralkodó, hanem tanács van, 3 vénnel. \nA 3 vén 1-1 kérdést tesz fel, amire ha helyesen válaszolsz, akkor adnak segítséget. \n\nTörténet vége: A szarka azért lopta el az érmet, mert a fiókája valamilyen bajba került. Vissza akart menni, de csak 1 napra tud. \nValahogy segítesz neki feláldozva valamit, akkor ő visszaadja az érmét. Téged pedig az érme szelleme ment majd meg. ",
+  "notes": "Történet vége: A szarka azért lopta el az érmet, mert a fiókáját megszúrta 2 napja egy növény és a nap végén sajnos elpusztul.  Vissza akart menni, de csak 1 napra tud, így nem tudja megakadályozni a dolgot. Te felajánlod a szérumot, amit a csigakert elején szereztél, cserébe az érméért. Visszakerülsz teleportal, vissza is rakjátok az érmét, de sajnos neked már késő, a tündéreknek nincs szérumja. Ekkor megjelenik Ijimas és megment. Kiderül, hogy ő az érme szelleme. ",
   "stations": [
     {
       "id": 1,
@@ -682,8 +682,8 @@
     },
     {
       "id": 57,
-      "title": "Csigakert",
-      "story": "",
+      "title": "Ijimas ad ellenszert",
+      "story": "A városból kijutva ismét Ijimasszal találkozol, aki éppen a Csigakert nevű helyről tért vissza. Elmeséli, hogy bár a csigák nem olyan barátságtalanok, mint ahogy a békák mondták, a lakhelyükre vezető ösvény tartogat veszélyeket, ugyanis itt őshonos az úgynevezett darázsozó csalánfű, amely csípése halált is okozhat. Azonnal ad is neked egy ellenszert. Megköszönöd és megkérdezed, hogy most tartogat-e számodra valami hasznos tanácsot. Elgondolkodik, majd azt feleli: \"Néha a legjobb orvosság, ha nem teszünk semmit.\" Ezután köddé válik, te pedig folytatod az utad az ösvényen. Lapozz [##1].",
       "color": "white",
       "comment": "",
       "index": 15,
@@ -692,6 +692,175 @@
       "winner": false,
       "looser": false,
       "regionId": 7
+    },
+    {
+      "id": 58,
+      "title": "Csípés",
+      "story": "Ahogy haladsz előre egyre nagyobb és érdekesebb növények mellett vezet az utad. Néha olyan érzésed van, mintha figyelnének, mintha valami folyton mozogna mögötted, de megfordulva nem látsz mást, mint különleges formájú bokrokat és fákat. Egy szakadék mellett vezet az utad, amelynek a fenekén mintha víz folydogálna. Hirtelen egy csípést érzel a válladon. Félelmed beigazolódik egy mérges növény magasodik föléd. Ha futásnak eredsz az ösvényen, akkor lapozz [##1]. Ha beleugrasz a szakadékban, reménykedve, hogy vízbe érkezel, lapozz [##2]. Ha lefekszel a földre és gyorsan beadod az ellenszert, lapozz [##3]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 7
+    },
+    {
+      "id": 59,
+      "title": "Ösvényen futás",
+      "story": "Próbálsz olyan gyorsan meglógni, amilyen gyorsan csak tudsz, de egyre csak nő a mérges növények száma és úgy ráhajolnak az útra, hogy nincs más választásod, le kell ugranod a szakadékba. Lapozz [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 7
+    },
+    {
+      "id": 60,
+      "title": "Szakadékba ugrás",
+      "story": "Az esés közben elveszted az eszméleted. Pár óra múlva térsz magadhoz egy vízparton. A szerencse ismét melléd szegődött, a szakadék alján egy kis folyó volt, ami egészen a Csigakert bejáratához sodort. Megpillantod a dombot, amelyre spirál alakban vezet felfelé az út, és amelynek a kezdetén egy tábla van. Odalépve a csigák híres mondását olvashatod el: \n\n\"Nem számít milyen lassan mész, amíg kitartasz. Hiszen a lassú haladás is haladás.\"\n\nÚgy döntesz, hogy vársz még a szérum beadásával, és inkább útnak eredsz. Lapozz [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 7
+    },
+    {
+      "id": 61,
+      "title": "Ellenszer elhasználás",
+      "story": "Leveted magad a földre és elővennéd a zsebedből az ellenszert, de már nincs rá időd, az egyik növény feléd irányítja tüskéit, és csak az utolsó pillanatban tudsz oldalra gördülni, elkerülve egy ismételt szúrást. Egyenesen a szakadékba esel. Lapozz [##1].",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 7
+    },
+    {
+      "id": 62,
+      "title": "Úton a csigakertben",
+      "story": "A Csigakert lenyűgöző látvány. Telis-tele van színes, pompás virágokkal. Sok csigával találkozol, akik vagy beszélgetnek vagy békésen lakmároznak az ösvény szélén. Mindenki szívélyesen üdvözöl.  Egyikkel-másikkal váltasz pár szót, mely során kiderül, hogy ez az ő országuk, de mivel nincs szükség arra, hogy városokat hozzanak létre, vagy megváltoztassák a környezetet, így mindenki csak kertnek hívja. Nincs uralkodójuk sem, hanem három vénből álló tanács hozza meg a szükséges döntéseket vitás kérdésekben, akik fent élnek a domb tetején. Téged is oda irányítanak, majd ők eldöntik, hogy érdemes vagy-e a segítségre, vagy egyedül kell felmásznod a szarka fájára. Lapozz [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 7
+    },
+    {
+      "id": 63,
+      "title": "A vének - első kérdés",
+      "story": "A domb tetejére felérve egy hatalmas gomba lábánál megpillantasz három nagy csigát, ahogy a vidéket kémlelik. Odalépsz hozzájuk és kiderül, hogy ők a tanács, akikhez segítségért kell folyamodnod. Elmeséled, hogy miért  indultál az érme keresésére, és mi vezetett a csigák földjére. Rövid tanakodás után a tanács úgy dönt, hogy segít neked és felajánl egy csigát, aki elkísér a utadon amennyiben helyesen válaszolsz három kérdésre. Ha bármelyik kérdésre nem sikerül válaszolni, úgy nem segítenek. Elfogadod a feltételeket. \n\nAz első vén feléd fordul és megkérdezi, hogy mi a csigák közmondása. \n\"A lassú haladás is haladás.\" vagy \"Egy apró tettel is többet teszel annál, mint aki nem tesz semmit.\"\n\nHa az elsőt választod, lapozz [##1], ha a másodikat, akkor [##2]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 7
+    },
+    {
+      "id": 64,
+      "title": "Második kérdés",
+      "story": "Helyesen válaszoltál. Most a második vénen a sor, aki egy találós kérdést tesz fel: \n\n\"Ismerek egy tarka házat,\nLakik benne szarvas állat.\nSzegény igen fél ám tőled,\nSzarvát behúzza előled. \nBármerre jár völgyön hegyen,\nHázikója vele megyen...\nTarka házban szarvas állat,\nÜgyes vagy, ha kitaláltad.\"\n\nHa a válaszod szarvas, lapozz [##1], ha csiga, lapozz [##2]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 7
+    },
+    {
+      "id": 65,
+      "title": "Helytelen válasz",
+      "story": "Sajnos helytelenül választottál. A vének sok szerencsét kívánnak, de sajnos el kell hagynod a csigák földjét. A domb aljában lefekszel aludni és másnap a kert bejáratánál ébredsz. Ismét megpróbálod. Lapozz [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 7
+    },
+    {
+      "id": 66,
+      "title": "Harmadik kérdés",
+      "story": "Ismét egy helyes válasz. A harmadik vén nyugodtan néz rád, majd így szól: \n- Nyugalom vándor, az első két kérdés sem okozott problémát, biztosan ez sem fog. Az én kérdésem az lenne, hogy a következő három dolog közül, mi a legfontosabb: erő, nyugalom, bátorság. \n\nHa az erőt választod, lapozz [##1]. Ha a nyugalmat, lapozz [##2]. Ha szerinted a legfontosabb a bátorság, úgy lapozz [##3]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 7
+    },
+    {
+      "id": 67,
+      "title": "Sikeres teszt",
+      "story": "A harmadik bölcs helyeslően bólogat. Így felel: \n- A csigák meg tudják látni a szépséget minden centiméterben és ennek a nyugalom az oka, csak így lehet meglelni a természet békéjét. Jól feleltél minden kérdésre utazó, a csigák szívesen segítségedre lesznek utad végső állomásának elérésében. \n\nEkkor előcsúszik egy fiatal meztelen csiga, és így szól: \n- Szia! A nevem Shelby. Szívesen elviszlek a szarka házáig, de utána elválnak útjaink. Szállj fel! \n\nFelmászol a csiga hátára, és búcsút intesz a véneknek. Lapozz [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 7
+    },
+    {
+      "id": 68,
+      "title": "Nem elég bátornak lenni",
+      "story": "Nem a bátorság a helyes válasz. Lapozz [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 7
+    },
+    {
+      "id": 69,
+      "title": "Útban a szarka faházáig",
+      "story": "Shelby nem túl beszédes, de az utazás során megtudod tőle, hogy Mollyval mindig is jó volt a csigák kapcsolata. Nem érti, hogy mi vitte rá, hogy ellopja az időérmet. Elmeséli azt is, hogy a szarkának van egy gyermeke, aki sűrűn játszott a csigakertben vagy a közeli csalánfű erdőben, de már egy ideje nem találkoztak vele.\n\nViszonylag gyorsan eljutok egy magas, sima törzsű fához, amelynek a teteje ködbe burkolózik, nem is látszik, hogy egy épületet rejt. Shelby megkér, hogy most kapaszkodj erősen és semmiképpen se nézz le útközben, mert könnyen leszédülhetsz. Lapozz [##1]. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 6
+    },
+    {
+      "id": 70,
+      "title": "Mászás",
+      "story": "",
+      "color": "",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 6
     }
   ],
   "relations": [
@@ -1132,6 +1301,120 @@
       "targetId": 57,
       "comment": "",
       "condition": false
+    },
+    {
+      "sourceId": 57,
+      "targetId": 58,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 58,
+      "targetId": 59,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 58,
+      "targetId": 60,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 59,
+      "targetId": 60,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 58,
+      "targetId": 61,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 61,
+      "targetId": 60,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 60,
+      "targetId": 62,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 62,
+      "targetId": 63,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 63,
+      "targetId": 64,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 63,
+      "targetId": 65,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 65,
+      "targetId": 62,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 64,
+      "targetId": 65,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 64,
+      "targetId": 66,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 66,
+      "targetId": 65,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 66,
+      "targetId": 67,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 66,
+      "targetId": 68,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 68,
+      "targetId": 65,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 67,
+      "targetId": 69,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 69,
+      "targetId": 70,
+      "comment": "",
+      "condition": false
     }
   ],
   "items": [
@@ -1213,7 +1496,12 @@
     },
     {
       "id": 7,
-      "name": "Molly - öreg szarka anyó",
+      "name": "Molly - a szarka ",
+      "description": ""
+    },
+    {
+      "id": 8,
+      "name": "Shelby a csiga",
       "description": ""
     }
   ],

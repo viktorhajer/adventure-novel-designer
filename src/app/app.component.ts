@@ -4,7 +4,6 @@ import {UiService} from './services/ui.service';
 import {EditService} from './services/edit.service';
 import {Station} from './model/station.model';
 import {StationViewerComponent} from './components/station-viewer/station-viewer.component';
-import {MatDialog} from '@angular/material/dialog';
 import {STATION_COLORS, StationColor} from './model/station-color.model';
 import {SimulationService} from './services/simulation.service';
 import {SimulationComponent} from './components/simulation/simulation.component';
@@ -68,7 +67,6 @@ export class AppComponent {
   colors: StationColor[] = [];
 
   constructor(public readonly bookService: BookService,
-              private readonly dialog: MatDialog,
               private readonly editService: EditService,
               private readonly dialogService: DialogService,
               private readonly simulationService: SimulationService,
@@ -130,28 +128,16 @@ export class AppComponent {
   }
 
   review() {
-    this.dialog.open(ReviewFormComponent, {
-      width: '70vw',
-      disableClose: true,
-      data: {id: this.station ? this.station.id : null},
-      backdropClass: 'panel-backdrop'
-    }).afterClosed().subscribe(() => this.changeTrigger());
+    this.dialogService.openCustomDialog(ReviewFormComponent, {width: '70vw', disableClose: true},
+      {id: this.station ? this.station.id : null}).subscribe(() => this.changeTrigger());
   }
 
   simulation() {
-    this.dialog.open(SimulationComponent, {
-      width: '80vw',
-      disableClose: true,
-      backdropClass: 'panel-backdrop'
-    }).afterClosed();
+    this.dialogService.openCustomDialog(SimulationComponent, {width: '80vw', disableClose: true});
   }
 
   takingNotes() {
-    this.dialog.open(NotesFormComponent, {
-      width: '70vw',
-      disableClose: true,
-      backdropClass: 'panel-backdrop'
-    }).afterClosed();
+    this.dialogService.openCustomDialog(NotesFormComponent, {width: '70vw', disableClose: true});
   }
 
   clearStage() {
@@ -248,11 +234,7 @@ export class AppComponent {
     if (id) {
       const station = JSON.parse(JSON.stringify(this.bookService.getStation(+id.replace('node_', ''))));
       if (this.ui.expanded) {
-        this.dialog.open(StationViewerComponent, {
-          width: '70vw',
-          backdropClass: 'panel-backdrop',
-          data: {station}
-        }).afterClosed();
+        this.dialogService.openCustomDialog(StationViewerComponent, {width: '70vw'}, {station});
       } else {
         this.initColors();
         this.editService.unsaved = false;

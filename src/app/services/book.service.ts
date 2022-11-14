@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {Book} from '../model/book.model';
-import {MatDialog} from '@angular/material/dialog';
 import {Station} from '../model/station.model';
 import {Item} from '../model/item.model';
 import {StationItem} from '../model/station-item.model';
@@ -16,8 +15,7 @@ export class BookService {
   model: Book;
   maxStationID = 1;
 
-  constructor(private readonly dialog: MatDialog,
-              private readonly dialogService: DialogService,
+  constructor(private readonly dialogService: DialogService,
               private readonly corrector: BookCorrectorService) {
     this.model = new Book();
   }
@@ -272,11 +270,7 @@ export class BookService {
     book.title = this.model.title;
     book.backgroundStory = this.model.backgroundStory;
     book.stations = stations;
-    this.dialog.open(BookViewerComponent, {
-      width: '80vw',
-      backdropClass: 'panel-backdrop',
-      data: {book}
-    }).afterClosed();
+    this.dialogService.openCustomDialog(BookViewerComponent, {width: '80vw'}, {book});
   }
 
   private setMaxStationID() {
