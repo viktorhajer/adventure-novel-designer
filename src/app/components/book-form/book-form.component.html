@@ -32,6 +32,14 @@
           <div class="stat_name">Number of branches:</div>
           <div class="stat_value">{{ bookService.getNumberOfBranches() }}</div>
         </div>
+        <div class="stat">
+          <div class="stat_name">Number of winner stations:</div>
+          <div class="stat_value">{{ bookService.getNumberOfWinners() }}</div>
+        </div>
+        <div class="stat">
+          <div class="stat_name">Number of looser stations:</div>
+          <div class="stat_value">{{ bookService.getNumberOfLooser() }}</div>
+        </div>
       </div>
     </mat-tab>
     <mat-tab label="Configuration">

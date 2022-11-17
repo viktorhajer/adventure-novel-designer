@@ -53,6 +53,14 @@ export class BookService {
     return counts.filter(c => c.count > 1).length;
   }
 
+  getNumberOfWinners() {
+    return this.model.stations.filter(s => s.winner).length;
+  }
+
+  getNumberOfLooser() {
+    return this.model.stations.filter(s => s.looser).length;
+  }
+
   getItem(id: number): Item {
     return this.model.items.find(i => i.id === id) as any;
   }
