@@ -10,18 +10,6 @@
   </mat-form-field>
 
   <mat-tab-group>
-    <mat-tab label="Configuration">
-      <div class="configuration_container">
-        <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.mortality" (change)="changePlugin()">
-          Mortality
-        </mat-slide-toggle>
-
-        <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.showRegions"
-                          *ngIf="bookService.model.regions.length" (change)="changePlugin()">
-          Show regions
-        </mat-slide-toggle>
-      </div>
-    </mat-tab>
     <mat-tab label="Statistics">
       <div class="stat_container">
         <div class="stat">
@@ -36,6 +24,29 @@
           <div class="stat_name">Number of items:</div>
           <div class="stat_value">{{ bookService.model.items.length }}</div>
         </div>
+        <div class="stat">
+          <div class="stat_name">Number of characters:</div>
+          <div class="stat_value">{{ bookService.model.characters.length }}</div>
+        </div>
+        <div class="stat">
+          <div class="stat_name">Number of branches:</div>
+          <div class="stat_value">{{ bookService.getNumberOfBranches() }}</div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Configuration">
+      <div class="configuration_container">
+        <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.mortality" (change)="changePlugin()">
+          Mortality
+        </mat-slide-toggle>
+        <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.showRegions"
+                          *ngIf="bookService.model.regions.length" (change)="changePlugin()">
+          Show regions
+        </mat-slide-toggle>
+        <mat-form-field appearance="fill">
+          <mat-label>Numbering offset</mat-label>
+          <input type="number" matInput [(ngModel)]="bookService.model.numberingOffset">
+        </mat-form-field>
       </div>
     </mat-tab>
     <mat-tab label="Editorial" *ngIf="getEditorialStations().length">

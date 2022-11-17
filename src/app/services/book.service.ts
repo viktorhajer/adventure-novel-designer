@@ -47,6 +47,12 @@ export class BookService {
     return filtered.filter(s => !children.includes(s.id));
   }
 
+  getNumberOfBranches() {
+    const counts: any[] = [];
+    this.model.stations.forEach(s => counts.push({id: s.id, count: this.model.relations.filter(r => r.sourceId === s.id).length}));
+    return counts.filter(c => c.count > 1).length;
+  }
+
   getItem(id: number): Item {
     return this.model.items.find(i => i.id === id) as any;
   }
@@ -240,13 +246,13 @@ export class BookService {
     const starter = stations.find(s => s.starter);
     if (starter) {
       index++;
-      starter.index = index;
+      starter.index = index + this.model.numberingOffset;
       stations = stations.filter(s => s.id !== starter.id);
     }
     while (stations.length) {
       index++;
       const id = stations[Math.floor(Math.random() * stations.length)].id;
-      this.getStation(id).index = index;
+      this.getStation(id).index = index + this.model.numberingOffset;
       stations = stations.filter(s => s.id !== id);
     }
   }

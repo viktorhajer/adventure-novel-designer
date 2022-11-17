@@ -878,7 +878,7 @@
     {
       "id": 72,
       "title": "Gyönyörű panoráma",
-      "story": "Felérve a teraszra, Shelby sok szerencsét kíván, innen már egyedül kell folytatnod az utad. De mielőtt tovább mész, még szétnézel az elképesztő magasságban. A terasz végére állva feltárul előtted a teljes világ. Látod Tündérországot, ahova pár napja érkeztél meg és találkoztál a legkülönösebb lényekkel, akiket eddig ismertél. Utána ott van az ezüstösen világító Kő-tenger, ami ilyen távolságból valóban egy tengernek tűnik. Mellette a Békaváros és a Bogárhotel és egészen közel a Csigakert, ami felülről olyan, mintha egy csigaház lenne.  Sok különös lénnyel ismerkedtél meg, talán még barátokra is szert tettél. És most itt állsz a végső próba kapujában. Tőled függ, hogy megmenekül-e a világ és hazajuthatsz, vagy örökre itt kell raboskodnod, legalábbis addig, amíg össze nem omlik az idő. Lapozz [##1]. ",
+      "story": "Felérve a teraszra, Shelby sok szerencsét kíván, innen már egyedül kell folytatnod az utad. De mielőtt tovább mész, még szétnézel az elképesztő magasságban. A terasz végére állva feltárul előtted a teljes világ. Látod Tündérországot, ahova pár napja érkeztél meg és találkoztál a legkülönösebb lényekkel, akiket eddig ismertél. Utána ott van az ezüstösen világító Kő-tenger, ami ilyen távolságból valóban egy tengernek tűnik. Mellette a Békaváros és a Bogárhotel és egészen közel a Csigakert, ami felülről olyan, mintha egy csigaház lenne. Sok különös lénnyel ismerkedtél meg, talán még barátokra is szert tettél. És most itt állsz a végső próba kapujában. Tőled függ, hogy megmenekül-e a világ és hazajuthatsz, vagy örökre itt kell raboskodnod, legalábbis addig, amíg össze nem omlik az idő. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 36,
@@ -969,7 +969,7 @@
     {
       "id": 79,
       "title": "Gyógyulás",
-      "story": "Elmondod Mollynak, hogy van nálad ellenszer a csípésre és az érméért cserébe átadod neki. A szarka beleegyezik a cserébe. A kismadár megkapja a gyógyszert és szinte azonnal jobban lesz, felül mosolyogva az ágyában. Molly hálásan nyújtja feléd az időérmet éppen akkor, amikor a nap utolsó sugarai még látszanak. Hozzáérsz miközben a szemed lassan lecsukódnak. Lapozz [##1]. ",
+      "story": "Elmondod Mollynak, hogy van nálad ellenszer a csípésre és odaadod neki. A kismadár megkapja a gyógyszert és szinte azonnal jobban lesz, mosolyogva ül fel az ágyában. Molly hálásan nyújtja feléd az időérmet éppen akkor, amikor a nap utolsó sugarai még látszanak. Hozzáérsz miközben a szemeid lassan lecsukódnak. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 2,
@@ -1008,10 +1008,23 @@
     {
       "id": 82,
       "title": "Ismét tündérországban",
-      "story": "",
+      "story": "Egy világos szobában ébredsz, ami olyan, mintha egy fába vájták volna. Az ablakhoz sétálsz és hamar felismered a helyet, ismét Tündérországban vagy. Nagyon boldog vagy, hogy sikerült még idejében visszajutnod. Gyorsan megnézed a vállad, de a csípésnek hűlt helyét találod. \n\nEkkor kinyílik az ajtó és belép a tündérek királya. Hálás köszönetet mond, amiért megmentetted a világot. Rákérdezel a csípésre, és ő elmondja, hogy miután megjelentél a trónteremben, észrevették a sebesülést és azonnal megidézték a nagy varázslót, aki hamar adott neked a gyógyszerből, még éppen idejében. Ő az idő és a tér ura és jelenleg is a trónteremben vár. Nem késlekedtek, elhagyjátok a szobát. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 37,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 8
+    },
+    {
+      "id": 83,
+      "title": "Ijimas",
+      "story": "",
+      "color": "",
+      "comment": "",
+      "index": 0,
       "starter": false,
       "life": 0,
       "winner": false,
@@ -1685,6 +1698,12 @@
       "targetId": 82,
       "comment": "",
       "condition": false
+    },
+    {
+      "sourceId": 82,
+      "targetId": 83,
+      "comment": "",
+      "condition": false
     }
   ],
   "items": [
@@ -1697,6 +1716,11 @@
       "id": 2,
       "name": "Aranyelixír",
       "description": "Varázsital. Aki megissza, az bármihez hozzáér, arannyá változik. A bogárhotelben őrzik, mert úgy tartják, hogy ennek az átoknak elzárva kell lennie. "
+    },
+    {
+      "id": 3,
+      "name": "Ellenszer a csalánozó csípésére",
+      "description": ""
     }
   ],
   "stationItems": [],
@@ -1782,5 +1806,6 @@
     }
   ],
   "mortality": false,
-  "showRegions": true
+  "showRegions": true,
+  "numberingOffset": 0
 }

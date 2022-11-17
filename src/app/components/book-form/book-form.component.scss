@@ -11,10 +11,18 @@ textarea {
 
 .configuration_container {
   display: flex;
+  flex-flow: column;
   width: 100%;
-  justify-content: space-evenly;
-  height: 40px;
-  margin-top: 25px;
+  margin-top: 20px;
+  padding: 10px 0;
+
+  .mat-slide-toggle {
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+  .mat-form-field {
+    width: 150px;
+  }
 }
 
 .stat_container {

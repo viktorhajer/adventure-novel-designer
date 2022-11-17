@@ -18,4 +18,5 @@ export class Book {
   characters: Character[] = [];
   mortality = true;
   showRegions = false;
+  numberingOffset: number = 0;
 }
