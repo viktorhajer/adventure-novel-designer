@@ -1806,6 +1806,7 @@
     }
   ],
   "mortality": false,
+  "questionnaire": false,
   "showRegions": true,
   "numberingOffset": 0,
   "validationPC": true,

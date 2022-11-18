@@ -47,12 +47,15 @@
 
         <div class="configuration_container_child">
           <h3>Editor</h3>
-          <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.mortality" (change)="changePlugin()">
-            Mortality
-          </mat-slide-toggle>
           <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.showRegions"
                             *ngIf="bookService.model.regions.length" (change)="changePlugin()">
             Show regions
+          </mat-slide-toggle>
+          <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.mortality" (change)="changePlugin()">
+            Mortality
+          </mat-slide-toggle>
+          <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.questionnaire">
+            Questionnaire
           </mat-slide-toggle>
         </div>
 

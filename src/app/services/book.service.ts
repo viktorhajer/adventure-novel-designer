@@ -99,6 +99,7 @@ export class BookService {
       originStation.title = station.title;
       originStation.story = station.story;
       originStation.comment = station.comment;
+      originStation.question = station.question;
       originStation.regionId = station.regionId;
       originStation.color = station.color;
       originStation.starter = station.starter;

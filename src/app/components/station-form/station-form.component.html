@@ -18,6 +18,11 @@
     <input matInput [(ngModel)]="station.comment" (change)="checkUnsaved()">
   </mat-form-field>
 
+  <mat-form-field appearance="fill" *ngIf="bookService.model.questionnaire">
+    <mat-label>Verification question</mat-label>
+    <input matInput [(ngModel)]="station.question" (change)="checkUnsaved()">
+  </mat-form-field>
+
   <div class="flex--row">
     <mat-form-field appearance="fill" *ngIf="regions.length">
       <mat-label>Region</mat-label>
