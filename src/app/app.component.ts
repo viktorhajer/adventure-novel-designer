@@ -13,6 +13,7 @@ import {VisualModel} from './components/visual-book/visual-book.model';
 import {VisualBookMapper} from './components/visual-book/visual-book.mapper';
 import {BookLoaderService} from './services/book-loader.service';
 import {ReviewFormComponent} from './components/review-form/review-form.component';
+import {QuestionnaireComponent} from './components/questionnaire/questionnaire.component';
 import {Book} from './model/book.model';
 import {StorageService} from './services/storage.service';
 import {DownloadService} from './services/download.service';
@@ -43,7 +44,7 @@ export class AppComponent {
     '{"id":6,"regionId":0,"life":1,"title":"Folyópart","story":"ss","color":"white","comment":"","index":0,"starter":false,"winner":true,"looser":false},' +
     '{"id":7,"regionId":2,"life":0,"title":"Gödör","story":"gödör","color":"","comment":"","index":0,"starter":false,"winner":false,"looser":true},' +
     '{"id":8,"title":"Völgyben elágazás","story":"xxx","color":"blue","comment":"","index":0,"starter":false,"life":0,"winner":false,"looser":false,"regionId":1},' +
-    '{"id":9,"title":"Kisállat simogató","story":"","color":"","comment":"","index":6,"starter":false,"life":-3,"winner":false,"looser":false,"regionId":1}' +
+    '{"id":9,"title":"Kisállat simogató","question":"Are you sure?","story":"","color":"","comment":"","index":6,"starter":false,"life":-3,"winner":false,"looser":false,"regionId":1}' +
     '],"relations":[' +
     '{"sourceId":1,"targetId":2,"comment":"Megnéz","condition":false},' +
     '{"sourceId":1,"targetId":3,"comment":"Leugrik","condition":true},' +
@@ -58,7 +59,7 @@ export class AppComponent {
     '],"stationItems":[{"stationId": 3, "itemId": 1, "count": 2}, {"stationId": 5, "itemId": 2, "count": 1}],' +
     '"items":[{"id":1,"name":"Kard"},{"id": 2,"name":"Kulcs"}],' +
     '"regions":[{"id":1,"name":"Középfölde","color":"green","description":""},{"id": 2,"name":"Tündérország","color":"blue","description":""}],' +
-    '"mortality": true,"questionnaire": false,"characters": [], "numberingOffset": 10,"validationPC": true,"validationSS": true}';
+    '"mortality": true,"questionnaire": true,"characters": [], "numberingOffset": 10,"validationPC": true,"validationSS": true}';
   station: Station = null as any;
   visualModel: VisualModel = null as any;
   formTrigger = 0;
@@ -127,6 +128,10 @@ export class AppComponent {
   downloadFinal() {
     this.bookService.finalize(false).then(stations =>
       this.downloadService.downloadGeneratedBook(this.bookService.model, stations));
+  }
+  
+  openQuestionnaire() {
+    this.dialogService.openCustomDialog(QuestionnaireComponent, {width: '70vw'});
   }
 
   review() {

@@ -16,6 +16,7 @@ import {StationViewerComponent} from './components/station-viewer/station-viewer
 import {MatSelectModule} from '@angular/material/select';
 import {BookFormComponent} from './components/book-form/book-form.component';
 import {BookViewerComponent} from './components/book-viewer/book-viewer.component';
+import {QuestionnaireComponent} from './components/questionnaire/questionnaire.component';
 import {RelationFormComponent} from './components/relation-form/relation-form.component';
 import {ItemFormComponent} from './components/item-form/item-form.component';
 import {RegionFormComponent} from './components/region-form/region-form.component';
@@ -48,6 +49,7 @@ import {DialogComponent} from './components/dialog/dialog.component';
     SimulationComponent,
     NotesFormComponent,
     VisualBookComponent,
+    QuestionnaireComponent,
     ReviewFormComponent
   ],
   imports: [

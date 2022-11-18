@@ -18,7 +18,7 @@
         <mat-icon>save</mat-icon>
       </button>
       <button mat-icon-button (click)="takingNotes()" title="Taking notes">
-        <mat-icon>edit_note</mat-icon>
+        <mat-icon>draw</mat-icon>
       </button>
       <button mat-icon-button (click)="review()" *ngIf="!!bookService.model.stations.length"
               title="Editorial review">
@@ -29,6 +29,9 @@
       </button>
       <button mat-icon-button (click)="downloadFinal()" title="Download final">
         <mat-icon>download</mat-icon>
+      </button>
+      <button mat-icon-button (click)="openQuestionnaire()" title="Get questionnaire" *ngIf="bookService.model.questionnaire">
+        <mat-icon>assignment</mat-icon>
       </button>
       <button mat-icon-button (click)="simulation()" title="Start simulation">
         <mat-icon>rocket_launch</mat-icon>

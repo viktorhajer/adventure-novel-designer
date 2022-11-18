@@ -1,0 +1,22 @@
+.mat-dialog-content {
+  padding: 30px;
+}
+
+.question_container {
+  margin-bottom: 30px;
+  
+  .question {
+  
+  }
+
+  .answer {
+    width: 100%;
+    border-bottom: 2px dotted #787878;
+    margin: 16px 0;
+    height: 12px;
+  }
+
+  .command {
+    font-style: italic;
+  }
+}
