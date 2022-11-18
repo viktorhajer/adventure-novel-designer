@@ -1,8 +1,12 @@
 <div id="edit-station-form" *ngIf="station">
-  <mat-form-field appearance="fill">
-    <mat-label>Title</mat-label>
-    <input matInput [(ngModel)]="station.title" (change)="checkUnsaved()">
-  </mat-form-field>
+
+  <div class="title_field_container">
+    <div class="station_index" *ngIf="station.index">{{ station.index }}</div>
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput [(ngModel)]="station.title" (change)="checkUnsaved()">
+    </mat-form-field>
+  </div>
 
   <mat-form-field appearance="fill">
     <mat-label>Story</mat-label>
@@ -70,7 +74,7 @@
           <thead>
           <tr>
             <th class="macro">Macro</th>
-            <th>Title</th>
+            <th>Title (index)</th>
             <th>Comment</th>
             <th class="condition">Condition</th>
             <th>Actions</th>
@@ -80,7 +84,7 @@
           <tr *ngFor="let s of children; let i = index">
             <td class="macro">##{{ i + 1 }}</td>
             <td>
-              <div>{{ s.title }}</div>
+              <div>{{ s.title }}<span *ngIf="s.index"> ({{s.index}})</span></div>
             </td>
             <td>
               <div>{{ getRelation(s.id).comment }}</div>
