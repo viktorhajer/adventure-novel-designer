@@ -19,4 +19,6 @@ export class Book {
   mortality = true;
   showRegions = false;
   numberingOffset: number = 0;
+  validationPC = true;
+  validationSS = true;
 }

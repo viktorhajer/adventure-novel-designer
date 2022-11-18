@@ -12,10 +12,10 @@ export class DialogService {
   constructor(private readonly dialog: MatDialog) {
   }
 
-  openConfirmation(message = 'Are you sure to delete?'): Promise<boolean> {
+  openConfirmation(message = 'Are you sure to delete?', okTitle = 'OK', cancelTitle = 'Cancel'): Promise<boolean> {
     return firstValueFrom(this.dialog.open(ConfirmDialogComponent, {
       width: '300px',
-      data: {message},
+      data: {message, okTitle, cancelTitle},
       backdropClass: 'panel-backdrop',
       disableClose: true
     }).afterClosed());

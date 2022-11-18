@@ -11,17 +11,22 @@ textarea {
 
 .configuration_container {
   display: flex;
-  flex-flow: column;
-  width: 100%;
-  margin-top: 20px;
-  padding: 10px 0;
+  width: calc(100% - 60px);
+  padding: 10px 0px;
+  margin: 0 30px;
 
-  .mat-slide-toggle {
-    margin-bottom: 20px;
-    margin-left: 20px;
-  }
-  .mat-form-field {
-    width: 150px;
+  .configuration_container_child {
+    display: flex;
+    flex-flow: column;
+    width: 50%;
+
+    .mat-slide-toggle {
+      margin-bottom: 20px;
+      margin-left: 20px;
+    }
+    .mat-form-field {
+      width: 150px;
+    }
   }
 }
 

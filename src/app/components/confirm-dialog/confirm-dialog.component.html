@@ -3,7 +3,7 @@
   <p>{{data.message}}</p>
 
   <div class="actions">
-    <button mat-raised-button color="primary" (click)="ok()">OK</button>
-    <button mat-raised-button (click)="cancel()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="ok()">{{ data.okTitle }}</button>
+    <button mat-raised-button (click)="cancel()">{{ data.cancelTitle }}</button>
   </div>
 </mat-dialog-content>

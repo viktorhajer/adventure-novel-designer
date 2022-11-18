@@ -19,7 +19,8 @@ import {DownloadService} from './services/download.service';
 import {DialogService} from './services/dialog.service';
 
 const EMPTY_BOOK = '{"id":0,"title":"New book","backgroundStory":"","notes":"","stations":[],"relations":[],"items":[],' +
-  '"stationItems":[],"regions": [],"characters": [],"mortality": true,"showRegions": false, "numberingOffset": 0}';
+  '"stationItems":[],"regions": [],"characters": [],"mortality": true,"showRegions": false,"validationPC": true,"validationSS": true,' +
+  '"numberingOffset": 0}';
 
 // @ts-ignore
 
@@ -57,7 +58,7 @@ export class AppComponent {
     '],"stationItems":[{"stationId": 3, "itemId": 1, "count": 2}, {"stationId": 5, "itemId": 2, "count": 1}],' +
     '"items":[{"id":1,"name":"Kard"},{"id": 2,"name":"Kulcs"}],' +
     '"regions":[{"id":1,"name":"Középfölde","color":"green","description":""},{"id": 2,"name":"Tündérország","color":"blue","description":""}],' +
-    '"mortality": true,"characters": [], "numberingOffset": 10}';
+    '"mortality": true,"characters": [], "numberingOffset": 10,"validationPC": true,"validationSS": true}';
   station: Station = null as any;
   visualModel: VisualModel = null as any;
   formTrigger = 0;
@@ -124,7 +125,8 @@ export class AppComponent {
   }
 
   downloadFinal() {
-    this.downloadService.downloadGeneratedBook(this.bookService.model, this.bookService.finalize(false));
+    this.bookService.finalize(false).then(stations =>
+      this.downloadService.downloadGeneratedBook(this.bookService.model, stations));
   }
 
   review() {

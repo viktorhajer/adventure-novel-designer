@@ -7,6 +7,8 @@ import {BookCorrectorService} from './book-corrector.service';
 import {BookViewerComponent} from '../components/book-viewer/book-viewer.component';
 import {DialogService} from './dialog.service';
 
+const NUMBER_OF_MAX_GENERATION = 200;
+
 @Injectable({
   providedIn: 'root'
 })
@@ -81,7 +83,7 @@ export class BookService {
   createStation(station: Station, parentId?: number, comment = '') {
     station.id = ++this.maxStationID;
     this.model.stations.push(station);
-    if (!!parentId) {
+    if (!!parentId && !this.getStation(parentId).winner && !this.getStation(parentId).looser) {
       this.model.relations.push({
         sourceId: parentId,
         targetId: station.id,
@@ -167,37 +169,65 @@ export class BookService {
     this.model.characters = this.model.characters.filter(i => i.id !== id);
   }
 
-  finalize(withDialog = true): Station[] {
+  finalize(withDialog = true): Promise<Station[]> {
     if (this.isValidBook()) {
-      let generation = 0;
-      do {
-        generation++;
-        this.generateIndexes();
-      } while (!this.validateIndexes());
-      if (generation > 0) {
-        console.log('Regenerate: ' + generation);
-      }
-      const stations = this.sortAndReplaceMacros();
-      if (withDialog) {
-        this.openBookViewer(stations);
-        this.validateMacros();
-      }
-      return stations;
+
+      const hasIndex = !this.model.stations.some(s => s.index === 0);
+      return (hasIndex ?
+        this.dialogService.openConfirmation('Indexes has been generated. Would you like to refresh?', 'Yes', 'No')
+        : Promise.resolve(true))
+        .then(refresh => {
+          let hasIndexError = false;
+          if (refresh) {
+            let generation = 0;
+            do {
+              generation++;
+              this.generateIndexes();
+              if (generation > NUMBER_OF_MAX_GENERATION) {
+                hasIndexError = true;
+                break;
+              }
+            } while (!this.validateIndexes());
+            if (generation > 0) {
+              console.log('Number of generation: ' + generation);
+            }
+          }
+          const stations = this.sortAndReplaceMacros();
+          if (withDialog) {
+            this.openBookViewer(stations);
+            this.validateMacros();
+          }
+          if (hasIndexError) {
+            this.dialogService.openError(`Number of index generations has reached the maximum (${NUMBER_OF_MAX_GENERATION}). ` +
+              'Please try it again, or consider turning off the index validation.');
+          }
+          return stations;
+
+        });
     }
-    return [];
+    return Promise.resolve([]);
   }
 
   private isValidBook() {
     let message = '';
+
+    // No station
+    if (this.model.stations.length === 0) {
+      message = 'Please create at least one station.';
+    }
+
     // One starter
-    const starters = this.model.stations.filter(s => s.starter);
-    if (starters.length !== 1) {
-      if (starters.length === 0) {
-        message = 'Missing first station.';
-      } else {
-        message = 'More than one first stations: ' + starters.map(s => s.title).join(', ') + '.';
+    if (!message) {
+      const starters = this.model.stations.filter(s => s.starter);
+      if (starters.length !== 1) {
+        if (starters.length === 0) {
+          message = 'Missing first station.';
+        } else {
+          message = 'More than one first stations: ' + starters.map(s => s.title).join(', ') + '.';
+        }
       }
     }
+
     // Shadow starter
     if (!message) {
       const targetIds = this.model.relations.map(r => r.targetId);
@@ -266,17 +296,47 @@ export class BookService {
   }
 
   private validateIndexes(): boolean {
-    let wrongIndex = 0;
-    if (this.model.stations.length > 10) {
+    let wrongPCIndex = 0;
+    let wrongSSIndex = 0;
+    if (this.model.stations.length > 10 && (this.model.validationPC || this.model.validationSS)) {
       const nums: number[] = [];
       this.model.stations.forEach(s => nums[s.id] = s.index);
-      for (const r of this.model.relations) {
-        if (Math.abs(nums[r.sourceId] - nums[r.targetId]) === 1) {
-          wrongIndex++;
+
+      // check parent-child distance
+      if (this.model.validationPC) {
+        for (const r of this.model.relations) {
+          if (Math.abs(nums[r.sourceId] - nums[r.targetId]) === 1) {
+            wrongPCIndex++;
+          }
         }
       }
+
+      // check siblings distance
+      if (this.model.validationSS) {
+        this.model.stations.forEach(station => {
+          const rs = this.model.relations.filter(r => r.sourceId === station.id)
+            .map(r => nums[r.targetId]).sort((n1, n2) => n1 - n2);
+          if (rs.length > 1) {
+            for (let i = 1; i < rs.length; i++) {
+              if (Math.abs(rs[i - 1] - rs[i]) === 1) {
+                wrongSSIndex++;
+              }
+            }
+          }
+        });
+      }
+
+      // DEBUG
+      /*if (wrongPCIndex > 0 || wrongSSIndex > 0) {
+        console.log('-------------');
+        console.log(' Number of wrong parent-child index: ' + wrongPCIndex);
+        console.log(' Number of wrong siblings index: ' + wrongSSIndex);
+      } else {
+        console.log('-------------');
+        console.log(' No wrong index.');
+      }*/
     }
-    return wrongIndex === 0;
+    return wrongPCIndex === 0 && wrongSSIndex === 0;
   }
 
   private openBookViewer(stations: Station[]) {
