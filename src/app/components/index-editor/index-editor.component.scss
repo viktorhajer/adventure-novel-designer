@@ -1,0 +1,53 @@
+.index_diagram {
+  display: flex;
+  height: 400px;
+  align-items: end;
+  border: 1px solid #efefef;
+  padding: 5px;
+  background: linear-gradient(180deg, #e7e7e7, transparent);
+
+  .index_column {
+    flex: 1;
+    background: #2d4552;
+    color: #fff;
+    font-size: 7px;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 150ms;
+    border-radius: 2px;
+  }
+  .index_column:hover {
+    opacity: 1;
+    border: 2px solid #fff;
+    flex: 3;
+  }
+  .index_column:nth-child(2n) {
+    background: #4f9a8f;
+  }
+  .index_column:nth-child(3n) {
+    background: #e4c477;
+  }
+  .index_column:nth-child(4n) {
+    background: #e9a56c;
+  }
+  .index_column:nth-child(5n) {
+    background: #d87659;
+  }
+}
+
+.statistics {
+  margin: 20px 0 0 0;
+  line-height: 24px;
+  font-style: italic;
+}
+
+.actions {
+  margin-top: 20px;
+  padding: 10px 10px;
+  text-align: right;
+
+  button {
+    margin-left: 10px;
+  }
+}

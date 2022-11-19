@@ -1,0 +1,23 @@
+<h2>
+  <mat-icon>tag</mat-icon>
+  <div>Index editor</div>
+</h2>
+<mat-dialog-content class="mat-typography">
+
+  <div class="index_diagram">
+    <div *ngFor="let rd of relationsDistances" class="index_column" (click)="openStation(rd.s)"
+      [style.height]="rd.h + '%'" [title]="rd.s + ':' + rd.t + '->' + rd.d">
+      {{ rd.d }}
+    </div>
+  </div>
+  <div class="statistics">
+    Maximum distance: {{ maximum }}<br/>
+    Minimum distance: {{ minimum }}<br/>
+    Total: {{ total }}<br/>
+    Average: {{ average }}
+  </div>
+
+  <div class="actions">
+    <button mat-raised-button (click)="close()">Cancel</button>
+  </div>
+</mat-dialog-content>

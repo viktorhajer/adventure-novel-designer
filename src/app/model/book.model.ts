@@ -21,5 +21,7 @@ export class Book {
   showRegions = false;
   numberingOffset: number = 0;
   validationPC = true;
+  validationPCD: number = 2;
   validationSS = true;
+  validationSSD: number = 2;
 }

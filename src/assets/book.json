@@ -1810,5 +1810,7 @@
   "showRegions": true,
   "numberingOffset": 0,
   "validationPC": true,
-  "validationSS": true
+  "validationPCD":2,
+  "validationSS": true,
+  "validationSSD":2
 }

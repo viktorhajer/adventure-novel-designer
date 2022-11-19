@@ -7,7 +7,7 @@ import {BookCorrectorService} from './book-corrector.service';
 import {BookViewerComponent} from '../components/book-viewer/book-viewer.component';
 import {DialogService} from './dialog.service';
 
-const NUMBER_OF_MAX_GENERATION = 200;
+const NUMBER_OF_MAX_GENERATION = 30000;
 
 @Injectable({
   providedIn: 'root'
@@ -345,7 +345,7 @@ export class BookService {
       // check parent-child distance
       if (this.model.validationPC) {
         for (const r of this.model.relations) {
-          if (Math.abs(nums[r.sourceId] - nums[r.targetId]) === 1) {
+          if (Math.abs(nums[r.sourceId] - nums[r.targetId]) < this.model.validationPCD) {
             wrongPCIndex++;
           }
         }
@@ -358,7 +358,7 @@ export class BookService {
             .map(r => nums[r.targetId]).sort((n1, n2) => n1 - n2);
           if (rs.length > 1) {
             for (let i = 1; i < rs.length; i++) {
-              if (Math.abs(rs[i - 1] - rs[i]) === 1) {
+              if (Math.abs(rs[i - 1] - rs[i]) < this.model.validationSSD) {
                 wrongSSIndex++;
               }
             }

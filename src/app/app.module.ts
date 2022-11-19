@@ -30,6 +30,7 @@ import {ReviewFormComponent} from './components/review-form/review-form.componen
 import {BookListComponent} from './components/book-list/book-list.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {DialogComponent} from './components/dialog/dialog.component';
+import {IndexEditorComponent} from './components/index-editor/index-editor.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {DialogComponent} from './components/dialog/dialog.component';
     NotesFormComponent,
     VisualBookComponent,
     QuestionnaireComponent,
-    ReviewFormComponent
+    ReviewFormComponent,
+    IndexEditorComponent
   ],
   imports: [
     CommonModule,

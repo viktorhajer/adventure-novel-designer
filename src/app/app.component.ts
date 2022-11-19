@@ -14,14 +14,16 @@ import {VisualBookMapper} from './components/visual-book/visual-book.mapper';
 import {BookLoaderService} from './services/book-loader.service';
 import {ReviewFormComponent} from './components/review-form/review-form.component';
 import {QuestionnaireComponent} from './components/questionnaire/questionnaire.component';
+import {IndexEditorComponent} from './components/index-editor/index-editor.component';
 import {Book} from './model/book.model';
 import {StorageService} from './services/storage.service';
 import {DownloadService} from './services/download.service';
 import {DialogService} from './services/dialog.service';
+import {firstValueFrom} from 'rxjs';
 
 const EMPTY_BOOK = '{"id":0,"title":"New book","backgroundStory":"","notes":"","stations":[],"relations":[],"items":[],' +
   '"stationItems":[],"regions": [],"characters": [],"mortality": true,"showRegions": false,"validationPC": true,"validationSS": true,' +
-  '"numberingOffset": 0,"questionnaire": false}';
+  '"numberingOffset": 0,"questionnaire": false,"validationPCD":2,"validationSSD":2}';
 
 // @ts-ignore
 
@@ -59,7 +61,7 @@ export class AppComponent {
     '],"stationItems":[{"stationId": 3, "itemId": 1, "count": 2}, {"stationId": 5, "itemId": 2, "count": 1}],' +
     '"items":[{"id":1,"name":"Kard"},{"id": 2,"name":"Kulcs"}],' +
     '"regions":[{"id":1,"name":"Középfölde","color":"green","description":""},{"id": 2,"name":"Tündérország","color":"blue","description":""}],' +
-    '"mortality": true,"questionnaire": true,"characters": [], "numberingOffset": 10,"validationPC": true,"validationSS": true}';
+    '"mortality": true,"questionnaire": true,"characters": [], "numberingOffset": 10,"validationPC": true,"validationSS": true,"validationPCD":2,"validationSSD":2}';
   station: Station = null as any;
   visualModel: VisualModel = null as any;
   formTrigger = 0;
@@ -145,6 +147,14 @@ export class AppComponent {
 
   takingNotes() {
     this.dialogService.openCustomDialog(NotesFormComponent, {width: '70vw', disableClose: true});
+  }
+  
+  indexEditor() {
+    firstValueFrom(this.dialogService.openCustomDialog(IndexEditorComponent, {width: '80vw'})).then(result => {
+      if (result) {
+        this.openStation(result + '');
+      }
+    });
   }
 
   clearStage() {
