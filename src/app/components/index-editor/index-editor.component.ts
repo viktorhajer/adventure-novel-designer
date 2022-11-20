@@ -61,7 +61,6 @@ export class IndexEditorComponent {
       this.minimumSS = rd.d < this.minimumSS ? rd.d : this.minimumSS; 
       this.totalSS += rd.d;
     });
-    console.log(this.relationsDistancesSS);
     this.relationsDistancesSS.forEach(rd => {
       rd.h = Math.round(rd.d / this.maximumSS * 90);
     });

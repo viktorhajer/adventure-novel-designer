@@ -1,0 +1,10 @@
+<h2>
+  <mat-icon>face</mat-icon>
+  <div>Characters chapter</div>
+</h2>
+<mat-dialog-content class="mat-typography character_viewer">
+  <div class="character_container" *ngFor="let character of characters">
+    <span class="name">{{ character.name }}</span>
+    {{ character.description }}
+  </div>
+</mat-dialog-content>

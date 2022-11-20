@@ -1020,8 +1020,8 @@
     },
     {
       "id": 83,
-      "title": "Godfrey",
-      "story": "",
+      "title": "Búcsú tündérországtól",
+      "story": "A trónterembe érve először Godfreyt pillantod meg. Odalépsz hozzá és köszönetet mondasz a sok jó tanácsért és támogatásért. Elárulod neki, hogy sokáig azt gondoltad, hogy ő csupán a képzeleted szüleménye. Utána megpillantod a szoba közepén az időérmet. Egy kicsi tárgy és mégis milyen nagy bonyodalmat tud okozni. Végre alkalmad nyílik jobban szemügyre venni. Az egyik oldalán egy homokóra, a másikon egy arckép. Ahogy jobban szemügyre veszed az arcot, azonnal világossá válik számodra, hogy ki is a mester valójában. Godfrey felé fordulsz: \n- Ha te vagy a nagy varázsló, miért nem szerezted azonnal vissza az érmét? \n- Nem érhetek hozzá az időérméhez. Megtettem mindent, ami leginkább a hatalmamban állt és elhoztam valakit, aki elég bátor és melegszívű ahhoz, hogy sikeresen megmentse a világot. \n- Haza tudsz juttatni? \n- Semmi nem lehetetlen, csak akkor, ha azt gondolod, hogy a lehetetlen létezik. Kérlek foglalj helyet ezen a széken és hunyd le a szemed!\n\nLeülsz a székre és becsukod a szemeid. Ezután Godfrey eléd áll, imára kulcsolja a kezét és folytatja:\n- Szolgálj szeress, adakozz, légy jó, tégy jót, tisztulj és valósítsd meg magad! Egy mozdulatlan elmének az egész világ megadja magát.\n\nEkkor a lecsukott szemek mögött hatalmas fényességet látsz, végtelen csendet tapasztalsz és elönt egy határtalan boldogság. Lapozz [##1].",
       "color": "white",
       "comment": "",
       "index": 23,
@@ -1030,6 +1030,20 @@
       "winner": false,
       "looser": false,
       "regionId": 8
+    },
+    {
+      "id": 84,
+      "title": "Újra a valósában",
+      "story": "A fényesség lassan elhalványodik és felváltja egy hideg, nedves érzés. Karok ragadnak meg és húznak ki a partra. Lassan magadhoz térsz. A saját világodban vagy, a parton, csuromvizesen. \n- Mi történt veled? - kérdezi egy hang\n- A naplementét néztem, amikor megbillentem és beleestem a vízbe. Gondolom ez volt az ára az élményemnek. \n- Nos kedves barátom, a világban mindennek megvan az ára, de értéke csak kevés dolognak. Jó ezt észben tartani! \n\nRánézel a hang forrására és örömmel látod, hogy Godfrey az. Ő kedvesen mosolyog rád, majd hattyúvá változik. Csendben nézed, ahogy lassan visszamegy a tóba, majd elúszik. \n\nTudod, hogy soha többé nem leszel egyedül és a világ sem lesz már ugyanaz, mint azelőtt. ",
+      "color": "white",
+      "comment": "",
+      "index": 0,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "regionId": 8,
+      "question": ""
     }
   ],
   "relations": [
@@ -1704,6 +1718,12 @@
       "targetId": 83,
       "comment": "",
       "condition": false
+    },
+    {
+      "sourceId": 83,
+      "targetId": 84,
+      "comment": "",
+      "condition": false
     }
   ],
   "items": [
@@ -1796,7 +1816,7 @@
     },
     {
       "id": 7,
-      "name": "Molly - a szarka",
+      "name": "Molly a szarka",
       "description": ""
     },
     {
@@ -1810,7 +1830,8 @@
   "showRegions": true,
   "numberingOffset": 0,
   "validationPC": true,
-  "validationPCD":2,
+  "validationPCD": 2,
   "validationSS": true,
-  "validationSSD":2
+  "validationSSD": 2,
+  "charactersChapter": true
 }

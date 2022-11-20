@@ -18,6 +18,7 @@ export class Book {
   characters: Character[] = [];
   mortality = true;
   questionnaire = false;
+  charactersChapter = false;
   showRegions = false;
   numberingOffset: number = 0;
   validationPC = true;

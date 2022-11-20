@@ -189,9 +189,6 @@ export class BookService {
                 break;
               }
             } while (!this.validateIndexes());
-            if (generation > 0) {
-              console.log('Number of generation: ' + generation);
-            }
           }
           const stations = this.sortAndReplaceMacros();
           if (withDialog) {
@@ -344,7 +341,7 @@ export class BookService {
     book.title = this.model.title;
     book.backgroundStory = this.model.backgroundStory;
     book.stations = stations;
-    this.dialogService.openCustomDialog(BookViewerComponent, {width: '80vw'}, {book});
+    this.dialogService.openCustomDialog(BookViewerComponent, {width: '700px'}, {book});
   }
 
   private setMaxStationID() {

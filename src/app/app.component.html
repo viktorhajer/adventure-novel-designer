@@ -33,6 +33,9 @@
       <button mat-icon-button (click)="openQuestionnaire()" title="Get questionnaire" *ngIf="bookService.model.questionnaire">
         <mat-icon>assignment</mat-icon>
       </button>
+      <button mat-icon-button (click)="openCharacters()" title="Open characters chapter" *ngIf="bookService.model.charactersChapter && bookService.model.characters.length">
+        <mat-icon>face</mat-icon>
+      </button>
       <button mat-icon-button (click)="indexEditor()" title="Open index editor">
         <mat-icon>tag</mat-icon>
       </button>
