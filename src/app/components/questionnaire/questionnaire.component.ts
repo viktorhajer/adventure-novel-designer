@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import {Station} from '../../model/station.model';
 import {BookService} from '../../services/book.service';
+import {GrammerService} from '../../services/grammer.service';
 
 @Component({
   selector: 'app-questionnaire',
@@ -20,9 +21,9 @@ export class QuestionnaireComponent {
   getCommand(index: number): string {
     const command = 'A válaszod ellenőrzéséhez lapozz [###]!';
     return command
-      .replace('[###]', this.bookService.getArticle(index) + index + this.bookService.getAffix(index))
-      .replace('(###)', this.bookService.getArticle(index) + index + this.bookService.getAffix2(index))
-      .replace('###', this.bookService.getArticle(index) + index);
+      .replace('[###]', GrammerService.getArticle(index) + index + GrammerService.getAffix(index))
+      .replace('(###)', GrammerService.getArticle(index) + index + GrammerService.getAffix2(index))
+      .replace('###', GrammerService.getArticle(index) + index);
   }
 
   cancel() {

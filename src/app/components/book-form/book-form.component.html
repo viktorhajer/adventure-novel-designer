@@ -44,7 +44,6 @@
     </mat-tab>
     <mat-tab label="Configuration">
       <div class="configuration_container">
-
         <div class="configuration_container_child">
           <h3>Editor</h3>
           <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.showRegions"
@@ -58,21 +57,6 @@
             Questionnaire
           </mat-slide-toggle>
         </div>
-
-        <div class="configuration_container_child">
-          <h3>Numbering</h3>
-          <mat-form-field appearance="fill">
-            <mat-label>Offset</mat-label>
-            <input type="number" matInput [(ngModel)]="bookService.model.numberingOffset">
-          </mat-form-field>
-          <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.validationPC">
-            Parent-child distance validation
-          </mat-slide-toggle>
-          <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.validationSS">
-            Siblings distance validation
-          </mat-slide-toggle>
-        </div>
-
       </div>
     </mat-tab>
     <mat-tab label="Editorial" *ngIf="getEditorialStations().length">

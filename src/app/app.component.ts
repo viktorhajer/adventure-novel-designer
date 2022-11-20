@@ -128,8 +128,8 @@ export class AppComponent {
   }
 
   downloadFinal() {
-    this.bookService.finalize(false).then(stations =>
-      this.downloadService.downloadGeneratedBook(this.bookService.model, stations));
+    this.bookService.finalize(false).then(result =>
+      this.downloadService.downloadGeneratedBook(this.bookService.model, result[0]));
   }
   
   openQuestionnaire() {

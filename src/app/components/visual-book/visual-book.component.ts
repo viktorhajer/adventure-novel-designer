@@ -45,7 +45,7 @@ export class VisualBookComponent implements OnChanges {
       this.renderGraph();
       this.setSelectableNodes();
       this.initZoom(transform as any);
-      if (this.selected) {
+      if (this.selected && this.nodes.some(n => n.id === this.selected)) {
         this.selectNode(this.selected);
       }
     } else {

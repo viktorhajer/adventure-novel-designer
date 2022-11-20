@@ -2,7 +2,7 @@
   "id": 1667885870560,
   "title": "Az elveszett időérme",
   "backgroundStory": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "notes": "Történet vége: A szarka azért lopta el az érmet, mert a fiókáját megszúrta 2 napja egy növény és a nap végén sajnos elpusztul.  Vissza akart menni, de csak 1 napra tud, így nem tudja megakadályozni a dolgot. Te felajánlod a szérumot, amit a csigakert elején szereztél, cserébe az érméért. Visszakerülsz teleportal, vissza is rakjátok az érmét, de sajnos neked már késő, a tündéreknek nincs szérumja. Ekkor megjelenik Ijimas és megment. Kiderül, hogy ő az érme szelleme. ",
+  "notes": "Történet vége: A szarka azért lopta el az érmet, mert a fiókáját megszúrta 2 napja egy növény és a nap végén sajnos elpusztul.  Vissza akart menni, de csak 1 napra tud, így nem tudja megakadályozni a dolgot. Te felajánlod a szérumot, amit a csigakert elején szereztél, cserébe az érméért. Visszakerülsz teleportal, vissza is rakjátok az érmét, de sajnos neked már késő, a tündéreknek nincs szérumja. Ekkor megjelenik Godfrey és megment. Kiderül, hogy ő az érme szelleme. ",
   "stations": [
     {
       "id": 1,
@@ -45,8 +45,8 @@
     },
     {
       "id": 4,
-      "title": "Ébredés egy új világban - Találkozás Ijimasszal",
-      "story": "Lassan kinyitod a szemeid és egy fényes új világ tárul eléd. Épületeknek vagy a mólónak nyoma sincs, csupán egy poros földutat látsz körben hatalmas méretű fákkal. Olyan érzésed van, mintha összementél volna, vagy minden megnőtt volna körülötted. Közel hozzád egy öregembert pillantasz meg, aki egy kövön ül és pipázik. Kopott köpenyt és kalapot visel, kalapján egy tollat, hosszú ősz szakálla és haja van. Ahogy közelebb mész hozzá kedves mosollyal üdvözöl. Megkérdezed, hogy mi ez a hely? Ő azt válaszolja: \n- Hát Tündérország! Közel a nagy fához. Nem csodálom, hogy elveszve érzed magad. Mióta az időérmét ellopták sok furcsaság történik a világban. Ijimasnak hívnak. \n\nElmondod neki, hogy mi történt veled, nem érted az egészet, de szeretnél hazajutni. Az öreg azt feleli, hogy \"soha nem lehetünk annyira elveszve, hogy az angyalaink ne találnának ránk\", de azért a helyedben beszélne Tündérország uralkodójával. A tündérek sok varázslatos dolgot tudnak véghez vinni, ha valakik, hát ők biztos tudnak segíteni. Megmutatja, hogy merre kell elindulnod. Végig nézel az úton és a távolban egy hatalmas fát pillantasz meg, bizonyára az lehet a \"nagy fa\", ahol a tündérek élnek. Megfordulsz, hogy megköszönd az útbaigazítást és megkérdezd, hogy veled tart-e, de az öregembernek már csak a hűlt helyét találod. \n\nHa elfogadod az útbaigazítást, akkor lapozz [##1], ha inkább várakozol más segítségre, lapozz [##2].",
+      "title": "Ébredés egy új világban - Találkozás Godfreyvel",
+      "story": "Lassan kinyitod a szemeid és egy fényes új világ tárul eléd. Épületeknek vagy a mólónak nyoma sincs, csupán egy poros földutat látsz körben hatalmas méretű fákkal. Olyan érzésed van, mintha összementél volna, vagy minden megnőtt volna körülötted. Közel hozzád egy öregembert pillantasz meg, aki egy kövön ül és pipázik. Kopott köpenyt és kalapot visel, kalapján egy tollat, hosszú ősz szakálla és haja van. Ahogy közelebb mész hozzá kedves mosollyal üdvözöl. Megkérdezed, hogy mi ez a hely? Ő azt válaszolja: \n- Hát Tündérország! Közel a nagy fához. Nem csodálom, hogy elveszve érzed magad. Mióta az időérmét ellopták sok furcsaság történik a világban. Godfreynek hívnak. \n\nElmondod neki, hogy mi történt veled, nem érted az egészet, de szeretnél hazajutni. Az öreg azt feleli, hogy \"soha nem lehetünk annyira elveszve, hogy az angyalaink ne találnának ránk\", de azért a helyedben beszélne Tündérország uralkodójával. A tündérek sok varázslatos dolgot tudnak véghez vinni, ha valakik, hát ők biztos tudnak segíteni. Megmutatja, hogy merre kell elindulnod. Végig nézel az úton és a távolban egy hatalmas fát pillantasz meg, bizonyára az lehet a \"nagy fa\", ahol a tündérek élnek. Megfordulsz, hogy megköszönd az útbaigazítást és megkérdezd, hogy veled tart-e, de az öregembernek már csak a hűlt helyét találod. \n\nHa elfogadod az útbaigazítást, akkor lapozz [##1], ha inkább várakozol más segítségre, lapozz [##2].",
       "color": "white",
       "comment": "",
       "index": 16,
@@ -85,7 +85,7 @@
     {
       "id": 7,
       "title": "Álom az örvényről",
-      "story": "Álmodban egy színes örvénybe kerülsz, amely elnyel. Ekkor felriadsz és még mindig ugyanazon az úton találod magad. Az út szélén ismét ott ül az öreg. Üdvözlöd Ijimast, de ő nem ismer fel. Hasonló jelenet játszódik le, mint ami az előző nap. Az öreg ezúttal azt javasolja, hogy bízz abban, amit érzel és nem abban, amit gondolsz. \n\nHa úgy döntesz, hogy megfogadod a tanácsot, lapozz [##1], ha folytatod a várakozást, lapozz [##2]. ",
+      "story": "Álmodban egy színes örvénybe kerülsz, amely elnyel. Ekkor felriadsz és még mindig ugyanazon az úton találod magad. Az út szélén ismét ott ül az öreg. Üdvözlöd Godfreyt, de ő nem ismer fel. Hasonló jelenet játszódik le, mint ami az előző nap. Az öreg ezúttal azt javasolja, hogy bízz abban, amit érzel és nem abban, amit gondolsz. \n\nHa úgy döntesz, hogy megfogadod a tanácsot, lapozz [##1], ha folytatod a várakozást, lapozz [##2]. ",
       "color": "white",
       "comment": "",
       "index": 26,
@@ -266,7 +266,7 @@
     },
     {
       "id": 21,
-      "title": "Ismét találkozó Ijimasszal.",
+      "title": "Ismét találkozó Godfreyvel.",
       "story": "A hang azt mondja: \"Nem tudsz átkelni a tengeren csupán bámulva a vizet\". Megfordulsz és a korábbi öreg vándort pillantod meg. Megszólítod: \n- Útjaink ismét keresztezik egymást. \n- Ismét? - nézett rá kérdőn az öreg. \n- Felejtsd el! Nagy feladatot kaptam és fogalmam nincs, hogy képes leszek-e rá. Nem értem, hogy miért vállaltam el - feleled, miközben bánatosan fürkészed a vizet. \n- A lehetetlen elérésének az egyetlen módja, ha elhiszed, hogy lehetséges - válaszolja az öreg. \n- Én csak haza akarok jutni! - kiálltod felé, de már csak a kavicsos partot találod. \n\nAzt gondolod, hogy ez jellemző rá, bár lehetséges, hogy csak a képzeleted játszik veled. Összeszeded magad és folytatod az utad. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
@@ -396,8 +396,8 @@
     },
     {
       "id": 35,
-      "title": "Kijutás a Kő-tengerről - Ijimas",
-      "story": "Elhagyva a tengert barátságosabb környezetben találod magad. És egy kis séta után az erdőben egy ismerős arc üdvözöl. \n- Örülök, hogy ismét látjuk egymást barátom. A reggeli találkozásunk óta nagy utat tettél meg - fogad nagy mosollyal Ijimas.  \n- A labirintus a Kő-tengerben egy örökkévalóságnak tűnt, pedig csak pár óra volt az út. Szerencsére sikerült kijutnom. \n- A szerencsének ehhez nincs köze. Tudd meg fiam, hogy cselekedeteid sikere belső meggyőződésed erejétől és önfegyelmedtől függ. Szóval ne veszítsd el a bátorságod, és soha ne add fel. Elszántságodra most talán még nagyobb szükséged lesz. \n- Azt gondolom. Hogy jutottál gyorsabban ki a labirintusból, mint én?\n\nA válasz nem érkezik meg, Ijimas ismét köddé vált. Későre jár, a távolban megpillantod a Békaváros fényeit. Úgy döntesz, hogy lepihensz és másnap újult erővel veszed célba a várost. Lapozz [##1].",
+      "title": "Kijutás a Kő-tengerről - Godfrey",
+      "story": "Elhagyva a tengert barátságosabb környezetben találod magad. És egy kis séta után az erdőben egy ismerős arc üdvözöl. \n- Örülök, hogy ismét látjuk egymást barátom. A reggeli találkozásunk óta nagy utat tettél meg - fogad nagy mosollyal Godfrey.  \n- A labirintus a Kő-tengerben egy örökkévalóságnak tűnt, pedig csak pár óra volt az út. Szerencsére sikerült kijutnom. \n- A szerencsének ehhez nincs köze. Tudd meg fiam, hogy cselekedeteid sikere belső meggyőződésed erejétől és önfegyelmedtől függ. Szóval ne veszítsd el a bátorságod, és soha ne add fel. Elszántságodra most talán még nagyobb szükséged lesz. \n- Azt gondolom. Hogy jutottál gyorsabban ki a labirintusból, mint én?\n\nA válasz nem érkezik meg, Godfrey ismét köddé vált. Későre jár, a távolban megpillantod a Békaváros fényeit. Úgy döntesz, hogy lepihensz és másnap újult erővel veszed célba a várost. Lapozz [##1].",
       "color": "white",
       "comment": "",
       "index": 37,
@@ -630,8 +630,8 @@
     },
     {
       "id": 53,
-      "title": "Útban a békákhoz - Ijimas",
-      "story": "Későre jár már, úgy döntesz, hogy lepihensz, és csak másnap viszed el az elixírt. Ledőlsz egy fa tövében és csak nézegeted a szerzeményt. Gyönyörűen világít. Arra gondolsz, hogyha nem adnád vissza, hanem magad használnád fel, akkor te lehetnél a leghatalmasabb ezen a világon. Hazudhatnád azt, hogy nem sikerült a küldetés, és megpróbálhatnád más módon megszerezni az időérmét. Ekkor egy ismerős hang megszólal melletted: \n - Alacsonyrendű lények ezek a békák, lopnak és csalnak, és mindig csak nagyobb dolgokra vágynak, de sohasem elégszenek meg. Pedig a vagyont becsületes úton kell megszerezni, a saját munkáddal és erőfeszítéseddel - mondja Ijimas, miközben felnéz a holdra. \n- Igen, de miért baj az, ha valaki kényelemre vágyik és szereti a csillogást? \n- A szükségtelenül felhalmozott anyagi javak egy idő után teherré válnak, gondot okoznak. Igazi örömöt csak minden élőlény önzetlen szolgálata nyújt. Nem így gondolod? \n\nSzokásához híven a választ már nem várja meg, te pedig tovább töröd a fejed. Ha úgy döntesz, hogy magad használod fel a varázsitalt, lapozz [##1], ha lepihensz és másnap folytatod az utad a Békavárosba, lapozz [##2]. ",
+      "title": "Útban a békákhoz - Godfrey",
+      "story": "Későre jár már, úgy döntesz, hogy lepihensz, és csak másnap viszed el az elixírt. Ledőlsz egy fa tövében és csak nézegeted a szerzeményt. Gyönyörűen világít. Arra gondolsz, hogyha nem adnád vissza, hanem magad használnád fel, akkor te lehetnél a leghatalmasabb ezen a világon. Hazudhatnád azt, hogy nem sikerült a küldetés, és megpróbálhatnád más módon megszerezni az időérmét. Ekkor egy ismerős hang megszólal melletted: \n - Alacsonyrendű lények ezek a békák, lopnak és csalnak, és mindig csak nagyobb dolgokra vágynak, de sohasem elégszenek meg. Pedig a vagyont becsületes úton kell megszerezni, a saját munkáddal és erőfeszítéseddel - mondja Godfrey, miközben felnéz a holdra. \n- Igen, de miért baj az, ha valaki kényelemre vágyik és szereti a csillogást? \n- A szükségtelenül felhalmozott anyagi javak egy idő után teherré válnak, gondot okoznak. Igazi örömöt csak minden élőlény önzetlen szolgálata nyújt. Nem így gondolod? \n\nSzokásához híven a választ már nem várja meg, te pedig tovább töröd a fejed. Ha úgy döntesz, hogy magad használod fel a varázsitalt, lapozz [##1], ha lepihensz és másnap folytatod az utad a Békavárosba, lapozz [##2]. ",
       "color": "white",
       "comment": "",
       "index": 61,
@@ -682,8 +682,8 @@
     },
     {
       "id": 57,
-      "title": "Ijimas ad ellenszert",
-      "story": "A városból kijutva ismét Ijimasszal találkozol, aki éppen a Csigakert nevű helyről tért vissza. Elmeséli, hogy bár a csigák nem olyan barátságtalanok, mint ahogy a békák mondták, a lakhelyükre vezető ösvény tartogat veszélyeket, ugyanis itt őshonos az úgynevezett darázsozó csalánfű, amely csípése halált is okozhat. Azonnal ad is neked egy ellenszert. Megköszönöd és megkérdezed, hogy most tartogat-e számodra valami hasznos tanácsot. Elgondolkodik, majd azt feleli: \"Néha a legjobb orvosság, ha nem teszünk semmit.\" Ezután köddé válik, te pedig folytatod az utad az ösvényen. Lapozz [##1].",
+      "title": "Godfrey ad ellenszert",
+      "story": "A városból kijutva ismét Godfreyvel találkozol, aki éppen a Csigakert nevű helyről tért vissza. Elmeséli, hogy bár a csigák nem olyan barátságtalanok, mint ahogy a békák mondták, a lakhelyükre vezető ösvény tartogat veszélyeket, ugyanis itt őshonos az úgynevezett darázsozó csalánfű, amely csípése halált is okozhat. Azonnal ad is neked egy ellenszert. Megköszönöd és megkérdezed, hogy most tartogat-e számodra valami hasznos tanácsot. Elgondolkodik, majd azt feleli: \"Néha a legjobb orvosság, ha nem teszünk semmit.\" Ezután köddé válik, te pedig folytatod az utad az ösvényen. Lapozz [##1].",
       "color": "white",
       "comment": "",
       "index": 55,
@@ -1020,7 +1020,7 @@
     },
     {
       "id": 83,
-      "title": "Ijimas",
+      "title": "Godfrey",
       "story": "",
       "color": "white",
       "comment": "",
@@ -1729,7 +1729,7 @@
       "id": 1,
       "name": "Tündérország",
       "color": "yellow",
-      "description": "Ide érkezik meg először hősünk. \n\nA királyi palota egy hatalmas fa. A tündérek falények. Külsőleg nem igazán hasonlítanak a hétköznapi tündérekhez. \n\nA tündérek irányítják az időt az időérme segítségével, amit elloptak. Ezért a világban mindenki ugyanazt a napot éli át, kivéve azt, akin ott van a jel. Ezzel a jellel a tündérek születésüktől fogva rendelkeznek. Hősünk Ijimastól kapja meg, amikor a világra érkezik. A tündérek a nagy fától kapják az erejüket, ezért nem indulhatnak az érme után. "
+      "description": "Ide érkezik meg először hősünk. \n\nA királyi palota egy hatalmas fa. A tündérek falények. Külsőleg nem igazán hasonlítanak a hétköznapi tündérekhez. \n\nA tündérek irányítják az időt az időérme segítségével, amit elloptak. Ezért a világban mindenki ugyanazt a napot éli át, kivéve azt, akin ott van a jel. Ezzel a jellel a tündérek születésüktől fogva rendelkeznek. Hősünk Godfreytől kapja meg, amikor a világra érkezik. A tündérek a nagy fától kapják az erejüket, ezért nem indulhatnak az érme után. "
     },
     {
       "id": 2,
@@ -1771,8 +1771,8 @@
   "characters": [
     {
       "id": 1,
-      "name": "Ijimas a vándor",
-      "description": "Ijimas egy öreg vándor, poros köpenyben és kalapban. Ebben a világban a vándoroknak varázserejük van. Álltalánba pipázik és segíteni hősünk útját. A kalapjában hattyútoll van. Ő hívja segítségül hősünket a valóvilágból hattyú formájában. \n\nSegítségadás után mindig nyoma veszik. "
+      "name": "Godfrey a vándor",
+      "description": "Godfrey egy öreg vándor, poros köpenyben és kalapban. Ebben a világban a vándoroknak varázserejük van. Álltalánba pipázik és segíteni hősünk útját. A kalapjában hattyútoll van. Ő hívja segítségül hősünket a valóvilágból hattyú formájában. \n\nSegítségadás után mindig nyoma veszik. "
     },
     {
       "id": 2,

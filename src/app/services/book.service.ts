@@ -6,6 +6,7 @@ import {StationItem} from '../model/station-item.model';
 import {BookCorrectorService} from './book-corrector.service';
 import {BookViewerComponent} from '../components/book-viewer/book-viewer.component';
 import {DialogService} from './dialog.service';
+import {GrammerService} from './grammer.service';
 
 const NUMBER_OF_MAX_GENERATION = 30000;
 
@@ -170,17 +171,16 @@ export class BookService {
     this.model.characters = this.model.characters.filter(i => i.id !== id);
   }
 
-  finalize(withDialog = true): Promise<Station[]> {
+  finalize(withDialog = true, withConfirmation = true): Promise<any[]> {
     if (this.isValidBook()) {
-
+      let generation = 0;
       const hasIndex = !this.model.stations.some(s => s.index === 0);
-      return (hasIndex ?
+      return (hasIndex && withConfirmation ?
         this.dialogService.openConfirmation('Indexes has been generated. Would you like to refresh?', 'Yes', 'No')
         : Promise.resolve(true))
         .then(refresh => {
           let hasIndexError = false;
           if (refresh) {
-            let generation = 0;
             do {
               generation++;
               this.generateIndexes();
@@ -202,50 +202,10 @@ export class BookService {
             this.dialogService.openError(`Number of index generations has reached the maximum (${NUMBER_OF_MAX_GENERATION}). ` +
               'Please try it again, or consider turning off the index validation.');
           }
-          return stations;
-
+          return [stations, generation];
         });
     }
-    return Promise.resolve([]);
-  }
-  
-  getAffix(num: number): string {
-    if (num % 10 !== 0 && [1, 2, 4, 5, 7, 9].includes(num % 10)) {
-      return '-re';
-    } else if (num % 10 !== 0) {
-      return '-ra';
-    } else if (num % 100 !== 0 && [1, 4, 5, 7, 9].includes(num % 100 / 10)) {
-      return '-re';
-    } else if (num % 100 !== 0) {
-      return '-ra';
-    } else {
-      return '-ra';
-    }
-  }
-
-  getAffix2(num: number): string {
-    if (num % 10 !== 0 && [1, 4, 5, 7, 9].includes(num % 10)) {
-      return '-hez';
-    } else if (num % 10 !== 0 && [2, 5].includes(num % 10)) {
-      return '-höz';
-    } else if (num % 10 !== 0) {
-      return '-hoz';
-    } else if (num % 100 !== 0 && [1, 4, 5, 7, 9].includes(num % 100 / 10)) {
-      return '-hez';
-    } else if (num % 100 !== 0) {
-      return '-hoz';
-    } else {
-      return '-hoz';
-    }
-  }
-
-  getArticle(num: number): string {
-    const numStr = num + '';
-    if (numStr.substr(0, 1) === '5' || (numStr.length === 4 && numStr.substr(0, 1) === '1') || num === 1) {
-      return 'az ';
-    } else {
-      return 'a ';
-    }
+    return Promise.resolve([[], 0]);
   }
 
   private isValidBook() {
@@ -305,9 +265,9 @@ export class BookService {
       let i = 1;
       this.getChildren(s.id).forEach(c => {
         s.story = s.story
-          .replace(`[##${i}]`, this.getArticle(c.index) + this.addAnchor(c.index, c.index + this.getAffix(c.index)))
-          .replace(`(##${i})`, this.getArticle(c.index) + this.addAnchor(c.index, c.index + this.getAffix2(c.index)))
-          .replace(`##${i}`, this.getArticle(c.index) + this.addAnchor(c.index, c.index + ''));
+          .replace(`[##${i}]`, GrammerService.getArticle(c.index) + this.addAnchor(c.index, c.index + GrammerService.getAffix(c.index)))
+          .replace(`(##${i})`, GrammerService.getArticle(c.index) + this.addAnchor(c.index, c.index + GrammerService.getAffix2(c.index)))
+          .replace(`##${i}`, GrammerService.getArticle(c.index) + this.addAnchor(c.index, c.index + ''));
         i++;
       });
     });

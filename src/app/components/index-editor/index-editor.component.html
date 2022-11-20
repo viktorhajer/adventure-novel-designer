@@ -4,20 +4,100 @@
 </h2>
 <mat-dialog-content class="mat-typography">
 
-  <div class="index_diagram">
-    <div *ngFor="let rd of relationsDistances" class="index_column" (click)="openStation(rd.s)"
+  <div class="index_diagram" *ngIf="pcSelected">
+    <div *ngFor="let rd of relationsDistancesPC" class="index_column" (click)="openStation(rd.s)"
       [style.height]="rd.h + '%'" [title]="rd.s + ':' + rd.t + '->' + rd.d">
       {{ rd.d }}
     </div>
   </div>
-  <div class="statistics">
-    Maximum distance: {{ maximum }}<br/>
-    Minimum distance: {{ minimum }}<br/>
-    Total: {{ total }}<br/>
-    Average: {{ average }}
+  
+  <div class="index_diagram siblings" *ngIf="!pcSelected">
+    <div *ngFor="let rd of relationsDistancesSS" class="index_column" (click)="openStation(rd.s)"
+      [style.height]="rd.h + '%'" [title]="rd.s + ':' + rd.t + '->' + rd.d">
+      {{ rd.d }}
+    </div>
   </div>
 
+  <mat-tab-group>
+    <mat-tab label="Overall information">   
+      <div class="flex">
+        <div class="statistics_container">
+          <h3>General</h3>
+          <div class="statistics">
+            Number of indexes: {{ bookService.model.stations.length }}<br/>
+            <ng-container *ngIf="lastGeneration">Last generation: {{ lastGeneration }}</ng-container>
+          </div>
+        </div>
+        <div class="statistics_container" (click)="togglePCSelected()">
+          <h3>
+            <span class="material-symbols-outlined material-outlined" [class.material-filled]="pcSelected">arrow_circle_right</span>
+            Parent-child distance
+          </h3>
+          <div class="statistics">
+            Maximum: {{ maximumPC }}<br/>
+            Minimum: {{ minimumPC }}<br/>
+            Total: {{ totalPC }}<br/>
+            Average: {{ averagePC }}
+          </div>
+        </div>
+        <div class="statistics_container" (click)="togglePCSelected()">
+          <h3>
+            <span class="material-symbols-outlined material-outlined" [class.material-filled]="!pcSelected">arrow_circle_right</span>
+            Siblings distance
+          </h3>
+          <div class="statistics">
+            Maximum: {{ maximumSS }}<br/>
+            Minimum: {{ minimumSS }}<br/>
+            Total: {{ totalSS }}<br/>
+            Average: {{ averageSS }}
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    
+    <mat-tab label="Generation">
+      <div class="flex">
+        <div class="statistics_container">
+          <h3>Numbering offset</h3>
+          <mat-form-field appearance="fill">
+            <mat-label>Offset</mat-label>
+            <input type="number" matInput [(ngModel)]="bookService.model.numberingOffset">
+          </mat-form-field>
+        </div>
+        <div class="statistics_container">
+          <h3>Distance validation</h3>
+          <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.validationPC">
+            Parent-child
+          </mat-slide-toggle>
+          <br/>
+          <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.validationSS">
+            Siblings
+          </mat-slide-toggle>
+        </div>
+        <div class="statistics_container">
+          <h3>Parent-child min distance</h3>
+          <mat-form-field appearance="fill">
+            <mat-label>Parent-child min distance</mat-label>
+            <input type="number" matInput [(ngModel)]="bookService.model.validationPCD">
+          </mat-form-field>
+        </div>
+        <div class="statistics_container">
+          <h3>Siblings min distance</h3>
+          <mat-form-field appearance="fill">
+            <mat-label>Siblings min distance</mat-label>
+            <input type="number" matInput [(ngModel)]="bookService.model.validationSSD">
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Fine tune">
+      <div class="flex">
+        x
+      </div>
+    </mat-tab>
+  </mat-tab-group>
   <div class="actions">
+    <button mat-raised-button [color]="'primary'" (click)="generate()">Generate</button>
     <button mat-raised-button (click)="close()">Cancel</button>
   </div>
 </mat-dialog-content>
