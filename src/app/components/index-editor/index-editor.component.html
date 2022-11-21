@@ -6,20 +6,22 @@
 
   <div class="index_diagram" *ngIf="pcSelected">
     <div *ngFor="let rd of relationsDistancesPC" class="index_column" (click)="openStation(rd.s)"
-      [style.height]="rd.h + '%'" [title]="rd.s + ':' + rd.t + '->' + rd.d">
+         [style.height]="rd.h + '%'"
+         [title]="rd.sn + '. ' + rd.st + '&#013;-------&#013;' + rd.tn + '. ' + rd.tt + '&#013;-------&#013;' + rd.d">
       {{ rd.d }}
     </div>
   </div>
-  
+
   <div class="index_diagram siblings" *ngIf="!pcSelected">
     <div *ngFor="let rd of relationsDistancesSS" class="index_column" (click)="openStation(rd.s)"
-      [style.height]="rd.h + '%'" [title]="rd.s + ':' + rd.t + '->' + rd.d">
+         [style.height]="rd.h + '%'"
+         [title]="rd.sn + '. ' + rd.st + '&#013;-------&#013;' + rd.tn + '. ' + rd.tt + '&#013;-------&#013;' + rd.d">
       {{ rd.d }}
     </div>
   </div>
 
   <mat-tab-group>
-    <mat-tab label="Overall information">   
+    <mat-tab label="Overall information">
       <div class="flex">
         <div class="statistics_container">
           <h3>General</h3>
@@ -54,14 +56,14 @@
         </div>
       </div>
     </mat-tab>
-    
+
     <mat-tab label="Generation">
       <div class="flex">
         <div class="statistics_container">
           <h3>Numbering offset</h3>
           <mat-form-field appearance="fill">
             <mat-label>Offset</mat-label>
-            <input type="number" matInput [(ngModel)]="bookService.model.numberingOffset">
+            <input type="number" matInput [(ngModel)]="bookService.model.numberingOffset" [min]="0">
           </mat-form-field>
         </div>
         <div class="statistics_container">
@@ -92,12 +94,42 @@
     </mat-tab>
     <mat-tab label="Fine tune">
       <div class="flex">
-        x
+        <div class="statistics_container">
+          <h3>Method</h3>
+          <mat-form-field appearance="fill">
+            <mat-select [(ngModel)]="fineTuneMethod">
+              <mat-option [value]="0">Insert</mat-option>
+              <mat-option [value]="1">Switch</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="statistics_container">
+          <h3>Station</h3>
+          <mat-form-field appearance="fill">
+            <input type="text" matInput [formControl]="stationControl" [matAutocomplete]="auto" #stationInput>
+            <mat-label>Select station</mat-label>
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              <mat-option *ngFor="let s of filteredStationControlOptions | async" [value]="s.index + '. ' + s.title">
+                {{s.index}}. {{s.title}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+        <div class="statistics_container">
+          <h3>Index</h3>
+          <mat-form-field appearance="fill">
+            <input type="number" matInput [(ngModel)]="fineTuneIndex" [min]="(bookService.model.numberingOffset + 2)">
+          </mat-form-field>
+        </div>
+        <div class="statistics_container">
+          <h3>Update index</h3>
+          <button mat-raised-button [color]="'primary'" (click)="changeIndex(stationInput)">Update</button>
+        </div>
       </div>
     </mat-tab>
   </mat-tab-group>
   <div class="actions">
     <button mat-raised-button [color]="'primary'" (click)="generate()">Generate</button>
-    <button mat-raised-button (click)="close()">Cancel</button>
+    <button mat-raised-button (click)="close()">Close</button>
   </div>
 </mat-dialog-content>

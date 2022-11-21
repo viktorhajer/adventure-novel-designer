@@ -48,31 +48,32 @@
 .statistics_container {
     margin-right: 50px;
     min-height: 160px;
-    
+
     h3 {
       display: flex;
       border-bottom: 1px dotted #cfcfcf;
       margin-bottom: 10px;
-      width: 200px;
+      width: 230px;
       cursor: pointer;
-      
+
       .material-outlined {
         margin-right: 5px;
         font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 30;
-        
+
         &.material-filled {
             font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 30;
         }
       }
     }
-    
+
     .statistics {
       line-height: 24px;
       font-style: italic;
     }
-    
+
     .mat-form-field, .mat-slide-toggle {
       margin-bottom: 10px;
+      width: 100%;
     }
 }
 
