@@ -3,9 +3,9 @@ import {BookService} from '../../services/book.service';
 import {Station} from '../../model/station.model';
 import {ItemFormComponent} from '../item-form/item-form.component';
 import {firstValueFrom} from 'rxjs';
-import {RegionFormComponent} from '../region-form/region-form.component';
+import {SceneFormComponent} from '../scene-form/scene-form.component';
 import {Item} from '../../model/item.model';
-import {Region} from '../../model/region.model';
+import {Scene} from '../../model/scene.model';
 import {UiService} from '../../services/ui.service';
 import {CharacterFormComponent} from '../character-form/character-form.component';
 import {DialogService} from '../../services/dialog.service';
@@ -18,7 +18,7 @@ import {DialogService} from '../../services/dialog.service';
 export class BookFormComponent {
   @Output() stationSelected = new EventEmitter();
   itemName = '';
-  regionName = '';
+  sceneName = '';
   characterName = '';
 
   constructor(public readonly bookService: BookService,
@@ -54,30 +54,30 @@ export class BookFormComponent {
     }
   }
 
-  createRegion() {
-    if (this.validateName(this.regionName, this.bookService.model.regions)) {
-      this.bookService.createRegion(this.regionName.trim());
-      this.regionName = '';
+  createScene() {
+    if (this.validateName(this.sceneName, this.bookService.model.scenes)) {
+      this.bookService.createScene(this.sceneName.trim());
+      this.sceneName = '';
     }
   }
 
-  deleteRegion(id: number) {
+  deleteScene(id: number) {
     this.dialogService.openConfirmation().then(result => {
       if (result) {
-        this.bookService.deleteRegion(id);
+        this.bookService.deleteScene(id);
       }
     });
   }
 
-  editRegion(id: number) {
-    const region = this.bookService.model.regions.find(region => region.id === id);
-    if (region) {
-      firstValueFrom(this.dialogService.openCustomDialog(RegionFormComponent, {width: '70vw', disableClose: true}, {region}))
+  editScene(id: number) {
+    const scene = this.bookService.model.scenes.find(scene => scene.id === id);
+    if (scene) {
+      firstValueFrom(this.dialogService.openCustomDialog(SceneFormComponent, {width: '70vw', disableClose: true}, {scene}))
         .then(result => {
-          if (result !== null && this.validateName(result.name, this.bookService.model.regions, id)) {
-            region.name = result.name;
-            region.color = result.color;
-            region.description = result.description;
+          if (result !== null && this.validateName(result.name, this.bookService.model.scenes, id)) {
+            scene.name = result.name;
+            scene.color = result.color;
+            scene.description = result.description;
             this.changePlugin();
           }
         });
@@ -125,7 +125,7 @@ export class BookFormComponent {
     this.stationSelected.emit('');
   }
 
-  private validateName(name: string, list: Item[] | Region[], id = 0): boolean {
+  private validateName(name: string, list: Item[] | Scene[], id = 0): boolean {
     if (!name.trim()) {
       this.dialogService.openError('Please enter a valid name.');
       return false;

@@ -24,11 +24,11 @@
   </mat-form-field>
 
   <div class="flex--row">
-    <mat-form-field appearance="fill" *ngIf="regions.length">
-      <mat-label>Region</mat-label>
-      <mat-select [(ngModel)]="station.regionId" (selectionChange)="checkUnsaved()">
-        <mat-option *ngFor="let r of regions" [value]="r.id">
-          {{r.name}}
+    <mat-form-field appearance="fill" *ngIf="scenes.length">
+      <mat-label>Scene</mat-label>
+      <mat-select [(ngModel)]="station.sceneId" (selectionChange)="checkUnsaved()">
+        <mat-option *ngFor="let scene of scenes" [value]="scene.id">
+          {{scene.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -58,11 +58,16 @@
     </mat-slide-toggle>
 
     <mat-slide-toggle [color]="'primary'" [(ngModel)]="station.winner" (change)="checkWinnerLooser(1)">
-      Winner station
+      Winner
     </mat-slide-toggle>
 
     <mat-slide-toggle [color]="'primary'" [(ngModel)]="station.looser" (change)="checkWinnerLooser(2)">
-      Looser station
+      Looser
+    </mat-slide-toggle>
+
+    <mat-slide-toggle [color]="'primary'" [(ngModel)]="station.questionnaire" (change)="checkUnsaved()"
+                      *ngIf="bookService.model.questionnaire">
+      Questionnaire
     </mat-slide-toggle>
   </div>
 

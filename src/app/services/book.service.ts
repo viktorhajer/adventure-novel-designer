@@ -101,7 +101,7 @@ export class BookService {
       originStation.story = station.story;
       originStation.comment = station.comment;
       originStation.question = station.question;
-      originStation.regionId = station.regionId;
+      originStation.sceneId = station.sceneId;
       originStation.color = station.color;
       originStation.starter = station.starter;
       originStation.winner = station.winner;
@@ -109,6 +109,9 @@ export class BookService {
       originStation.life = station.life;
       if (station.winner || station.looser) {
         this.model.relations = this.model.relations.filter(r => r.sourceId !== station.id);
+      }
+      if (this.model.questionnaire) {
+        originStation.questionnaire = station.questionnaire;
       }
       if (station.starter) {
         this.model.stations.filter(s => s.id !== station.id).forEach(s => s.starter = false);
@@ -152,14 +155,14 @@ export class BookService {
     return this.model.relations.filter(r => r.sourceId === id).map(r => this.model.stations.find(s => s.id === r.targetId) as any);
   }
 
-  createRegion(name: string) {
-    const id = this.getNewRegionId();
-    this.model.regions.push({id, name, color: '#ffffff', description: ''});
+  createScene(name: string) {
+    const id = this.getNewSceneId();
+    this.model.scenes.push({id, name, color: '#ffffff', description: ''});
   }
 
-  deleteRegion(id: number) {
-    this.model.regions = this.model.regions.filter(i => i.id !== id);
-    this.model.stations.filter(s => s.regionId === id).forEach(s => s.regionId = 0);
+  deleteScene(id: number) {
+    this.model.scenes = this.model.scenes.filter(i => i.id !== id);
+    this.model.stations.filter(s => s.sceneId === id).forEach(s => s.sceneId = 0);
   }
 
   createCharacter(name: string) {
@@ -356,8 +359,8 @@ export class BookService {
     return this.getNewId(this.model.items);
   }
 
-  private getNewRegionId(): number {
-    return this.getNewId(this.model.regions);
+  private getNewSceneId(): number {
+    return this.getNewId(this.model.scenes);
   }
 
   private getNewCharacterId(): number {

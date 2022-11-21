@@ -25,11 +25,16 @@
   background: #f2f2f2;
 }
 
-.comment {
+.comment, .questionnaire {
   background: #f4f4a7;
   padding: 5px 10px;
   font-weight: bold;
   width: fit-content;
   font-size: 12px;
   letter-spacing: 1.5px;
+  box-shadow: 4px 4px 5px rgb(0 0 0 / 7%);
+}
+
+.questionnaire {
+  background: #f4baa7;
 }

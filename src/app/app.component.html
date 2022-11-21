@@ -11,7 +11,7 @@
     <h1 *ngIf="!isModelLoaded()">RPG Book Designer</h1>
     <h1 *ngIf="isModelLoaded()" (click)="clearStation()">{{ bookService.model.title }}</h1>
     <div class="main-actions" *ngIf="isModelLoaded()">
-      <button mat-icon-button (click)="clearStage()" title="New book">
+      <button mat-icon-button (click)="clearStation()" title="New book">
         <mat-icon>home</mat-icon>
       </button>
       <button mat-icon-button (click)="save()" title="Save the raw">
@@ -41,6 +41,9 @@
       </button>
       <button mat-icon-button (click)="simulation()" title="Start simulation">
         <mat-icon>rocket_launch</mat-icon>
+      </button>
+      <button mat-icon-button (click)="exit()" title="Exit">
+        <mat-icon>logout</mat-icon>
       </button>
     </div>
   </div>
@@ -78,7 +81,7 @@
       <div id="visual-book-container">
 
         <mat-form-field appearance="fill" class="color-selector"
-                        *ngIf="visualModel && isModelLoaded() && colors.length && !bookService.model.showRegions">
+                        *ngIf="visualModel && isModelLoaded() && colors.length && !bookService.model.showScenes">
           <mat-label><i>Select color</i></mat-label>
           <mat-select [(ngModel)]="color" (selectionChange)="visualFilter()">
             <mat-option></mat-option>
@@ -88,8 +91,8 @@
           </mat-select>
         </mat-form-field>
 
-        <app-region-color-box *ngIf="visualModel && isModelLoaded()" (regionChanged)="setRegionFilter($event)">
-        </app-region-color-box>
+        <app-scene-color-box *ngIf="visualModel && isModelLoaded()" (sceneChanged)="setSceneFilter($event)">
+        </app-scene-color-box>
 
         <app-visual-book [nodes]="(!!visualModel ? visualModel.nodes:[])"
                          [edges]="(!!visualModel ? visualModel.edges:[])"

@@ -46,9 +46,9 @@
       <div class="configuration_container">
         <div class="configuration_container_child">
           <h3>Editor</h3>
-          <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.showRegions"
-                            *ngIf="bookService.model.regions.length" (change)="changePlugin()">
-            Show regions
+          <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.showScenes"
+                            *ngIf="bookService.model.scenes.length" (change)="changePlugin()">
+            Show scenes
           </mat-slide-toggle>
           <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.mortality" (change)="changePlugin()">
             Mortality
@@ -88,8 +88,8 @@
         </tbody>
       </table>
     </mat-tab>
-    <mat-tab label="Regions">
-      <table mat-table *ngIf="bookService.model.regions.length">
+    <mat-tab label="Scenes">
+      <table mat-table *ngIf="bookService.model.scenes.length">
         <thead>
         <tr>
           <th>Name</th>
@@ -98,28 +98,28 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let region of bookService.model.regions">
-          <td>{{ region.name }}</td>
+        <tr *ngFor="let scene of bookService.model.scenes">
+          <td>{{ scene.name }}</td>
           <td class="color_column">
-            <div class="color_box" [style.background-color]="uiService.getColorHex(region.color)">&nbsp;</div></td>
+            <div class="color_box" [style.background-color]="uiService.getColorHex(scene.color)">&nbsp;</div></td>
           <td>
-            <button mat-icon-button (click)="editRegion(region.id)" title="Edit region">
+            <button mat-icon-button (click)="editScene(scene.id)" title="Edit scene">
               <mat-icon>settings</mat-icon>
             </button>
-            <button mat-icon-button (click)="deleteRegion(region.id)" title="Delete region">
+            <button mat-icon-button (click)="deleteScene(scene.id)" title="Delete scene">
               <mat-icon>delete</mat-icon>
             </button>
           </td>
         </tr>
         </tbody>
       </table>
-      <h3>Create new region</h3>
+      <h3>Create new scene</h3>
       <div class="new_item_form">
         <mat-form-field appearance="fill">
-          <mat-label>Region name</mat-label>
-          <input matInput [(ngModel)]="regionName">
+          <mat-label>Scene name</mat-label>
+          <input matInput [(ngModel)]="sceneName">
         </mat-form-field>
-        <button mat-raised-button (click)="createRegion()">Create</button>
+        <button mat-raised-button (click)="createScene()">Create</button>
       </div>
     </mat-tab>
     <mat-tab label="Characters">

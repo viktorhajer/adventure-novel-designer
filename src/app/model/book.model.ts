@@ -2,7 +2,7 @@ import {Station} from './station.model';
 import {Relation} from './relation.model';
 import {Item} from './item.model';
 import {StationItem} from './station-item.model';
-import {Region} from './region.model';
+import {Scene} from './scene.model';
 import {Character} from './character.model';
 
 export class Book {
@@ -14,12 +14,12 @@ export class Book {
   relations: Relation[] = [];
   stationItems: StationItem[] = [];
   items: Item[] = [];
-  regions: Region[] = [];
+  scenes: Scene[] = [];
   characters: Character[] = [];
   mortality = true;
   questionnaire = false;
   charactersChapter = false;
-  showRegions = false;
+  showScenes = false;
   numberingOffset: number = 0;
   validationPC = true;
   validationPCD: number = 2;

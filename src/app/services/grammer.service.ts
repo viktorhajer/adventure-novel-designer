@@ -1,5 +1,3 @@
-import {Injectable} from '@angular/core';
-
 export class GrammerService {
 
   static getAffix(num: number): string {
@@ -40,5 +38,4 @@ export class GrammerService {
       return 'a ';
     }
   }
-
 }

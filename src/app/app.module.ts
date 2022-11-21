@@ -20,10 +20,10 @@ import {QuestionnaireComponent} from './components/questionnaire/questionnaire.c
 import {CharacterViewerComponent} from './components/character-viewer/character-viewer.component';
 import {RelationFormComponent} from './components/relation-form/relation-form.component';
 import {ItemFormComponent} from './components/item-form/item-form.component';
-import {RegionFormComponent} from './components/region-form/region-form.component';
+import {SceneFormComponent} from './components/scene-form/scene-form.component';
 import {SimulationComponent} from './components/simulation/simulation.component';
 import {NotesFormComponent} from './components/notes-form/notes-form.component';
-import {RegionColorBoxComponent} from './components/region-color-box/region-color-box.component';
+import {SceneColorBoxComponent} from './components/scene-color-box/scene-color-box.component';
 import {VisualBookComponent} from './components/visual-book/visual-book.component';
 import {CharacterFormComponent} from './components/character-form/character-form.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -45,8 +45,8 @@ import {IndexEditorComponent} from './components/index-editor/index-editor.compo
     BookListComponent,
     RelationFormComponent,
     ItemFormComponent,
-    RegionFormComponent,
-    RegionColorBoxComponent,
+    SceneFormComponent,
+    SceneColorBoxComponent,
     CharacterFormComponent,
     SimulationComponent,
     NotesFormComponent,
