@@ -1,5 +1,5 @@
-<button mat-icon-button (click)="createNewStation()" *ngIf="isModelLoaded()" id="create_button"
-        title="Create new station">
+<button mat-icon-button (click)="createNewScene()" *ngIf="isModelLoaded()" id="create_button"
+        title="Create new scene">
   <mat-icon>add_circle</mat-icon>
 </button>
 <button mat-icon-button (click)="ui.toggleExpanded()" *ngIf="isModelLoaded()" id="expand_button">
@@ -9,9 +9,9 @@
 <div id="main-container">
   <div class="main-header">
     <h1 *ngIf="!isModelLoaded()">RPG Book Designer</h1>
-    <h1 *ngIf="isModelLoaded()" (click)="clearStation()">{{ bookService.model.title }}</h1>
+    <h1 *ngIf="isModelLoaded()" (click)="clearScene()">{{ bookService.model.title }}</h1>
     <div class="main-actions" *ngIf="isModelLoaded()">
-      <button mat-icon-button (click)="clearStation()" title="New book">
+      <button mat-icon-button (click)="clearScene()" title="New book">
         <mat-icon>home</mat-icon>
       </button>
       <button mat-icon-button (click)="save()" title="Save the raw">
@@ -20,7 +20,7 @@
       <button mat-icon-button (click)="takingNotes()" title="Taking notes">
         <mat-icon>draw</mat-icon>
       </button>
-      <button mat-icon-button (click)="review()" *ngIf="!!bookService.model.stations.length"
+      <button mat-icon-button (click)="review()" *ngIf="!!bookService.model.scenes.length"
               title="Editorial review">
         <mat-icon>plagiarism</mat-icon>
       </button>
@@ -53,13 +53,13 @@
     <div id="left" [class.hidden]="ui.expanded">
       <span class="material-symbols-outlined" style="position: fixed; top: -100px;">error</span>
 
-      <app-book-form *ngIf="isModelLoaded() && !station" (stationSelected)="openStation($event)">
+      <app-book-form *ngIf="isModelLoaded() && !scene" (sceneSelected)="openScene($event)">
       </app-book-form>
 
-      <app-station-form *ngIf="station" [station]="station" [trigger]="formTrigger"
-                        [previousStation]="previousStation"
-                        (stationChanged)="openStation($event)">
-      </app-station-form>
+      <app-scene-form *ngIf="scene" [scene]="scene" [trigger]="formTrigger"
+                        [previousScene]="previousScene"
+                        (sceneChanged)="openScene($event)">
+      </app-scene-form>
 
 
       <div id="load-model-form" *ngIf="!isModelLoaded()">
@@ -97,8 +97,8 @@
         <app-visual-book [nodes]="(!!visualModel ? visualModel.nodes:[])"
                          [edges]="(!!visualModel ? visualModel.edges:[])"
                          [trigger]="formTrigger+''"
-                         [selected]="(station && !!station.id ? 'node_' + station.id : '')"
-                         (nodeSelected)="openStation($event)" #visualizer>
+                         [selected]="(scene && !!scene.id ? 'node_' + scene.id : '')"
+                         (nodeSelected)="openScene($event)" #visualizer>
         </app-visual-book>
         <div class="buttonGroup" *ngIf="visualModel && !!visualModel.nodes.length">
           <button mat-raised-button (click)="visualizer.zoom(0)">Fit</button>

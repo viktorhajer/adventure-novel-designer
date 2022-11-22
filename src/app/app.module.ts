@@ -8,11 +8,11 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {StationFormComponent} from './components/station-form/station-form.component';
+import {SceneFormComponent} from './components/scene-form/scene-form.component';
 import {ConfirmDialogComponent} from './components/confirm-dialog/confirm-dialog.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {StationViewerComponent} from './components/station-viewer/station-viewer.component';
+import {SceneViewerComponent} from './components/scene-viewer/scene-viewer.component';
 import {MatSelectModule} from '@angular/material/select';
 import {BookFormComponent} from './components/book-form/book-form.component';
 import {BookViewerComponent} from './components/book-viewer/book-viewer.component';
@@ -37,10 +37,10 @@ import {IndexEditorComponent} from './components/index-editor/index-editor.compo
   declarations: [
     AppComponent,
     BookFormComponent,
-    StationFormComponent,
+    SceneFormComponent,
     DialogComponent,
     ConfirmDialogComponent,
-    StationViewerComponent,
+    SceneViewerComponent,
     BookViewerComponent,
     BookListComponent,
     RelationFormComponent,

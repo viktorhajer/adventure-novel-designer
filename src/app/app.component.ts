@@ -2,9 +2,9 @@ import {Component, ViewChild} from '@angular/core';
 import {BookService} from './services/book.service';
 import {UiService} from './services/ui.service';
 import {EditService} from './services/edit.service';
-import {Station} from './model/station.model';
-import {StationViewerComponent} from './components/station-viewer/station-viewer.component';
-import {STATION_COLORS, StationColor} from './model/station-color.model';
+import {Scene} from './model/scene.model';
+import {SceneViewerComponent} from './components/scene-viewer/scene-viewer.component';
+import {SCENE_COLORS, SceneColor} from './model/scene-color.model';
 import {SimulationService} from './services/simulation.service';
 import {SimulationComponent} from './components/simulation/simulation.component';
 import {NotesFormComponent} from './components/notes-form/notes-form.component';
@@ -22,8 +22,8 @@ import {DownloadService} from './services/download.service';
 import {DialogService} from './services/dialog.service';
 import {firstValueFrom} from 'rxjs';
 
-const EMPTY_BOOK = '{"id":0,"title":"New book","backgroundStory":"","notes":"","stations":[],"relations":[],"items":[],' +
-  '"stationItems":[],"chapters": [],"characters": [],"mortality": true,"showChapters": false,"validationPC": true,"validationSS": true,' +
+const EMPTY_BOOK = '{"id":0,"title":"New book","backgroundStory":"","notes":"","scenes":[],"relations":[],"items":[],' +
+  '"sceneItems":[],"chapters": [],"characters": [],"mortality": true,"showChapters": false,"validationPC": true,"validationSS": true,' +
   '"numberingOffset": 0,"questionnaire": false,"validationPCD":2,"validationSSD":2,"charactersChapter":false}';
 
 // @ts-ignore
@@ -38,7 +38,7 @@ export class AppComponent {
   @ViewChild(VisualBookComponent) visual: VisualBookComponent = null as any;
 
   modelString = '{"id":1667885870598,"title":"Lorem ipsum dolor","showChapters": false,"notes":"","backgroundStory": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",' +
-    '"stations":[' +
+    '"scenes":[' +
     '{"id":1,"chapterId":1,"life":4,"index":0,"starter":true,"winner":false,"looser":false,"title":"Indulás a faluból","comment": "","story":"Menj a ##1 vagy ##2.","color":"white"},' +
     '{"id":2,"chapterId":1,"life":-1,"index":0,"starter":false,"winner":false,"looser":false,"title":"Elágazás az erdőben","comment": "Consectetur adipiscing elit, sed do eiusmod","story":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","color":"white"},' +
     '{"id":3,"chapterId":1,"life":0,"index":0,"starter":false,"winner":false,"looser":false,"title":"Sziklás kihívás","comment": "","story":"Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.   ##1","color":"blue"},' +
@@ -59,18 +59,18 @@ export class AppComponent {
     '{"sourceId":3,"targetId":8,"comment":"","condition":true},' +
     '{"sourceId":2,"targetId":9,"comment":"","condition":false},' +
     '{"sourceId":9,"targetId":6,"comment":"","condition":false}' +
-    '],"stationItems":[{"stationId": 3, "itemId": 1, "count": 2}, {"stationId": 5, "itemId": 2, "count": 1}],' +
+    '],"sceneItems":[{"sceneId": 3, "itemId": 1, "count": 2}, {"sceneId": 5, "itemId": 2, "count": 1}],' +
     '"items":[{"id":1,"name":"Kard"},{"id": 2,"name":"Kulcs"}],' +
     '"chapters":[{"id":1,"name":"Középfölde","color":"green","description":""},{"id": 2,"name":"Tündérország","color":"blue","description":""}],' +
     '"mortality": true,"questionnaire": true,"characters": [], "numberingOffset": 10,"charactersChapter":false,' +
     '"validationPC": true,"validationSS": true,"validationPCD":2,"validationSSD":2}';
-  station: Station = null as any;
+  scene: Scene = null as any;
   visualModel: VisualModel = null as any;
   formTrigger = 0;
-  previousStation: number = 0;
+  previousScene: number = 0;
   chapterFilterId: number = 0;
   color: string = '';
-  colors: StationColor[] = [];
+  colors: SceneColor[] = [];
 
   constructor(public readonly bookService: BookService,
               private readonly editService: EditService,
@@ -144,7 +144,7 @@ export class AppComponent {
 
   review() {
     this.dialogService.openCustomDialog(ReviewFormComponent, {width: '70vw', disableClose: true},
-      {id: this.station ? this.station.id : null}).subscribe(() => this.changeTrigger());
+      {id: this.scene ? this.scene.id : null}).subscribe(() => this.changeTrigger());
   }
 
   simulation() {
@@ -158,7 +158,7 @@ export class AppComponent {
   indexEditor() {
     firstValueFrom(this.dialogService.openCustomDialog(IndexEditorComponent, {width: '90vw'})).then(result => {
       if (result) {
-        this.openStation(result + '');
+        this.openScene(result + '');
       }
     });
   }
@@ -173,7 +173,7 @@ export class AppComponent {
       });
   }
 
-  createNewStation() {
+  createNewScene() {
     if (this.editService.unsaved) {
       this.dialogService.openConfirmation('Are you sure to navigate without saving?').then(result => {
         if (result) {
@@ -187,7 +187,7 @@ export class AppComponent {
     }
   }
 
-  openStation(id: string) {
+  openScene(id: string) {
     if (this.bookService.model.showChapters) {
       this.color = '';
     }
@@ -195,18 +195,18 @@ export class AppComponent {
     if (this.editService.unsaved) {
       this.dialogService.openConfirmation('Are you sure to navigate without saving?').then(result => {
         if (result) {
-          this.navigateToStation(id);
+          this.navigateToScene(id);
         } else {
           this.changeTrigger();
         }
       });
     } else {
-      this.navigateToStation(id);
+      this.navigateToScene(id);
     }
   }
 
-  clearStation() {
-    if (this.station) {
+  clearScene() {
+    if (this.scene) {
       if (this.editService.unsaved) {
         this.dialogService.openConfirmation('Are you sure to navigate without saving?').then(result => {
           if (result) {
@@ -220,10 +220,10 @@ export class AppComponent {
   }
 
   visualFilter() {
-    if (this.station) {
-      this.visual.selectNode('node_' + this.station.id);
-      this.previousStation = 0;
-      this.station = null as any;
+    if (this.scene) {
+      this.visual.selectNode('node_' + this.scene.id);
+      this.previousScene = 0;
+      this.scene = null as any;
     }
     this.changeTrigger();
   }
@@ -237,7 +237,7 @@ export class AppComponent {
   }
 
   private clearStage() {
-    this.station = null as any;
+    this.scene = null as any;
     this.visualModel = null as any;
     this.bookService.clearModel();
     this.ui.expanded = false;
@@ -245,38 +245,38 @@ export class AppComponent {
   }
 
   private navigateToBook() {
-    this.visual.selectNode('node_' + this.station.id);
+    this.visual.selectNode('node_' + this.scene.id);
     this.editService.unsaved = false;
-    this.previousStation = 0;
-    this.station = null as any;
+    this.previousScene = 0;
+    this.scene = null as any;
   }
 
   private navigateToCreateNew() {
     let chapterId = 0;
-    if (this.station && !!this.station.id) {
-      this.previousStation = this.station.id;
-      chapterId = this.station.chapterId;
+    if (this.scene && !!this.scene.id) {
+      this.previousScene = this.scene.id;
+      chapterId = this.scene.chapterId;
     }
-    this.station = new Station(0);
-    this.station.chapterId = chapterId;
+    this.scene = new Scene(0);
+    this.scene.chapterId = chapterId;
     this.changeTrigger();
   }
 
-  private navigateToStation(id: string) {
+  private navigateToScene(id: string) {
     if (id) {
-      const station = JSON.parse(JSON.stringify(this.bookService.getStation(+id.replace('node_', ''))));
+      const scene = JSON.parse(JSON.stringify(this.bookService.getScene(+id.replace('node_', ''))));
       if (this.ui.expanded) {
-        this.dialogService.openCustomDialog(StationViewerComponent, {width: '70vw'}, {station});
+        this.dialogService.openCustomDialog(SceneViewerComponent, {width: '70vw'}, {scene});
       } else {
         this.initColors();
         this.editService.unsaved = false;
-        this.previousStation = station.id;
-        this.station = station;
+        this.previousScene = scene.id;
+        this.scene = scene;
       }
     } else {
       this.editService.unsaved = false;
-      this.previousStation = 0;
-      this.station = null as any;
+      this.previousScene = 0;
+      this.scene = null as any;
     }
     this.changeTrigger();
   }
@@ -287,10 +287,10 @@ export class AppComponent {
   }
 
   private initColors() {
-    const cols = this.bookService.model.stations.filter(s => !!s.color).map(s => s.color)
+    const cols = this.bookService.model.scenes.filter(s => !!s.color).map(s => s.color)
       .filter((c, index, self) => self.indexOf(c) === index);
     this.colors = cols.map(s => {
-      const color = STATION_COLORS.find(c => c.value === s);
+      const color = SCENE_COLORS.find(c => c.value === s);
       return color ? color : null as any;
     }).filter(s => !!s);
   }

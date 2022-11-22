@@ -1,0 +1,8 @@
+<h2>
+  <mat-icon>menu_book</mat-icon>
+  <div>{{ this.data.scene.title }}</div>
+</h2>
+<mat-dialog-content class="mat-typography">
+  <p>{{ this.data.scene.story }}</p>
+  <div class="comment" *ngIf="this.data.scene.comment">{{ this.data.scene.comment }}</div>
+</mat-dialog-content>

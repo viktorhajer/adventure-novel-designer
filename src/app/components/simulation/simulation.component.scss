@@ -17,12 +17,12 @@
   align-items: center;
   flex-flow: row wrap;
 
-  .station-arrow {
+  .scene-arrow {
     display: flex;
     align-items: center;
     flex-flow: row nowrap;
 
-    .station {
+    .scene {
       border: 2px solid #d8d8d8;
       padding: 10px;
       border-radius: 10px;
@@ -32,7 +32,7 @@
         background: #ffe4e4;
       }
 
-      .station-title {
+      .scene-title {
         overflow: hidden;
         text-overflow: ellipsis;
         width: 150px;
@@ -43,7 +43,7 @@
       }
     }
 
-    .station, .mat-icon {
+    .scene, .mat-icon {
       margin-right: 15px;
       margin-bottom: 15px;
     }

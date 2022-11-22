@@ -3,11 +3,9 @@
   <div>Questionnaire</div>
 </h2>
 <mat-dialog-content class="mat-typography">
-
-  <div class="question_container" *ngFor="let station of stations; let i = index">
-    <div class="question">{{ station.question }}</div>
+  <div class="question_container" *ngFor="let scene of scenes; let i = index">
+    <div class="question">{{ scene.question }}</div>
     <div class="answer"></div>
-    <div class="command">{{getCommand(station.index)}}</div>
+    <div class="command">{{getCommand(scene.index)}}</div>
   </div>
-
 </mat-dialog-content>

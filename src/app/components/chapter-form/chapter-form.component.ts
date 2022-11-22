@@ -1,7 +1,7 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {Chapter} from '../../model/chapter.model';
-import {STATION_COLORS} from '../../model/station-color.model';
+import {SCENE_COLORS} from '../../model/scene-color.model';
 
 @Component({
   selector: 'app-chapter-form',
@@ -9,7 +9,7 @@ import {STATION_COLORS} from '../../model/station-color.model';
   styleUrls: ['./chapter-form.component.scss']
 })
 export class ChapterFormComponent {
-  colors = STATION_COLORS;
+  colors = SCENE_COLORS;
   name: string;
   color: string;
   description: string;

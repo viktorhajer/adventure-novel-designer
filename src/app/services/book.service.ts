@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Book} from '../model/book.model';
-import {Station} from '../model/station.model';
+import {Scene} from '../model/scene.model';
 import {Item} from '../model/item.model';
-import {StationItem} from '../model/station-item.model';
+import {SceneItem} from '../model/scene-item.model';
 import {BookCorrectorService} from './book-corrector.service';
 import {BookViewerComponent} from '../components/book-viewer/book-viewer.component';
 import {DialogService} from './dialog.service';
@@ -16,7 +16,7 @@ const NUMBER_OF_MAX_GENERATION = 100000;
 export class BookService {
   loaded = false;
   model: Book;
-  maxStationID = 1;
+  maxSceneID = 1;
 
   constructor(private readonly dialogService: DialogService,
               private readonly corrector: BookCorrectorService) {
@@ -33,35 +33,35 @@ export class BookService {
       this.model = JSON.parse(content);
       this.corrector.fixModel(this.model);
       this.loaded = true;
-      this.setMaxStationID();
+      this.setMaxSceneID();
     } catch (e) {
       this.dialogService.openError('Failed to load the model due syntax error.');
     }
   }
 
-  getStation(id: number): Station {
-    const station = this.model.stations.find(s => s.id === id);
-    return !!station ? station : null as any;
+  getScene(id: number): Scene {
+    const scene = this.model.scenes.find(s => s.id === id);
+    return !!scene ? scene : null as any;
   }
 
-  getStations(exceptId: number): Station[] {
-    let filtered = this.model.stations.filter(s => s.id !== exceptId);
+  getScenes(exceptId: number): Scene[] {
+    let filtered = this.model.scenes.filter(s => s.id !== exceptId);
     const children = this.model.relations.filter(r => r.sourceId === exceptId).map(r => r.targetId);
     return filtered.filter(s => !children.includes(s.id));
   }
 
   getNumberOfBranches() {
     const counts: any[] = [];
-    this.model.stations.forEach(s => counts.push({id: s.id, count: this.model.relations.filter(r => r.sourceId === s.id).length}));
+    this.model.scenes.forEach(s => counts.push({id: s.id, count: this.model.relations.filter(r => r.sourceId === s.id).length}));
     return counts.filter(c => c.count > 1).length;
   }
 
   getNumberOfWinners() {
-    return this.model.stations.filter(s => s.winner).length;
+    return this.model.scenes.filter(s => s.winner).length;
   }
 
   getNumberOfLooser() {
-    return this.model.stations.filter(s => s.looser).length;
+    return this.model.scenes.filter(s => s.looser).length;
   }
 
   getItem(id: number): Item {
@@ -69,60 +69,60 @@ export class BookService {
   }
 
   getItems(exceptId: number): Item[] {
-    const expectItems = this.model.stationItems.filter(si => si.stationId === exceptId).map(si => si.itemId);
+    const expectItems = this.model.sceneItems.filter(si => si.sceneId === exceptId).map(si => si.itemId);
     return this.model.items.filter(item => !expectItems.includes(item.id));
   }
 
-  getStationItems(stationId: number): { item: Item, stationItem: StationItem }[] {
-    const stationItems = this.model.stationItems.filter(si => si.stationId === stationId);
-    return stationItems.map(si => {
+  getSceneItems(sceneId: number): { item: Item, sceneItem: SceneItem }[] {
+    const sceneItems = this.model.sceneItems.filter(si => si.sceneId === sceneId);
+    return sceneItems.map(si => {
       const item = this.model.items.find(item => item.id === si.itemId) as any;
-      return {item, stationItem: si};
+      return {item, sceneItem: si};
     });
   }
 
-  createStation(station: Station, parentId?: number, comment = '') {
-    station.id = ++this.maxStationID;
-    this.model.stations.push(station);
-    if (!!parentId && !this.getStation(parentId).winner && !this.getStation(parentId).looser) {
+  createScene(scene: Scene, parentId?: number, comment = '') {
+    scene.id = ++this.maxSceneID;
+    this.model.scenes.push(scene);
+    if (!!parentId && !this.getScene(parentId).winner && !this.getScene(parentId).looser) {
       this.model.relations.push({
         sourceId: parentId,
-        targetId: station.id,
+        targetId: scene.id,
         comment,
         condition: false
       });
     }
   }
 
-  updateStation(station: Station) {
-    const originStation = this.model.stations.find(s => s.id === station.id);
-    if (originStation) {
-      originStation.title = station.title;
-      originStation.story = station.story;
-      originStation.comment = station.comment;
-      originStation.question = station.question;
-      originStation.chapterId = station.chapterId;
-      originStation.color = station.color;
-      originStation.starter = station.starter;
-      originStation.winner = station.winner;
-      originStation.looser = station.looser;
-      originStation.life = station.life;
-      if (station.winner || station.looser) {
-        this.model.relations = this.model.relations.filter(r => r.sourceId !== station.id);
+  updateScene(scene: Scene) {
+    const originScene = this.model.scenes.find(s => s.id === scene.id);
+    if (originScene) {
+      originScene.title = scene.title;
+      originScene.story = scene.story;
+      originScene.comment = scene.comment;
+      originScene.question = scene.question;
+      originScene.chapterId = scene.chapterId;
+      originScene.color = scene.color;
+      originScene.starter = scene.starter;
+      originScene.winner = scene.winner;
+      originScene.looser = scene.looser;
+      originScene.life = scene.life;
+      if (scene.winner || scene.looser) {
+        this.model.relations = this.model.relations.filter(r => r.sourceId !== scene.id);
       }
       if (this.model.questionnaire) {
-        originStation.questionnaire = station.questionnaire;
+        originScene.questionnaire = scene.questionnaire;
       }
-      if (station.starter) {
-        this.model.stations.filter(s => s.id !== station.id).forEach(s => s.starter = false);
+      if (scene.starter) {
+        this.model.scenes.filter(s => s.id !== scene.id).forEach(s => s.starter = false);
       }
     }
   }
 
-  deleteStation(id: number) {
-    this.model.stations = this.model.stations.filter(s => s.id !== id);
+  deleteScene(id: number) {
+    this.model.scenes = this.model.scenes.filter(s => s.id !== id);
     this.model.relations = this.model.relations.filter(r => r.sourceId !== id && r.targetId !== id);
-    this.model.stationItems = this.model.stationItems.filter(si => si.stationId !== id);
+    this.model.sceneItems = this.model.sceneItems.filter(si => si.sceneId !== id);
   }
 
   createRelation(sourceId: number, targetId: number, comment = '', condition = false) {
@@ -140,19 +140,19 @@ export class BookService {
 
   deleteItem(id: number) {
     this.model.items = this.model.items.filter(i => i.id !== id);
-    this.model.stationItems = this.model.stationItems.filter(si => si.itemId !== id);
+    this.model.sceneItems = this.model.sceneItems.filter(si => si.itemId !== id);
   }
 
-  setItem(stationId: number, itemId: number, count: number) {
-    this.model.stationItems.push({stationId, itemId, count});
+  setItem(sceneId: number, itemId: number, count: number) {
+    this.model.sceneItems.push({sceneId, itemId, count});
   }
 
-  deleteStationItem(stationId: number, itemId: number) {
-    this.model.stationItems = this.model.stationItems.filter(si => !(si.stationId === stationId && si.itemId === itemId));
+  deleteSceneItem(sceneId: number, itemId: number) {
+    this.model.sceneItems = this.model.sceneItems.filter(si => !(si.sceneId === sceneId && si.itemId === itemId));
   }
 
-  getChildren(id: number): Station[] {
-    return this.model.relations.filter(r => r.sourceId === id).map(r => this.model.stations.find(s => s.id === r.targetId) as any);
+  getChildren(id: number): Scene[] {
+    return this.model.relations.filter(r => r.sourceId === id).map(r => this.model.scenes.find(s => s.id === r.targetId) as any);
   }
 
   createChapter(name: string) {
@@ -162,7 +162,7 @@ export class BookService {
 
   deleteChapter(id: number) {
     this.model.chapters = this.model.chapters.filter(i => i.id !== id);
-    this.model.stations.filter(s => s.chapterId === id).forEach(s => s.chapterId = 0);
+    this.model.scenes.filter(s => s.chapterId === id).forEach(s => s.chapterId = 0);
   }
 
   createCharacter(name: string) {
@@ -177,7 +177,7 @@ export class BookService {
   finalize(withDialog = true, withConfirmation = true): Promise<any[]> {
     if (this.isValidBook()) {
       let generation = 0;
-      const hasIndex = !this.model.stations.some(s => s.index === 0);
+      const hasIndex = !this.model.scenes.some(s => s.index === 0);
       return (hasIndex && withConfirmation ?
         this.dialogService.openConfirmation('Indexes has been generated. Would you like to refresh?', 'Yes', 'No')
         : Promise.resolve(true))
@@ -193,16 +193,16 @@ export class BookService {
               }
             } while (!this.validateIndexes());
           }
-          const stations = this.sortAndReplaceMacros();
+          const scenes = this.sortAndReplaceMacros();
           if (withDialog) {
-            this.openBookViewer(stations);
+            this.openBookViewer(scenes);
             this.validateMacros();
           }
           if (hasIndexError) {
             this.dialogService.openError(`Number of index generations has reached the maximum (${NUMBER_OF_MAX_GENERATION}). ` +
               'Please try it again, or consider turning off the index validation.');
           }
-          return [stations, generation];
+          return [scenes, generation];
         });
     }
     return Promise.resolve([[], 0]);
@@ -211,19 +211,19 @@ export class BookService {
   private isValidBook() {
     let message = '';
 
-    // No station
-    if (this.model.stations.length === 0) {
-      message = 'Please create at least one station.';
+    // No scene
+    if (this.model.scenes.length === 0) {
+      message = 'Please create at least one scene.';
     }
 
     // One starter
     if (!message) {
-      const starters = this.model.stations.filter(s => s.starter);
+      const starters = this.model.scenes.filter(s => s.starter);
       if (starters.length !== 1) {
         if (starters.length === 0) {
-          message = 'Missing first station.';
+          message = 'Missing first scene.';
         } else {
-          message = 'More than one first stations: ' + starters.map(s => s.title).join(', ') + '.';
+          message = 'More than one first scenes: ' + starters.map(s => s.title).join(', ') + '.';
         }
       }
     }
@@ -231,9 +231,9 @@ export class BookService {
     // Shadow starter
     if (!message) {
       const targetIds = this.model.relations.map(r => r.targetId);
-      const abandonedStarters = this.model.stations.filter(s => !s.starter && !targetIds.includes(s.id));
+      const abandonedStarters = this.model.scenes.filter(s => !s.starter && !targetIds.includes(s.id));
       if (abandonedStarters.length) {
-        message = 'Abandoned stations (where there is no route and not first station): '
+        message = 'Abandoned scenes (where there is no route and not first scene): '
           + abandonedStarters.map(s => s.title).join(', ');
       }
     }
@@ -245,7 +245,7 @@ export class BookService {
 
   private validateMacros() {
     const messages = [];
-    for (const s of this.model.stations) {
+    for (const s of this.model.scenes) {
       const childrenNumber = this.model.relations.filter(r => r.sourceId === s.id).length;
       for (let i = 1; i < (childrenNumber + 1); i++) {
         if (s.story.indexOf('##' + i) === -1) {
@@ -258,10 +258,10 @@ export class BookService {
     }
   }
 
-  private sortAndReplaceMacros(): Station[] {
-    const stations = (JSON.parse(JSON.stringify(this.model.stations)) as Station[])
+  private sortAndReplaceMacros(): Scene[] {
+    const scenes = (JSON.parse(JSON.stringify(this.model.scenes)) as Scene[])
       .sort((s1, s2) => s1.index > s2.index ? 1 : -1);
-    stations.forEach(s => {
+    scenes.forEach(s => {
       let i = 1;
       this.getChildren(s.id).forEach(c => {
         s.story = s.story
@@ -271,7 +271,7 @@ export class BookService {
         i++;
       });
     });
-    return stations;
+    return scenes;
   }
 
   private addAnchor(index: number, indexStr: string): string {
@@ -280,27 +280,27 @@ export class BookService {
 
   private generateIndexes() {
     let index = 0;
-    let stations = [...this.model.stations];
-    const starter = stations.find(s => s.starter);
+    let scenes = [...this.model.scenes];
+    const starter = scenes.find(s => s.starter);
     if (starter) {
       index++;
       starter.index = index + this.model.numberingOffset;
-      stations = stations.filter(s => s.id !== starter.id);
+      scenes = scenes.filter(s => s.id !== starter.id);
     }
-    while (stations.length) {
+    while (scenes.length) {
       index++;
-      const id = stations[Math.floor(Math.random() * stations.length)].id;
-      this.getStation(id).index = index + this.model.numberingOffset;
-      stations = stations.filter(s => s.id !== id);
+      const id = scenes[Math.floor(Math.random() * scenes.length)].id;
+      this.getScene(id).index = index + this.model.numberingOffset;
+      scenes = scenes.filter(s => s.id !== id);
     }
   }
 
   private validateIndexes(): boolean {
     let wrongPCIndex = 0;
     let wrongSSIndex = 0;
-    if (this.model.stations.length > 10 && (this.model.validationPC || this.model.validationSS)) {
+    if (this.model.scenes.length > 10 && (this.model.validationPC || this.model.validationSS)) {
       const nums: number[] = [];
-      this.model.stations.forEach(s => nums[s.id] = s.index);
+      this.model.scenes.forEach(s => nums[s.id] = s.index);
 
       // check parent-child distance
       if (this.model.validationPC) {
@@ -313,8 +313,8 @@ export class BookService {
 
       // check siblings distance
       if (this.model.validationSS) {
-        this.model.stations.forEach(station => {
-          const rs = this.model.relations.filter(r => r.sourceId === station.id)
+        this.model.scenes.forEach(scene => {
+          const rs = this.model.relations.filter(r => r.sourceId === scene.id)
             .map(r => nums[r.targetId]).sort((n1, n2) => n1 - n2);
           if (rs.length > 1) {
             for (let i = 1; i < rs.length; i++) {
@@ -339,20 +339,20 @@ export class BookService {
     return wrongPCIndex === 0 && wrongSSIndex === 0;
   }
 
-  private openBookViewer(stations: Station[]) {
+  private openBookViewer(scenes: Scene[]) {
     const book = new Book();
     book.title = this.model.title;
     book.backgroundStory = this.model.backgroundStory;
-    book.stations = stations;
+    book.scenes = scenes;
     this.dialogService.openCustomDialog(BookViewerComponent, {width: '700px'}, {book});
   }
 
-  private setMaxStationID() {
+  private setMaxSceneID() {
     let max = 0;
-    this.model.stations.forEach(s => {
+    this.model.scenes.forEach(s => {
       max = s.id > max ? s.id : max;
     });
-    this.maxStationID = max;
+    this.maxSceneID = max;
   }
 
   private getNewId(list: { id: number }[]): number {

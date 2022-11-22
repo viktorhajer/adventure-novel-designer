@@ -1,6 +1,6 @@
-import {Station} from './station.model';
+import {Scene} from './scene.model';
 
-export class StationItem {
-  path: Station[] = [];
+export class Simulation {
+  path: Scene[] = [];
   distance = 0;
 }

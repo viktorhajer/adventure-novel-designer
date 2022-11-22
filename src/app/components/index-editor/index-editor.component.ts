@@ -3,7 +3,7 @@ import {MatDialogRef} from '@angular/material/dialog';
 import {BookService} from '../../services/book.service';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
-import {Station} from '../../model/station.model';
+import {Scene} from '../../model/scene.model';
 import {map, startWith} from 'rxjs/operators';
 
 @Component({
@@ -27,8 +27,8 @@ export class IndexEditorComponent {
   pcSelected = true;
   fineTuneMethod = 1;
   fineTuneIndex;
-  stationControl = new FormControl('');
-  filteredStationControlOptions: Observable<Station[]> = null as any;
+  sceneControl = new FormControl('');
+  filteredControlOptions: Observable<Scene[]> = null as any;
 
   constructor(private readonly dialogRef: MatDialogRef<IndexEditorComponent>,
               public readonly bookService: BookService) {
@@ -39,12 +39,12 @@ export class IndexEditorComponent {
   refreshStatistics() {
     this.reInit();
     const nums: number[] = [];
-    this.bookService.model.stations.forEach(s => nums[s.id] = s.index);
+    this.bookService.model.scenes.forEach(s => nums[s.id] = s.index);
 
     // Parent - child
     this.relationsDistancesPC = this.bookService.model.relations
-      .map(r => ({s: r.sourceId, st: this.getStationTitle(r.sourceId), sn: nums[r.sourceId],
-        t: r.targetId, tt: this.getStationTitle(r.targetId), tn: nums[r.targetId],
+      .map(r => ({s: r.sourceId, st: this.getSceneTitle(r.sourceId), sn: nums[r.sourceId],
+        t: r.targetId, tt: this.getSceneTitle(r.targetId), tn: nums[r.targetId],
         d: Math.abs(nums[r.sourceId] - nums[r.targetId]), h: 0}));
     this.relationsDistancesPC.forEach(rd => {
       this.maximumPC = rd.d > this.maximumPC ? rd.d : this.maximumPC;
@@ -58,13 +58,13 @@ export class IndexEditorComponent {
     this.relationsDistancesPC.sort((r1, r2) => r1.sn - r2.sn);
 
     // Siblings
-    this.bookService.model.stations.forEach(station => {
-      const rs = this.bookService.model.relations.filter(r => r.sourceId === station.id)
+    this.bookService.model.scenes.forEach(scene => {
+      const rs = this.bookService.model.relations.filter(r => r.sourceId === scene.id)
         .map(r => ({s: r.sourceId, t: r.targetId, n: nums[r.targetId]})).sort((n1, n2) => n1.n - n2.n);
       if (rs.length > 1) {
         for (let i = 1; i < rs.length; i++) {
-          this.relationsDistancesSS.push({s: rs[i].t, st: this.getStationTitle(rs[i-1].t), sn: nums[rs[i-1].t],
-            t: rs[i].t, tt: this.getStationTitle(rs[i].t), tn: nums[rs[i].t],
+          this.relationsDistancesSS.push({s: rs[i].t, st: this.getSceneTitle(rs[i-1].t), sn: nums[rs[i-1].t],
+            t: rs[i].t, tt: this.getSceneTitle(rs[i].t), tn: nums[rs[i].t],
             d: Math.abs(rs[i - 1].n - rs[i].n), h: 0});
         }
       }
@@ -93,7 +93,7 @@ export class IndexEditorComponent {
     this.pcSelected = !this.pcSelected;
   }
 
-  openStation(id: number) {
+  openScene(id: number) {
     this.dialogRef.close(id);
   }
 
@@ -102,23 +102,23 @@ export class IndexEditorComponent {
   }
 
   changeIndex(title: HTMLInputElement) {
-    const station = this.bookService.model.stations.find(s => s.index + '. ' + s.title === title.value) as Station;
-    const starter = this.bookService.model.stations.find(s => s.starter) as Station;
-    if (!!starter && this.fineTuneIndex !== starter.index && station && station.index !== this.fineTuneIndex && !station.starter) {
+    const scene = this.bookService.model.scenes.find(s => s.index + '. ' + s.title === title.value) as Scene;
+    const starter = this.bookService.model.scenes.find(s => s.starter) as Scene;
+    if (!!starter && this.fineTuneIndex !== starter.index && scene && scene.index !== this.fineTuneIndex && !scene.starter) {
       if (this.fineTuneMethod === 1) {
-        const station2 = this.bookService.model.stations.find(s => s.index === this.fineTuneIndex) as Station;
-        if (station2) {
-          station2.index = station.index;
-          station.index = this.fineTuneIndex;
+        const scene2 = this.bookService.model.scenes.find(s => s.index === this.fineTuneIndex) as Scene;
+        if (scene2) {
+          scene2.index = scene.index;
+          scene.index = this.fineTuneIndex;
         }
       } else {
-        const originIndex = station.index;
+        const originIndex = scene.index;
         if (originIndex > this.fineTuneIndex) {
-          this.bookService.model.stations.filter(s => s.index >= this.fineTuneIndex && s.index < originIndex).forEach(s => s.index++);
+          this.bookService.model.scenes.filter(s => s.index >= this.fineTuneIndex && s.index < originIndex).forEach(s => s.index++);
         } else {
-          this.bookService.model.stations.filter(s => s.index > originIndex && s.index <= this.fineTuneIndex).forEach(s => s.index--);
+          this.bookService.model.scenes.filter(s => s.index > originIndex && s.index <= this.fineTuneIndex).forEach(s => s.index--);
         }
-        station.index = this.fineTuneIndex;
+        scene.index = this.fineTuneIndex;
       }
       this.fineTuneIndex = this.bookService.model.numberingOffset + 2;
       title.value = '';
@@ -142,20 +142,20 @@ export class IndexEditorComponent {
     this.totalPC = 0;
     this.totalSS = 0;
 
-    this.filteredStationControlOptions = this.stationControl.valueChanges.pipe(
+    this.filteredControlOptions = this.sceneControl.valueChanges.pipe(
       startWith(''),
-      map(value => this.filterStation(value || '')),
+      map(value => this.filterScene(value || '')),
     );
   }
 
-  private filterStation(value: string): Station[] {
+  private filterScene(value: string): Scene[] {
     const filterValue = value.toLowerCase();
-    return this.bookService.model.stations.filter(s =>
+    return this.bookService.model.scenes.filter(s =>
       (s.title.toLowerCase().includes(filterValue) || (s.index+'').includes(filterValue)) && !s.starter);
   }
 
-  private getStationTitle(id: number): string {
-    return this.bookService.getStation(id)?.title;
+  private getSceneTitle(id: number): string {
+    return this.bookService.getScene(id)?.title;
   }
 }
 

@@ -1,32 +1,32 @@
-<div id="edit-station-form" *ngIf="station">
+<div id="edit-scene-form" *ngIf="scene">
 
   <div class="title_field_container">
-    <div class="station_index" *ngIf="station.index">{{ station.index }}</div>
+    <div class="scene_index" *ngIf="scene.index">{{ scene.index }}</div>
     <mat-form-field appearance="fill">
       <mat-label>Title</mat-label>
-      <input matInput [(ngModel)]="station.title" (change)="checkUnsaved()">
+      <input matInput [(ngModel)]="scene.title" (change)="checkUnsaved()">
     </mat-form-field>
   </div>
 
   <mat-form-field appearance="fill">
     <mat-label>Story</mat-label>
-    <textarea matInput [(ngModel)]="station.story" (change)="checkUnsaved()"></textarea>
+    <textarea matInput [(ngModel)]="scene.story" (change)="checkUnsaved()"></textarea>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Editorial comment</mat-label>
-    <input matInput [(ngModel)]="station.comment" (change)="checkUnsaved()">
+    <input matInput [(ngModel)]="scene.comment" (change)="checkUnsaved()">
   </mat-form-field>
 
   <mat-form-field appearance="fill" *ngIf="bookService.model.questionnaire">
     <mat-label>Verification question</mat-label>
-    <input matInput [(ngModel)]="station.question" (change)="checkUnsaved()">
+    <input matInput [(ngModel)]="scene.question" (change)="checkUnsaved()">
   </mat-form-field>
 
   <div class="flex--row">
     <mat-form-field appearance="fill" *ngIf="chapters.length">
       <mat-label>Chapters</mat-label>
-      <mat-select [(ngModel)]="station.chapterId" (selectionChange)="checkUnsaved()">
+      <mat-select [(ngModel)]="scene.chapterId" (selectionChange)="checkUnsaved()">
         <mat-option *ngFor="let chapter of chapters" [value]="chapter.id">
           {{chapter.name}}
         </mat-option>
@@ -35,7 +35,7 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Color</mat-label>
-      <mat-select [(ngModel)]="station.color" (selectionChange)="checkUnsaved()">
+      <mat-select [(ngModel)]="scene.color" (selectionChange)="checkUnsaved()">
         <mat-option *ngFor="let c of colors" [value]="c.value">
           {{c.title}}
         </mat-option>
@@ -44,7 +44,7 @@
 
     <mat-form-field appearance="fill" *ngIf="bookService.model.mortality">
       <mat-label>Life</mat-label>
-      <mat-select [(ngModel)]="station.life" (selectionChange)="checkUnsaved()">
+      <mat-select [(ngModel)]="scene.life" (selectionChange)="checkUnsaved()">
         <mat-option *ngFor="let lf of [-3,-2,-1,0,1,2,3,4,5,6,7,8,9,10,11,12]" [value]="lf">
           {{lf}}
         </mat-option>
@@ -53,19 +53,19 @@
   </div>
 
   <div class="flex--row">
-    <mat-slide-toggle [color]="'primary'" [(ngModel)]="station.starter" (change)="checkWinnerLooser(0)">
-      First station
+    <mat-slide-toggle [color]="'primary'" [(ngModel)]="scene.starter" (change)="checkWinnerLooser(0)">
+      First scene
     </mat-slide-toggle>
 
-    <mat-slide-toggle [color]="'primary'" [(ngModel)]="station.winner" (change)="checkWinnerLooser(1)">
+    <mat-slide-toggle [color]="'primary'" [(ngModel)]="scene.winner" (change)="checkWinnerLooser(1)">
       Winner
     </mat-slide-toggle>
 
-    <mat-slide-toggle [color]="'primary'" [(ngModel)]="station.looser" (change)="checkWinnerLooser(2)">
+    <mat-slide-toggle [color]="'primary'" [(ngModel)]="scene.looser" (change)="checkWinnerLooser(2)">
       Looser
     </mat-slide-toggle>
 
-    <mat-slide-toggle [color]="'primary'" [(ngModel)]="station.questionnaire" (change)="checkUnsaved()"
+    <mat-slide-toggle [color]="'primary'" [(ngModel)]="scene.questionnaire" (change)="checkUnsaved()"
                       *ngIf="bookService.model.questionnaire">
       Questionnaire
     </mat-slide-toggle>
@@ -104,7 +104,7 @@
               <mat-icon *ngIf="!getRelation(s.id).condition">close</mat-icon>
             </td>
             <td>
-              <button mat-icon-button (click)="viewStation(s)" title="View station">
+              <button mat-icon-button (click)="viewScene(s)" title="View scene">
                 <mat-icon>open_in_new</mat-icon>
               </button>
               <button mat-icon-button (click)="editRelation(s.id)" title="Edit route">
@@ -119,7 +119,7 @@
         </table>
       </div>
       <h3>Create new route</h3>
-      <div class="new-children-container" *ngIf="stations.length">
+      <div class="new-children-container" *ngIf="scenes.length">
         <div class="flex--row">
           <mat-form-field appearance="fill">
             <mat-label>Destination</mat-label>
@@ -157,7 +157,7 @@
               <div>{{ oi.item.name }}</div>
             </td>
             <td>
-              <div>{{ oi.stationItem.count }}</div>
+              <div>{{ oi.sceneItem.count }}</div>
             </td>
             <td>
               <button mat-icon-button (click)="deleteOwnItem(oi.item.id)" title="Delete item">
@@ -184,7 +184,7 @@
             <mat-label>Count</mat-label>
             <input matInput #itemcount type="number" value="1">
           </mat-form-field>
-          <button mat-raised-button (click)="setItem(station.id, itemid, itemcount)">Set</button>
+          <button mat-raised-button (click)="setItem(scene.id, itemid, itemcount)">Set</button>
         </div>
       </div>
     </mat-tab>

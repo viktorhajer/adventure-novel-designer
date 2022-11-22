@@ -3,7 +3,7 @@
   "title": "Az elveszett időérme",
   "backgroundStory": "Üdvözöllek, kedves Olvasó! Ebben a történetben egy hétköznapinak tűnő,  mégis igazán különleges személy bőrébe bújhatsz bele. Feladatod nem kevesebb, mint döntéseiddel segíteni őt a váratlan, néha humoros vagy éppen felkavaró események során, így formálva a cselekményt, megteremtve vagy elveszítve lehetőségeket, melyek mind a végső célhoz vezetnek majd. Utad során barátokra tehetsz szert, vagy épp veszedelmes ellenségekre. Dönthetsz úgy is, hogy egyszerűen csak tovább állsz, mit sem törődve az adott helyzettel. Szemtanúja lehetsz annak, hogyan válik egy csendes  fiatal egy egész világ megmentőjévé. Láthatod egy igazi hős születését, miközben önmagadat is jobban megismered.\n\nHa szeretnél belevágni a kalandba, lépj az 1-re. ",
   "notes": "",
-  "stations": [
+  "scenes": [
     {
       "id": 1,
       "title": "Móló a Tükörtavon",
@@ -1743,7 +1743,7 @@
       "description": ""
     }
   ],
-  "stationItems": [],
+  "sceneItems": [],
   "chapters": [
     {
       "id": 1,

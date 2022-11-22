@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
-import {Station} from '../../model/station.model';
+import {Scene} from '../../model/scene.model';
 import {BookService} from '../../services/book.service';
 import {GrammerService} from '../../services/grammer.service';
 
@@ -11,13 +11,13 @@ import {GrammerService} from '../../services/grammer.service';
 })
 export class QuestionnaireComponent {
 
-  stations: Station[] = [];
+  scenes: Scene[] = [];
 
   constructor(private readonly dialogRef: MatDialogRef<QuestionnaireComponent>,
               private readonly bookService: BookService) {
-    this.stations = this.bookService.model.stations.filter(s => !!s.question);
+    this.scenes = this.bookService.model.scenes.filter(s => !!s.question);
   }
-  
+
   getCommand(index: number): string {
     const command = 'A válaszod ellenőrzéséhez lapozz [###]!';
     return command

@@ -1,7 +1,7 @@
-import {Station} from './station.model';
+import {Scene} from './scene.model';
 import {Relation} from './relation.model';
 import {Item} from './item.model';
-import {StationItem} from './station-item.model';
+import {SceneItem} from './scene-item.model';
 import {Chapter} from './chapter.model';
 import {Character} from './character.model';
 
@@ -10,9 +10,9 @@ export class Book {
   title: string = '';
   backgroundStory: string = '';
   notes: string = '';
-  stations: Station[] = [];
+  scenes: Scene[] = [];
   relations: Relation[] = [];
-  stationItems: StationItem[] = [];
+  sceneItems: SceneItem[] = [];
   items: Item[] = [];
   chapters: Chapter[] = [];
   characters: Character[] = [];

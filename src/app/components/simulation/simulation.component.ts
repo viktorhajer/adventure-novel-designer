@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import {BookService} from '../../services/book.service';
 import {INFINITY, SimulationService} from '../../services/simulation.service';
-import {StationItem} from '../../model/simulation.model';
-import {Station} from '../../model/station.model';
+import {Simulation} from '../../model/simulation.model';
+import {Scene} from '../../model/scene.model';
 
 @Component({
   selector: 'app-simulation',
@@ -13,8 +13,8 @@ import {Station} from '../../model/station.model';
 export class SimulationComponent implements OnInit {
 
   error = '';
-  simulation: StationItem = null as any;
-  destinations: Station[] = [];
+  simulation: Simulation = null as any;
+  destinations: Scene[] = [];
   destinationLife: number[] = [];
   selectedDestinationId = 0;
 
@@ -24,7 +24,7 @@ export class SimulationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.destinations = this.bookService.model.stations.filter(s => s.winner);
+    this.destinations = this.bookService.model.scenes.filter(s => s.winner);
     if (this.destinations.length) {
       this.selectedDestinationId = this.destinations[0].id;
     }
@@ -35,11 +35,11 @@ export class SimulationComponent implements OnInit {
       this.simulation = this.simulationService.start(this.selectedDestinationId);
       if (this.simulation.distance === INFINITY) {
         this.simulation = null as any;
-        this.error = 'No route found between the two stations.';
+        this.error = 'No route found between the two scenes.';
       } else if (this.bookService.model.mortality) {
         let index = 0;
-        for (const station of this.simulation.path) {
-          this.destinationLife[index] = index === 0 ? station.life : this.destinationLife[index - 1] + station.life;
+        for (const scene of this.simulation.path) {
+          this.destinationLife[index] = index === 0 ? scene.life : this.destinationLife[index - 1] + scene.life;
           index++;
         }
       }

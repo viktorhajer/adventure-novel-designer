@@ -17,8 +17,8 @@
           <div class="stat_value">{{ bookService.model.chapters.length }}</div>
         </div>
         <div class="stat">
-          <div class="stat_name">Number of stations:</div>
-          <div class="stat_value">{{ bookService.model.stations.length }}</div>
+          <div class="stat_name">Number of scenes:</div>
+          <div class="stat_value">{{ bookService.model.scenes.length }}</div>
         </div>
         <div class="stat">
           <div class="stat_name">Number of path:</div>
@@ -37,11 +37,11 @@
           <div class="stat_value">{{ bookService.model.characters.length }}</div>
         </div>
         <div class="stat">
-          <div class="stat_name">Number of winner stations:</div>
+          <div class="stat_name">Number of winner scenes:</div>
           <div class="stat_value">{{ bookService.getNumberOfWinners() }}</div>
         </div>
         <div class="stat">
-          <div class="stat_name">Number of looser stations:</div>
+          <div class="stat_name">Number of looser scenes:</div>
           <div class="stat_value">{{ bookService.getNumberOfLooser() }}</div>
         </div>
       </div>
@@ -66,7 +66,7 @@
         </div>
       </div>
     </mat-tab>
-    <mat-tab label="Editorial" *ngIf="getEditorialStations().length">
+    <mat-tab label="Editorial" *ngIf="getEditorialScenes().length">
       <table mat-table>
         <thead>
         <tr>
@@ -76,7 +76,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let s of getEditorialStations()">
+        <tr *ngFor="let s of getEditorialScenes()">
           <td>
             <div>{{ s.title }}</div>
           </td>
@@ -84,7 +84,7 @@
             <div>{{ s.comment }}</div>
           </td>
           <td>
-            <button mat-icon-button (click)="openStation(s.id)" title="Open station">
+            <button mat-icon-button (click)="openScene(s.id)" title="Open scene">
               <mat-icon>open_in_new</mat-icon>
             </button>
           </td>

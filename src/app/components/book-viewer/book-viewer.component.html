@@ -6,7 +6,7 @@
   <div class="chapter">
     <pre class="chapter_content" [innerHtml]="book.backgroundStory"></pre>
   </div>
-  <div class="chapter" *ngFor="let s of book.stations; let i = index">
+  <div class="chapter" *ngFor="let s of book.scenes; let i = index">
     <div class="chapter_index" id="chapter_{{s.index}}">{{ s.index }}.</div>
     <pre class="chapter_content" [innerHtml]="s.story"></pre>
     <div class="comment" *ngIf="s.comment">{{ s.comment }}</div>

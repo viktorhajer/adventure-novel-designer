@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Book} from '../model/book.model';
-import {Station} from '../model/station.model';
+import {Scene} from '../model/scene.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +11,11 @@ export class DownloadService {
     this.downloadFile(`book_${book.id}.txt`, JSON.stringify(book));
   }
 
-  downloadGeneratedBook(book: Book, stations: Station[]) {
-    this.downloadFile(`book_${book.id}.html`, this.getBookContent(book, stations));
+  downloadGeneratedBook(book: Book, scenes: Scene[]) {
+    this.downloadFile(`book_${book.id}.html`, this.getBookContent(book, scenes));
   }
 
-  private getBookContent(book: Book, stations: Station[]): string {
+  private getBookContent(book: Book, scenes: Scene[]): string {
 
     let html = '<head><style>';
     html += 'body {display: flex; flex-flow: column; align-items: center; font-family: sans-serif; padding: 20px;}';
@@ -32,11 +32,11 @@ export class DownloadService {
     html += '</style></head><body>'
     html += `<h1>${book.title}</h1><div class="background-story">${book.backgroundStory}</div>`;
     html += `<div class="chapter_container">`;
-    for (const station of stations) {
+    for (const scene of scenes) {
       html += '<div class="chapter">';
-      html += `<div class="chapter_index" id="chapter_${station.index}">${station.index}.</div>`;
-      html += `<div class="chapter_content">${station.story}</div>`;
-      html += station.comment ? `<div class="comment">${station.comment}</div>` : '';
+      html += `<div class="chapter_index" id="chapter_${scene.index}">${scene.index}.</div>`;
+      html += `<div class="chapter_content">${scene.story}</div>`;
+      html += scene.comment ? `<div class="comment">${scene.comment}</div>` : '';
       html += '</div>';
     }
     html += `</div>`;

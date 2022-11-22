@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BookService} from './book.service';
 import {Relation} from '../model/relation.model';
-import {StationItem} from '../model/simulation.model';
+import {Simulation} from '../model/simulation.model';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogService} from './dialog.service';
 
@@ -13,19 +13,18 @@ export const INFINITY = 9999999;
 export class SimulationService {
 
   constructor(private readonly bookService: BookService,
-              private readonly dialogService: DialogService,
-              private readonly dialog: MatDialog) {
+              private readonly dialogService: DialogService) {
   }
 
-  start(endId: number): StationItem {
-    const start = this.bookService.model.stations.find(s => s.starter);
+  start(endId: number): Simulation {
+    const start = this.bookService.model.scenes.find(s => s.starter);
     if (!start) {
-      this.dialogService.openError('Please select first station.');
+      this.dialogService.openError('Please select first scene.');
     } else {
       const rawPath = this.findShortestPath(this.bookService.model.relations, start.id, endId);
       return {
         distance: rawPath.distance,
-        path: rawPath.path.map(id => this.bookService.getStation(id))
+        path: rawPath.path.map(id => this.bookService.getScene(id))
       };
     }
     return null as any;

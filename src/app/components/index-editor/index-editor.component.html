@@ -5,7 +5,7 @@
 <mat-dialog-content class="mat-typography">
 
   <div class="index_diagram" *ngIf="pcSelected">
-    <div *ngFor="let rd of relationsDistancesPC" class="index_column" (click)="openStation(rd.s)"
+    <div *ngFor="let rd of relationsDistancesPC" class="index_column" (click)="openScene(rd.s)"
          [style.height]="rd.h + '%'"
          [title]="rd.sn + '. ' + rd.st + '&#013;-------&#013;' + rd.tn + '. ' + rd.tt + '&#013;-------&#013;' + rd.d">
       {{ rd.d }}
@@ -13,7 +13,7 @@
   </div>
 
   <div class="index_diagram siblings" *ngIf="!pcSelected">
-    <div *ngFor="let rd of relationsDistancesSS" class="index_column" (click)="openStation(rd.s)"
+    <div *ngFor="let rd of relationsDistancesSS" class="index_column" (click)="openScene(rd.s)"
          [style.height]="rd.h + '%'"
          [title]="rd.sn + '. ' + rd.st + '&#013;-------&#013;' + rd.tn + '. ' + rd.tt + '&#013;-------&#013;' + rd.d">
       {{ rd.d }}
@@ -26,7 +26,7 @@
         <div class="statistics_container">
           <h3>General</h3>
           <div class="statistics">
-            Number of indexes: {{ bookService.model.stations.length }}<br/>
+            Number of indexes: {{ bookService.model.scenes.length }}<br/>
             <ng-container *ngIf="lastGeneration">Last generation: {{ lastGeneration }}</ng-container>
           </div>
         </div>
@@ -106,12 +106,12 @@
           </ng-container>
         </div>
         <div class="statistics_container">
-          <h3>Station</h3>
+          <h3>Scene</h3>
           <mat-form-field appearance="fill">
-            <input type="text" matInput [formControl]="stationControl" [matAutocomplete]="auto" #stationInput>
-            <mat-label>Select station</mat-label>
+            <input type="text" matInput [formControl]="sceneControl" [matAutocomplete]="auto" #sceneInput>
+            <mat-label>Select scene</mat-label>
             <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-              <mat-option *ngFor="let s of filteredStationControlOptions | async" [value]="s.index + '. ' + s.title">
+              <mat-option *ngFor="let s of filteredControlOptions | async" [value]="s.index + '. ' + s.title">
                 {{s.index}}. {{s.title}}
               </mat-option>
             </mat-autocomplete>
@@ -125,7 +125,7 @@
         </div>
         <div class="statistics_container">
           <h3>Update index</h3>
-          <button mat-raised-button [color]="'primary'" (click)="changeIndex(stationInput)">Update</button>
+          <button mat-raised-button [color]="'primary'" (click)="changeIndex(sceneInput)">Update</button>
         </div>
       </div>
     </mat-tab>

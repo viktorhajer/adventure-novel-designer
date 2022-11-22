@@ -1,15 +1,15 @@
 <h2>
   <mat-icon>plagiarism</mat-icon>
-  <div>Review - {{ station.title }}</div>
+  <div>Review - {{ scene.title }}</div>
 </h2>
 <mat-dialog-content class="mat-typography">
   <mat-form-field appearance="fill">
     <mat-label>Story</mat-label>
-    <textarea matInput [(ngModel)]="station.story" class="story"></textarea>
+    <textarea matInput [(ngModel)]="scene.story" class="story"></textarea>
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Editorial comment</mat-label>
-    <textarea matInput [(ngModel)]="station.comment" class="comment"></textarea>
+    <textarea matInput [(ngModel)]="scene.comment" class="comment"></textarea>
   </mat-form-field>
   <div class="actions">
     <button mat-raised-button (click)="back()" [disabled]="!history.length">Back</button>

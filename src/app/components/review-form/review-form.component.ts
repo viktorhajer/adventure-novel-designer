@@ -1,6 +1,6 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {Station} from '../../model/station.model';
+import {Scene} from '../../model/scene.model';
 import {BookService} from '../../services/book.service';
 
 @Component({
@@ -10,7 +10,7 @@ import {BookService} from '../../services/book.service';
 })
 export class ReviewFormComponent {
 
-  station: Station = null as any;
+  scene: Scene = null as any;
   history: number[] = [];
   children: number[] = [];
 
@@ -20,23 +20,23 @@ export class ReviewFormComponent {
     if (this.data.id) {
       this.open(this.data.id);
     } else {
-      this.station = this.bookService.model.stations.find(s => s.starter) as Station;
-      if (!this.station) {
-        this.station = this.bookService.model.stations[0];
+      this.scene = this.bookService.model.scenes.find(s => s.starter) as Scene;
+      if (!this.scene) {
+        this.scene = this.bookService.model.scenes[0];
       }
     }
-    if (this.station) {
-      this.children = this.bookService.model.relations.filter(r => r.sourceId === this.station.id).map(r => r.targetId);
+    if (this.scene) {
+      this.children = this.bookService.model.relations.filter(r => r.sourceId === this.scene.id).map(r => r.targetId);
     }
   }
 
-  open(stationId: number, skipHistory = false) {
-    if (!skipHistory && this.station) {
-      this.history.push(this.station.id);
+  open(sceneId: number, skipHistory = false) {
+    if (!skipHistory && this.scene) {
+      this.history.push(this.scene.id);
     }
-    this.station = this.bookService.model.stations.find(s => s.id === stationId) as Station;
-    if (this.station) {
-      this.children = this.bookService.model.relations.filter(r => r.sourceId === this.station.id).map(r => r.targetId);
+    this.scene = this.bookService.model.scenes.find(s => s.id === sceneId) as Scene;
+    if (this.scene) {
+      this.children = this.bookService.model.relations.filter(r => r.sourceId === this.scene.id).map(r => r.targetId);
     }
   }
 

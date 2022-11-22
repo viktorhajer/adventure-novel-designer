@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {BookService} from '../../services/book.service';
-import {Station} from '../../model/station.model';
+import {Scene} from '../../model/scene.model';
 import {ItemFormComponent} from '../item-form/item-form.component';
 import {firstValueFrom} from 'rxjs';
 import {ChapterFormComponent} from '../chapter-form/chapter-form.component';
@@ -16,7 +16,7 @@ import {DialogService} from '../../services/dialog.service';
   styleUrls: ['./book-form.component.scss']
 })
 export class BookFormComponent {
-  @Output() stationSelected = new EventEmitter();
+  @Output() sceneSelected = new EventEmitter();
   itemName = '';
   chapterName = '';
   characterName = '';
@@ -113,16 +113,16 @@ export class BookFormComponent {
     }
   }
 
-  getEditorialStations(): Station[] {
-    return this.bookService.model.stations.filter(s => !!s.comment);
+  getEditorialScenes(): Scene[] {
+    return this.bookService.model.scenes.filter(s => !!s.comment);
   }
 
-  openStation(id: number) {
-    this.stationSelected.emit(id + '');
+  openScene(id: number) {
+    this.sceneSelected.emit(id + '');
   }
 
   changePlugin() {
-    this.stationSelected.emit('');
+    this.sceneSelected.emit('');
   }
 
   private validateName(name: string, list: Item[] | Chapter[], id = 0): boolean {

@@ -4,11 +4,11 @@
 </h2>
 <mat-dialog-content class="mat-typography">
 
-  <p *ngIf="!destinations.length">Please select winner station.</p>
+  <p *ngIf="!destinations.length">Please select winner scene.</p>
   <p *ngIf="error">{{ error }}</p>
 
   <mat-form-field appearance="fill" *ngIf="destinations.length && !simulation && !error">
-    <mat-label>Winner stations:</mat-label>
+    <mat-label>Winner scenes:</mat-label>
     <mat-select [(ngModel)]="selectedDestinationId">
       <mat-option *ngFor="let d of destinations" [value]="d.id">
         {{d.title}}
@@ -17,9 +17,9 @@
   </mat-form-field>
 
   <div class="simulation-container" *ngIf="simulation">
-    <div class="station-arrow" *ngFor="let p of simulation.path; let i = index">
-      <div class="station" [class.zeroLife]="destinationLife.length && destinationLife[i] < 1">
-        <div class="station-title">{{i+1}}. {{ p.title }}</div>
+    <div class="scene-arrow" *ngFor="let p of simulation.path; let i = index">
+      <div class="scene" [class.zeroLife]="destinationLife.length && destinationLife[i] < 1">
+        <div class="scene-title">{{i+1}}. {{ p.title }}</div>
         <div class="life" *ngIf="destinationLife.length">Life: {{destinationLife[i]}}</div>
       </div>
       <mat-icon *ngIf="i < (simulation.path.length - 1)">chevron_right</mat-icon>
