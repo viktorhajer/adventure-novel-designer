@@ -24,11 +24,11 @@
   </mat-form-field>
 
   <div class="flex--row">
-    <mat-form-field appearance="fill" *ngIf="scenes.length">
-      <mat-label>Scene</mat-label>
-      <mat-select [(ngModel)]="station.sceneId" (selectionChange)="checkUnsaved()">
-        <mat-option *ngFor="let scene of scenes" [value]="scene.id">
-          {{scene.name}}
+    <mat-form-field appearance="fill" *ngIf="chapters.length">
+      <mat-label>Chapters</mat-label>
+      <mat-select [(ngModel)]="station.chapterId" (selectionChange)="checkUnsaved()">
+        <mat-option *ngFor="let chapter of chapters" [value]="chapter.id">
+          {{chapter.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>

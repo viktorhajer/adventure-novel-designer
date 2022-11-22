@@ -11,7 +11,7 @@ import {STATION_COLORS} from '../../model/station-color.model';
 import {FormControl} from '@angular/forms';
 import {firstValueFrom, Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-import {Scene} from '../../model/scene.model';
+import {Chapter} from '../../model/chapter.model';
 import {DialogService} from '../../services/dialog.service';
 
 @Component({
@@ -28,7 +28,7 @@ export class StationFormComponent implements OnChanges {
   children: Station[] = [];
   childRoutes: Relation[] = [];
   createNew = true;
-  scenes: Scene[] = [];
+  chapters: Chapter[] = [];
   stations: Station[] = [];
   items: Item[] = [];
   ownItems: { item: Item, stationItem: StationItem }[] = [];
@@ -42,7 +42,7 @@ export class StationFormComponent implements OnChanges {
   }
 
   ngOnChanges() {
-    this.scenes = this.bookService.model.scenes;
+    this.chapters = this.bookService.model.chapters;
     if (this.station) {
       this.createNew = !this.station.id;
       if (!this.createNew) {

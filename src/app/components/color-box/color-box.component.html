@@ -1,0 +1,10 @@
+<div id="color_container" *ngIf="displayed()">
+  <div class="color_item" (click)="setId(0)">
+    <div class="color_box" [style.background-color]="'#ffffff'">&nbsp;</div>
+    <div class="name">All</div>
+  </div>
+  <div class="color_item" *ngFor="let chapter of bookService.model.chapters" (click)="setId(chapter.id)">
+    <div class="color_box" [style.background-color]="uiService.getColorHex(chapter.color)">&nbsp;</div>
+    <div class="name">{{ chapter.name }}</div>
+  </div>
+</div>

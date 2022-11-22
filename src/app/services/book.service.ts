@@ -8,7 +8,7 @@ import {BookViewerComponent} from '../components/book-viewer/book-viewer.compone
 import {DialogService} from './dialog.service';
 import {GrammerService} from './grammer.service';
 
-const NUMBER_OF_MAX_GENERATION = 30000;
+const NUMBER_OF_MAX_GENERATION = 100000;
 
 @Injectable({
   providedIn: 'root'
@@ -101,7 +101,7 @@ export class BookService {
       originStation.story = station.story;
       originStation.comment = station.comment;
       originStation.question = station.question;
-      originStation.sceneId = station.sceneId;
+      originStation.chapterId = station.chapterId;
       originStation.color = station.color;
       originStation.starter = station.starter;
       originStation.winner = station.winner;
@@ -134,7 +134,7 @@ export class BookService {
   }
 
   createItem(name: string) {
-    const id = this.getNewItemId();
+    const id = this.getNewId(this.model.items);
     this.model.items.push({id, name, description: ''});
   }
 
@@ -155,18 +155,18 @@ export class BookService {
     return this.model.relations.filter(r => r.sourceId === id).map(r => this.model.stations.find(s => s.id === r.targetId) as any);
   }
 
-  createScene(name: string) {
-    const id = this.getNewSceneId();
-    this.model.scenes.push({id, name, color: '#ffffff', description: ''});
+  createChapter(name: string) {
+    const id = this.getNewId(this.model.chapters);
+    this.model.chapters.push({id, name, color: '#ffffff', description: ''});
   }
 
-  deleteScene(id: number) {
-    this.model.scenes = this.model.scenes.filter(i => i.id !== id);
-    this.model.stations.filter(s => s.sceneId === id).forEach(s => s.sceneId = 0);
+  deleteChapter(id: number) {
+    this.model.chapters = this.model.chapters.filter(i => i.id !== id);
+    this.model.stations.filter(s => s.chapterId === id).forEach(s => s.chapterId = 0);
   }
 
   createCharacter(name: string) {
-    const id = this.getNewCharacterId();
+    const id = this.getNewId(this.model.characters);
     this.model.characters.push({id, name, description: ''});
   }
 
@@ -353,18 +353,6 @@ export class BookService {
       max = s.id > max ? s.id : max;
     });
     this.maxStationID = max;
-  }
-
-  private getNewItemId(): number {
-    return this.getNewId(this.model.items);
-  }
-
-  private getNewSceneId(): number {
-    return this.getNewId(this.model.scenes);
-  }
-
-  private getNewCharacterId(): number {
-    return this.getNewId(this.model.characters);
   }
 
   private getNewId(list: { id: number }[]): number {

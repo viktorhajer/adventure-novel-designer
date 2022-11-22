@@ -126,6 +126,10 @@ export class IndexEditorComponent {
     }
   }
 
+  toggleMethod() {
+    this.fineTuneMethod = (this.fineTuneMethod + 1) % 2;
+  }
+
   private reInit() {
     this.maximumPC = -1;
     this.minimumPC = 10000000000;

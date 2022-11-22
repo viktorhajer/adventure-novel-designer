@@ -3,23 +3,23 @@ import {UiService} from '../../services/ui.service';
 import {BookService} from '../../services/book.service';
 
 @Component({
-  selector: 'app-scene-color-box',
-  templateUrl: './scene-color-box.component.html',
-  styleUrls: ['./scene-color-box.component.scss']
+  selector: 'app-color-box',
+  templateUrl: './color-box.component.html',
+  styleUrls: ['./color-box.component.scss']
 })
-export class SceneColorBoxComponent {
+export class ColorBoxComponent {
 
-  @Output() sceneChanged = new EventEmitter();
+  @Output() chapterChanged = new EventEmitter();
 
   constructor(public readonly uiService: UiService,
               public readonly bookService: BookService) {
   }
 
   setId(id: number) {
-    this.sceneChanged.emit(id);
+    this.chapterChanged.emit(id);
   }
 
   displayed(): boolean {
-    return !!this.bookService.model.scenes.length;
+    return !!this.bookService.model.chapters.length;
   }
 }

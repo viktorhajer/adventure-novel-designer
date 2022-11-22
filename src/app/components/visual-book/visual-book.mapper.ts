@@ -15,9 +15,9 @@ export class VisualBookMapper {
   constructor(private readonly bookService: BookService) {
   }
 
-  mapModel(book: Book, sceneId = 0, color = ''): VisualModel {
+  mapModel(book: Book, chapterId = 0, color = ''): VisualModel {
     const nodes = book && book.stations ? book.stations
-      .filter(station => sceneId === 0 || station.sceneId === sceneId)
+      .filter(station => chapterId === 0 || station.chapterId === chapterId)
       .filter(station => color === '' || station.color === color)
       .map(station => {
         const hasItems = book.stationItems.some(si => si.stationId === station.id);
@@ -25,7 +25,7 @@ export class VisualBookMapper {
       }) : [];
     if (nodes.length) {
       const ids = book.stations
-        .filter(station => sceneId === 0 || station.sceneId === sceneId)
+        .filter(station => chapterId === 0 || station.chapterId === chapterId)
         .filter(station => color === '' || station.color === color)
         .map(s => s.id);
       const allEdges = book.relations ? book.relations
@@ -42,9 +42,9 @@ export class VisualBookMapper {
     const node = new VisualNode();
     node.id = ID_PREFIX + station.id;
     node.title = station.title;
-    if (book.showScenes) {
-      const scene = station.sceneId ? book.scenes.find(s => s.id === station.sceneId) : null as any;
-      node.color = scene ? scene.color : 'white';
+    if (book.showChapters) {
+      const chapter = station.chapterId ? book.chapters.find(c => c.id === station.chapterId) : null as any;
+      node.color = chapter ? chapter.color : 'white';
     } else {
       node.color = station.color;
     }

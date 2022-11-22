@@ -11,13 +11,13 @@ export class BookCorrectorService {
   fixModel(model: Book) {
     const colors = STATION_COLORS.map(c => c.value);
     const stationIds = model.stations.map(s => s.id);
-    const sceneIds = model.scenes.map(r => r.id);
+    const chapterIds = model.chapters.map(r => r.id);
     const itemIds = model.items.map(i => i.id);
 
     // fix settings
     model.title = !!model.title && !!model.title.trim() ? model.title.trim() : ('Book_' + Date.now());
     model.mortality = !!model.mortality;
-    model.showScenes = !!model.showScenes;
+    model.showChapters = !!model.showChapters;
 
     // fix stations
     model.stations.forEach(station => {
@@ -29,17 +29,17 @@ export class BookCorrectorService {
       station.winner = !!station.starter;
       this.fixStationColors(colors, station);
       this.fixStarterWinnerLooser(station);
-      this.fixScenes(sceneIds, station);
+      this.fixChapters(chapterIds, station);
     });
 
     // fix relations
     model.relations = model.relations.filter(r => stationIds.includes(r.sourceId) && stationIds.includes(r.targetId));
     model.relations.forEach(r => r.condition = !!r.condition);
 
-    // fix scenes
-    model.scenes.forEach(scene => {
-      scene.name = !!scene.name && !!scene.name.trim() ? scene.name.trim() : ('Scene_' + Date.now());
-      scene.color = !!scene.color && colors.includes(scene.color.trim()) ? scene.color.trim() : 'white';
+    // fix chapters
+    model.chapters.forEach(chapter => {
+      chapter.name = !!chapter.name && !!chapter.name.trim() ? chapter.name.trim() : ('Chapter_' + Date.now());
+      chapter.color = !!chapter.color && colors.includes(chapter.color.trim()) ? chapter.color.trim() : 'white';
     });
 
     // fix items
@@ -62,8 +62,8 @@ export class BookCorrectorService {
     }
   }
 
-  private fixScenes(sceneIds: number[], station: Station) {
-    station.sceneId = !!station.sceneId && sceneIds.includes(station.sceneId) ? station.sceneId : 0;
+  private fixChapters(chapterIds: number[], station: Station) {
+    station.chapterId = !!station.chapterId && chapterIds.includes(station.chapterId) ? station.chapterId : 0;
   }
 
   private fixStationColors(colors: string[], station: Station) {

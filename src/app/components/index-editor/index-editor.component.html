@@ -96,12 +96,14 @@
       <div class="flex">
         <div class="statistics_container">
           <h3>Method</h3>
-          <mat-form-field appearance="fill">
-            <mat-select [(ngModel)]="fineTuneMethod">
-              <mat-option [value]="0">Insert</mat-option>
-              <mat-option [value]="1">Switch</mat-option>
-            </mat-select>
-          </mat-form-field>
+          <ng-container *ngIf="fineTuneMethod === 0">
+            <button class="switch_buttons" mat-raised-button [color]="'primary'" (click)="toggleMethod()">Insert</button> <br/>
+            <button class="switch_buttons" mat-raised-button (click)="toggleMethod()">Switch</button>
+          </ng-container>
+          <ng-container *ngIf="fineTuneMethod === 1">
+            <button class="switch_buttons" mat-raised-button (click)="toggleMethod()">Insert</button> <br/>
+            <button class="switch_buttons" mat-raised-button [color]="'primary'" (click)="toggleMethod()">Switch</button>
+          </ng-container>
         </div>
         <div class="statistics_container">
           <h3>Station</h3>

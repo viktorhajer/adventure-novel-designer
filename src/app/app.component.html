@@ -81,7 +81,7 @@
       <div id="visual-book-container">
 
         <mat-form-field appearance="fill" class="color-selector"
-                        *ngIf="visualModel && isModelLoaded() && colors.length && !bookService.model.showScenes">
+                        *ngIf="visualModel && isModelLoaded() && colors.length && !bookService.model.showChapters">
           <mat-label><i>Select color</i></mat-label>
           <mat-select [(ngModel)]="color" (selectionChange)="visualFilter()">
             <mat-option></mat-option>
@@ -91,8 +91,8 @@
           </mat-select>
         </mat-form-field>
 
-        <app-scene-color-box *ngIf="visualModel && isModelLoaded()" (sceneChanged)="setSceneFilter($event)">
-        </app-scene-color-box>
+        <app-color-box *ngIf="visualModel && isModelLoaded()" (chapterChanged)="setChapterFilter($event)">
+        </app-color-box>
 
         <app-visual-book [nodes]="(!!visualModel ? visualModel.nodes:[])"
                          [edges]="(!!visualModel ? visualModel.edges:[])"

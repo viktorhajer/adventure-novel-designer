@@ -23,7 +23,7 @@ import {DialogService} from './services/dialog.service';
 import {firstValueFrom} from 'rxjs';
 
 const EMPTY_BOOK = '{"id":0,"title":"New book","backgroundStory":"","notes":"","stations":[],"relations":[],"items":[],' +
-  '"stationItems":[],"scenes": [],"characters": [],"mortality": true,"showScenes": false,"validationPC": true,"validationSS": true,' +
+  '"stationItems":[],"chapters": [],"characters": [],"mortality": true,"showChapters": false,"validationPC": true,"validationSS": true,' +
   '"numberingOffset": 0,"questionnaire": false,"validationPCD":2,"validationSSD":2,"charactersChapter":false}';
 
 // @ts-ignore
@@ -37,17 +37,17 @@ export class AppComponent {
 
   @ViewChild(VisualBookComponent) visual: VisualBookComponent = null as any;
 
-  modelString = '{"id":1667885870598,"title":"Lorem ipsum dolor","showScenes": false,"notes":"","backgroundStory": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",' +
+  modelString = '{"id":1667885870598,"title":"Lorem ipsum dolor","showChapters": false,"notes":"","backgroundStory": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",' +
     '"stations":[' +
-    '{"id":1,"sceneId":1,"life":4,"index":0,"starter":true,"winner":false,"looser":false,"title":"Indulás a faluból","comment": "","story":"Menj a ##1 vagy ##2.","color":"white"},' +
-    '{"id":2,"sceneId":1,"life":-1,"index":0,"starter":false,"winner":false,"looser":false,"title":"Elágazás az erdőben","comment": "Consectetur adipiscing elit, sed do eiusmod","story":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","color":"white"},' +
-    '{"id":3,"sceneId":1,"life":0,"index":0,"starter":false,"winner":false,"looser":false,"title":"Sziklás kihívás","comment": "","story":"Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.   ##1","color":"blue"},' +
-    '{"id":4,"sceneId":2,"life":2,"index":0,"starter": false,"winner":false,"looser":false,"title":"Völgy","comment": "","story":"","color":"white"},' +
-    '{"id":5,"sceneId":2,"life":-1,"index":0,"starter": false,"winner":false,"looser":false,"title":"Manók","comment": "","story":"Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","color":"orange"},' +
-    '{"id":6,"sceneId":0,"life":1,"title":"Folyópart","story":"ss","color":"white","comment":"","index":0,"starter":false,"winner":true,"looser":false},' +
-    '{"id":7,"sceneId":2,"life":0,"title":"Gödör","story":"gödör","color":"","comment":"","index":0,"starter":false,"winner":false,"looser":true},' +
-    '{"id":8,"title":"Völgyben elágazás","story":"xxx","color":"blue","comment":"","index":0,"starter":false,"life":0,"winner":false,"looser":false,"sceneId":1},' +
-    '{"id":9,"title":"Kisállat simogató","question":"Are you sure?","story":"","color":"","comment":"","index":6,"starter":false,"life":-3,"winner":false,"looser":false,"sceneId":1}' +
+    '{"id":1,"chapterId":1,"life":4,"index":0,"starter":true,"winner":false,"looser":false,"title":"Indulás a faluból","comment": "","story":"Menj a ##1 vagy ##2.","color":"white"},' +
+    '{"id":2,"chapterId":1,"life":-1,"index":0,"starter":false,"winner":false,"looser":false,"title":"Elágazás az erdőben","comment": "Consectetur adipiscing elit, sed do eiusmod","story":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","color":"white"},' +
+    '{"id":3,"chapterId":1,"life":0,"index":0,"starter":false,"winner":false,"looser":false,"title":"Sziklás kihívás","comment": "","story":"Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.   ##1","color":"blue"},' +
+    '{"id":4,"chapterId":2,"life":2,"index":0,"starter": false,"winner":false,"looser":false,"title":"Völgy","comment": "","story":"","color":"white"},' +
+    '{"id":5,"chapterId":2,"life":-1,"index":0,"starter": false,"winner":false,"looser":false,"title":"Manók","comment": "","story":"Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","color":"orange"},' +
+    '{"id":6,"chapterId":0,"life":1,"title":"Folyópart","story":"ss","color":"white","comment":"","index":0,"starter":false,"winner":true,"looser":false},' +
+    '{"id":7,"chapterId":2,"life":0,"title":"Gödör","story":"gödör","color":"","comment":"","index":0,"starter":false,"winner":false,"looser":true},' +
+    '{"id":8,"title":"Völgyben elágazás","story":"xxx","color":"blue","comment":"","index":0,"starter":false,"life":0,"winner":false,"looser":false,"chapterId":1},' +
+    '{"id":9,"title":"Kisállat simogató","question":"Are you sure?","story":"","color":"","comment":"","index":6,"starter":false,"life":-3,"winner":false,"looser":false,"chapterId":1}' +
     '],"relations":[' +
     '{"sourceId":1,"targetId":2,"comment":"Megnéz","condition":false},' +
     '{"sourceId":1,"targetId":3,"comment":"Leugrik","condition":true},' +
@@ -61,14 +61,14 @@ export class AppComponent {
     '{"sourceId":9,"targetId":6,"comment":"","condition":false}' +
     '],"stationItems":[{"stationId": 3, "itemId": 1, "count": 2}, {"stationId": 5, "itemId": 2, "count": 1}],' +
     '"items":[{"id":1,"name":"Kard"},{"id": 2,"name":"Kulcs"}],' +
-    '"scenes":[{"id":1,"name":"Középfölde","color":"green","description":""},{"id": 2,"name":"Tündérország","color":"blue","description":""}],' +
+    '"chapters":[{"id":1,"name":"Középfölde","color":"green","description":""},{"id": 2,"name":"Tündérország","color":"blue","description":""}],' +
     '"mortality": true,"questionnaire": true,"characters": [], "numberingOffset": 10,"charactersChapter":false,' +
     '"validationPC": true,"validationSS": true,"validationPCD":2,"validationSSD":2}';
   station: Station = null as any;
   visualModel: VisualModel = null as any;
   formTrigger = 0;
   previousStation: number = 0;
-  sceneId: number = 0;
+  chapterFilterId: number = 0;
   color: string = '';
   colors: StationColor[] = [];
 
@@ -89,7 +89,7 @@ export class AppComponent {
 
   load() {
     this.color = '';
-    this.sceneId = 0;
+    this.chapterFilterId = 0;
     this.clearStage();
     this.bookService.loadModel(this.modelString);
     this.visualModel = this.visualBookMapper.mapModel(this.bookService.model);
@@ -188,7 +188,7 @@ export class AppComponent {
   }
 
   openStation(id: string) {
-    if (this.bookService.model.showScenes) {
+    if (this.bookService.model.showChapters) {
       this.color = '';
     }
 
@@ -228,8 +228,8 @@ export class AppComponent {
     this.changeTrigger();
   }
 
-  setSceneFilter(id: any) {
-    this.sceneId = id;
+  setChapterFilter(id: any) {
+    this.chapterFilterId = id;
     this.visualFilter();
     if (this.visualModel && !!this.visualModel.nodes.length) {
       setTimeout(() => this.visual.zoom(0));
@@ -252,13 +252,13 @@ export class AppComponent {
   }
 
   private navigateToCreateNew() {
-    let sceneId = 0;
+    let chapterId = 0;
     if (this.station && !!this.station.id) {
       this.previousStation = this.station.id;
-      sceneId = this.station.sceneId;
+      chapterId = this.station.chapterId;
     }
     this.station = new Station(0);
-    this.station.sceneId = sceneId;
+    this.station.chapterId = chapterId;
     this.changeTrigger();
   }
 
@@ -282,7 +282,7 @@ export class AppComponent {
   }
 
   private changeTrigger() {
-    this.visualModel = this.visualBookMapper.mapModel(this.bookService.model, this.sceneId, this.color);
+    this.visualModel = this.visualBookMapper.mapModel(this.bookService.model, this.chapterFilterId, this.color);
     this.formTrigger++;
   }
 

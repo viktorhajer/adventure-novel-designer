@@ -3,9 +3,9 @@ import {BookService} from '../../services/book.service';
 import {Station} from '../../model/station.model';
 import {ItemFormComponent} from '../item-form/item-form.component';
 import {firstValueFrom} from 'rxjs';
-import {SceneFormComponent} from '../scene-form/scene-form.component';
+import {ChapterFormComponent} from '../chapter-form/chapter-form.component';
 import {Item} from '../../model/item.model';
-import {Scene} from '../../model/scene.model';
+import {Chapter} from '../../model/chapter.model';
 import {UiService} from '../../services/ui.service';
 import {CharacterFormComponent} from '../character-form/character-form.component';
 import {DialogService} from '../../services/dialog.service';
@@ -18,7 +18,7 @@ import {DialogService} from '../../services/dialog.service';
 export class BookFormComponent {
   @Output() stationSelected = new EventEmitter();
   itemName = '';
-  sceneName = '';
+  chapterName = '';
   characterName = '';
 
   constructor(public readonly bookService: BookService,
@@ -54,30 +54,30 @@ export class BookFormComponent {
     }
   }
 
-  createScene() {
-    if (this.validateName(this.sceneName, this.bookService.model.scenes)) {
-      this.bookService.createScene(this.sceneName.trim());
-      this.sceneName = '';
+  createChapter() {
+    if (this.validateName(this.chapterName, this.bookService.model.chapters)) {
+      this.bookService.createChapter(this.chapterName.trim());
+      this.chapterName = '';
     }
   }
 
-  deleteScene(id: number) {
+  deleteChapter(id: number) {
     this.dialogService.openConfirmation().then(result => {
       if (result) {
-        this.bookService.deleteScene(id);
+        this.bookService.deleteChapter(id);
       }
     });
   }
 
-  editScene(id: number) {
-    const scene = this.bookService.model.scenes.find(scene => scene.id === id);
-    if (scene) {
-      firstValueFrom(this.dialogService.openCustomDialog(SceneFormComponent, {width: '70vw', disableClose: true}, {scene}))
+  editChapter(id: number) {
+    const chapter = this.bookService.model.chapters.find(c => c.id === id);
+    if (chapter) {
+      firstValueFrom(this.dialogService.openCustomDialog(ChapterFormComponent, {width: '70vw', disableClose: true}, {chapter}))
         .then(result => {
-          if (result !== null && this.validateName(result.name, this.bookService.model.scenes, id)) {
-            scene.name = result.name;
-            scene.color = result.color;
-            scene.description = result.description;
+          if (result !== null && this.validateName(result.name, this.bookService.model.chapters, id)) {
+            chapter.name = result.name;
+            chapter.color = result.color;
+            chapter.description = result.description;
             this.changePlugin();
           }
         });
@@ -125,7 +125,7 @@ export class BookFormComponent {
     this.stationSelected.emit('');
   }
 
-  private validateName(name: string, list: Item[] | Scene[], id = 0): boolean {
+  private validateName(name: string, list: Item[] | Chapter[], id = 0): boolean {
     if (!name.trim()) {
       this.dialogService.openError('Please enter a valid name.');
       return false;

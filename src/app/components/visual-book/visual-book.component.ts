@@ -75,7 +75,7 @@ export class VisualBookComponent implements OnChanges {
   }
 
   selectNode(id: string) {
-    if (this.selectable) {
+    if (this.selectable && this.nodes.some(n => n.id === id)) {
       const d3Node = d3.selectAll('.' + id);
       if (d3Node) {
         const classes = d3Node.attr('class');
