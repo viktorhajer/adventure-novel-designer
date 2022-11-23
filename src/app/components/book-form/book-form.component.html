@@ -60,9 +60,14 @@
           <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.charactersChapter">
             Characters chapter
           </mat-slide-toggle>
+          <h3>Questionnaire</h3>
           <mat-slide-toggle [color]="'primary'" [(ngModel)]="bookService.model.questionnaire">
-            Questionnaire
+            Enable
           </mat-slide-toggle>
+          <mat-form-field appearance="fill">
+            <mat-label>Command</mat-label>
+            <input matInput [(ngModel)]="bookService.model.questionnaireCommand">
+          </mat-form-field>
         </div>
       </div>
     </mat-tab>

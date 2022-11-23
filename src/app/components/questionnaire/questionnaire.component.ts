@@ -19,8 +19,7 @@ export class QuestionnaireComponent {
   }
 
   getCommand(index: number): string {
-    const command = 'A válaszod ellenőrzéséhez lapozz [###]!';
-    return command
+    return this.bookService.model.questionnaireCommand
       .replace('[###]', GrammerService.getArticle(index) + index + GrammerService.getAffix(index))
       .replace('(###)', GrammerService.getArticle(index) + index + GrammerService.getAffix2(index))
       .replace('###', GrammerService.getArticle(index) + index);

@@ -1832,6 +1832,7 @@
   ],
   "mortality": false,
   "questionnaire": false,
+  "questionnaireCommand": "Go to [###]!",
   "showChapters": true,
   "numberingOffset": 0,
   "validationPC": true,

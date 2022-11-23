@@ -18,6 +18,7 @@ export class Book {
   characters: Character[] = [];
   mortality = true;
   questionnaire = false;
+  questionnaireCommand: string = 'Go to [###]!';
   charactersChapter = false;
   showChapters = false;
   numberingOffset: number = 0;

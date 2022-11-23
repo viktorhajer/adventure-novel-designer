@@ -21,10 +21,12 @@ import {StorageService} from './services/storage.service';
 import {DownloadService} from './services/download.service';
 import {DialogService} from './services/dialog.service';
 import {firstValueFrom} from 'rxjs';
+import {BookViewerComponent} from './components/book-viewer/book-viewer.component';
 
 const EMPTY_BOOK = '{"id":0,"title":"New book","backgroundStory":"","notes":"","scenes":[],"relations":[],"items":[],' +
   '"sceneItems":[],"chapters": [],"characters": [],"mortality": true,"showChapters": false,"validationPC": true,"validationSS": true,' +
-  '"numberingOffset": 0,"questionnaire": false,"validationPCD":2,"validationSSD":2,"charactersChapter":false}';
+  '"numberingOffset": 0,"questionnaire": false,"questionnaireCommand": "Go to [###]!","validationPCD":2,"validationSSD":2,' +
+  '"charactersChapter":false}';
 
 // @ts-ignore
 
@@ -62,7 +64,8 @@ export class AppComponent {
     '],"sceneItems":[{"sceneId": 3, "itemId": 1, "count": 2}, {"sceneId": 5, "itemId": 2, "count": 1}],' +
     '"items":[{"id":1,"name":"Kard"},{"id": 2,"name":"Kulcs"}],' +
     '"chapters":[{"id":1,"name":"Középfölde","color":"green","description":""},{"id": 2,"name":"Tündérország","color":"blue","description":""}],' +
-    '"mortality": true,"questionnaire": true,"characters": [], "numberingOffset": 10,"charactersChapter":false,' +
+    '"mortality": true,"questionnaire": true,"questionnaireCommand": "A válaszold ellenőrzéséhez lapozz [###]!","characters": [],' +
+    '"numberingOffset": 10,"charactersChapter":false,' +
     '"validationPC": true,"validationSS": true,"validationPCD":2,"validationSSD":2}';
   scene: Scene = null as any;
   visualModel: VisualModel = null as any;
@@ -126,11 +129,18 @@ export class AppComponent {
   }
 
   finalize() {
-    this.bookService.finalize();
+    this.bookService.finalize().then(result => {
+      const book = new Book();
+      book.title = this.bookService.model.title;
+      book.backgroundStory = this.bookService.model.backgroundStory;
+      book.scenes = result[0];
+      this.dialogService.openCustomDialog(BookViewerComponent, {width: '700px'}, {book});
+      this.bookService.validateMacros();
+    });
   }
 
   downloadFinal() {
-    this.bookService.finalize(false).then(result =>
+    this.bookService.finalize().then(result =>
       this.downloadService.downloadGeneratedBook(this.bookService.model, result[0]));
   }
 

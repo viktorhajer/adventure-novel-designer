@@ -4,7 +4,6 @@ import {Scene} from '../model/scene.model';
 import {Item} from '../model/item.model';
 import {SceneItem} from '../model/scene-item.model';
 import {BookCorrectorService} from './book-corrector.service';
-import {BookViewerComponent} from '../components/book-viewer/book-viewer.component';
 import {DialogService} from './dialog.service';
 import {GrammerService} from './grammer.service';
 
@@ -174,38 +173,60 @@ export class BookService {
     this.model.characters = this.model.characters.filter(i => i.id !== id);
   }
 
-  finalize(withDialog = true, withConfirmation = true): Promise<any[]> {
+  finalize(regenerate = false): Promise<any[]> {
     if (this.isValidBook()) {
       let generation = 0;
       const hasIndex = !this.model.scenes.some(s => s.index === 0);
-      return (hasIndex && withConfirmation ?
-        this.dialogService.openConfirmation('Indexes has been generated. Would you like to refresh?', 'Yes', 'No')
-        : Promise.resolve(true))
-        .then(refresh => {
-          let hasIndexError = false;
-          if (refresh) {
-            do {
-              generation++;
-              this.generateIndexes();
-              if (generation > NUMBER_OF_MAX_GENERATION) {
-                hasIndexError = true;
-                break;
-              }
-            } while (!this.validateIndexes());
+      let hasIndexError = false;
+      if (!hasIndex || regenerate) {
+        do {
+          generation++;
+          this.generateIndexes();
+          if (generation > NUMBER_OF_MAX_GENERATION) {
+            hasIndexError = true;
+            break;
           }
-          const scenes = this.sortAndReplaceMacros();
-          if (withDialog) {
-            this.openBookViewer(scenes);
-            this.validateMacros();
-          }
-          if (hasIndexError) {
-            this.dialogService.openError(`Number of index generations has reached the maximum (${NUMBER_OF_MAX_GENERATION}). ` +
-              'Please try it again, or consider turning off the index validation.');
-          }
-          return [scenes, generation];
-        });
+        } while (!this.validateIndexes());
+      }
+      const scenes = this.sortAndReplaceMacros();
+      if (hasIndexError) {
+        this.dialogService.openError(`Number of index generations has reached the maximum (${NUMBER_OF_MAX_GENERATION}). ` +
+          'Please try it again, or consider turning off the index validation.');
+      }
+      return Promise.resolve([scenes, generation]);
     }
     return Promise.resolve([[], 0]);
+  }
+
+  validateMacros() {
+    const messages = [];
+    for (const s of this.model.scenes) {
+      const childrenNumber = this.model.relations.filter(r => r.sourceId === s.id).length;
+      for (let i = 1; i < (childrenNumber + 1); i++) {
+        if (s.story.indexOf('##' + i) === -1) {
+          messages.push(s.title + ': ##' + i);
+        }
+      }
+    }
+    if (messages.length) {
+      this.dialogService.openWarning('Unused macro(s): ' + messages.join(', '));
+    }
+  }
+
+  private sortAndReplaceMacros(): Scene[] {
+    const scenes = (JSON.parse(JSON.stringify(this.model.scenes)) as Scene[])
+      .sort((s1, s2) => s1.index > s2.index ? 1 : -1);
+    scenes.forEach(s => {
+      let i = 1;
+      this.getChildren(s.id).forEach(c => {
+        s.story = s.story
+          .replace(`[##${i}]`, GrammerService.getArticle(c.index) + this.addAnchor(c.index, c.index + GrammerService.getAffix(c.index)))
+          .replace(`(##${i})`, GrammerService.getArticle(c.index) + this.addAnchor(c.index, c.index + GrammerService.getAffix2(c.index)))
+          .replace(`##${i}`, GrammerService.getArticle(c.index) + this.addAnchor(c.index, c.index + ''));
+        i++;
+      });
+    });
+    return scenes;
   }
 
   private isValidBook() {
@@ -241,37 +262,6 @@ export class BookService {
       this.dialogService.openError(message);
     }
     return !message.length;
-  }
-
-  private validateMacros() {
-    const messages = [];
-    for (const s of this.model.scenes) {
-      const childrenNumber = this.model.relations.filter(r => r.sourceId === s.id).length;
-      for (let i = 1; i < (childrenNumber + 1); i++) {
-        if (s.story.indexOf('##' + i) === -1) {
-          messages.push(s.title + ': ##' + i);
-        }
-      }
-    }
-    if (messages.length) {
-      this.dialogService.openWarning('Unused macro(s): ' + messages.join(', '));
-    }
-  }
-
-  private sortAndReplaceMacros(): Scene[] {
-    const scenes = (JSON.parse(JSON.stringify(this.model.scenes)) as Scene[])
-      .sort((s1, s2) => s1.index > s2.index ? 1 : -1);
-    scenes.forEach(s => {
-      let i = 1;
-      this.getChildren(s.id).forEach(c => {
-        s.story = s.story
-          .replace(`[##${i}]`, GrammerService.getArticle(c.index) + this.addAnchor(c.index, c.index + GrammerService.getAffix(c.index)))
-          .replace(`(##${i})`, GrammerService.getArticle(c.index) + this.addAnchor(c.index, c.index + GrammerService.getAffix2(c.index)))
-          .replace(`##${i}`, GrammerService.getArticle(c.index) + this.addAnchor(c.index, c.index + ''));
-        i++;
-      });
-    });
-    return scenes;
   }
 
   private addAnchor(index: number, indexStr: string): string {
@@ -337,14 +327,6 @@ export class BookService {
       }*/
     }
     return wrongPCIndex === 0 && wrongSSIndex === 0;
-  }
-
-  private openBookViewer(scenes: Scene[]) {
-    const book = new Book();
-    book.title = this.model.title;
-    book.backgroundStory = this.model.backgroundStory;
-    book.scenes = scenes;
-    this.dialogService.openCustomDialog(BookViewerComponent, {width: '700px'}, {book});
   }
 
   private setMaxSceneID() {

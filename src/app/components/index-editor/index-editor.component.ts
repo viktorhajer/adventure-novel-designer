@@ -82,7 +82,7 @@ export class IndexEditorComponent {
   }
 
   generate() {
-    this.bookService.finalize(false, false).then(result => {
+    this.bookService.finalize(true).then(result => {
       this.lastGeneration = result[1];
       this.fineTuneIndex = this.bookService.model.numberingOffset + 2;
       this.refreshStatistics();
