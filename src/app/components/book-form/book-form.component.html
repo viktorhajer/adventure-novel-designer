@@ -82,12 +82,8 @@
         </thead>
         <tbody>
         <tr *ngFor="let s of getEditorialScenes()">
-          <td>
-            <div>{{ s.title }}</div>
-          </td>
-          <td>
-            <div>{{ s.comment }}</div>
-          </td>
+          <td><div>{{ s.title }}</div></td>
+          <td>{{ s.comment }}</td>
           <td>
             <button mat-icon-button (click)="openScene(s.id)" title="Open scene">
               <mat-icon>open_in_new</mat-icon>
