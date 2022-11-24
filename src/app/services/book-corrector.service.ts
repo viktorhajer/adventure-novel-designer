@@ -41,6 +41,7 @@ export class BookCorrectorService {
       chapter.name = !!chapter.name && !!chapter.name.trim() ? chapter.name.trim() : ('Chapter_' + Date.now());
       chapter.color = !!chapter.color && colors.includes(chapter.color.trim()) ? chapter.color.trim() : 'white';
     });
+    model.chapters.sort((c1, c2) => c1.ordering - c2.ordering);
 
     // fix items
     model.items.forEach(item => item.name = !!item.name && !!item.name.trim() ? item.name.trim() : ('Item_' + Date.now()));
@@ -51,6 +52,7 @@ export class BookCorrectorService {
 
     // fix characters
     model.characters.forEach(c => c.name = !!c.name && !!c.name.trim() ? c.name.trim() : ('Character_' + Date.now()));
+    model.characters.sort((c1, c2) => c1.ordering - c2.ordering);
 
     // fix: only one starter
     if (model.scenes.filter(s => s.starter).length > 1) {

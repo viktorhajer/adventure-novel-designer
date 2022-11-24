@@ -102,13 +102,24 @@
         <thead>
         <tr>
           <th>Name</th>
+          <th class="ordering">Ordering</th>
           <th class="color_column">Color</th>
           <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let chapter of bookService.model.chapters">
+        <tr *ngFor="let chapter of bookService.model.chapters; let i = index">
           <td>{{ chapter.name }}</td>
+          <td class="ordering">
+            <button mat-icon-button (click)="moveChapterAbove(chapter.id, chapter.ordering)" title="Move above"
+                    *ngIf="(i+1) !== 1">
+              <mat-icon>arrow_drop_up</mat-icon>
+            </button>
+            <button mat-icon-button (click)="moveChapterBelow(chapter.id, chapter.ordering)" title="Move below"
+                    *ngIf="(i+1) !== bookService.model.chapters.length">
+              <mat-icon>arrow_drop_down</mat-icon>
+            </button>
+          </td>
           <td class="color_column">
             <div class="color_box" [style.background-color]="uiService.getColorHex(chapter.color)">&nbsp;</div></td>
           <td>
@@ -136,13 +147,24 @@
         <thead>
         <tr>
           <th>Name</th>
+          <th class="ordering">Ordering</th>
           <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let character of bookService.model.characters">
+        <tr *ngFor="let character of bookService.model.characters; let i = index">
           <td>
             <div>{{ character.name }}</div>
+          </td>
+          <td class="ordering">
+            <button mat-icon-button (click)="moveCharacterAbove(character.id, character.ordering)" title="Move above"
+                    *ngIf="(i+1) !== 1">
+              <mat-icon>arrow_drop_up</mat-icon>
+            </button>
+            <button mat-icon-button (click)="moveCharacterBelow(character.id, character.ordering)" title="Move below"
+                    *ngIf="(i+1) !== bookService.model.characters.length">
+              <mat-icon>arrow_drop_down</mat-icon>
+            </button>
           </td>
           <td>
             <button mat-icon-button (click)="editCharacter(character.id)" title="Edit character">

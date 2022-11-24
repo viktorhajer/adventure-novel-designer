@@ -1,13 +1,13 @@
 {
   "id": 1667885870560,
   "title": "Az elveszett időérme",
-  "backgroundStory": "Üdvözöllek, kedves Olvasó! Ebben a történetben egy hétköznapinak tűnő,  mégis igazán különleges személy bőrébe bújhatsz bele. Feladatod nem kevesebb, mint döntéseiddel segíteni őt a váratlan, néha humoros vagy éppen felkavaró események során, így formálva a cselekményt, megteremtve vagy elveszítve lehetőségeket, melyek mind a végső célhoz vezetnek majd. Utad során barátokra tehetsz szert, vagy épp veszedelmes ellenségekre. Dönthetsz úgy is, hogy egyszerűen csak tovább állsz, mit sem törődve az adott helyzettel. Szemtanúja lehetsz annak, hogyan válik egy csendes  fiatal egy egész világ megmentőjévé. Láthatod egy igazi hős születését, miközben önmagadat is jobban megismered.\n\nHa szeretnél belevágni a kalandba, lépj az 1-re. ",
+  "backgroundStory": "Üdvözöllek, kedves Olvasó! Ebben a történetben egy hétköznapinak tűnő,  mégis igazán különleges személy bőrébe bújhatsz bele. Feladatod nem kevesebb, mint döntéseiddel segíteni őt a váratlan, néha humoros vagy éppen felkavaró események során, így formálva a cselekményt, megteremtve vagy elveszítve lehetőségeket, melyek mind a végső célhoz vezetnek majd. Utad során barátokra tehetsz szert, vagy épp veszedelmes ellenségekre. Dönthetsz úgy is, hogy egyszerűen csak tovább állsz, mit sem törődve az adott helyzettel. Szemtanúja lehetsz annak, hogyan válik egy csendes  fiatal egy egész világ megmentőjévé. Láthatod egy igazi hős születését, miközben önmagadat is jobban megismered.\n\nHa szeretnél belevágni a kalandba, lépj az 1-re. ",
   "notes": "",
   "scenes": [
     {
       "id": 1,
       "title": "Móló a Tükörtavon",
-      "story": "Egy szép napon éppen az iskolából kerékpározol haza, utad egy csodálatos tó mellett vezet el. Úgy döntesz, hogy az ebéded maradékát a mólón fogyasztod el. Leülsz a végében és előveszed a szendvicsed. Éppen beleharapnál, amikor egy gyönyörű hattyú jelenik meg. Különös érzésed támad, itt még sohasem találkoztál ilyen madárral, pedig szinte minden héten megállsz a mólón kicsit pihenni és gyönyörködni a látványban. Hirtelen egy éles hangra leszel figyelmes. A móló aljában egy hattyú fiókát pillantasz meg, aki belegabalyodott egy horgászzsinórba. \n\nHa úgy döntesz, hogy tovább eszed a szendvicsed, akkor lapozz [##1], ha megpróbálsz segíteni a csapdába esett madáron, akkor lapozz [##2]. ",
+      "story": "Egy szép napon éppen az iskolából kerékpározol haza, utad egy csodálatos tó mellett vezet el. Úgy döntesz, hogy az ebéded maradékát a mólón fogyasztod el. Leülsz a végében és előveszed a szendvicsed. Éppen beleharapnál, amikor egy gyönyörű hattyú jelenik meg. Különös érzésed támad, itt még sohasem találkoztál ilyen madárral, pedig szinte minden héten megállsz a mólón kicsit pihenni és gyönyörködni a látványban. Hirtelen egy éles hangra leszel figyelmes. A móló aljában egy hattyúfiókát pillantasz meg, aki belegabalyodott egy horgászzsinórba. \n\nHa úgy döntesz, hogy tovább eszed a szendvicsed, akkor lapozz [##1], ha megpróbálsz segíteni a csapdába esett madáron, akkor lapozz [##2]. ",
       "color": "white",
       "comment": "",
       "index": 1,
@@ -33,7 +33,7 @@
     {
       "id": 3,
       "title": "Segítek a hattyúnak",
-      "story": "Nagy állatbarát vagy, nem bírod nézni, ahogy ez a kis élőlény szenved. Úgy döntesz, hogy segítesz kiszabadulni neki, hogy ismét az anyukájával lehessen. Ahogy nyúlnál a hattyú felé, kibillensz az egyensúlyodból és egyenesen a tóba esel. \n\nLapozz [##1]. ",
+      "story": "Nagy állatbarát vagy, nem bírod nézni, ahogy ez a kis élőlény szenved. Úgy döntesz, segítesz kiszabadulni neki, hogy ismét az anyukájával lehessen. Ahogy nyúlnál a hattyú felé, kibillensz az egyensúlyodból, és egyenesen a tóba esel. \n\nLapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 62,
@@ -46,7 +46,7 @@
     {
       "id": 4,
       "title": "Ébredés egy új világban - Találkozás Godfreyvel",
-      "story": "Lassan kinyitod a szemeid és egy fényes új világ tárul eléd. Épületeknek vagy a mólónak nyoma sincs, csupán egy poros földutat látsz körben hatalmas méretű fákkal. Olyan érzésed van, mintha összementél volna, vagy minden megnőtt volna körülötted. Közel hozzád egy öregembert pillantasz meg, aki egy kövön ül és pipázik. Kopott köpenyt és kalapot visel, kalapján egy tollat, hosszú ősz szakálla és haja van. Ahogy közelebb mész hozzá kedves mosollyal üdvözöl. Megkérdezed, hogy mi ez a hely? Ő azt válaszolja: \n- Hát Tündérország! Közel a nagy fához. Nem csodálom, hogy elveszve érzed magad. Mióta az időérmét ellopták sok furcsaság történik a világban. Godfreynek hívnak. \n\nElmondod neki, hogy mi történt veled, nem érted az egészet, de szeretnél hazajutni. Az öreg azt feleli, hogy \"soha nem lehetünk annyira elveszve, hogy az angyalaink ne találnának ránk\", de azért a helyedben beszélne Tündérország uralkodójával. A tündérek sok varázslatos dolgot tudnak véghez vinni, ha valakik, hát ők biztos tudnak segíteni. Megmutatja, hogy merre kell elindulnod. Végig nézel az úton és a távolban egy hatalmas fát pillantasz meg, bizonyára az lehet a \"nagy fa\", ahol a tündérek élnek. Megfordulsz, hogy megköszönd az útbaigazítást és megkérdezd, hogy veled tart-e, de az öregembernek már csak a hűlt helyét találod. \n\nHa elfogadod az útbaigazítást, akkor lapozz [##1], ha inkább várakozol más segítségre, lapozz [##2].",
+      "story": "Lassan kinyitod a szemeid, és egy fényes új világ tárul eléd. Épületeknek vagy a mólónak nyoma sincs, csupán egy poros földutat látsz körben hatalmas méretű fákkal. Olyan érzésed van, mintha összementél volna, vagy minden megnőtt volna körülötted. A közelben egy öregembert pillantasz meg, aki egy kövön ül és pipázik. Hosszú ősz szakálla és haja van, kopott köpenyt és kalapot visel, kalapján egy tollat. Ahogy közelebb mész hozzá kedves mosollyal üdvözöl. Megkérdezed, hogy mi ez a hely. Ő azt válaszolja: \n- Hát Tündérország! Közel a nagy fához. Nem csodálom, hogy elveszve érzed magad. Mióta az időérmét ellopták, sok furcsaság történik a világban. Godfreynek hívnak. \n\nElmondod neki, hogy mi történt veled, nem érted az egészet, de szeretnél hazajutni. Az öreg azt feleli, hogy \"soha nem lehetünk annyira elveszve, hogy az angyalaink ne találnának ránk\", de azért a helyedben beszélne Tündérország uralkodójával. A tündérek sok varázslatos dolgot tudnak véghez vinni, ha valakik, hát ők biztos tudnak segíteni. Megmutatja, hogy merre kell elindulnod. Végignézel az úton, a távolban egy hatalmas fát pillantasz meg. Bizonyára az lehet a \"nagy fa\", ahol a tündérek élnek. Megfordulsz, hogy megköszönd az útbaigazítást, és megkérdezd, hogy veled tart-e, de az öregembernek már csak a hűlt helyét találod. \n\nHa elfogadod az útbaigazítást, akkor lapozz [##1], ha inkább várakozol más segítségre, lapozz [##2].",
       "color": "white",
       "comment": "",
       "index": 26,
@@ -59,7 +59,7 @@
     {
       "id": 5,
       "title": "Szimbólum a csuklón",
-      "story": "Ahogy haladsz az úton egy égető érzésre leszel figyelmes a csuklódon. Felhúzod a ruhád ujját és egy halványan világító homokóra szimbólumot veszel észre. Próbálod ledörzsölni, de mintha odaégették volna. Ezt is hozzáírod a furcsaságok listájához és folytatod az utad. Lapozz [##1]. ",
+      "story": "Ahogy haladsz az úton, egy égető érzésre leszel figyelmes a csuklódon. Felhúzod a ruhád ujját, és egy halványan világító homokóra szimbólumot veszel észre. Próbálod ledörzsölni, de mintha odaégették volna. Ezt is hozzáírod a furcsaságok listájához és folytatod az utad. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 45,
@@ -98,7 +98,7 @@
     {
       "id": 8,
       "title": "A patkány",
-      "story": "Az utad során hirtelen egy hatalmas, dühös patkány ugrik eléd, méretre majdnem nagyobb, mint te. Ha történetünk elején nem fogyasztottad el a szendvicsed, hanem segítettél a bajba jutott hattyúnak, akkor abból még maradt valamennyi a zsebedben, így fel tudod ajánlani a támadónak, lapozz a [##1], ha megetted, akkor lapozz [##2]. \n",
+      "story": "Az utad során hirtelen egy hatalmas, dühös patkány ugrik eléd, méretre majdnem nagyobb, mint te. Ha a történet elején nem fogyasztottad el a szendvicsed, hanem segítettél a bajba jutott hattyúnak, akkor abból még maradt valamennyi a zsebedben, így fel tudod ajánlani a támadónak, lapozz a [##1], ha megetted, akkor lapozz [##2]. \n",
       "color": "white",
       "comment": "",
       "index": 16,
@@ -111,7 +111,7 @@
     {
       "id": 9,
       "title": "Hálás patkány",
-      "story": "Odadobod a rágcsálónak a zsemléd és megdermedve reménykedsz, hogy megelégszik ennyivel. Miután elfogyasztja, megszólal: \n- Köszönöm az ételt, néha kiállhatatlan vagyok, ha kimarad egy étkezés. \n- Akkor nem akarsz megenni? És egyáltalán mikor tanultam meg patkányul? - kérdezed csodálkozva. \n- Megenni!? - kacag fel. - Milyen furcsa kérdés ez? Én még a világon nem hallottam olyat, hogy az egyik lény megeszi a másikat. Gazdag a fantáziád. Továbbá a világon mindenki ért mindenkit. Furcsákat kérdezel, lehet, hogy neked nagyobb szükséged lett volna az ételre. \n\nA patkány elmeséli, hogy egy béka ellopta a csemegéjét és ezért maradt éhen. Biztos benne, hogy béka volt, mert parókát viselt és a világon mindenki tudja, hogy a békáknak nagyon fontos a parókájuk. Ezután még beszélt és beszélt, leginkább az ételekről. Egy idő után megunod és megszólalsz: \n- Ha az állatok nálunk is ennyit beszélnének, biztos nem ennénk meg őket. \n- Gonosz egy vidékről érkezhettél! Bár még fiatal vagyok, annyit megtanultam, hogy minden lénynek van szava, csak kell, aki meg is hallja - válaszolta a patkány. \n\nElköszöntök és te folytatod az utad. Lapozz [##1]. ",
+      "story": "Odadobod a rágcsálónak a zsemléd, és megdermedve reménykedsz, hogy megelégszik ennyivel. Miután elfogyasztja, megszólal: \n- Köszönöm az ételt, néha kiállhatatlan vagyok, ha kimarad egy étkezés. \n- Akkor nem akarsz megenni? És egyáltalán mikor tanultam meg patkányul? - kérdezed csodálkozva. \n- Megenni!? - kacag fel. - Milyen furcsa kérdés ez? Én még a világon nem hallottam olyat, hogy az egyik lény megeszi a másikat. Gazdag a fantáziád. Továbbá a világon mindenki ért mindenkit. Furcsákat kérdezel, lehet, hogy neked nagyobb szükséged lett volna az ételre. \n\nA patkány elmeséli, hogy egy béka ellopta a csemegéjét, ezért maradt éhen. Biztos benne, hogy béka volt, mert parókát viselt, és a világon mindenki tudja, hogy a békáknak nagyon fontos a parókájuk. Ezután újabb és újabb történetek következnek, leginkább az ételekről. Egy idő után megunod és megszólalsz: \n- Ha az állatok nálunk is ennyit beszélnének, biztos nem ennénk meg őket. \n- Gonosz egy vidékről érkezhettél! Bár még fiatal vagyok, annyit megtanultam, hogy minden lénynek van szava, csak kell valaki, aki meg is hallja - válaszolta a patkány. \n\nElköszöntök és te folytatod az utad. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 44,
@@ -137,7 +137,7 @@
     {
       "id": 11,
       "title": "Tündér fa bejárata",
-      "story": "A nagy fához közeledve furcsa apró alakokat pillantasz meg. A fejük és testük egy-egy fahasáb és a végtagjaik ágak. Bizonyára ők lehetnek a tündérek, bár kicsit sem hasonlítanak az általad elképzelt tündérekhez. \nÖssze-vissza futkároznak a fa egyik repedése körül, látszik, hogy keresnek valamit. \n\nHa úgy gondold, hogy szerencsét próbálsz és közelebb lépsz hozzájuk, akkor lapozz [##1], ha inkább megpróbálsz beosonni anélkül, hogy észrevennének, lapozz [##2]. ",
+      "story": "A nagy fához közeledve furcsa, apró alakokat pillantasz meg. A fejük és testük egy-egy fahasáb, a végtagjaik ágak. Bizonyára ők lehetnek a tündérek, bár kicsit sem hasonlítanak az általad elképzelt tündérekhez. \nÖssze-vissza futkároznak a fa egyik repedése körül, látszik, hogy keresnek valamit. \n\nHa úgy gondold, hogy szerencsét próbálsz és közelebb lépsz hozzájuk, akkor lapozz [##1], ha inkább megpróbálsz beosonni anélkül, hogy észrevennének, lapozz [##2]. ",
       "color": "white",
       "comment": "",
       "index": 48,
@@ -150,7 +150,7 @@
     {
       "id": 12,
       "title": "Találkozás a tündér őrökkel",
-      "story": "Megpróbálod óvatosan, feltartott kézzel megközelíteni az őröket. Viszont ahogy haladsz előre megbotlasz egy kőben és hatalmas robajjal gurulsz a bejárat elé, még az egyik őrt is fellököd. A másik őr az égre emeli a kezét és mormol valamit, mire te egy kukaccá változol. \n\nLapozz [##1]. ",
+      "story": "Megpróbálod óvatosan, feltartott kézzel megközelíteni az őröket. Viszont ahogy haladsz előre, megbotlasz egy kőben, és hatalmas robajjal gurulsz a bejárat elé, még az egyik őrt is fellököd. A másik őr az égre emeli a kezét és mormol valamit, mire te kukaccá változol. \n\nLapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 60,
@@ -163,7 +163,7 @@
     {
       "id": 13,
       "title": "Kukaclét",
-      "story": "A tündérek elvisznek a közeli erdőbe és egész nap ott kell kúsznod-másznod. Az este leszáll és te mély álomba merülsz. Álmodban egy örvényt látsz, ami beszippant. Miután kinyitottad a szemed ismételten a főúton találod magad, de ezúttal egészen közel a fához. Lapozz [##1]. ",
+      "story": "A tündérek elvisznek a közeli erdőbe, és egész nap ott kell kúsznod-másznod. Az este leszáll, és te mély álomba merülsz. Álmodban egy örvényt látsz, ami beszippant. Miután kinyitottad a szemed, ismételten a főúton találod magad, de ezúttal egészen közel a fához. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 4,
@@ -176,7 +176,7 @@
     {
       "id": 14,
       "title": "Besurranás",
-      "story": "Óvatosan megközelíted a bejáratot. Hallod, ahogy az egyik őr azt meséli éppen a másiknak, hogy a patkány barátja találkozott egy furcsa lénnyel, aki azt hitte, hogy megeszi. Ezen mindketten elkezdtek nevetni, neked pedig alkalmad nyílik besurrani. A fa belseje egy egész várost rejt, rengeteg különös lénnyel. Gyorsan el kell rejtőznöd, hogy nehogy lelepleződj. Ha lehasalsz a földre, akkor lapozz [##1], ha eltakarod a pulóvereddel az arcod, lapozz\n [##2], ha bebújnál egy váza mögé, lapozz [##3]. ",
+      "story": "Óvatosan megközelíted a bejáratot. Hallod, ahogy az egyik őr azt meséli éppen a másiknak, hogy a patkány barátja találkozott egy furcsa lénnyel, aki azt hitte, hogy megeszi. Ezen mindketten elkezdenek nevetni, neked pedig alkalmad nyílik besurrani. A fa belseje egy egész várost rejt, rengeteg különös lénnyel. Gyorsan el kell rejtőznöd, nehogy lelepleződj. Ha lehasalsz a földre, akkor lapozz [##1], ha eltakarod a pulóvereddel az arcod, lapozz\n [##2], ha bebújnál egy váza mögé, lapozz [##3]. ",
       "color": "white",
       "comment": "",
       "index": 15,
@@ -215,7 +215,7 @@
     {
       "id": 17,
       "title": "Álca: váza",
-      "story": "Sajnos a nagy kapkodásban sikerül leverni a vázát, ami nagy csörömpölés közepette összetörik. Ekkor minden tekintet rád szegeződik. Lapozz [##1]. ",
+      "story": "Sajnos a nagy kapkodásban sikerül leverned a vázát, ami nagy csörömpölés közepette összetörik. Ekkor minden tekintet rád szegeződik. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 57,
@@ -228,7 +228,7 @@
     {
       "id": 18,
       "title": "Elkapnak",
-      "story": "Az őrök közelebb lépnek és már éppen varázslásra nyújtották a kezüket, amikor az egyik észreveszi a világító jelet a csuklódon. Úgy döntenek, hogy a király elé visznek. Lapozz [##1]. ",
+      "story": "Az őrök közelebb lépnek, és már éppen varázslásra nyújtanák a kezüket, amikor az egyik észreveszi a világító jelet a csuklódon. Úgy döntenek, hogy a király elé visznek. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 35,
@@ -241,7 +241,7 @@
     {
       "id": 19,
       "title": "Találkozás a királlyal",
-      "story": "A trónteremben találkozol a királlyal. Megtudod tőle, hogy ősi írások szólnak arról, hogy egy nap ellopják az időérmet, amely segítségével a tündérek egyensúlyban tudják tartani az időt, de azt is megjövendölik, hogy érkezik egy hős egy másik világból, aki vissza fogja szerezni és ezzel újra egyensúlyt teremt. Ez a hős ugyanazt a szimbólumot fogja viselni, mint ami az időérme egyik oldalán szerepel, egy homokórát. \n\nElmondod neki, hogy nem vagy hős, csupán egy gyerek, aki haza szeretne jutni. A király azt válaszolja, hogy ez csak az időéremmel lehetséges. Ha nála lesz, akkor meg tudja idézni a nagy varázslót, aki képes utazni a világok között. Az ő arcéke található az érme másik oldalán. Ő biztosan vissza fog majd küldeni a saját világodba. A küldetéshez sajnos segítséget nem tud adni, csupán információt, mivel a tündérek a nagy fából születnek és nem is hagyhatják el annak körzetét, különben élettelen fadarabokká válnak. \n\nMegtudod, hogy az időérme ellopása óta a világ minden lénye ugyanazt a napot éli át újra és újra, és csupán a nagy erővel rendelkezők emlékeznek arra, hogy mi történt korábban, és képesek valamennyire befolyásolni, hogy hol kelljenek fel másnap. Ez az állapot sem maradhat fent sokáig, mielőbb vissza kell szerezni az érmet. A lopásért valószínűleg a békák a felelősek, mint szinte minden gaztettért a világban, tehát náluk kell kezdeni a keresést. A Békavárosba a Kő-tengeren keresztül vezet az út.  \n\nElhatározod, hogy bátor leszel és azonnal belefogsz a küldetésbe. Búcsút intesz a nagy fának. \n\nLapozz [##1].  ",
+      "story": "A trónteremben találkozol a királlyal. Megtudod tőle, hogy ősi írások szólnak arról, hogy egy nap ellopják az időérmet, amely segítségével a tündérek egyensúlyban tudják tartani az időt. De azt is megjövendölik, hogy érkezik egy hős egy másik világból, aki vissza fogja szerezni, és ezzel újra egyensúlyt teremt. Ez a hős ugyanazt a szimbólumot fogja viselni, mint ami az időérme egyik oldalán szerepel, egy homokórát. \n\nElmondod neki, hogy nem vagy hős, csupán egy gyerek, aki haza szeretne jutni. A király azt válaszolja, hogy ez csak az időérmével lehetséges. Ha nála lesz, akkor meg tudja idézni a nagy varázslót, aki képes utazni a világok között. Az ő arcképe található az érme másik oldalán. Ő biztosan vissza fog majd küldeni a saját világodba. A küldetéshez sajnos segítséget nem tud adni, csupán információt, mivel a tündérek a nagy fából születnek, és nem is hagyhatják el annak környékét, különben élettelen fadarabokká válnak. \n\nMegtudod, hogy az időérme ellopása óta a világ minden lénye ugyanazt a napot éli át újra és újra, és csupán a nagy erővel rendelkezők emlékeznek arra, hogy mi történt korábban, és képesek valamennyire befolyásolni, hogy hol keljenek fel másnap. Ez az állapot nem maradhat fent sokáig, mielőbb vissza kell szerezni az érmet. A lopásért valószínűleg a békák a felelősek, mint szinte minden gaztettért ebben a világban, tehát náluk kell kezdeni a keresést. A Békavárosba a Kő-tengeren keresztül vezet az út.  \n\nElhatározod, hogy bátor leszel és azonnal belefogsz a küldetésbe. Búcsút intesz a nagy fának. \n\nLapozz [##1].  ",
       "color": "white",
       "comment": "",
       "index": 25,
@@ -254,7 +254,7 @@
     {
       "id": 20,
       "title": "Megpillantani a Kő-tengert",
-      "story": "Kilépve a fából, hatalmas fáradtság nehezedik rád és mély álomba merülsz. Álmodban a szüleidet látod, félelem és szomorúság kerít hatalmába. Ezután megjelenik egy örvény és felriadsz. A Kő-tenger mellett fekszel. \n\nElső ránézésre inkább tűnik labirintusnak, mint tengernek. A mélysége alig pár centiméter és alatta néhol apró kavicsok, máshol hatalmas sziklák fekszenek. Itt-ott kisebb dombok és nagyobb kövek emelkednek ki labirintussá változtatva a felszínt, és ellehetetlenítve a közlekedést bármilyen eszközzel. Nem mintha sok autót vagy repülőt láttál volna az eddigi utad során. Valahogy semmilyen lénynek nem érdeke ebben a világban, hogy utazzon, mindenki jól érezi magát ott, ahol van. \n\nAz idő sem kegyes hozzád, sűrű köd nehezíti a tájékozódást. Amikor belépsz a vízbe, egy ismerős hang szólal meg melletted. Lapozz [##1].",
+      "story": "Kilépve a fából, hatalmas fáradtság nehezedik rád, mély álomba merülsz. Álmodban a szüleidet látod, félelem és szomorúság kerít hatalmába. Ezután megjelenik egy örvény és felriadsz. A Kő-tenger mellett fekszel. \n\nElső ránézésre inkább tűnik labirintusnak, mint tengernek. A mélysége alig pár centiméter és alatta néhol apró kavicsok, máshol hatalmas sziklák fekszenek. Itt-ott kisebb dombok és nagyobb kövek emelkednek ki labirintussá változtatva a felszínt, és ellehetetlenítve a közlekedést bármilyen eszközzel. Nem mintha sok hajót, autót vagy repülőt láttál volna az eddigi utad során. Valahogy semmilyen lénynek nem érdeke utazni ebben a világban, mindenki jól érezi magát ott, ahol van. \n\nAz idő sem kegyes hozzád, sűrű köd nehezíti a tájékozódást. Amikor belépsz a vízbe, egy ismerős hang szólal meg melletted. Lapozz [##1].",
       "color": "white",
       "comment": "",
       "index": 70,
@@ -267,7 +267,7 @@
     {
       "id": 21,
       "title": "Ismét találkozó Godfreyvel.",
-      "story": "A hang azt mondja: \"Nem tudsz átkelni a tengeren csupán bámulva a vizet\". Megfordulsz és a korábbi öreg vándort pillantod meg. Megszólítod: \n- Útjaink ismét keresztezik egymást?!\n- Ismét? - nézett rá kérdőn az öreg. \n- Felejtsd el! Nagy feladatot kaptam és fogalmam nincs, hogy képes leszek-e rá. Nem értem, hogy miért vállaltam el - feleled, miközben bánatosan fürkészed a vizet. \n- A lehetetlen elérésének az egyetlen módja, ha elhiszed, hogy lehetséges - válaszolja az öreg. \n- Én csak haza akarok jutni! - kiálltod felé, de már csak a kavicsos partot találod. \n\nAzt gondolod, hogy ez jellemző rá, bár lehetséges, hogy csak a képzeleted játszik veled. Összeszeded magad és folytatod az utad. Lapozz [##1]. ",
+      "story": "A hang azt mondja: \"Nem tudsz átkelni a tengeren csupán bámulva a vizet\". Megfordulsz és a korábbi öreg vándort pillantod meg. Megszólítod: \n- Útjaink ismét keresztezik egymást?!\n- Ismét? - néz rád kérdőn az öreg. \n- Felejtsd el! Nagy feladatot kaptam, és fogalmam nincs, hogy képes leszek-e véghez vinni. Nem értem, hogy miért vállaltam el - feleled, miközben bánatosan fürkészed a vizet. \n- A lehetetlen elérésének az egyetlen módja, ha elhiszed, hogy lehetséges - válaszolja az öreg. \n- Én csak haza akarok jutni! - kiáltod felé, de már csak a kavicsos partot találod. \n\nAzt gondolod, hogy ez jellemző rá, bár lehetséges, hogy csak a képzeleted játszik veled. Összeszeded magad és folytatod az utad. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 66,
@@ -293,7 +293,7 @@
     {
       "id": 24,
       "title": "Labirintus - BJ v JJ",
-      "story": "A folyosó egyre csak szélesedik, majd az egyik pillanatban teljesen elmerülsz a vízben, és csak a szerencsédnek köszönheted, hogy vissza tudsz mászni. Egy nagy mélyedés keresztezi az utad, egy vízalatti kráter. Ha úgy döntesz, hogy jobbról kerülöd meg, lapozz [##2], ha a másik oldalról akkor [##1]. ",
+      "story": "A folyosó egyre csak szélesedik, majd az egyik pillanatban teljesen elmerülsz a vízben, és csak a szerencsédnek köszönheted, hogy vissza tudsz mászni. Egy nagy mélyedés keresztezi az utad, egy víz alatti kráter. Ha úgy döntesz, hogy jobbról kerülöd meg, lapozz [##2], ha a másik oldalról akkor [##1]. ",
       "color": "white",
       "comment": "",
       "index": 40,
@@ -319,7 +319,7 @@
     {
       "id": 26,
       "title": "Labirintus - JB",
-      "story": "A köd egyre erősebb és majdnem fejjel ütközöl egy falba. Jobb lesz, ha nem lankad a figyelmed, nehogy bajod essen. Elkezded tapogatni a falat és két szűk átjárót találsz közel egymáshoz. Bekukucskálsz, de a köd miatt nem látsz a túloldalon semmit. Ha a jobb oldaliban folytatod az utad, lapozz [##1], ha a bal oldaliban, lapozz [##2]. ",
+      "story": "A köd egyre erősebb, majdnem fejjel ütközöl egy falba. Jobb lesz, ha nem lankad a figyelmed, nehogy bajod essen. Elkezded tapogatni a falat, és két szűk átjárót találsz közel egymáshoz. Bekukucskálsz, de a köd miatt nem látsz a túloldalon semmit. Ha a jobb oldaliban folytatod az utad, lapozz [##1], ha a bal oldaliban, lapozz [##2]. ",
       "color": "white",
       "comment": "",
       "index": 19,
@@ -358,7 +358,7 @@
     {
       "id": 32,
       "title": "Labirintus - NYERT - JBB",
-      "story": "Ahogy mész egyenesen a köd elkezdsz tisztulni, a folyosó pedig szűkülni. Az utolsó pár méteren már olyan keskeny, hogy egészen össze kell préselned magad, hogy előre tudj haladni. Már éppen azon gondolkozol, hogy visszafordulsz, amikor megpillantasz egy üreget az út legvégén. Átmászol rajta és a túloldalon meglátsz egy kis erdőt. Átértél a Kő-tengeren. A fal mellett egy aprócska egérszerű lényt pillantasz meg. Megszólítod. Lapozz [##1].",
+      "story": "Ahogy mész egyenesen, a köd elkezd tisztulni, a folyosó pedig szűkülni. Az utolsó pár méteren már olyan keskeny, hogy egészen össze kell préselned magad, hogy előre tudj haladni. Már éppen azon gondolkozol, hogy visszafordulsz, amikor megpillantasz egy üreget az út legvégén. Átmászol rajta, a túloldalon meglátsz egy kis erdőt. Átértél a Kő-tengeren. A fal mellett egy aprócska egérszerű lényt pillantasz meg. Megszólítod. Lapozz [##1].",
       "color": "white",
       "comment": "",
       "index": 55,
@@ -371,7 +371,7 @@
     {
       "id": 33,
       "title": "Találkozás az egérkével",
-      "story": "Közelebb lépve a kis teremtmény rád néz és látszik, hogy nagyon szomorú. Megkérdezheted, hogy mi a baj, lapozz [##1], vagy egy köszönés után folytathatod az utad, lapozz [##2]. ",
+      "story": "Közelebb lépve a kis teremtmény rád néz, és látszik, hogy nagyon szomorú. Megkérdezheted, hogy mi a baj, lapozz [##1], vagy egy köszönés után folytathatod az utad, lapozz [##2]. ",
       "color": "white",
       "comment": "",
       "index": 41,
@@ -384,7 +384,7 @@
     {
       "id": 34,
       "title": "Bajba esett egér",
-      "story": "Az egérke elárulja, hogy Timothynak hívják és itt él a Kő-tenger és a Békaváros határában a szüleivel. Édesapja a paras kő megszállítója, amely egy olyan tárgy, ami bármilyen fémet arannyá tud változtatni. Az ősi könyvek elárulják, hogy a paras kő külsőleg olyan, mint bármilyen más kő, és a Kő-tengerben rejtették el. Az édesapja minden napját úgy tölti, hogy kimegy a tengerre és sorra próbálgatja az összes követ és kavicsot. Ma egy nagyobb szikla mellett keresgélt, amikor az megcsúszott és beszorította a lábát. Mivel az egerek kicsik és gyengék, így nem tudták elmozdítani a sziklát. Timothy fél, hogy apja örökre a tenger fogságában marad. \n\nHa felkínálod a segítséged, akkor lapozz [##1], ha kifejezed sajnálatod és elköszönsz, lapozz [##2].",
+      "story": "Az egérke elárulja, hogy Timothynak hívják, és itt él a Kő-tenger és a Békaváros határában a szüleivel. Édesapja a paras kő megszállottja, amely egy olyan tárgy, ami bármilyen fémet arannyá tud változtatni. Az ősi könyvek elárulják, hogy a paras kő külsőleg olyan, mint bármilyen más kő, és a Kő-tengerben rejtették el. Az édesapja minden nap kimegy a tengerre, és sorra próbálgatja az összes követ és kavicsot. Ma egy nagyobb szikla mellett keresgélt, amikor az megcsúszott és beszorította a lábát. Mivel az egerek kicsik és gyengék, így nem tudták elmozdítani a sziklát. Timothy fél, hogy apja örökre a tenger fogságában marad. \n\nHa felkínálod a segítséged, akkor lapozz [##1], ha kifejezed sajnálatod és elköszönsz, lapozz [##2].",
       "color": "white",
       "comment": "",
       "index": 51,
@@ -397,7 +397,7 @@
     {
       "id": 35,
       "title": "Kijutás a Kő-tengerről - Godfrey",
-      "story": "Elhagyva a tengert barátságosabb környezetben találod magad. És egy kis séta után az erdőben egy ismerős arc üdvözöl. \n- Örülök, hogy ismét látjuk egymást barátom. A reggeli találkozásunk óta nagy utat tettél meg - fogad nagy mosollyal Godfrey.  \n- A labirintus a Kő-tengerben egy örökkévalóságnak tűnt, pedig csak pár óra volt az út. Szerencsére sikerült kijutnom. \n- A szerencsének ehhez nincs köze. Tudd meg fiam, hogy cselekedeteid sikere belső meggyőződésed erejétől és önfegyelmedtől függ. Szóval ne veszítsd el a bátorságod, és soha ne add fel. Elszántságodra most talán még nagyobb szükséged lesz, mint valaha. \n- Azt gondolom. Hogy jutottál gyorsabban ki a labirintusból, mint én?\n\nA válasz nem érkezik meg, Godfrey ismét köddé vált. Későre jár, a távolban megpillantod a Békaváros fényeit. Úgy döntesz, hogy lepihensz és másnap újult erővel veszed célba. Lapozz [##1].",
+      "story": "Elhagyva a tengert barátságosabb környezetben találod magad. Egy kis séta után az erdőben egy ismerős arc üdvözöl. \n- Örülök, hogy ismét látjuk egymást, barátom. A reggeli találkozásunk óta nagy utat tettél meg - fogad nagy mosollyal Godfrey.  \n- A labirintus a Kő-tengerben egy örökkévalóságnak tűnt, pedig csak pár óra volt az út. Szerencsére sikerült kijutnom. \n- A szerencsének ehhez nincs köze. Tudd meg fiam, hogy cselekedeteid sikere belső meggyőződésed erejétől és önfegyelmedtől függ. Szóval ne veszítsd el a bátorságod, és soha ne add fel. Elszántságodra most talán még nagyobb szükséged lesz, mint valaha. \n- Azt gondolom. Hogy jutottál ki gyorsabban a labirintusból, mint én?\n\nA válasz nem érkezik meg, Godfrey ismét köddé vált. Későre jár, a távolban megpillantod a Békaváros fényeit. Úgy döntesz, hogy lepihensz, hogy másnap újult erővel vehesd célba. Lapozz [##1].",
       "color": "white",
       "comment": "",
       "index": 11,
@@ -410,7 +410,7 @@
     {
       "id": 36,
       "title": "Mentés",
-      "story": "Egy rövid séta után megérkeztek Timothy apjához. Úgy tűnt, hogy már ereje végét járja, annyira kimerült a sok erőlködésben, hogy kiszabadítsa magát. Nekifeszülsz a kis egérkével a sziklának, és együttes erővel, mindent beleadva sikerül eldönteni a nagy követ és kiszabadítani az öreget. \n\nTimothy édesapja köszöntet mond neked, a családjának pedig megígéri, hogy felhagy a paras kő keresésével és élete hátralevő részét nekik szenteli, mivel az élet túl rövid, az idő pedig túl értékes, hogy hasztalan dolgokra fecséreljük.  \n\nBúcsúzóul azt a tanácsot adja, hogy sohase bízz egy békában, ne köss vele szövetséget. Elköszöntök, lapozz [##1]. ",
+      "story": "Egy rövid séta után megérkeztek Timothy apjához. Úgy tűnik, hogy már ereje végét járja, annyira kimerült a sok erőlködésben, hogy kiszabadítsa magát. Nekifeszülsz a kis egérkével a sziklának, és együttes erővel, mindent beleadva sikerül eldöntenetek a nagy követ, és kiszabadítani az öreget. \n\nTimothy édesapja köszöntet mond neked, a családjának pedig megígéri, hogy felhagy a paras kő keresésével, és élete hátralevő részét nekik szenteli, mivel az élet túl rövid, az idő pedig túl értékes, hogy hasztalan dolgokra fecséreljük.  \n\nBúcsúzóul azt a tanácsot adja, hogy sohase bízz egy békában, ne köss vele szövetséget. Elköszöntök, lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 23,
@@ -423,7 +423,7 @@
     {
       "id": 37,
       "title": "Békaváros első ránézésre",
-      "story": "Másnap nem vesztegeted az időt és megközelíted a várost. Az utcák telis-tele vannak hatalmas békákkal és mindegyik parókát visel. A házak sárral összetapasztott sziklákból állnak, mindenhol rengeteg a szemét és kosz. Az egyik épület kiemelkedik a többi közül, és egy békaőr áll a kapujában. Azt gondolod, hogy ez lehet a város uralkodójának a háza, és bizonyára ott őrzik az érmét is. Az őrségváltásnál megragadod az alkalmat és besurransz az épületbe. \n\nLapozz [##1]. ",
+      "story": "Másnap nem vesztegeted az időt, megközelíted a várost. Az utcák telis-tele vannak hatalmas békákkal, és mindegyik parókát visel. A házak sárral összetapasztott sziklákból állnak, mindenhol rengeteg a szemét és a kosz. Az egyik épület kiemelkedik a többi közül, és egy békaőr áll a kapujában. Azt gondolod, hogy ez lehet a város uralkodójának a háza, és bizonyára ott őrzik az érmét is. Az őrségváltásnál megragadod az alkalmat és besurransz az épületbe. \n\nLapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 18,
@@ -436,7 +436,7 @@
     {
       "id": 38,
       "title": "Lebukás",
-      "story": "A terembe lépve összefutsz egy másik őrséggel. Ismét próbára kell tenned ravaszságod. Ha úgy döntesz, hogy szilárd elhatározottsággal és teljes komolysággal rájuk nézel és brekkentesz egyet, akkor lapozz [##1]. Ha megpróbálod elterelni a figyelmüket azzal, hogy a hátuk mögé mutatsz és azt mondod \"Vigyázzatok patkány\", lapozz [##2].",
+      "story": "A terembe lépve összefutsz egy másik őrséggel. Ismét próbára kell tenned ravaszságod. Ha úgy döntesz, hogy szilárd elhatározottsággal és teljes komolysággal rájuk nézel és brekkentesz egyet, akkor lapozz [##1]. Ha megpróbálod elterelni a figyelmüket azzal, hogy a hátuk mögé mutatsz és azt mondod \"Vigyázzatok, patkány\", lapozz [##2].",
       "color": "white",
       "comment": "",
       "index": 27,
@@ -488,7 +488,7 @@
     {
       "id": 42,
       "title": "Donatello az uralkodó",
-      "story": "Donatello a békák vezetője fogad téged a termében. Hatalmas aranyparókájával a fején szinte szétfolyik a kanapén. Közönyösen megkérdezi, hogy mit keresel a házában, miközben szinte rád sem emeli a tekintetét. Ha egyenesen nekiszegezed a kérdést az ellopott időérméről, lapozz [##1], ha hízelgéssel próbálsz meg információt kicsikarni, lapozz [##2]. ",
+      "story": "Donatello, a békák vezetője fogad téged a termében. Hatalmas aranyparókájával a fején szinte szétfolyik a kanapén. Közönyösen megkérdezi, hogy mit keresel a házában, miközben szinte rád sem emeli a tekintetét. Ha egyenesen nekiszegezed a kérdést az ellopott időérméről, lapozz [##1], ha hízelgéssel próbálsz meg információt kicsikarni, lapozz [##2]. ",
       "color": "white",
       "comment": "",
       "index": 77,
@@ -553,7 +553,7 @@
     {
       "id": 47,
       "title": "Haj",
-      "story": "Elmeséled neki, hogy a csodás hajkoronája messzeföldön híres, mindenki irigyli a dús fürtjeit, lágy esését, csillogását. Valóban szép paróka, még akkor is, ha a viselője történetesen egy gusztustalan varangy.  Donatellonak ez nagyon tetszik, öröm számára, hogy végre találkozik egy olyan teremtménnyel, aki igazán tudja, mi a fontos. \n\nKözben megemlíted, hogy a tündérek földjéről érkeztél, akik nagyon keresik az elveszett időérmet. Elmondod, hogy mekkora veszélyt jelent az egész világra nézve az eltűnése és megkérdezed, hogy hallott-e valamit. Az uralkodó büszkén vallja be, hogy ők lopták el. Nem volt nehéz, hiszen aki megérinti az érmét a világukon belül bárhova el tud utazni egy szempillantás alatt. Szóval csak meg kellett érintenie az egyik szolgálójának, és a tündérek trónterméből azonnal a Békavárosban termett a tolvaj az érmével együtt. \n\nDonatello számára nem jelent nagy értéket az érme, ezért megígéri, hogy segít, de cserébe ő is kér valamit. Lapozz [##1]. ",
+      "story": "Elmeséled neki, hogy a csodás hajkoronája messzeföldön híres, mindenki irigyli a dús fürtjeit, lágy esését, csillogását. Valóban szép paróka, még akkor is, ha a viselője történetesen egy gusztustalan varangy.  Donatellonak ez nagyon tetszik, öröm számára, hogy végre találkozik egy olyan teremtménnyel, aki igazán tudja, mi a fontos. \n\nKözben megemlíted, hogy a tündérek földjéről érkeztél, akik nagyon keresik az elveszett időérmet. Elmondod, hogy mekkora veszélyt jelent az egész világra nézve az eltűnése, és megkérdezed, hogy hallott-e valamit. Az uralkodó büszkén vallja be, hogy ők lopták el. Nem volt nehéz, hiszen aki megérinti az érmét, a világukon belül bárhova el tud utazni egy szempillantás alatt. Szóval csak meg kellett érintenie az egyik szolgálójának, és a tündérek trónterméből azonnal a Békavárosban termett a tolvaj az érmével együtt. \n\nDonatello számára nem jelent nagy értéket az érme, ezért megígéri, hogy segít, de cserébe ő is kér valamit. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 67,
@@ -631,7 +631,7 @@
     {
       "id": 53,
       "title": "Útban a békákhoz - Godfrey",
-      "story": "Későre jár már, úgy döntesz, hogy lepihensz, és csak másnap viszed el az elixírt. Ledőlsz egy fa tövében és csak nézegeted a szerzeményt. Gyönyörűen világít. Arra gondolsz, hogyha nem adnád vissza, hanem magad használnád fel, akkor te lehetnél a leghatalmasabb ezen a világon. Hazudhatnád azt, hogy nem sikerült a küldetés, és megpróbálhatnád más módon megszerezni az időérmét. Ekkor egy ismerős hang megszólal melletted: \n- Alacsonyrendű lények ezek a békák, lopnak és csalnak, és mindig csak nagyobb dolgokra vágynak, de sohasem elégszenek meg. Pedig a vagyont becsületes úton kell megszerezni, a saját munkáddal és erőfeszítéseddel - mondja Godfrey, miközben felnéz a holdra. \n- Igen, de miért baj az, ha valaki kényelemre vágyik és szereti a csillogást? \n- A szükségtelenül felhalmozott anyagi javak egy idő után teherré válnak, gondot okoznak. Igazi örömöt csak minden élőlény önzetlen szolgálata nyújt. Nem így gondolod? \n\nSzokásához híven a választ már nem várja meg, te pedig tovább töröd a fejed. Ha úgy döntesz, hogy magad használod fel a varázsitalt, lapozz [##1], ha lepihensz és másnap folytatod az utad a Békavárosba, lapozz [##2]. ",
+      "story": "Későre jár már, úgy döntesz, hogy lepihensz, és csak másnap viszed el az elixírt. Ledőlsz egy fa tövében és csak nézegeted a szerzeményt. Gyönyörűen világít. Arra gondolsz, hogyha nem adnád vissza, hanem magad használnád fel, akkor te lehetnél a leghatalmasabb ezen a világon. Hazudhatnád azt, hogy nem sikerült a küldetés, és megpróbálhatnád más módon megszerezni az időérmét. Ekkor egy ismerős hang megszólal melletted: \n- Alacsonyrendű lények ezek a békák, lopnak és csalnak, és mindig csak nagyobb dolgokra vágynak, de sohasem elégszenek meg. Pedig a vagyont becsületes úton kell megszerezni, a saját munkáddal és erőfeszítéseddel - mondja Godfrey, miközben felnéz a holdra. \n- Igen, de miért baj az, ha valaki kényelemre vágyik és szereti a csillogást? \n- A szükségtelenül felhalmozott anyagi javak egy idő után teherré válnak, gondot okoznak. Igazi örömöt csak minden élőlény önzetlen szolgálata nyújthat. Nem így gondolod? \n\nSzokásához híven a választ már nem várja meg, te pedig tovább töröd a fejed. Ha úgy döntesz, hogy magad használod fel a varázsitalt, lapozz [##1], ha lepihensz és másnap folytatod az utad a Békavárosba, lapozz [##2]. ",
       "color": "white",
       "comment": "",
       "index": 42,
@@ -670,7 +670,7 @@
     {
       "id": 56,
       "title": "Búcsú a békáktól",
-      "story": "Mérgesen válaszolsz: \n- Megegyeztünk! Azt mondtad, hogy átadod az érmét cserébe az elixírért! \n- Nem mondtam, hogy átadom az érmét, hanem csak annyit, hogy segítek. Valóban mi loptuk el, de felbérelt minket Molly, a szarka. Az elixírt adta volna cserébe, de átrázott minket, és ahogy megérintette az érmét, azonnal köddé vált. Bizonyára a faházában gyűjti a csillogó kincseit, ami nincs is olyan messze, de a belépés körülményes. \n- Merre találom, hogy jutok el oda? \n- A faház egy nagy fa tetején van, amire csupán egy csiga képes felvinni, de ők nem olyan segítőkészek, mint mi, békák. A hely, ahol élnek, a csigakert, innen délre. De most már idegesítesz, ideje elhagynod a városunkat. Az elixírt pedig köszönjük - mondta gúnyosan Donatello. \n\nAzzal fogta az üvegcsét és lehörpintette az egészet. Egy pillanatra meg is szédült, de az egyik szolgája azonnal mellé termett és elkapta. Nem esett el, de a szolga azonnal arannyá változott. Donatello felkacagott és elkezdett mindent összefogdosni a szobában. Miután elfáradt úgy gondolta, hogy leül és eszik egy picit. Azonban ahogy az ételt megfogta, az azonnal arannyá változott. Gondolta iszik egy kortyot, de az itallal is ugyanaz történt. Ezután már nem öröm, hanem inkább kétségbeesés tükröződött a nagy fekete szemeiben. \n\nJó kerülni azokat a helyeket, ahol nem látnak szívesen. Úgy döntesz, nem várod ki, hogy mi lesz a vége, szép lassan elhagyod az uralkodó házát Békavárossal együtt, és útnak indulsz délre. Lapozz [##1]. ",
+      "story": "Mérgesen válaszolsz: \n- Megegyeztünk! Azt mondtad, hogy átadod az érmét cserébe az elixírért! \n- Nem mondtam, hogy átadom az érmét, hanem csak annyit, hogy segítek. Valóban mi loptuk el, de felbérelt minket Molly, a szarka. Az elixírt adta volna cserébe, de átrázott minket, és ahogy megérintette az érmét, azonnal köddé vált. Bizonyára a faházában gyűjti a csillogó kincseit, ami nincs is olyan messze, de a belépés körülményes. \n- Merre találom, hogy jutok el oda? \n- A faház egy nagy fa tetején van, amire csupán egy csiga képes felvinni, de ők nem olyan segítőkészek, mint mi, békák. A hely, ahol élnek, a csigakert, innen délre. De most már idegesítesz, ideje elhagynod a városunkat. Az elixírt pedig köszönjük - mondta gúnyosan Donatello. \n\nAzzal fogta az üvegcsét és lehörpintette az egészet. Egy pillanatra meg is szédült, de az egyik szolgája azonnal mellette termett és elkapta. Nem esett el, azonban a szolga azonnal arannyá változott. Donatello felkacagott, és elkezdett mindent összefogdosni a szobában. Miután elfáradt, úgy gondolta, hogy leül és eszik egy picit. Azonban ahogy az ételt megfogta, az is arannyá változott. Gondolta, iszik egy kortyot, de az itallal is ugyanaz történt. Ezután már nem öröm, hanem kétségbeesés tükröződött a nagy fekete szemeiben. \n\nJó kerülni azokat a helyeket, ahol nem látnak szívesen. Úgy döntesz, nem várod ki, hogy mi lesz a vége, szép lassan elhagyod az uralkodó házát Békavárossal együtt, és útnak indulsz délre. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 80,
@@ -696,7 +696,7 @@
     {
       "id": 58,
       "title": "Csípés",
-      "story": "Ahogy haladsz előre egyre nagyobb és érdekesebb növények mellett vezet az utad. Néha olyan érzésed van, mintha figyelnének, mintha valami folyton mozogna mögötted, de megfordulva nem látsz mást, mint különleges formájú bokrokat és fákat. Egy szakadék mellett vezet az utad, amelynek a fenekén mintha víz folydogálna. Hirtelen egy csípést érzel a válladban. Félelmed beigazolódik egy mérges növény magasodik föléd. Ha futásnak eredsz az ösvényen, akkor lapozz [##1]. Ha beleugrasz a szakadékba, reménykedve, hogy vízbe érkezel, lapozz [##2]. Ha lefekszel a földre és gyorsan beadod az ellenszert, lapozz [##3]. ",
+      "story": "Ahogy haladsz előre, egyre nagyobb és érdekesebb növények mellett vezet az utad. Néha olyan érzésed van, mintha figyelnének, mintha valami folyton mozogna mögötted, de megfordulva nem látsz mást, mint különleges formájú bokrokat és fákat. Egy szakadék mellett vezet az utad, amelynek a fenekén mintha víz folydogálna. Hirtelen egy csípést érzel a válladban. Félelmed beigazolódik, egy mérges növény magasodik föléd. Ha futásnak eredsz az ösvényen, akkor lapozz [##1]. Ha beleugrasz a szakadékba, reménykedve, hogy vízbe érkezel, lapozz [##2]. Ha lefekszel a földre és gyorsan beadod az ellenszert, lapozz [##3]. ",
       "color": "white",
       "comment": "",
       "index": 22,
@@ -722,7 +722,7 @@
     {
       "id": 60,
       "title": "Ébredés",
-      "story": "Az esés közben elveszted az eszméleted. Pár óra múlva térsz magadhoz egy vízparton. A szerencse ismét melléd szegődött, a szakadék alján egy kis folyó volt, ami egészen a Csigakert bejáratához sodort. Megpillantod a dombot, amelyre spirál alakban vezet felfelé az út, és amelynek a kezdetén egy tábla van. Odalépve a csigák híres mondását olvashatod el: \n\n\"Nem számít milyen lassan mész, amíg kitartasz. Hiszen a lassú haladás is haladás.\"\n\nÚgy döntesz, hogy vársz még a szérum beadásával, és inkább folytatod az utad. Lapozz [##1]. ",
+      "story": "Az esés közben elveszted az eszméleted. Pár óra múlva térsz magadhoz egy vízparton. A szerencse ismét melléd szegődött, a szakadék alján egy kis folyó volt, ami egészen a Csigakert bejáratához sodort. Megpillantod a dombot, amelyre spirál alakban vezet felfelé az út, és a kezdetén egy tábla van. Odalépve a csigák híres mondását olvashatod el: \n\n\"Nem számít milyen lassan mész, amíg kitartasz. Hiszen a lassú haladás is haladás.\"\n\nÚgy döntesz, hogy vársz még a szérum beadásával, és inkább folytatod az utad. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 69,
@@ -735,7 +735,7 @@
     {
       "id": 61,
       "title": "Fekszel a földön",
-      "story": "Leveted magad a földre és elővennéd a zsebedből az ellenszert, de már nincs rá időd, az egyik növény feléd irányítja tüskéit, és csak az utolsó pillanatban tudsz oldalra gördülni, elkerülve egy ismételt szúrást. Egyenesen a szakadékba esel. Lapozz [##1].",
+      "story": "Leveted magad a földre. Épp elővennéd a zsebedből az ellenszert, de már nincs rá időd, az egyik növény feléd irányítja tüskéit, és csak az utolsó pillanatban tudsz oldalra gördülni, elkerülve egy ismételt szúrást. Egyenesen a szakadékba esel. Lapozz [##1].",
       "color": "white",
       "comment": "",
       "index": 28,
@@ -748,7 +748,7 @@
     {
       "id": 62,
       "title": "Úton a csigakertben",
-      "story": "A Csigakert lenyűgöző látvány. Telis-tele van színes, pompás virágokkal. Sok csigával találkozol, akik vagy beszélgetnek vagy békésen lakmároznak az ösvény szélén. Mindenki szívélyesen üdvözöl.  Egyikkel-másikkal váltasz pár szót, mely során kiderül, hogy ez az ő országuk, de mivel nincs szükség arra, hogy városokat hozzanak létre, vagy megváltoztassák a környezetet, így mindenki csak kertnek hívja. Nincs uralkodójuk sem, hanem három vénből álló tanács hozza meg a szükséges döntéseket vitás kérdésekben, akik fent élnek a domb tetején. Téged is oda irányítanak, majd ők eldöntik, hogy érdemes vagy-e a segítségre, vagy egyedül kell felmásznod a szarka fájára. Lapozz [##1]. ",
+      "story": "A Csigakert lenyűgöző látvány. Telis-tele van színes, pompás virágokkal. Sok csigával találkozol, akik vagy beszélgetnek vagy békésen lakmároznak az ösvény szélén. Mindenki szívélyesen üdvözöl.  Egyikkel-másikkal váltasz pár szót, mely során kiderül, hogy ez az ő országuk, de mivel nincs szükség arra, hogy városokat hozzanak létre, vagy megváltoztassák a környezetet, így mindenki csak kertnek hívja. Nincs uralkodójuk sem, hanem három vénből álló tanács hozza meg a szükséges döntéseket vitás kérdésekben, akik fent élnek a domb tetején. Téged is oda irányítanak, majd ők eldöntik, hogy érdemes vagy-e a segítségre, vagy egyedül kell felmásznod a szarka fájára. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 50,
@@ -761,7 +761,7 @@
     {
       "id": 63,
       "title": "A vének - első kérdés",
-      "story": "A domb tetejére felérve egy hatalmas gomba lábánál megpillantasz három nagy csigát, ahogy a vidéket kémlelik. Odalépsz hozzájuk és kiderül, hogy ők a tanács, akikhez segítségért kell folyamodnod. Elmeséled, hogy miért  indultál az érme keresésére, és mi vezetett a csigák földjére. Rövid tanakodás után a tanács úgy dönt, hogy segít neked és felajánl egy csigát, aki elkísér a utadon, amennyiben helyesen válaszolsz három kérdésre. Ha bármelyik kérdésre rossz a válasz, úgy nem segítenek. Elfogadod a feltételeket. \n\nAz első vén feléd fordul és megkérdezi, hogy mi a csigák közmondása?\n\"A lassú haladás is haladás.\" vagy \"Egy apró tettel is többet teszel annál, mint aki nem tesz semmit.\"\n\nHa az elsőt választod, lapozz [##1], ha a másodikat, akkor [##2]. ",
+      "story": "A domb tetejére felérve egy hatalmas gomba lábánál megpillantasz három nagy csigát, ahogy a vidéket kémlelik. Odalépsz hozzájuk. Kiderül, hogy ők a tanács, akikhez segítségért kell folyamodnod. Elmeséled, hogy miért  indultál az érme keresésére, és mi vezetett a csigák földjére. Rövid tanakodás után a tanács úgy dönt, hogy segít neked, és felajánl egy csigát, aki elkísér a utadon, amennyiben helyesen válaszolsz három kérdésre. Ha bármelyik kérdésre rossz a válasz, úgy nem segítenek. Elfogadod a feltételeket. \n\nAz első vén feléd fordul és megkérdezi, hogy mi a csigák közmondása?\n\"A lassú haladás is haladás.\" vagy \"Egy apró tettel is többet teszel annál, mint aki nem tesz semmit.\"\n\nHa az elsőt választod, lapozz [##1], ha a másodikat, akkor [##2]. ",
       "color": "white",
       "comment": "",
       "index": 46,
@@ -787,7 +787,7 @@
     {
       "id": 65,
       "title": "Helytelen válasz",
-      "story": "Sajnos helytelenül választottál. A vének sok szerencsét kívánnak, de sajnos el kell hagynod a csigák földjét. A domb aljában lefekszel aludni és másnap a kert bejáratánál ébredsz. Ismét megpróbálod. Lapozz [##1]. ",
+      "story": "Sajnos helytelenül választottál. A vének sok szerencsét kívánnak, de el kell hagynod a csigák földjét. A domb aljában lefekszel aludni, és másnap a kert bejáratánál ébredsz. Ismét megpróbálod. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 73,
@@ -813,7 +813,7 @@
     {
       "id": 67,
       "title": "Sikeres teszt",
-      "story": "A harmadik bölcs helyeslően bólogat. Így felel: \n- A csigák meg tudják látni a szépséget minden centiméterben és ennek a nyugalom az oka, csak így lehet meglelni a természet békéjét. Jól feleltél minden kérdésre utazó, a csigák szívesen segítségedre lesznek utad végső állomásának elérésében. \n\nEkkor előcsúszik egy fiatal meztelen csiga, és így szól: \n- Szia! A nevem Shelby. Szívesen elviszlek a szarka házáig, de utána elválnak útjaink. Szállj fel! \n\nFelmászol a csiga hátára, és búcsút intesz a véneknek. Lapozz [##1]. ",
+      "story": "A harmadik bölcs helyeslően bólogat. Így felel: \n- A csigák meg tudják látni a szépséget minden centiméterben, és ennek a nyugalom az oka, csak így lehet meglelni a természet békéjét. Jól feleltél minden kérdésre, utazó, a csigák szívesen segítségedre lesznek utad végső állomásának elérésében. \n\nEkkor előcsúszik egy fiatal meztelen csiga, és így szól: \n- Szia! A nevem Shelby. Szívesen elviszlek a szarka házáig, de utána elválnak útjaink. Szállj fel! \n\nFelmászol a csiga hátára, és búcsút intesz a véneknek. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 37,
@@ -839,7 +839,7 @@
     {
       "id": 69,
       "title": "Útban a szarka faházáig",
-      "story": "Shelby nem túl beszédes, de az utazás során megtudod tőle, hogy Mollyval mindig is jó volt a csigák kapcsolata. Nem érti, hogy mi vitte rá, hogy ellopja az időérmet. Elmeséli azt is, hogy a szarkának van egy gyermeke, aki sűrűn játszott a csigakertben vagy a közeli csalánfű erdőben, de már egy ideje nem találkoztak vele.\n\nViszonylag gyorsan eljutok egy magas, sima törzsű fához, amelynek a teteje ködbe burkolózik, nem is látszik, hogy egy épületet rejt. Shelby megkér, hogy most kapaszkodj erősen és semmiképpen se nézz le útközben, mert könnyen leszédülhetsz. Lapozz [##1]. ",
+      "story": "Shelby nem túl beszédes, de az utazás során megtudod tőle, hogy Mollyval mindig is jó volt a csigák kapcsolata. Nem érti, hogy mi vitte rá, hogy ellopja az időérmet. Elmeséli azt is, hogy a szarkának van egy gyermeke, aki sűrűn játszott a csigakertben vagy a közeli csalánfű erdőben, de már egy ideje nem találkoztak vele.\n\nViszonylag gyorsan eljuttok egy magas, sima törzsű fához, amelynek a teteje ködbe burkolózik, nem is látszik, hogy egy épületet rejt. Shelby megkér, hogy most kapaszkodj erősen és semmiképpen se nézz le útközben, mert könnyen leszédülhetsz. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 24,
@@ -878,7 +878,7 @@
     {
       "id": 72,
       "title": "Gyönyörű panoráma",
-      "story": "Felérve a teraszra, Shelby sok szerencsét kíván, innen már egyedül kell folytatnod az utad. De mielőtt tovább mész, még szétnézel az elképesztő magasságban. A terasz végére állva feltárul előtted a teljes világ. Látod Tündérországot, ahova pár napja érkeztél meg és találkoztál a legkülönösebb lényekkel, akiket eddig ismertél. Utána ott van az ezüstösen világító Kő-tenger, ami ilyen távolságból valóban egy tengernek tűnik. Mellette a Békaváros és a Bogárhotel és egészen közel a Csigakert, ami felülről olyan, mintha egy csigaház lenne. Sok különös lénnyel ismerkedtél meg, talán még barátokra is szert tettél. És most itt állsz a végső próba kapujában. Tőled függ, hogy megmenekül-e a világ és hazajuthatsz, vagy örökre itt kell raboskodnod, legalábbis addig, amíg össze nem omlik az idő. Lapozz [##1]. ",
+      "story": "Felérve a teraszra Shelby sok szerencsét kíván, innen már egyedül kell folytatnod az utad. De mielőtt tovább mész, még szétnézel az elképesztő magasságban. A terasz végére állva feltárul előtted a teljes világ. Látod Tündérországot, ahova pár napja érkeztél meg és találkoztál a legkülönösebb lényekkel, akiket eddig ismertél. Utána ott van az ezüstösen világító Kő-tenger, ami ilyen távolságból valóban egy tengernek tűnik. Mellette a Békaváros, a Bogárhotel és egészen közel a Csigakert, ami felülről olyan, mintha egy csigaház lenne. Sok különös lénnyel ismerkedtél meg, talán még barátokra is szert tettél. És most itt állsz a végső próba kapujában. Tőled függ, hogy megmenekül-e a világ és hazajuthatsz, vagy örökre itt kell raboskodnod, legalábbis addig, amíg össze nem omlik az idő. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 56,
@@ -891,7 +891,7 @@
     {
       "id": 73,
       "title": "A szarka háza",
-      "story": "Lassan véget ér a nap, szóval nem vesztegetheted az időd. Már elengedted azt az embert, aki pár napja még a mólón ücsörgött, és most találkozhatsz azzal, akivé válhatsz. Belépsz a házba. A nappalijában találod magad, az egyik szobából fény szűrődik ki. Ha megnézed, lapozz [##1]. Ha elkezdesz kutatni a szobában, lapozz [##3]. Ha inkább elrejtőzöl és megvárod, amíg valaki megérkezik, lapozz [##2]. ",
+      "story": "Lassan véget ér a nap, szóval nem vesztegetheted az időd. Már elengedted azt az embert, aki pár napja még a mólón ücsörgött, és most találkozhatsz azzal, akivé válhatsz. Belépsz a házba. Molly nappalijában találod magad, az egyik szobából fény szűrődik ki. Ha megnézed, lapozz [##1]. Ha elkezdesz kutatni a szobában, lapozz [##3]. Ha inkább elrejtőzöl és megvárod, amíg valaki megérkezik, lapozz [##2]. ",
       "color": "white",
       "comment": "",
       "index": 8,
@@ -956,9 +956,9 @@
     {
       "id": 78,
       "title": "Beszélgetés",
-      "story": "Egy ideig csak figyelitek egymást, majd megtörve a csendet megkérdezed, hogy ki fekszik az ágyban. \n- A gyermekem az - válaszolja Molly. - Pár napja az erdőben repült és túl alacsonyra szállt, az egyik növény pedig megcsípte. 1-2 napig nem volt komoly hatása, nem is szólt róla, de tegnap éjszaka ágynak esett, ekkor tudtam meg, hogy megcsípte valami. \n- Ezért kérted fel a békákat hogy hozzák el az időérmet? - kérdezed. \n- Igen, azt gondoltam, hogy vissza tudok utazni és megakadályozni a történteket. De csak a mai napot tudom újra és újra lejátszani. Ráadásul csak én emlékszem rá, a gyermekem nem. \n- Ha az időérme nem kerül vissza, akkor ez a világ hamarosan elpusztul mindenkivel együtt. \n- Ha a gyermekem elpusztul, akkor nincs is értelme ennek a világnak - válaszolja elkeseredetten. \n\nEkkor eszedbe jut, hogy van nálad egy ellenszer, amivel meg tudod gyógyítani a Molly gyermekét, de így te kerülsz életveszélybe. Ha felajánlod a szérumot, lapozz [##1]. Ha tovább győzködöd, akkor lapozz [##2]. ",
+      "story": "Egy ideig csak figyelitek egymást, majd megtörve a csendet megkérdezed, hogy ki fekszik az ágyban. \n- A gyermekem az - válaszolja Molly. - Pár napja az erdőben repült és túl alacsonyra szállt, az egyik növény pedig megcsípte. 1-2 napig nem volt komoly hatása, nem is szólt róla, de tegnap éjszaka ágynak esett, ekkor tudtam meg, hogy megcsípte valami. \n- Ezért kérted fel a békákat hogy hozzák el az időérmet? - kérdezed. \n- Igen, azt gondoltam, hogy vissza tudok utazni és megakadályozni a történteket. De csak a mai napot tudom újra és újra lejátszani. Ráadásul csak én emlékszem rá, a gyermekem nem. \n- Ha az időérme nem kerül vissza, akkor ez a világ hamarosan elpusztul mindenkivel együtt. \n- Ha a gyermekem elpusztul, akkor nincs is értelme ennek a világnak - válaszolja elkeseredetten. \n\nEkkor eszedbe jut, hogy van nálad egy ellenszer, amivel meg tudod gyógyítani Molly gyermekét, de így te kerülsz életveszélybe. Ha felajánlod a szérumot, lapozz [##1]. Ha tovább győzködöd, akkor lapozz [##2]. ",
       "color": "white",
-      "comment": "",
+      "comment": "Ha ez ilyen későn ható cucc, ezt szóvá kellene tenni hamarabb. Vagy itt jobban kifejteni. Hogy most tudatosul benned, hogy hamarosan neked is ilyen súlyos tüneteid lesznek. Meg hogy amikor már tünetelsz, akkor már nem gyógyítható.",
       "index": 59,
       "starter": false,
       "life": 0,
@@ -969,7 +969,7 @@
     {
       "id": 79,
       "title": "Gyógyulás",
-      "story": "Elmondod Mollynak, hogy van nálad ellenszer a csípésre és odaadod neki. A kismadár megkapja a gyógyszert és szinte azonnal jobban lesz, mosolyogva ül fel az ágyában. Molly hálásan nyújtja feléd az időérmet éppen akkor, amikor a nap utolsó sugarai még látszanak. Hozzáérsz miközben a szemeid lassan lecsukódnak. Lapozz [##1]. ",
+      "story": "Elmondod Mollynak, hogy van nálad ellenszer a csípésre és odaadod neki. A kismadár megkapja a gyógyszert. Szinte azonnal jobban lesz, mosolyogva ül fel az ágyában. Molly hálásan nyújtja feléd az időérmét, éppen akkor, amikor a nap utolsó sugarai még látszanak. Hozzáérsz, miközben a szemeid lassan lecsukódnak. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 64,
@@ -1008,7 +1008,7 @@
     {
       "id": 82,
       "title": "Ismét tündérországban",
-      "story": "Egy világos szobában ébredsz, ami olyan, mintha egy fába vájták volna. Az ablakhoz sétálsz és hamar felismered a helyet, ismét Tündérországban vagy. Nagyon boldog vagy, hogy sikerült még idejében visszajutnod. Gyorsan megnézed a vállad, de a csípésnek hűlt helyét találod. \n\nEkkor kinyílik az ajtó és belép a tündérek királya. Hálás köszönetet mond, amiért megmentetted a világot. Rákérdezel a csípésre, és ő elmondja, hogy miután megjelentél a trónteremben, észrevették a sebesülést és azonnal megidézték a nagy varázslót, aki hamar adott neked a gyógyszerből, még éppen idejében. Ő az idő és a tér ura és jelenleg is a trónteremben vár. Nem késlekedtek, elhagyjátok a szobát. Lapozz [##1]. ",
+      "story": "Egy világos szobában ébredsz, ami olyan, mintha egy fába vájták volna. Az ablakhoz sétálsz, hamar felismered a helyet, ismét Tündérországban vagy. Nagyon boldog vagy, hogy sikerült még idejében visszajutnod. Gyorsan megnézed a vállad, de a csípésnek hűlt helyét találod. \n\nEkkor kinyílik az ajtó, belép a tündérek királya. Hálás köszönetet mond, amiért megmentetted a világot. Rákérdezel a csípésre, és ő elmondja, hogy miután megjelentél a trónteremben, észrevették a sebesülést, és azonnal megidézték a nagy varázslót, aki hamar adott neked a gyógyszerből, még éppen idejében. Ő az idő és a tér ura, jelenleg is a trónteremben vár. Nem késlekedtek, elhagyjátok a szobát. Lapozz [##1]. ",
       "color": "white",
       "comment": "",
       "index": 3,
@@ -1021,7 +1021,7 @@
     {
       "id": 83,
       "title": "Búcsú tündérországtól",
-      "story": "A trónterembe érve először Godfreyt pillantod meg. Odalépsz hozzá és köszönetet mondasz a sok jó tanácsért és támogatásért. Elárulod neki, hogy sokáig azt gondoltad, hogy ő csupán a képzeleted szüleménye. Utána megpillantod a szoba közepén az időérmet. Egy kicsi tárgy és mégis milyen nagy bonyodalmat tud okozni. Végre alkalmad nyílik jobban szemügyre venni. Az egyik oldalán egy homokóra, a másikon egy arckép. Ahogy jobban szemügyre veszed az arcot, azonnal világossá válik számodra, hogy ki is a mester valójában. Godfrey felé fordulsz: \n- Ha te vagy a nagy varázsló, miért nem szerezted azonnal vissza az érmét? \n- Nem érhetek hozzá az időérméhez. Megtettem mindent, ami leginkább a hatalmamban állt és elhoztam valakit, aki elég bátor és melegszívű ahhoz, hogy sikeresen megmentse a világot. \n- Haza tudsz juttatni? \n- Semmi nem lehetetlen, csak akkor, ha azt gondolod, hogy a lehetetlen létezik. Kérlek foglalj helyet ezen a széken és hunyd le a szemed!\n\nLeülsz a székre és becsukod a szemeid. Ezután Godfrey eléd áll, imára kulcsolja a kezét és folytatja:\n- Szolgálj szeress, adakozz, légy jó, tégy jót, tisztulj és valósítsd meg magad! Egy mozdulatlan elmének az egész világ megadja magát.\n\nEkkor a lecsukott szemek mögött hatalmas fényességet látsz, végtelen csendet tapasztalsz és elönt egy határtalan boldogság. Lapozz [##1].",
+      "story": "A trónterembe érve először Godfreyt pillantod meg. Odalépsz hozzá és köszönetet mondasz a sok jó tanácsért és támogatásért. Elárulod neki, hogy sokáig azt gondoltad, hogy ő csupán a képzeleted szüleménye. Utána megpillantod a szoba közepén az időérmet. Egy ilyen kicsi tárgy milyen nagy bonyodalmat tud okozni. Végre alkalmad nyílik jobban szemügyre venni. Az egyik oldalán egy homokóra, a másikon egy arckép. Ahogy jobban megvizsgálod az arcot, azonnal világossá válik számodra, hogy ki is a mester valójában. Godfrey felé fordulsz: \n- Ha te vagy a nagy varázsló, miért nem szerezted azonnal vissza az érmét? \n- Nem érhetek hozzá az időérméhez. Megtettem mindent, ami leginkább a hatalmamban állt, és elhoztam valakit, aki elég bátor és melegszívű ahhoz, hogy sikeresen megmentse a világot. \n- Haza tudsz juttatni? \n- Semmi nem lehetetlen, csak akkor, ha azt gondolod, hogy a lehetetlen létezik. Kérlek, foglalj helyet ezen a széken és hunyd le a szemed!\n\nLeülsz a székre és becsukod a szemeid. Ezután Godfrey eléd áll, imára kulcsolja a kezét és folytatja:\n- Szolgálj, szeress, adakozz, légy jó, tégy jót, tisztulj és valósítsd meg magad! Egy mozdulatlan elmének az egész világ megadja magát.\n\nEkkor a lecsukott szemek mögött hatalmas fényességet látsz, végtelen csendet tapasztalsz és elönt egy határtalan boldogság. Lapozz [##1].",
       "color": "white",
       "comment": "",
       "index": 20,
@@ -1033,8 +1033,8 @@
     },
     {
       "id": 84,
-      "title": "Újra a valósában",
-      "story": "A fényesség lassan elhalványodik és felváltja egy hideg, nedves érzés. Karok ragadnak meg és húznak ki a partra. Lassan magadhoz térsz. A saját világodban vagy, a tóparton, csuromvizesen. \n- Mi történt veled? - kérdezi egy hang\n- A naplementét néztem, amikor megbillentem és beleestem a vízbe. Gondolom ez volt az ára az élményemnek. \n- Nos kedves barátom, a világban mindennek megvan az ára, de értéke csak kevés dolognak. Jó ezt észben tartani! \n\nRánézel a hang forrására és örömmel látod, hogy Godfrey az. Ő kedvesen mosolyog rád, majd hattyúvá változik. Csendben nézed, ahogy lassan visszatotyog a tóba, majd elúszik. \n\nTe pedig tudod, hogy soha többé nem leszel egyedül és a világ sem lesz már ugyanaz, mint azelőtt. \n\nVÉGE",
+      "title": "Újra a valóságban",
+      "story": "A fényesség lassan elhalványodik és felváltja egy hideg, nedves érzés. Karok ragadnak meg és húznak ki a partra. Lassan magadhoz térsz. A saját világodban vagy, a tóparton, csuromvizesen. \n- Mi történt veled? - kérdezi egy hang.\n- A naplementét néztem, amikor megbillentem és beleestem a vízbe. Gondolom ez volt az ára az élményemnek. \n- Nos, kedves barátom, a világban mindennek megvan az ára, de értéke csak kevés dolognak. Jó ezt észben tartani! \n\nRánézel a hang forrására, és örömmel látod, hogy Godfrey az. Kedvesen mosolyog rád, majd hattyúvá változik. Csendben nézed, ahogy lassan visszatotyog a tóba, majd elúszik. \n\nTe pedig tudod, hogy soha többé nem leszel egyedül, és a világ sem lesz már ugyanaz, mint azelőtt. \n\nVÉGE",
       "color": "white",
       "comment": "",
       "index": 5,
@@ -1746,45 +1746,52 @@
   "sceneItems": [],
   "chapters": [
     {
-      "id": 1,
-      "name": "Tündérország",
-      "color": "yellow",
-      "description": "Ide érkezik meg először hősünk. \n\nA királyi palota egy hatalmas fa. A tündérek falények. Külsőleg nem igazán hasonlítanak a hétköznapi tündérekhez. \n\nA tündérek irányítják az időt az időérme segítségével, amit elloptak. Ezért a világban mindenki ugyanazt a napot éli át, kivéve azt, akin ott van a jel. Ezzel a jellel a tündérek születésüktől fogva rendelkeznek. Hősünk Godfreytől kapja meg, amikor a világra érkezik. A tündérek a nagy fától kapják az erejüket, ezért nem indulhatnak az érme után. "
-    },
-    {
       "id": 2,
       "name": "Valóság",
       "color": "white",
+      "ordering": 1,
       "description": "A valóvilág, innen származik hősünk és ide szeretne visszajutni. \n\nHősünk egy közönséges iskolás gyermek életét éli. Szeret biciklizni. "
     },
     {
-      "id": 3,
-      "name": "Békaváros",
-      "color": "green",
-      "description": "Itt élnek a békák, ők felelősek az időérme eltünéséért, de végül kiderül, hogy csak felbérelték őket. \n\nVégül útbaigazítást adnak. "
+      "id": 1,
+      "name": "Tündérország",
+      "color": "yellow",
+      "ordering": 2,
+      "description": "Ide érkezik meg először hősünk. \n\nA királyi palota egy hatalmas fa. A tündérek falények. Külsőleg nem igazán hasonlítanak a hétköznapi tündérekhez. \n\nA tündérek irányítják az időt az időérme segítségével, amit elloptak. Ezért a világban mindenki ugyanazt a napot éli át, kivéve azt, akin ott van a jel. Ezzel a jellel a tündérek születésüktől fogva rendelkeznek. Hősünk Godfreytől kapja meg, amikor a világra érkezik. A tündérek a nagy fától kapják az erejüket, ezért nem indulhatnak az érme után. "
     },
     {
       "id": 5,
       "name": "Kő-tenger",
       "color": "blue",
+      "ordering": 3,
       "description": "Olyan mint egy nagy tenger, de csupán kövekből és kavicsokból. Nem szükséges hajó, ill. semmilyen jármű, mert csak gyalogosan lehet átvágni rajta. "
     },
     {
-      "id": 6,
-      "name": "Szarka faháza",
-      "color": "gold",
-      "description": "Nagy fa tetején van, amire csak egy csiga képes észrevétlenül felmenni. "
+      "id": 3,
+      "name": "Békaváros",
+      "color": "green",
+      "ordering": 4,
+      "description": "Itt élnek a békák, ők felelősek az időérme eltünéséért, de végül kiderül, hogy csak felbérelték őket. \n\nVégül útbaigazítást adnak. "
     },
     {
       "id": 7,
       "name": "Csigakert",
       "color": "orange",
+      "ordering": 5,
       "description": ""
+    },
+    {
+      "id": 6,
+      "name": "Szarka faháza",
+      "color": "gold",
+      "ordering": 6,
+      "description": "Nagy fa tetején van, amire csak egy csiga képes észrevétlenül felmenni. "
     },
     {
       "id": 8,
       "name": "Befejezés",
       "color": "dblue",
+      "ordering": 7,
       "description": ""
     }
   ],
@@ -1792,42 +1799,50 @@
     {
       "id": 1,
       "name": "Godfrey a vándor",
-      "description": "Az öreg vándor, aki hattyútollat visel a kalapjában, és állandó fel-és eltűnésével nehézkessé teszi a beszélgetéseket. Kezdetben hősünk nem tudja eldönteni, hogy csak egy szegény bölcs, akit időről-időre a sors az útjába sodor, vagy egyszerűen a képzelete szüleménye. Kalandunk során néha feltűnik és hasznos tanácsokkal, vagy tárgyakkal segíti küldetésünket. A történet végén kiderül, hogy sokkal nagyobb szerepe van a világban, mint amit mutatott. Az idő és tér mestereként az ő arcképe látható az időérme egyik oldalán. Erejét felhasználva a kaland végén visszajuttat minket a saját valóságunkba.\n"
-    },
-    {
-      "id": 2,
-      "name": "Izi a katicalány",
-      "description": "A Békaváros tömlöcében találkozunk Izivel, a kedves katicalánnyal, akivel azonnal kölcsönös szimpátia alakul ki. Segítségével sikerül hozzájutnunk az aranyelixírhez, amit átadva a békáknak létfontosságú információhoz jutunk az időérme tartózkodási helyéről. "
-    },
-    {
-      "id": 3,
-      "name": "Geronimo a varangy",
-      "description": "Békaváros legerősebb őre, akit a békák vezetője kölcsönöz számunka a küldetésünkhöz, amennyiben elfogadjuk útitársnak. Sajnos erejénél csupán az egója hatalmasabb, viszont nem társul hozzá megfelelő szintű értelem, így nem bizonyul nagy segítségnek. "
-    },
-    {
-      "id": 5,
-      "name": "Donatello a békák vezetője",
-      "description": "A Békaváros kövér, lusta és kapzsi uralkodója. A külsőségek bűvöletében él, ezért hízelgéssel könnyű hatni rá. Vele kapcsolatban az egyetlen felhozható pozitívum a szép parókája. Az aranyelixírt akarja mindenáron megszerezni és végül a vágya teljesülése lesz a végzete."
-    },
-    {
-      "id": 6,
-      "name": "Timothy a kisegér",
-      "description": "Családjával a kőtenger határán él. Édesapja csapdába esik miközben egy mágikus követ próbál megszerezni, és amennyiben segítünk szorult helyzetünkön, hasznos tanácsokkal láthatnak el minket a békákról. "
-    },
-    {
-      "id": 7,
-      "name": "Molly a szarka",
-      "description": "Egy szerető anya, aki kétségbeesésében veszélyezteti az egész világot azért, hogy gyermeke megmenekülhessen. Ő a felelős az időérme eltűnéséért."
-    },
-    {
-      "id": 8,
-      "name": "Shelby a csiga",
-      "description": "A gyors és erős meztelencsiga, aki segít feljutni a szarka faházához. Az út során megoszt némi információt Mollyról és gyermekéről, ami talán valamennyire árnyalja a szarkáról kialakított negatív képet. "
+      "ordering": 1,
+      "description": "Az öreg vándor, aki hattyútollat visel a kalapjában. Állandó fel- és eltűnése miatt nehéz vele beszélgetni. Kezdetben a kaland hőse nem tudja eldönteni, hogy csak egy szegény bölcs, akit időről-időre a sors az útjába sodor, vagy egyszerűen a képzelete szüleménye. Az események során néha feltűnik, és hasznos tanácsokkal vagy tárgyakkal segíti a küldetést. A történet végén kiderül, hogy sokkal nagyobb szerepe van a világban, mint amit magáról mutatott. Az idő és tér mestereként az ő arcképe látható az időérme egyik oldalán. Erejét felhasználva a kaland végén visszajuttat a saját valóságodba.\n"
     },
     {
       "id": 9,
       "name": "Tündérkirály",
-      "description": "A tündérek királya, akik feladata az időérme őrzése, az egyensúly fenntartása. Miután meglátja a homokóra jelet rajtad, azonnal a bizalmába fogad és nem kevesebbre kér fel, mint a világa megmentésére. Ígéretét, mi szerint az időérme birtokában hazajuttat, betartja. "
+      "ordering": 2,
+      "description": "A tündérek királya, akik feladata az időérme őrzése, az egyensúly fenntartása. Miután meglátja a homokórajelet rajtad, azonnal a bizalmába fogad, és nem kevesebbre kér fel, mint a világa megmentésére. Ígéretét, mely szerint az időérme birtokában hazajuttat, betartja."
+    },
+    {
+      "id": 6,
+      "name": "Timothy a kisegér",
+      "ordering": 3,
+      "description": "Családjával a kőtenger határán él. Édesapja csapdába esik, miközben egy mágikus követ próbál megszerezni. Amennyiben segítesz szorult helyzetünkön, hasznos tanácsokkal láthatnak el a békákról."
+    },
+    {
+      "id": 2,
+      "name": "Izi a katicalány",
+      "ordering": 4,
+      "description": "A Békaváros tömlöcében találkozhatsz Izivel, a kedves katicalánnyal, akivel azonnal kölcsönös szimpátia alakul ki. Segítségével sikerül hozzájutnod az aranyelixírhez, amit átadva a békáknak létfontosságú információhoz jutsz az időérme tartózkodási helyéről."
+    },
+    {
+      "id": 5,
+      "name": "Donatello a békák vezetője",
+      "ordering": 5,
+      "description": "A Békaváros kövér, lusta és kapzsi uralkodója. A külsőségek bűvöletében él, ezért hízelgéssel könnyű hatni rá. Vele kapcsolatban az egyetlen felhozható pozitívum a szép parókája. Az aranyelixírt akarja mindenáron megszerezni, és végül a vágya teljesülése lesz a veszte."
+    },
+    {
+      "id": 3,
+      "name": "Geronimo a varangy",
+      "ordering": 6,
+      "description": "Békaváros legerősebb őre, aki a békák vezetőjének utasítására elkísér az egyik küldetésben, amennyiben elfogadod útitársnak. Sajnos erejénél csupán az egója hatalmasabb, amelyhez nem társul megfelelő szintű értelem, így nem bizonyul nagy segítségnek."
+    },
+    {
+      "id": 8,
+      "name": "Shelby a csiga",
+      "ordering": 7,
+      "description": "A gyors és erős meztelencsiga, aki segít feljutni a szarka faházához. Az út során megoszt némi információt Mollyról és gyermekéről, amely valamelyest árnyalja a szarkáról kialakított negatív képet."
+    },
+    {
+      "id": 7,
+      "name": "Molly a szarka",
+      "ordering": 8,
+      "description": "Egy szerető anya, aki kétségbeesésében veszélyezteti az egész világot azért, hogy gyermeke megmenekülhessen. Ő a felelős az időérme eltűnéséért."
     }
   ],
   "mortality": false,

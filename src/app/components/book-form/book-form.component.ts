@@ -125,6 +125,41 @@ export class BookFormComponent {
     this.sceneSelected.emit('');
   }
 
+  moveCharacterAbove(id: number, ordering: number) {
+    const target = this.bookService.model.characters.find(c => c.id === id);
+    const other = this.bookService.model.characters.find(c => c.ordering === (ordering - 1));
+    this.updateOrdering(this.bookService.model.characters, other, target);
+  }
+
+  moveCharacterBelow(id: number, ordering: number) {
+    const target = this.bookService.model.characters.find(c => c.id === id);
+    const other = this.bookService.model.characters.find(c => c.ordering === (ordering + 1));
+    this.updateOrdering(this.bookService.model.characters, target, other);
+  }
+
+  moveChapterAbove(id: number, ordering: number) {
+    const target = this.bookService.model.chapters.find(c => c.id === id);
+    const other = this.bookService.model.chapters.find(c => c.ordering === (ordering - 1));
+    this.updateOrdering(this.bookService.model.chapters, other, target);
+  }
+
+  moveChapterBelow(id: number, ordering: number) {
+    const target = this.bookService.model.chapters.find(c => c.id === id);
+    const other = this.bookService.model.chapters.find(c => c.ordering === (ordering + 1));
+    this.updateOrdering(this.bookService.model.chapters, target, other);
+  }
+
+  private updateOrdering(list: { ordering: number }[], increase: { ordering: number } | undefined,
+                         decrease: { ordering: number } | undefined) {
+    if (increase) {
+      increase.ordering++;
+    }
+    if (decrease) {
+      decrease.ordering--;
+    }
+    list.sort((c1, c2) => c1.ordering - c2.ordering);
+  }
+
   private validateName(name: string, list: Item[] | Chapter[], id = 0): boolean {
     if (!name.trim()) {
       this.dialogService.openError('Please enter a valid name.');

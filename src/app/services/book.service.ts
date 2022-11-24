@@ -156,21 +156,31 @@ export class BookService {
 
   createChapter(name: string) {
     const id = this.getNewId(this.model.chapters);
-    this.model.chapters.push({id, name, color: '#ffffff', description: ''});
+    this.model.chapters.push({id, name, color: '#ffffff', description: '', ordering: this.model.chapters.length+1});
   }
 
   deleteChapter(id: number) {
     this.model.chapters = this.model.chapters.filter(i => i.id !== id);
     this.model.scenes.filter(s => s.chapterId === id).forEach(s => s.chapterId = 0);
+    let order = 1;
+    this.model.chapters.forEach(c => {
+      c.ordering = order;
+      order++;
+    });
   }
 
   createCharacter(name: string) {
     const id = this.getNewId(this.model.characters);
-    this.model.characters.push({id, name, description: ''});
+    this.model.characters.push({id, name, description: '', ordering: this.model.characters.length+1});
   }
 
   deleteCharacter(id: number) {
     this.model.characters = this.model.characters.filter(i => i.id !== id);
+    let order = 1;
+    this.model.characters.forEach(c => {
+      c.ordering = order;
+      order++;
+    });
   }
 
   finalize(regenerate = false): Promise<any[]> {
