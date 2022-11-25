@@ -33,26 +33,36 @@ export class VisualBookComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.nodes && this.nodes.length) {
-      let transform;
-      const group = document.getElementById(VISUAL_BOOK_ID)?.getElementsByTagName('g');
-      const transformGroup = group ? group[0] : null;
-      if (transformGroup) {
-        transform = transformGroup.getAttribute('transform');
-      }
-      this.cleanUpData();
-      this.drawGraph();
-      this.renderGraph();
-      this.setSelectableNodes();
-      this.initZoom(transform as any);
+    const edgesChanged = changes['edges'] && changes['edges'].previousValue && changes['edges'].previousValue.length !== changes['edges'].currentValue.length;
+    const nodeChanged = changes['nodes'] && changes['nodes'].previousValue && changes['nodes'].previousValue.length !== changes['nodes'].currentValue.length;
+    const selectedChanged = changes['selected'] && changes['selected'].previousValue !== changes['selected'].currentValue;
+    if(selectedChanged && !edgesChanged && !nodeChanged) {
       if (this.selected && this.nodes.some(n => n.id === this.selected)) {
         this.selectNode(this.selected);
       }
     } else {
-      this.cleanUpData();
-      this.drawGraph();
-      this.renderGraph();
+      if (this.nodes && this.nodes.length) {
+        let transform;
+        const group = document.getElementById(VISUAL_BOOK_ID)?.getElementsByTagName('g');
+        const transformGroup = group ? group[0] : null;
+        if (transformGroup) {
+          transform = transformGroup.getAttribute('transform');
+        }
+        this.cleanUpData();
+        this.drawGraph();
+        this.renderGraph();
+        this.setSelectableNodes();
+        this.initZoom(transform as any);
+        if (this.selected && this.nodes.some(n => n.id === this.selected)) {
+          this.selectNode(this.selected);
+        }
+      } else {
+        this.cleanUpData();
+        this.drawGraph();
+        this.renderGraph();
+      }
     }
+
   }
 
   zoom(ratio = 1) {
@@ -80,7 +90,7 @@ export class VisualBookComponent implements OnChanges {
       if (d3Node) {
         const classes = d3Node.attr('class');
         if (classes.indexOf('selected') !== -1) {
-          d3Node.attr('class', classes.replace('selected', '').trim());
+          //d3Node.attr('class', classes.replace('selected', '').trim());
         } else {
           if (!this.multiSelect) {
             VisualBookComponent.deselectAllComponents();

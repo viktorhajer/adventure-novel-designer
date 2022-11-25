@@ -28,6 +28,10 @@
     height: 150px;
     line-height: 20px;
     text-align: justify;
+
+    &.comment {
+      height: 70px;
+    }
   }
 
   .children-container, .new-children-container {

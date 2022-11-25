@@ -15,7 +15,7 @@
 
   <mat-form-field appearance="fill">
     <mat-label>Editorial comment</mat-label>
-    <input matInput [(ngModel)]="scene.comment" (change)="checkUnsaved()">
+    <textarea class="comment" matInput [(ngModel)]="scene.comment" (change)="checkUnsaved()"></textarea>
   </mat-form-field>
 
   <mat-form-field appearance="fill" *ngIf="bookService.model.questionnaire">
