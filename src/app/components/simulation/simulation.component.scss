@@ -16,6 +16,7 @@
   display: flex;
   align-items: center;
   flex-flow: row wrap;
+  margin-top: 30px;
 
   .scene-arrow {
     display: flex;
@@ -26,31 +27,53 @@
       border: 2px solid #d8d8d8;
       padding: 10px;
       border-radius: 10px;
-      min-width: 170px;
-
-      &.zeroLife {
-        background: #ffe4e4;
-      }
+      width: 80px;
+      background: #23a0a6;
 
       .scene-title {
         overflow: hidden;
         text-overflow: ellipsis;
-        width: 150px;
         white-space: nowrap;
         text-align: center;
-        font-weight: bold;
-        font-size: 12px;
+        font-weight: 500;
+        font-size: 10px;
+      }
+
+      &.intens0, &.intens1 {
+        background: #ffffff;
+      }
+
+      &.intens2 {
+        background: #aad9e9;
+      }
+
+      &.intens3 {
+        background: #5fa0b6;
+      }
+
+      &.zeroLife {
+        background: #ffe4e4;
       }
     }
 
     .scene, .mat-icon {
-      margin-right: 15px;
-      margin-bottom: 15px;
+      margin-right: 10px;
+      margin-bottom: 10px;
     }
 
     .life {
       font-size: 10px;
       text-align: center;
     }
+  }
+}
+
+.simulation-info {
+  margin-top: 30px;
+  font-weight: bold;
+  line-height: 25px;
+
+  label {
+    font-weight: normal;
   }
 }

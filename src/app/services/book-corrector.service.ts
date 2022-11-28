@@ -25,8 +25,8 @@ export class BookCorrectorService {
       scene.index = !!scene.index ? scene.index : 0;
       scene.life = !!scene.life ? scene.life : 0;
       scene.starter = !!scene.starter;
-      scene.looser = !!scene.starter;
-      scene.winner = !!scene.starter;
+      scene.looser = !!scene.looser;
+      scene.winner = !!scene.winner;
       this.fixSceneColors(colors, scene);
       this.fixStarterWinnerLooser(scene);
       this.fixChapters(chapterIds, scene);

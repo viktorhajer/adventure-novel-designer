@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BookService} from './book.service';
 import {Relation} from '../model/relation.model';
-import {Simulation} from '../model/simulation.model';
+import {Simulation, SimulationScene} from '../model/simulation.model';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogService} from './dialog.service';
 
@@ -22,10 +22,16 @@ export class SimulationService {
       this.dialogService.openError('Please select first scene.');
     } else {
       const rawPath = this.findShortestPath(this.bookService.model.relations, start.id, endId);
-      return {
+      const simulation = {
         distance: rawPath.distance,
-        path: rawPath.path.map(id => this.bookService.getScene(id))
+        totalChoices: 0,
+        path: rawPath.path.map(id => {
+          const choices = this.bookService.model.relations.filter(r => r.sourceId === id).length;
+          return Object.assign({choices}, this.bookService.getScene(id));
+        })
       };
+      simulation.totalChoices = simulation.path.filter(p => p.choices > 1).length;
+      return simulation;
     }
     return null as any;
   }

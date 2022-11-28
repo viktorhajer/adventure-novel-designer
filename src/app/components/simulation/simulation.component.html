@@ -18,12 +18,16 @@
 
   <div class="simulation-container" *ngIf="simulation">
     <div class="scene-arrow" *ngFor="let p of simulation.path; let i = index">
-      <div class="scene" [class.zeroLife]="destinationLife.length && destinationLife[i] < 1">
-        <div class="scene-title">{{i+1}}. {{ p.title }}</div>
+      <div class="scene intens{{ p.choices }}" [class.zeroLife]="destinationLife.length && destinationLife[i] < 1">
+        <div class="scene-title">{{ p.index }}. {{ p.title }}</div>
         <div class="life" *ngIf="destinationLife.length">Life: {{destinationLife[i]}}</div>
       </div>
       <mat-icon *ngIf="i < (simulation.path.length - 1)">chevron_right</mat-icon>
     </div>
+  </div>
+  <div class="simulation-info" *ngIf="simulation">
+    <label>Number of scene: </label>{{ simulation.path.length }} <br/>
+    <label>Number of choices: </label>{{ simulation.totalChoices }} <br/>
   </div>
 
   <div class="actions">

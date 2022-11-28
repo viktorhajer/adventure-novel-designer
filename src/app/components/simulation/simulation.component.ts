@@ -36,7 +36,10 @@ export class SimulationComponent implements OnInit {
       if (this.simulation.distance === INFINITY) {
         this.simulation = null as any;
         this.error = 'No route found between the two scenes.';
-      } else if (this.bookService.model.mortality) {
+        return;
+      }
+
+      if (this.bookService.model.mortality) {
         let index = 0;
         for (const scene of this.simulation.path) {
           this.destinationLife[index] = index === 0 ? scene.life : this.destinationLife[index - 1] + scene.life;
