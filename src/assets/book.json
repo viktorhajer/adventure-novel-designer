@@ -1040,7 +1040,7 @@
       "index": 5,
       "starter": false,
       "life": 0,
-      "winner": false,
+      "winner": true,
       "looser": false,
       "chapterId": 8,
       "question": ""

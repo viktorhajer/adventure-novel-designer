@@ -21,7 +21,7 @@ export class DownloadService {
     let html = '<head><style>';
     html += this.getCSS();
     html += '</style></head><body>';
-    html += `<h1>${book.title}</h1><div class="background-story">${book.backgroundStory}</div>`;
+    html += `<h1>${book.title}</h1><div class="background-story">${book.backgroundStory}</div><br/><br/>`;
     html += `<div class="chapter_container">`;
     for (const scene of scenes) {
       html += '<div class="chapter">';
@@ -30,7 +30,7 @@ export class DownloadService {
       if (book.questionnaire && scene.questionnaire) {
         html += this.getQuestionnaire(book, scenes);
       }
-      html += '</div>';
+      html += '</div><br/><br/>';
     }
     html += `</div>`;
 
@@ -38,7 +38,7 @@ export class DownloadService {
       html += '<h2 class="characters_title">Szereplők</h2>';
       html += `<div class="chapter_container">`;
       for (const character of book.characters) {
-        html += `<div class="chapter"><span>${character.name}:</span> ${character.description}</div>`;
+        html += `<div class="chapter"><span>${character.name}:</span> ${character.description}</div><br/><br/>`;
       }
       html += `</div>`;
     }
@@ -84,7 +84,7 @@ export class DownloadService {
     html += 'h1 {font-size: 20pt; margin: 60px 0;}';
     html += '.chapter_container {}';
     html += '.background-story {text-indent: 35px;}';
-    html += '.background-story, .chapter {width: calc(45vw - 30px); padding: 15px; font-family: sans-serif; ' +
+    html += '.background-story, .chapter {width: calc(95vw - 30px); font-family: sans-serif; ' +
       'font-size: 12pt; line-height: 20pt; text-align: justify; white-space: pre-wrap; word-wrap: break-word;}';
     html += '.chapter_index {font-weight: bold; font-size: 12pt; text-align: left;} ';
     html += '.chapter_content {}';
