@@ -100,8 +100,8 @@ export class AppComponent {
     this.initColors();
   }
 
-  loadStored() {
-    this.bookLoader.loadStored().subscribe(data => {
+  loadStored(filename: string) {
+    this.bookLoader.loadStored(filename).subscribe(data => {
       this.modelString = JSON.stringify(data);
       this.load();
     });

@@ -21,7 +21,11 @@ export class DownloadService {
     let html = '<head><style>';
     html += this.getCSS();
     html += '</style></head><body>';
-    html += `<h1>${book.title}</h1><div class="background-story">${book.backgroundStory}</div><br/><br/>`;
+    html += `<h1>${book.title}</h1>`;
+    if (book.backgroundStory) {
+      html += `<div class="background-story">${book.backgroundStory}</div>`;
+    }
+    html += '<br/><br/>';
     html += `<div class="chapter_container">`;
     for (const scene of scenes) {
       html += '<div class="chapter">';

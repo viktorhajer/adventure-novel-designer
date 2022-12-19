@@ -10,7 +10,7 @@ export class BookLoaderService {
   constructor(private http: HttpClient) {
   }
 
-  loadStored(): Observable<any> {
-    return this.http.get('assets/book.json');
+  loadStored(filename: string): Observable<any> {
+    return this.http.get(`assets/${filename}.json`);
   }
 }

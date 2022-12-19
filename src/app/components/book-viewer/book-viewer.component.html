@@ -3,7 +3,7 @@
   <div>{{ this.book.title }}</div>
 </h2>
 <mat-dialog-content class="mat-typography">
-  <div class="chapter">
+  <div class="chapter" *ngIf="book.backgroundStory">
     <pre class="chapter_content" [innerHtml]="book.backgroundStory"></pre>
   </div>
   <div class="chapter" *ngFor="let s of book.scenes; let i = index">

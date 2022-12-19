@@ -70,7 +70,8 @@
         <div class="actions-bar">
           <button mat-raised-button (click)="load()" [color]="'primary'" [disabled]="!modelString">Load</button>
           <button mat-raised-button (click)="loadNew()">New</button>
-          <button mat-raised-button (click)="loadStored()">LS</button>
+          <button mat-raised-button (click)="loadStored('book')">LS</button>
+          <button mat-raised-button (click)="loadStored('book2')">LS2</button>
         </div>
       </div>
       <app-book-list *ngIf="!isModelLoaded()" (openBook)="loadBookFromStorage($event)"></app-book-list>
