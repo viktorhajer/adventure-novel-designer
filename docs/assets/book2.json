@@ -1,0 +1,603 @@
+{
+  "id": 1671443553479,
+  "title": "Út a kastélyig",
+  "backgroundStory": "",
+  "notes": "",
+  "scenes": [
+    {
+      "id": 1,
+      "title": "Indulás a faluból",
+      "story": "A faluban töltötted az éjszakát. Megettek, megitattak, a legnagyobb ház legkényelmesebb ágyát biztosították neked, hiszen te vagy az ország reménysége. Másnap reggel útravalóul egy homokórát, négy életelixírt és egy szál százszorszépet kapsz, amit gyorsan be is teszel a táskádba a kovakő és az aranysúly mellé. A kalandod folytatódik, ugorj [##1]!",
+      "color": "white",
+      "comment": "",
+      "index": 1,
+      "starter": true,
+      "life": 4,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": false
+    },
+    {
+      "id": 2,
+      "title": "Portál",
+      "story": "Ahhoz, hogy a falut elhagyhasd, újra át kell lépned egy portálon. Egy vaskos tölgyfa odvába kell bemásznod. Túl szűk a hely, a homokóra üvege eltörik a zsebedben mászás közben. Mit teszel? Ha feláldozol egy életelixirt, hogy a homokóra újra a régi legyen, ugorj a [##1]! Ha összeszeded a darabjait és gondosan elcsomagolod a táskádba, ugorj [##2]!",
+      "color": "white",
+      "comment": "",
+      "index": 10,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": false
+    },
+    {
+      "id": 3,
+      "title": "Homokóran megjavul",
+      "story": "A homokóra üvege varázslatosan összeforr. Behúzódsz az odúba, amely hirtelen billegni kezd, majd átfordul a vízszintes tengelye körül. Zuhanni kezdesz, de már nem vagy megrémülve, biztosan tudod, hogy ez a varázslat része, és ismét talpra érkezel. Így is történik, a feneketlen pocsolya előtt találod magad az erdőben. Ugorj [##1].",
+      "color": "white",
+      "comment": "",
+      "index": 19,
+      "starter": false,
+      "life": -1,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": false
+    },
+    {
+      "id": 4,
+      "title": "Homokórát összecsomagol",
+      "story": "Akárhogy próbálod behúzni a lábaidat, nem férsz be az odúba. Zavartan elindulsz a falu felé, az azonban eltűnt, mintha a föld nyelte volna el. Kétségbeesve körül nézel, és a messzeségben meglátsz egy gomolygó füstcsíkot. Ha elindulsz a füst felé, ugorj [##1]. Ha megvárod, míg erre jön valaki, ugorj [##2].",
+      "color": "white",
+      "comment": "",
+      "index": 5,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": false
+    },
+    {
+      "id": 5,
+      "title": "Tovább a kristály útvonalon",
+      "story": "Előveszed a térképed, és tovább haladsz a kristály útvonalán. Egy folyóhoz érsz, ahol egy kikötött tutaj vár. Beszállsz és átevezel a túlsó partra. A túlparton három faszobrot találsz, mindhárom egy-egy madarat ábrázol. Ha a fürjet választod, ugorj [##1]! Ha a harkályt, ugorj [##2]-re! Ha a keselyűt, ugorj [##3]!",
+      "color": "green",
+      "comment": "",
+      "index": 15,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "Milyen totemeket találtál a vízparton?",
+      "questionnaire": false
+    },
+    {
+      "id": 6,
+      "title": "Fürj",
+      "story": "A fürj talpán apró betűkkel egy újabb kódolt üzenetet pillantasz meg:\n\nMolyrágta, szúette, a tolvaj elcsente…\n\nMegjegyzed, mert tudod, később biztosan fontos lesz. Majd tovább haladsz a térkép szerint. Ugroj [##1]!\n",
+      "color": "green",
+      "comment": "",
+      "index": 13,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "Milyen üzenet volt a madár talpán?",
+      "questionnaire": false
+    },
+    {
+      "id": 7,
+      "title": "Tovább felfele",
+      "story": "Az emelkedő egyre meredekebbé válik, érzed, közel a hegycsúcs. A kastély a legmagasabb hegy tetején áll, ahová egyetlen út vezet a térkép szerint: az óriások kőhídja. Némi kétely támad benned, hiszen óriásokkal még sosem kellett megküzdened. A töprengés közben majdnem elszalasztod a pillangót, amely a válladra szállt. Épp elröppenne, mikor ránézel. Ijedtedben a földbe gyökerezik a lábad. A pillangónak ugyanis emberi szeme van. Kétszer körberepül a fejed körül, mire elveszted az eszméleted. Egy barlangban térsz magadhoz. Ugorj [##1]!",
+      "color": "white",
+      "comment": "",
+      "index": 4,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": false
+    },
+    {
+      "id": 8,
+      "title": "Harkály",
+      "story": "Szerencsés döntés! A szobor életelixírré alakul. Azonnal a táskádba teszed. Ugorj vissza [##1]!",
+      "color": "white",
+      "comment": "",
+      "index": 24,
+      "starter": false,
+      "life": 1,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": false
+    },
+    {
+      "id": 9,
+      "title": "Keselyű",
+      "story": "A keselyű csapda volt, éles pengék csapódnak ki belőle. A gyógyulásodért megiszol egy életelixírt. Ugorj vissza [##1]!",
+      "color": "white",
+      "comment": "",
+      "index": 7,
+      "starter": false,
+      "life": -1,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": false
+    },
+    {
+      "id": 10,
+      "title": "Füst felé",
+      "story": "A füst egy kunyhó kéményéből szállt fel. A kunyhóban egy nagyszakállú öregember tesz éppen fát a tűre. Összeszeded minden bátorságod, és bekopogtatsz az ajtón. Az öreg hirtelen feléd fordul, ekkor látod meg, hogy az egyik szeme aranyból van. Odabotorkál az ajtóhoz, kinyitja és szúrós szemmel az arcod vizsgálja. „Eltörött a homokóra, utazó?” – kérdezi hunyorogva. Válaszolsz, és megmutatot a szilánkokat. Az öreg megkérdezi, van-e nálad valami arany. Megmutatod a súlyt, mire az öreg a két tenyere közé veszi és porrá zúzza. „Menj vissza a fához, és szórd a szilánkokra a port!” – kiáltja az öreg, majd hevesen becsapja az ajtót. Visszamész a tölgyhöz, és a szilánkokra szórod az aranyport. Ugorj [##1].",
+      "color": "white",
+      "comment": "",
+      "index": 3,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": false
+    },
+    {
+      "id": 11,
+      "title": "Várakozás",
+      "story": "Egész éjjel vársz, le-lecsuklik a fejed az álmosságtól. Egyszer csak nagy zsivajt, zenebonát hallasz, amely egyre csak közelít. Ha elbújsz a hangoskodó elől, ugorj [##1]! Ha megnézed, miféle szerzet lármázik, ugorj [##2].\n",
+      "color": "white",
+      "comment": "",
+      "index": 9,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": false
+    },
+    {
+      "id": 12,
+      "title": "Elbúj",
+      "story": "A tölgyfának támaszkodva ér a reggel. Átfáztál, éhes vagy, és nem találsz kiutat a faluból. Egy fekete szoknyás alak közeledik feléd. Mivel mástól nem remélhetsz segítséget, megvárod, kihez tartozik ez az alak. Ahogy közelebb ér, látod, hogy egy boszorkány az. Igyekszel kedvesnek de határozottnak tűnni, megszólítod, elmondod, hogy szeretnél visszajutni az erdőbe. A boszorkány kislányos bájjal azt feleli, egy kedves ajándékért cserébe segít neked. Eszedbe jut a százszorszép, átnyújtod neki. A boszorkány felkacag, majd megérinti a homlokod. A feneketlen pocsolya előtt találod magad az erdőben. Ugorj [##1].",
+      "color": "white",
+      "comment": "",
+      "index": 11,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": false
+    },
+    {
+      "id": 13,
+      "title": "Lármát megnéz",
+      "story": "A varázsló seregéből elzavart katonák azok. Rosszéletű, zsivány népség. Odaérnek hozzád, itallal kínálnak, megpörgetnek, megtáncoltatnak, majd tovább állnak. Miután elmentek, a zsebedhez kapsz: hiányzik az aranysúlyod! Ellopták a semmirekellők. De sokan vannak és te fáradt vagy, nem mész utánuk. Megvárod a reggelt. Ugorj [##1].",
+      "color": "white",
+      "comment": "",
+      "index": 21,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": false
+    },
+    {
+      "id": 14,
+      "title": "Barlangban",
+      "story": "Veled szemben egy fiatal boszorkány ül, a szemét már ismered. Ő volt a pillangó, aki ide juttatott. Meglepetésedre nem akar bántani. Azt mondja, segíthet bejutni a kastélyba. Ha elfogadod a segítségét, ugorj [##1]! Ha kedvesen elutasítod, ugorj [##2]!",
+      "color": "white",
+      "comment": "",
+      "index": 23,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": false
+    },
+    {
+      "id": 15,
+      "title": "Segítség elfogadása",
+      "story": "A boszorkány varázsport hint rád, melytől szárnyaid nőnek. Egyenesen a kastély felé repültök. Megmutatja az óriások hídját, mely a pilléreiről kapta a nevét. 5 varázslatos óriásszobor tartja a feje felett, melyekkel érdemes vigyázni. Azt tanácsolja, hogy a harmadikat valamilyen módon kerüld ki. Végül megérkeztek a híd elejéhez. A boszorkány elröppen. Ugorj [##1]!",
+      "color": "white",
+      "comment": "",
+      "index": 16,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": false
+    },
+    {
+      "id": 16,
+      "title": "Boszorkány elutasítása",
+      "story": "A barlangból kiérve nem tudod, hol is lehetsz. A térkép a kristállyal nem mutatja az utat, az iránytűd pedig körbe-körbe forog. Visszamész a barlangba, de a boszorkánynak hűlt helyét leled. Közeledik az este, nem indulsz már útnak. Próbálsz tüzet csiholni a kovakővel. A kő pattogó hangja felveri a barlang valódi lakóját édes álmából. Szörnyű morgást hallasz. Ha azonnal útnak indulsz, ugorj [##1]! Ha megvárod, míg előjön a barlang lakója, ugorj [##2]!",
+      "color": "white",
+      "comment": "",
+      "index": 25,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": false
+    },
+    {
+      "id": 17,
+      "title": "Elindul a barlangtól",
+      "story": "Felkapaszkodsz egészen a hegy tetejére. A távolban megpillantod a kastélyt és a kőhidat. Ahogy előrébb lépsz, hogy szemügyre vehesd az útvonalat, a lábad egy sziklába ütközik. A sziklában három mélyedés van, bennük egy-egy papírcsomag. Az első lyuk fölé egy datolyafa képét festették, a képre helyezve egy szem valódi datolya vár. A második lyuk fölött egy ócska kabát képe áll. A harmadiknál egy virágos rét képe díszeleg egy szál illatos ibolyával. Ha az első lyukon nyúlsz be, ugorj [##1]! Ha a másodikon, ugorj [##2]! Ha a harmadikon, ugorj [##3]!",
+      "color": "white",
+      "comment": "",
+      "index": 8,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": false
+    },
+    {
+      "id": 18,
+      "title": "Várakozás a barlangnál",
+      "story": "Egy hatalmas fekete medve bújik elő, aki meglehetősen mérges, amiért felébresztetted. Arcon csap, a karmai felsértik a bőröd. Menekülnöd kell. Elhasználsz egy életelixírt, hogy futásnak eredhess. Ugorj [##1]!",
+      "color": "white",
+      "comment": "",
+      "index": 17,
+      "starter": false,
+      "life": -1,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": false
+    },
+    {
+      "id": 19,
+      "title": "Levél az őslakosoktól",
+      "story": "A hídhoz közeli fák közül gyermekek bukkannak elő, akiket felismersz a titkos faluból. Őket küldték a falubeliek, ugyanis apró termetük és ügyesség révén észrevétlenül eljutnak bárhová. Átadják az őslakosok levelét. Ugorj [##1]!",
+      "color": "white",
+      "comment": "",
+      "index": 22,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": false
+    },
+    {
+      "id": 20,
+      "title": "QUIZ",
+      "story": "Kedves Megmentőnk! Izgalomban és reményben telnek napjaink, amióta partra szállva válaszoltál segélykérésünkre. Kérjük, üzend meg a gyerekekkel, sikerrel jártál-e eddigi utadon. Örökké hálásak leszünk neked.",
+      "color": "white",
+      "comment": "",
+      "index": 18,
+      "starter": false,
+      "life": 0,
+      "winner": true,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": true
+    },
+    {
+      "id": 21,
+      "title": "Datolya",
+      "story": "A papírcsomagban datolyákat találsz. Éhes vagy, így megkóstolod. Rendkívül ízletes, és úgy tűnik, nem is mérgezett. Lakmározol belőle. A gyümölcsök alatt egy életelixírt is találsz. Ugorj vissza [##1]!",
+      "color": "white",
+      "comment": "",
+      "index": 12,
+      "starter": false,
+      "life": 1,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": false
+    },
+    {
+      "id": 22,
+      "title": "Ócska kabát",
+      "story": "Biztosan eszedbe jutott a jó tanács: molyrágta, szúette, a tolvaj elcsente… A csomagban 10 aranyat és egy varázsitalt találsz, melyet ha megiszol, szárnyaid nőnek, míg oda nem érsz, ahová a szíved kívánkozik. Azonnal felhörpinted, és már repülsz is az óriások kőhídjához. Ugorj [##1]!",
+      "color": "green",
+      "comment": "",
+      "index": 2,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "Megtaláltad a varázsitalt rejtő csomagot? Hol volt?",
+      "questionnaire": false
+    },
+    {
+      "id": 23,
+      "title": "Óriások kőhídja",
+      "story": "Az óriások kőhídja előtt rádöbbensz, nem kell óriásokkal küzdened. A híd ugyanis a pilléreiről kapta a nevét: 5 nagy óriás tartja a feje fölött a kastélyba vezető egyetlen utat. Mielőtt rálépnél, a barlangi boszorkány előtted terem, és újra felajánlja segítségét. Egyetlen tanácsot szeretne adni. Ha elfogadod, ugorj [##1]! Ha nem, ugorj [##2]!",
+      "color": "white",
+      "comment": "",
+      "index": 20,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": false
+    },
+    {
+      "id": 24,
+      "title": "Virágos rét",
+      "story": "A lyukban tövises növények veszik körül csomagot, amelyek kívülről nem látszódtak. Sebesre szurkálják a kezed. El kell használnod egy életelixírt, hogy meggyógyulj. Ugorj vissza [##1]!",
+      "color": "white",
+      "comment": "",
+      "index": 6,
+      "starter": false,
+      "life": -1,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": false
+    },
+    {
+      "id": 25,
+      "title": "Boszorkány tanácsa",
+      "story": "A boszorkány azt tanácsolja, óvakodj a harmadik óriástól, majd elröppen. Ugorj [##1]!",
+      "color": "white",
+      "comment": "",
+      "index": 14,
+      "starter": false,
+      "life": 0,
+      "winner": false,
+      "looser": false,
+      "chapterId": 0,
+      "question": "",
+      "questionnaire": false
+    }
+  ],
+  "relations": [
+    {
+      "sourceId": 1,
+      "targetId": 2,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 2,
+      "targetId": 3,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 2,
+      "targetId": 4,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 3,
+      "targetId": 5,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 5,
+      "targetId": 6,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 6,
+      "targetId": 7,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 5,
+      "targetId": 8,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 8,
+      "targetId": 5,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 5,
+      "targetId": 9,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 9,
+      "targetId": 5,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 4,
+      "targetId": 10,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 4,
+      "targetId": 11,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 10,
+      "targetId": 3,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 11,
+      "targetId": 12,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 11,
+      "targetId": 13,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 13,
+      "targetId": 12,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 12,
+      "targetId": 5,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 7,
+      "targetId": 14,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 14,
+      "targetId": 15,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 14,
+      "targetId": 16,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 16,
+      "targetId": 17,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 16,
+      "targetId": 18,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 18,
+      "targetId": 17,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 15,
+      "targetId": 19,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 19,
+      "targetId": 20,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 17,
+      "targetId": 21,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 21,
+      "targetId": 17,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 17,
+      "targetId": 22,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 22,
+      "targetId": 23,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 17,
+      "targetId": 24,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 24,
+      "targetId": 17,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 23,
+      "targetId": 25,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 23,
+      "targetId": 19,
+      "comment": "",
+      "condition": false
+    },
+    {
+      "sourceId": 25,
+      "targetId": 19,
+      "comment": "",
+      "condition": false
+    }
+  ],
+  "items": [],
+  "sceneItems": [],
+  "chapters": [],
+  "characters": [],
+  "mortality": true,
+  "showChapters": false,
+  "validationPC": true,
+  "validationSS": true,
+  "numberingOffset": 0,
+  "questionnaire": true,
+  "questionnaireCommand": "A válaszold ellenőrzéséhez ugorj [###]!",
+  "validationPCD": 2,
+  "validationSSD": 2,
+  "charactersChapter": false
+}
