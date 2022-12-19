@@ -13,14 +13,17 @@
 #main-container {
 
   padding: 10px 20px 0 20px;
+  background: linear-gradient(45deg, #e2a63700, #00000036);
+  background-color: #bdc2e3;
 
   .main-header {
     display: flex;
     justify-content: space-between;
+    color: white;
+    text-shadow: 2px 2px 4px rgb(0 0 0 / 54%);
   }
 
   h1 {
-    color: #1a3a5b;
     cursor: pointer;
   }
 
@@ -52,13 +55,19 @@
   #right {
     position: absolute;
     right: 9px;
-    background-image: linear-gradient(0deg, #efeee9 50%, #f5f5f5 50%);
-    background-size: 3px 3px;
-    
+    /*background-image: linear-gradient(0deg, #efeee9 50%, #f5f5f5 50%);
+    background-size: 3px 3px;*/
+
     /* background-image: radial-gradient(#dfdfdf 20%, transparent 20%);
     background-color: #f5f5f5;
     background-position: 0 0, 1px 1px;
     background-size: 10px 10px; */
+
+    background-color: rgb(175 180 211 / 24%);
+    background-image: linear-gradient(135deg, rgb(197 197 197 / 25%) 25%, transparent 25%), linear-gradient(225deg, rgb(197 197 197 / 25%) 25%, transparent 25%), linear-gradient(45deg, rgb(197 197 197 / 25%) 25%, transparent 25%), linear-gradient(315deg, rgb(197 197 197 / 25%) 25%, rgb(229 229 247 / 0%) 25%);
+    background-position: 6px 0, 6px 0, 0 0, 0 0;
+    background-size: 6px 6px;
+    background-repeat: repeat;
 
     &.expanded {
       width: calc(100vw - 20px);
