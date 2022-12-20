@@ -21,7 +21,7 @@
     },
     {
       "id": 2,
-      "title": "Portál",
+      "title": "Portál a fában",
       "story": "Ahhoz, hogy a falut elhagyhasd, újra át kell lépned egy portálon. Egy vaskos tölgyfa odvába kell bemásznod. Túl szűk a hely, a homokóra üvege eltörik a zsebedben mászás közben. Mit teszel? Ha feláldozol egy életelixirt, hogy a homokóra újra a régi legyen, ugorj a [##1]! Ha összeszeded a darabjait és gondosan elcsomagolod a táskádba, ugorj [##2]!",
       "color": "white",
       "comment": "",
@@ -36,7 +36,7 @@
     },
     {
       "id": 3,
-      "title": "Homokóran megjavul",
+      "title": "Homokóra megjavul",
       "story": "A homokóra üvege varázslatosan összeforr. Behúzódsz az odúba, amely hirtelen billegni kezd, majd átfordul a vízszintes tengelye körül. Zuhanni kezdesz, de már nem vagy megrémülve, biztosan tudod, hogy ez a varázslat része, és ismét talpra érkezel. Így is történik, a feneketlen pocsolya előtt találod magad az erdőben. Ugorj [##1].",
       "color": "white",
       "comment": "",
@@ -96,7 +96,7 @@
     },
     {
       "id": 7,
-      "title": "Tovább felfele",
+      "title": "Tovább indulás",
       "story": "Az emelkedő egyre meredekebbé válik, érzed, közel a hegycsúcs. A kastély a legmagasabb hegy tetején áll, ahová egyetlen út vezet a térkép szerint: az óriások kőhídja. Némi kétely támad benned, hiszen óriásokkal még sosem kellett megküzdened. A töprengés közben majdnem elszalasztod a pillangót, amely a válladra szállt. Épp elröppenne, mikor ránézel. Ijedtedben a földbe gyökerezik a lábad. A pillangónak ugyanis emberi szeme van. Kétszer körberepül a fejed körül, mire elveszted az eszméleted. Egy barlangban térsz magadhoz. Ugorj [##1]!",
       "color": "white",
       "comment": "",
@@ -141,7 +141,7 @@
     },
     {
       "id": 10,
-      "title": "Füst felé",
+      "title": "Füst felé indulás",
       "story": "A füst egy kunyhó kéményéből szállt fel. A kunyhóban egy nagyszakállú öregember tesz éppen fát a tűre. Összeszeded minden bátorságod, és bekopogtatsz az ajtón. Az öreg hirtelen feléd fordul, ekkor látod meg, hogy az egyik szeme aranyból van. Odabotorkál az ajtóhoz, kinyitja és szúrós szemmel az arcod vizsgálja. „Eltörött a homokóra, utazó?” – kérdezi hunyorogva. Válaszolsz, és megmutatot a szilánkokat. Az öreg megkérdezi, van-e nálad valami arany. Megmutatod a súlyt, mire az öreg a két tenyere közé veszi és porrá zúzza. „Menj vissza a fához, és szórd a szilánkokra a port!” – kiáltja az öreg, majd hevesen becsapja az ajtót. Visszamész a tölgyhöz, és a szilánkokra szórod az aranyport. Ugorj [##1].",
       "color": "white",
       "comment": "",
@@ -156,7 +156,7 @@
     },
     {
       "id": 11,
-      "title": "Várakozás",
+      "title": "Várakozás a fánál",
       "story": "Egész éjjel vársz, le-lecsuklik a fejed az álmosságtól. Egyszer csak nagy zsivajt, zenebonát hallasz, amely egyre csak közelít. Ha elbújsz a hangoskodó elől, ugorj [##1]! Ha megnézed, miféle szerzet lármázik, ugorj [##2].\n",
       "color": "white",
       "comment": "",

@@ -5,7 +5,6 @@ import {EditService} from './services/edit.service';
 import {Scene} from './model/scene.model';
 import {SceneViewerComponent} from './components/scene-viewer/scene-viewer.component';
 import {SCENE_COLORS, SceneColor} from './model/scene-color.model';
-import {SimulationService} from './services/simulation.service';
 import {SimulationComponent} from './components/simulation/simulation.component';
 import {NotesFormComponent} from './components/notes-form/notes-form.component';
 import {VisualBookComponent} from './components/visual-book/visual-book.component';
@@ -78,7 +77,6 @@ export class AppComponent {
   constructor(public readonly bookService: BookService,
               private readonly editService: EditService,
               private readonly dialogService: DialogService,
-              private readonly simulationService: SimulationService,
               private readonly storage: StorageService,
               private readonly downloadService: DownloadService,
               private readonly visualBookMapper: VisualBookMapper,

@@ -112,7 +112,8 @@ export class VisualBookComponent implements OnChanges {
         strokeStyle = 'stroke: #1399d3; stroke-width: 2px; fill: none; stroke-dasharray: 0, 2, 2';
         arrowheadStyle = 'stroke: #1399d3; fill: #1399d3;';
       }
-      this.graph.setEdge(edge.sourceId, edge.targetId, {label: edge.comment, style: strokeStyle, arrowheadStyle});
+      this.graph.setEdge(edge.sourceId, edge.targetId,
+        {label: edge.comment, style: strokeStyle, arrowheadStyle, curve: d3.curveBasis});
     });
     this.graph.nodes().forEach((v: any) => {
       const d3Node = this.graph.node(v);

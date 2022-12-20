@@ -4,37 +4,58 @@
 </h2>
 <mat-dialog-content class="mat-typography">
 
-  <p *ngIf="!destinations.length">Please select winner scene.</p>
-  <p *ngIf="error">{{ error }}</p>
+  <div class="dialog-content">
 
-  <mat-form-field appearance="fill" *ngIf="destinations.length && !simulation && !error">
-    <mat-label>Winner scenes:</mat-label>
-    <mat-select [(ngModel)]="selectedDestinationId">
-      <mat-option *ngFor="let d of destinations" [value]="d.id">
-        {{d.title}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <p *ngIf="!destinations.length">Please select winner scene.</p>
+    <p *ngIf="error">{{ error }}</p>
+    <mat-form-field appearance="fill" *ngIf="destinations.length && !simulation && !error">
+      <mat-label>Winner scenes:</mat-label>
+      <mat-select [(ngModel)]="selectedDestinationId">
+        <mat-option *ngFor="let d of destinations" [value]="d.id">
+          {{d.title}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <div class="simulation-container" *ngIf="simulation">
-    <div class="scene-arrow" *ngFor="let p of simulation.path; let i = index">
-      <div class="scene intens{{ p.choices }}" [class.zeroLife]="destinationLife.length && destinationLife[i] < 1">
-        <div class="scene-title">{{ p.index }}. {{ p.title }}</div>
-        <div class="life" *ngIf="destinationLife.length">Life: {{destinationLife[i]}}</div>
-      </div>
-      <mat-icon *ngIf="i < (simulation.path.length - 1)">chevron_right</mat-icon>
-    </div>
-  </div>
-  <div class="simulation-info" *ngIf="simulation">
-    <label>Number of scene: </label>{{ simulation.path.length }} <br/>
-    <label>Number of choices: </label>{{ simulation.totalChoices }} <br/>
+    <mat-tab-group *ngIf="simulation || cycles.length">
+      <mat-tab label="Shortest path" *ngIf="simulation">
+        <div class="simulation-container">
+          <div class="scene-arrow" *ngFor="let p of simulation.path; let i = index">
+            <div class="scene intens{{ p.choices }}" [title]="p.index + '. ' + p.title"
+                 [class.zeroLife]="destinationLife.length && destinationLife[i] < 1">
+              <div class="scene-title">{{ p.index }}. {{ p.title }}</div>
+              <div class="life" *ngIf="destinationLife.length">Life: {{destinationLife[i]}}</div>
+            </div>
+            <mat-icon *ngIf="i < (simulation.path.length - 1)">chevron_right</mat-icon>
+          </div>
+        </div>
+        <div class="simulation-info">
+          <label>Number of scene: </label>{{ simulation.path.length }} <br/>
+          <label>Number of choices: </label>{{ simulation.totalChoices }} <br/>
+        </div>
+      </mat-tab>
+      <mat-tab label="Cycles" *ngIf="cycles.length">
+        <ng-container *ngFor="let cycle of cycles; last as isLast">
+          <div class="simulation-container">
+            <div class="scene-arrow" *ngFor="let scene of cycle; last as isLast">
+              <div class="scene intens{{scene.life === 0 ? '0' : scene.life > 0 ? '2' : '4'}}"
+                   [title]="scene.index + '. ' + scene.title">
+                <div class="scene-title">{{ scene.index }}. {{ scene.title }}</div>
+                <div class="life" *ngIf="scene.life !== 0">Life: {{scene.life}}</div>
+              </div>
+              <mat-icon *ngIf="!isLast">chevron_right</mat-icon>
+            </div>
+          </div>
+        </ng-container>
+      </mat-tab>
+    </mat-tab-group>
   </div>
 
   <div class="actions">
     <button mat-raised-button [disabled]="!destinations.length || !selectedDestinationId"
             *ngIf="!simulation && !error"
-            color="primary" (click)="start()">Start</button>
-    <button mat-raised-button *ngIf="simulation || error" color="primary" (click)="clear()">Clear</button>
+            color="primary" (click)="start()">Calculate
+    </button>
     <button mat-raised-button (click)="close()">Cancel</button>
   </div>
 </mat-dialog-content>

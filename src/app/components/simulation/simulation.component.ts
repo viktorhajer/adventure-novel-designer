@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import {BookService} from '../../services/book.service';
-import {INFINITY, SimulationService} from '../../services/simulation.service';
 import {Simulation} from '../../model/simulation.model';
 import {Scene} from '../../model/scene.model';
+import {INFINITY, SimulationShortestWayService} from '../../services/simulation-shortest-way.service';
+import {SimulationCycleService} from '../../services/simulation-cycle.service';
 
 @Component({
   selector: 'app-simulation',
@@ -17,10 +18,12 @@ export class SimulationComponent implements OnInit {
   destinations: Scene[] = [];
   destinationLife: number[] = [];
   selectedDestinationId = 0;
+  cycles: Scene[][] = [];
 
   constructor(private readonly dialogRef: MatDialogRef<SimulationComponent>,
               private readonly bookService: BookService,
-              private readonly simulationService: SimulationService) {
+              private readonly cycleService: SimulationCycleService,
+              private readonly shortestWayService: SimulationShortestWayService) {
   }
 
   ngOnInit() {
@@ -31,8 +34,9 @@ export class SimulationComponent implements OnInit {
   }
 
   start() {
+    this.checkCycles();
     if (!!this.selectedDestinationId) {
-      this.simulation = this.simulationService.start(this.selectedDestinationId);
+      this.simulation = this.shortestWayService.start(this.selectedDestinationId);
       if (this.simulation.distance === INFINITY) {
         this.simulation = null as any;
         this.error = 'No route found between the two scenes.';
@@ -49,9 +53,13 @@ export class SimulationComponent implements OnInit {
     }
   }
 
-  clear() {
-    this.simulation = null as any;
-    this.error = '';
+  checkCycles() {
+    if (!this.cycles.length) {
+      this.cycles = [];
+      if (this.cycleService.isCyclic()) {
+        this.cycles = this.cycleService.cycles;
+      }
+    }
   }
 
   close() {

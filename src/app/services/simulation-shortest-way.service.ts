@@ -10,7 +10,7 @@ export const INFINITY = 9999999;
 @Injectable({
   providedIn: 'root'
 })
-export class SimulationService {
+export class SimulationShortestWayService {
 
   constructor(private readonly bookService: BookService,
               private readonly dialogService: DialogService) {
