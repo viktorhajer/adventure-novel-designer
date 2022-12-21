@@ -8,7 +8,6 @@ import {SCENE_COLORS, SceneColor} from './model/scene-color.model';
 import {SimulationComponent} from './components/simulation/simulation.component';
 import {NotesFormComponent} from './components/notes-form/notes-form.component';
 import {VisualBookComponent} from './components/visual-book/visual-book.component';
-import {VisualModel} from './components/visual-book/visual-book.model';
 import {VisualBookMapper} from './components/visual-book/visual-book.mapper';
 import {BookLoaderService} from './services/book-loader.service';
 import {ReviewFormComponent} from './components/review-form/review-form.component';
@@ -21,6 +20,9 @@ import {DownloadService} from './services/download.service';
 import {DialogService} from './services/dialog.service';
 import {firstValueFrom} from 'rxjs';
 import {BookViewerComponent} from './components/book-viewer/book-viewer.component';
+import {VisualModel} from './model/visual-book.model';
+import {VisualBookSimplifiedComponent} from './components/visual-book-simplified/visual-book-simplified.component';
+import {VisualBookSimplifiedMapper} from './components/visual-book-simplified/visual-book-simplified.mapper';
 
 const EMPTY_BOOK = '{"id":0,"title":"New book","backgroundStory":"","notes":"","scenes":[],"relations":[],"items":[],' +
   '"sceneItems":[],"chapters": [],"characters": [],"mortality": true,"showChapters": false,"validationPC": true,"validationSS": true,' +
@@ -157,6 +159,11 @@ export class AppComponent {
 
   simulation() {
     this.dialogService.openCustomDialog(SimulationComponent, {width: '80vw', disableClose: true});
+  }
+
+  visualization() {
+    const model = VisualBookSimplifiedMapper.mapModel(this.bookService.model);
+    this.dialogService.openCustomDialog(VisualBookSimplifiedComponent, {width: '80vw', height: '90vh'}, {model});
   }
 
   takingNotes() {

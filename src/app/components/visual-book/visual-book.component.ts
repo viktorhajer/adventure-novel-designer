@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewEncapsulation} from '@angular/core';
 import * as dagreD3 from 'dagre-d3';
 import * as d3 from 'd3';
-import {VisualEdge, VisualNode} from './visual-book.model';
+import {VisualEdge, VisualNode} from '../../model/visual-book.model';
 
 const VISUAL_BOOK_ID = 'visual-book';
 

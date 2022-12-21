@@ -32,6 +32,7 @@ import {BookListComponent} from './components/book-list/book-list.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {DialogComponent} from './components/dialog/dialog.component';
 import {IndexEditorComponent} from './components/index-editor/index-editor.component';
+import {VisualBookSimplifiedComponent} from './components/visual-book-simplified/visual-book-simplified.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import {IndexEditorComponent} from './components/index-editor/index-editor.compo
     QuestionnaireComponent,
     CharacterViewerComponent,
     ReviewFormComponent,
+    VisualBookSimplifiedComponent,
     IndexEditorComponent
   ],
   imports: [

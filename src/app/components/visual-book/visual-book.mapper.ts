@@ -3,7 +3,7 @@ import {Scene} from '../../model/scene.model';
 import {Relation} from '../../model/relation.model';
 import {Injectable} from '@angular/core';
 import {BookService} from '../../services/book.service';
-import {VisualEdge, VisualModel, VisualNode} from './visual-book.model';
+import {VisualEdge, VisualModel, VisualNode} from '../../model/visual-book.model';
 
 export const ID_PREFIX = 'node_';
 
