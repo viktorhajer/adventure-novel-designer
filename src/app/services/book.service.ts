@@ -52,7 +52,9 @@ export class BookService {
   getNumberOfBranches() {
     const counts: any[] = [];
     this.model.scenes.forEach(s => counts.push({id: s.id, count: this.model.relations.filter(r => r.sourceId === s.id).length}));
-    return counts.filter(c => c.count > 1).length;
+    const branches =  counts.filter(c => c.count > 1).length;
+    const percent = Math.round(branches / this.model.scenes.length * 100);
+    return `${branches} (${percent}%)`;
   }
 
   getNumberOfWinners() {

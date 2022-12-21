@@ -149,6 +149,10 @@ export class BookFormComponent {
     this.updateOrdering(this.bookService.model.chapters, target, other);
   }
 
+  getChapterScenes(chapterId: number): number {
+    return this.bookService.model.scenes.filter(s => s.chapterId === chapterId).length;
+  }
+
   private updateOrdering(list: { ordering: number }[], increase: { ordering: number } | undefined,
                          decrease: { ordering: number } | undefined) {
     if (increase) {
