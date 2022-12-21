@@ -1,3 +1,12 @@
+h2 {
+  display: flex;
+  justify-content: space-between;
+
+  .title {
+    display: flex;
+  }
+}
+
 .backgroundStory {
   margin-top: 20px;
   text-align: justify;

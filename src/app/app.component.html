@@ -11,7 +11,7 @@
     <h1 *ngIf="!isModelLoaded()">RPG Book Designer</h1>
     <h1 *ngIf="isModelLoaded()" (click)="clearScene()">{{ bookService.model.title }}</h1>
     <div class="main-actions" *ngIf="isModelLoaded()">
-      <button mat-icon-button (click)="clearScene()" title="New book">
+      <button mat-icon-button (click)="clearScene()" title="Home">
         <mat-icon>home</mat-icon>
       </button>
       <button mat-icon-button (click)="save()" title="Save the raw">
@@ -26,9 +26,6 @@
       </button>
       <button mat-icon-button (click)="finalize()" title="View final">
         <mat-icon>menu_book</mat-icon>
-      </button>
-      <button mat-icon-button (click)="downloadFinal()" title="Download final">
-        <mat-icon>download</mat-icon>
       </button>
       <button mat-icon-button (click)="openQuestionnaire()" title="Get questionnaire" *ngIf="bookService.model.questionnaire">
         <mat-icon>assignment</mat-icon>
@@ -73,8 +70,8 @@
         <div class="actions-bar">
           <button mat-raised-button (click)="load()" [color]="'primary'" [disabled]="!modelString">Load</button>
           <button mat-raised-button (click)="loadNew()">New</button>
-          <button mat-raised-button (click)="loadStored('book')">LS</button>
-          <button mat-raised-button (click)="loadStored('book2')">LS2</button>
+          <button mat-raised-button (click)="loadStored('book')">Vic</button>
+          <button mat-raised-button (click)="loadStored('book2')">Est</button>
         </div>
       </div>
       <app-book-list *ngIf="!isModelLoaded()" (openBook)="loadBookFromStorage($event)"></app-book-list>

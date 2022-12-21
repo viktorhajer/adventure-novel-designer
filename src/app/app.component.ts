@@ -16,7 +16,6 @@ import {CharacterViewerComponent} from './components/character-viewer/character-
 import {IndexEditorComponent} from './components/index-editor/index-editor.component';
 import {Book} from './model/book.model';
 import {StorageService} from './services/storage.service';
-import {DownloadService} from './services/download.service';
 import {DialogService} from './services/dialog.service';
 import {firstValueFrom} from 'rxjs';
 import {BookViewerComponent} from './components/book-viewer/book-viewer.component';
@@ -80,7 +79,6 @@ export class AppComponent {
               private readonly editService: EditService,
               private readonly dialogService: DialogService,
               private readonly storage: StorageService,
-              private readonly downloadService: DownloadService,
               private readonly visualBookMapper: VisualBookMapper,
               private readonly bookLoader: BookLoaderService,
               public readonly ui: UiService) {
@@ -139,11 +137,6 @@ export class AppComponent {
     });
   }
 
-  downloadFinal() {
-    this.bookService.finalize().then(result =>
-      this.downloadService.downloadGeneratedBook(this.bookService.model, result[0]));
-  }
-
   openQuestionnaire() {
     this.dialogService.openCustomDialog(QuestionnaireComponent, {width: '70vw'});
   }
@@ -158,7 +151,7 @@ export class AppComponent {
   }
 
   simulation() {
-    this.dialogService.openCustomDialog(SimulationComponent, {width: '80vw', disableClose: true});
+    this.dialogService.openCustomDialog(SimulationComponent, {width: '80vw'});
   }
 
   visualization() {

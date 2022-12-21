@@ -1,6 +1,11 @@
 <h2>
-  <mat-icon>menu_book</mat-icon>
-  <div>{{ this.book.title }}</div>
+  <div class="title">
+    <mat-icon>menu_book</mat-icon>
+    <div>{{ this.book.title }}</div>
+  </div>
+  <button mat-icon-button (click)="downloadFinal()" title="Download final">
+    <mat-icon>download</mat-icon>
+  </button>
 </h2>
 <mat-dialog-content class="mat-typography">
   <div class="chapter" *ngIf="book.backgroundStory">
